@@ -1,22 +1,18 @@
-//! Storage module for persisting events and resources using redb K/V store
-//! and providing search capabilities via Tantivy.
-//!
-//! Dead helpers and per-document commits were removed in favor of background indexing
-//! with periodic commits to improve throughput and startup performance.
-
+/// Storage module for persisting events and resources using redb K/V store.
+///
+/// This component is storage-only: it persists events and resources to the K/V store
+/// (redb) and does NOT depend on or manage the search/indexing subsystem. The search
+/// subsystem has been moved to `src/search.rs` to remove Tantivy dependencies from
+/// the storage layer and to keep concerns separated.
+///
+/// Notes:
+/// - Events are stored under a sequence-keyed table so iteration returns server-ordered events.
+/// - Resource records are stored under their resource id.
 use redb::{Database, ReadableTable, TableDefinition};
 use serde::{Deserialize, Serialize};
 use serde_json::Value as JsonValue;
 use std::path::Path;
 use std::sync::Arc;
-use tantivy::collector::TopDocs;
-use tantivy::query::QueryParser;
-// Import Tantivy's `Value` trait under an alias so it does not conflict with serde_json::Value.
-// The alias brings the trait into scope for `as_str()` calls on Tantivy document values.
-use tantivy::schema::Value;
-use tantivy::schema::*;
-use tantivy::{doc, Index, IndexWriter, ReloadPolicy};
-use tokio::sync::RwLock;
 
 use crate::schemas::CloudEvent;
 
@@ -51,12 +47,6 @@ pub struct ResourceRecord {
 /// Storage layer combining redb K/V store and Tantivy search
 pub struct Storage {
     db: Arc<Database>,
-    search_index: Arc<Index>,
-    search_writer: Arc<RwLock<IndexWriter>>,
-    id_field: Field,
-    type_field: Field,
-    content_field: Field,
-    timestamp_field: Field,
 }
 
 impl Storage {
@@ -81,52 +71,13 @@ impl Storage {
         }
         write_txn.commit()?;
 
-        // Initialize Tantivy search index
-        let mut schema_builder = Schema::builder();
-        let id_field = schema_builder.add_text_field("id", STRING | STORED);
-        let type_field = schema_builder.add_text_field("type", STRING | STORED);
-        let content_field = schema_builder.add_text_field("content", TEXT | STORED);
-        let timestamp_field = schema_builder.add_date_field("timestamp", INDEXED | STORED);
-        let schema = schema_builder.build();
-
-        let index = if index_path.exists() && std::fs::read_dir(&index_path)?.next().is_some() {
-            Index::open_in_dir(&index_path)?
-        } else {
-            Index::create_in_dir(&index_path, schema.clone())?
-        };
-
-        let search_writer_inner = index.writer(50_000_000)?; // 50MB heap
-                                                             // Wrap the writer in an Arc<RwLock<_>> so we can share it with background commit task.
-        let search_writer = Arc::new(RwLock::new(search_writer_inner));
-
-        // Spawn a background periodic committer that flushes the writer every 10 seconds.
-        // This allows many add_document calls to be batched into fewer commits,
-        // reducing indexing latency during high-throughput operations (like startup seeding).
-        {
-            let writer_for_committer = search_writer.clone();
-            tokio::spawn(async move {
-                loop {
-                    tokio::time::sleep(std::time::Duration::from_secs(10)).await;
-                    // Acquire write lock and commit; log errors but keep looping.
-                    let mut w = writer_for_committer.write().await;
-                    if let Err(err) = w.commit() {
-                        eprintln!("[storage][bg] periodic commit failed: {}", err);
-                    } else {
-                        println!("[storage][bg] periodic commit completed");
-                    }
-                }
-            });
-        }
-
-        Ok(Self {
-            db: Arc::new(db),
-            search_index: Arc::new(index),
-            search_writer,
-            id_field,
-            type_field,
-            content_field,
-            timestamp_field,
-        })
+        // NOTE:
+        // Search/indexing implementation has been moved out of the storage layer into a dedicated
+        // search module. The storage component is now responsible only for persistent K/V storage
+        // (redb) of events and resources.
+        //
+        // Initialize storage return value (only DB reference is kept here).
+        Ok(Self { db: Arc::new(db) })
     }
 
     /// Store an event in the K/V store (with diagnostic logging) and assign a monotonically increasing sequence.
@@ -146,7 +97,7 @@ impl Storage {
         // increments it, writes it back and commits. The new sequence is then returned.
         let seq = {
             // start a write txn to update the counter atomically
-            let mut wtx = self.db.begin_write()?;
+            let wtx = self.db.begin_write()?;
             // Read, compute and write within an inner scope so the table guard is dropped
             // before committing the transaction (avoids borrow conflicts).
             let next = {
@@ -213,83 +164,6 @@ impl Storage {
             "[storage] persisted event to DB: id={} seq={}",
             event.id, seq_key
         );
-
-        // Schedule background indexing for the event (do not block the store operation)
-        println!(
-            "[storage] scheduling background index for event: id={}",
-            event.id
-        );
-
-        // Clone the pieces we need to move into the background task
-        let event_for_index = event.clone();
-        let search_writer = self.search_writer.clone();
-        let id_field = self.id_field;
-        let type_field = self.type_field;
-        let content_field = self.content_field;
-        let timestamp_field = self.timestamp_field;
-        let seq_for_log = seq_key.clone();
-
-        // Spawn a background task to perform indexing asynchronously.
-        tokio::spawn(async move {
-            println!(
-                "[storage][bg] start indexing event: id={} seq={}",
-                event_for_index.id, seq_for_log
-            );
-
-            // Build timestamp
-            let timestamp = if let Some(time_str) = &event_for_index.time {
-                chrono::DateTime::parse_from_rfc3339(time_str)
-                    .ok()
-                    .map(|dt| dt.with_timezone(&chrono::Utc))
-            } else {
-                Some(chrono::Utc::now())
-            };
-
-            // Create searchable content from event data (same logic as index_event)
-            let content = format!(
-                "{} {} {} {}",
-                event_for_index.event_type,
-                event_for_index.source,
-                event_for_index.subject.as_deref().unwrap_or(""),
-                event_for_index
-                    .data
-                    .as_ref()
-                    .map(|v| v.to_string())
-                    .unwrap_or_default()
-            );
-
-            // Acquire writer and add document
-            let writer = search_writer.write().await;
-            let mut doc = doc!(
-                id_field => event_for_index.id.as_str(),
-                type_field => event_for_index.event_type.as_str(),
-                content_field => content.as_str(),
-            );
-
-            if let Some(ts) = timestamp {
-                doc.add_date(
-                    timestamp_field,
-                    tantivy::DateTime::from_timestamp_secs(ts.timestamp()),
-                );
-            }
-
-            // Perform the add_document (commit deferred to periodic committer)
-            if let Err(e) = (|| -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-                writer.add_document(doc)?;
-                // Commit deferred to periodic committer to reduce per-document latency
-                Ok(())
-            })() {
-                eprintln!(
-                    "[storage][bg] failed adding document for event id={} seq={} error={}",
-                    event_for_index.id, seq_for_log, e
-                );
-            } else {
-                println!(
-                    "[storage][bg] added doc for event id={} seq={} (commit deferred)",
-                    event_for_index.id, seq_for_log
-                );
-            }
-        });
 
         // Return the assigned sequence key to the caller
         Ok(seq_key)
@@ -364,64 +238,6 @@ impl Storage {
         // Diagnostic: confirm persisted to DB
         println!("[storage] persisted resource to DB: id={}", id);
 
-        // Schedule background indexing for the resource (do not block the store operation)
-        println!(
-            "[storage] scheduling background index for resource: id={} type={}",
-            id, resource_type
-        );
-
-        // Clone the pieces we need to move into the background task
-        let resource_id = id.to_string();
-        let resource_type_cloned = resource_type.to_string();
-        let data_for_index = data.clone();
-        let timestamp_for_index = timestamp.clone();
-        let search_writer = self.search_writer.clone();
-        let id_field = self.id_field;
-        let type_field = self.type_field;
-        let content_field = self.content_field;
-        let timestamp_field = self.timestamp_field;
-
-        tokio::spawn(async move {
-            println!(
-                "[storage][bg] start indexing resource: id={} type={}",
-                resource_id, resource_type_cloned
-            );
-
-            // parse timestamp, fallback to now
-            let ts = chrono::DateTime::parse_from_rfc3339(&timestamp_for_index)
-                .ok()
-                .map(|dt| dt.with_timezone(&chrono::Utc))
-                .unwrap_or_else(chrono::Utc::now);
-
-            // Create searchable content from resource data
-            let content = data_for_index.to_string();
-
-            // Acquire the writer and index document
-            let writer = search_writer.write().await;
-            let doc = doc!(
-                id_field => resource_id.as_str(),
-                type_field => resource_type_cloned.as_str(),
-                content_field => content.as_str(),
-                timestamp_field => tantivy::DateTime::from_timestamp_secs(ts.timestamp()),
-            );
-
-            if let Err(e) = (|| -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-                writer.add_document(doc)?;
-                // Commit deferred to periodic committer to reduce per-document latency
-                Ok(())
-            })() {
-                eprintln!(
-                    "[storage][bg] failed adding document for resource id={} error={}",
-                    resource_id, e
-                );
-            } else {
-                println!(
-                    "[storage][bg] added doc for resource id={} (commit deferred)",
-                    resource_id
-                );
-            }
-        });
-
         Ok(())
     }
 
@@ -454,66 +270,23 @@ impl Storage {
         }
         write_txn.commit()?;
 
-        // Remove from search index
-        let mut writer = self.search_writer.write().await;
-        writer.delete_term(Term::from_field_text(self.id_field, id));
-        writer.commit()?;
+        // Note: search/index removal is handled by the search subsystem (src/search.rs).
+        // Storage no longer directly manipulates the index.
 
         Ok(())
     }
 
     // Note: indexing is performed asynchronously by background tasks and commits are batched periodically.
 
-    /// Search using Tantivy
-    pub async fn search(
-        &self,
-        query_str: &str,
-        limit: usize,
-    ) -> Result<Vec<SearchResult>, Box<dyn std::error::Error>> {
-        let reader = self
-            .search_index
-            .reader_builder()
-            .reload_policy(ReloadPolicy::OnCommitWithDelay)
-            .try_into()?;
-
-        let searcher = reader.searcher();
-
-        let query_parser = QueryParser::for_index(&self.search_index, vec![self.content_field]);
-        let query = query_parser.parse_query(query_str)?;
-
-        let top_docs = searcher.search(&query, &TopDocs::with_limit(limit))?;
-
-        let mut results = Vec::new();
-        for (_score, doc_address) in top_docs {
-            let retrieved_doc: tantivy::TantivyDocument = searcher.doc(doc_address)?;
-
-            let id = retrieved_doc
-                .get_first(self.id_field)
-                .and_then(|v| v.as_str())
-                .unwrap_or("")
-                .to_string();
-
-            let doc_type = retrieved_doc
-                .get_first(self.type_field)
-                .and_then(|v| v.as_str())
-                .unwrap_or("")
-                .to_string();
-
-            let content = retrieved_doc
-                .get_first(self.content_field)
-                .and_then(|v| v.as_str())
-                .unwrap_or("")
-                .to_string();
-
-            results.push(SearchResult {
-                id,
-                doc_type,
-                content,
-            });
-        }
-
-        Ok(results)
-    }
+    /// Search/index responsibilities have been moved to `src/search.rs`.
+    /// Storage is now purely a K/V persistence layer and does not expose any
+    /// direct references to the search/index internals (no Tantivy types or fields).
+    ///
+    /// The search subsystem (index writer, schema fields, periodic committer,
+    /// and add/search/delete operations) lives in the dedicated search module.
+    ///
+    /// Getters for index fields/writer have been removed from storage to avoid
+    /// tightening storage to any specific search implementation.
 
     /// Get all resources (paginated)
     pub async fn list_resources(
@@ -563,7 +336,7 @@ impl Storage {
 
         let mut results: Vec<CloudEvent> = Vec::new();
 
-        let mut iter = table.iter()?;
+        let iter = table.iter()?;
 
         for item in iter {
             let (key, value) = item?;
@@ -618,7 +391,7 @@ impl Storage {
         // Otherwise, we need to skip `offset` keys - iterate and find the key at position `offset - 1`
         let read_txn = self.db.begin_read()?;
         let table = read_txn.open_table(EVENTS_BY_SEQ_TABLE)?;
-        let mut iter = table.iter()?;
+        let iter = table.iter()?;
 
         let mut seq_to_start: Option<String> = None;
         for (i, item) in iter.enumerate() {
@@ -636,11 +409,28 @@ impl Storage {
 }
 
 /// Search result structure
+///
+/// `content` is optional and will be omitted when a structured `event` or `resource`
+/// is present. Clients should prefer `event` or `resource` when available.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SearchResult {
+    /// The identifier for the match. For resources this is the resource id; for events it's the event id.
     pub id: String,
+    /// The document type stored in the index (e.g. "issue", "comment", "nl.vng.zaken.json-commit.v1", etc.)
     pub doc_type: String,
-    pub content: String,
+    /// A simple textual snippet representing the indexed content (kept for backward compatibility).
+    /// This field is optional and will be omitted from serialized output when a structured
+    /// `event` or `resource` is present.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub content: Option<String>,
+    /// If the match corresponds to a persisted CloudEvent, this will be populated.
+    /// Clients can prefer this structured CloudEvent over the textual `content`.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub event: Option<CloudEvent>,
+    /// If the match corresponds to a persisted resource (issue/comment/task/etc),
+    /// this will contain the parsed JSON resource.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub resource: Option<JsonValue>,
 }
 
 #[cfg(test)]

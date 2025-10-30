@@ -21,11 +21,15 @@ use crate::types::PushSubscription;
 
 /// Shared application state with storage (handlers view)
 ///
-/// This AppState includes the push subscription store so push-related handlers
+/// This AppState includes a reference to the search index manager so search
+/// operations are handled by the dedicated search subsystem (`src/search.rs`).
+/// It also contains the push subscription store so push-related handlers
 /// (subscribe/unsubscribe) can access and mutate subscriptions when needed.
 #[derive(Clone)]
 pub struct AppState {
     pub storage: Arc<Storage>,
+    /// Search index manager (separate module handling Tantivy)
+    pub search: Arc<crate::search::SearchIndex>,
     pub tx: tokio::sync::broadcast::Sender<CloudEvent>,
     /// Push notification subscriptions (shared across handlers)
     pub push_subscriptions: Arc<tokio::sync::RwLock<Vec<PushSubscription>>>,
@@ -33,9 +37,14 @@ pub struct AppState {
 
 /// Convenience constructor for handlers to create an AppState when needed.
 impl AppState {
-    pub fn new(storage: Arc<Storage>, tx: tokio::sync::broadcast::Sender<CloudEvent>) -> Self {
+    pub fn new(
+        storage: Arc<Storage>,
+        search: Arc<crate::search::SearchIndex>,
+        tx: tokio::sync::broadcast::Sender<CloudEvent>,
+    ) -> Self {
         Self {
             storage,
+            search,
             tx,
             push_subscriptions: Arc::new(tokio::sync::RwLock::new(Vec::new())),
         }
@@ -121,7 +130,7 @@ pub async fn get_or_stream_events(
             })?;
 
         // Filter events by topic if provided
-        let mut filtered: Vec<CloudEvent> = if let Some(topic) = params.topic.as_deref() {
+        let filtered: Vec<CloudEvent> = if let Some(topic) = params.topic.as_deref() {
             events
                 .into_iter()
                 .filter(|e| {
@@ -501,26 +510,22 @@ pub async fn delete_resource(
 }
 
 /// GET /query - Search resources using full-text search
+/// Returns structured search results produced by the storage layer.
 pub async fn query_resources(
     State(state): State<AppState>,
     Query(params): Query<QueryParams>,
-) -> Result<Json<QueryResponse>, StatusCode> {
+) -> Result<Json<Vec<SearchResult>>, StatusCode> {
     let results = state
-        .storage
-        .search(&params.q, params.limit)
+        .search
+        .search(&*state.storage, &params.q, params.limit)
         .await
         .map_err(|e| {
             eprintln!("Failed to search: {}", e);
             StatusCode::INTERNAL_SERVER_ERROR
         })?;
 
-    let count = results.len();
-
-    Ok(Json(QueryResponse {
-        query: params.q,
-        results,
-        count,
-    }))
+    // Return the structured results directly (each result may contain an `event` and/or `resource`).
+    Ok(Json(results))
 }
 
 /// GET /debug/db - Return counts and sample ids of events and resources for diagnostics.

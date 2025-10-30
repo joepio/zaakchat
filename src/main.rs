@@ -1,3 +1,4 @@
+use sse_delta_snapshot::search::SearchIndex;
 use sse_delta_snapshot::{handlers, issues, schemas};
 
 use futures_util::stream::{self, Stream};
@@ -38,8 +39,10 @@ use sse_delta_snapshot::storage::Storage;
 
 #[derive(Clone)]
 pub struct AppState {
-    // Storage layer with Tonbo + Tantivy
+    // Storage layer (persistent DB)
     pub storage: Arc<Storage>,
+    // Search index manager (separate module handling Tantivy)
+    pub search: Arc<SearchIndex>,
     // Broadcast deltas to all subscribers
     pub tx: broadcast::Sender<schemas::CloudEvent>,
     // Base URL for generating schema URLs
@@ -101,10 +104,21 @@ async fn create_app() -> Router {
         .await
         .expect("Failed to initialize storage");
 
+    // Initialize search index (separate module)
+    let search_index = match sse_delta_snapshot::search::SearchIndex::open(
+        &data_dir.join("search_index"),
+        true,
+        std::time::Duration::from_secs(10),
+    ) {
+        Ok(si) => Arc::new(si),
+        Err(e) => panic!("Failed to initialize search index: {}", e),
+    };
+
     let (tx, _) = broadcast::channel(256);
 
     let state = AppState {
         storage: Arc::new(storage),
+        search: search_index.clone(),
         tx: tx.clone(),
         base_url: base_url.clone(),
         push_subscriptions: Arc::new(RwLock::new(Vec::new())),
@@ -142,6 +156,7 @@ async fn create_app() -> Router {
                         let _ = handlers::handle_event(
                             State(handlers::AppState {
                                 storage: demo_state.storage.clone(),
+                                search: demo_state.search.clone(),
                                 tx: demo_state.tx.clone(),
                                 push_subscriptions: demo_state.push_subscriptions.clone(),
                             }),
@@ -173,6 +188,7 @@ async fn create_app() -> Router {
     // Create handler state
     let handler_state = handlers::AppState {
         storage: state.storage.clone(),
+        search: state.search.clone(),
         tx: state.tx.clone(),
         push_subscriptions: state.push_subscriptions.clone(),
     };
@@ -239,6 +255,7 @@ async fn initialize_demo_data(state: &AppState) {
             // as runtime events.
             let handlers_state = handlers::AppState {
                 storage: state.storage.clone(),
+                search: state.search.clone(),
                 tx: state.tx.clone(),
                 push_subscriptions: state.push_subscriptions.clone(),
             };
@@ -288,6 +305,7 @@ async fn reset_state_handler(
 ) -> Result<Json<&'static str>, StatusCode> {
     initialize_demo_data(&AppState {
         storage: state.storage.clone(),
+        search: state.search.clone(),
         tx: state.tx.clone(),
         base_url: "http://localhost:8000".to_string(),
         push_subscriptions: Arc::new(RwLock::new(Vec::new())),

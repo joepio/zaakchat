@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import type { ExtendedPlanning } from "../types";
+import { planningMomentKey } from "../types";
 import SchemaEditForm from "./SchemaEditForm";
 import { Button } from "./ActionButton";
 import { useSSE } from "../contexts/SSEContext";
@@ -46,7 +47,9 @@ const PlanningCard: React.FC<PlanningCardProps> = ({ planning, zaakId }) => {
       <div className="mb-3">
         <div className="flex items-center justify-between gap-2 mb-2">
           <div className="flex items-center gap-2">
-            <span className="text-lg"><i className="fa-regular fa-calendar" aria-hidden="true"></i></span>
+            <span className="text-lg">
+              <i className="fa-regular fa-calendar" aria-hidden="true"></i>
+            </span>
             <h4 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-medium text-text-primary m-0">
               {title || "Planning"}
             </h4>
@@ -77,8 +80,11 @@ const PlanningCard: React.FC<PlanningCardProps> = ({ planning, zaakId }) => {
 
         {/* Timeline moments */}
         <div className="space-y-3">
-          {moments.map((moment) => (
-            <div key={moment.id} className="flex items-start gap-3 relative">
+          {moments.map((moment, idx) => (
+            <div
+              key={planningMomentKey(moment, idx)}
+              className="flex items-start gap-3 relative"
+            >
               {/* Status indicator */}
               <div
                 className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 bg-bg-primary relative z-10"

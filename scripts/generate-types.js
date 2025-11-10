@@ -108,6 +108,19 @@ async function main() {
         },
       }).then(ts => {
         console.log(`✅ Converted schema: ${schemaName}`);
+        // Ensure core entities include id and timestamp fields (id, created_at, updated_at)
+        const coreEntities = ["Issue", "Task", "Comment", "Planning", "Document"];
+        if (coreEntities.includes(schemaName)) {
+          // Try to inject fields into the interface body if present
+          const ifacePattern = new RegExp(`(export interface ${schemaName}\\s*\\{)`);
+          if (ifacePattern.test(ts)) {
+            ts = ts.replace(ifacePattern, `$1\n  id: string;\n  created_at?: string | null;\n  updated_at?: string | null;`);
+          } else {
+            // Fallback: prepend a minimal interface declaration
+            const fallback = `export interface ${schemaName} {\n  id: string;\n  created_at?: string | null;\n  updated_at?: string | null;\n}\n`;
+            ts = fallback + ts;
+          }
+        }
         return ts;
       }).catch(error => {
         console.warn(`⚠️  Failed to convert schema ${schemaName}:`, error.message);

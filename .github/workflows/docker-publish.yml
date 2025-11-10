@@ -49,8 +49,10 @@ jobs:
       - name: Build and push Docker image (multi-arch)
         uses: docker/build-push-action@v4
         with:
-          context: ./sse-demo
-          file: ./sse-demo/Dockerfile
+          # Build context is the repository root (this workflow lives inside the repo),
+          # and the Dockerfile is at ./Dockerfile relative to the repo root.
+          context: .
+          file: ./Dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.tags.outputs.tags }}

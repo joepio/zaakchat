@@ -6,17 +6,6 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::path::PathBuf;
 
-#[cfg(feature = "shuttle")]
-use shuttle_axum::axum::{
-    extract::State,
-    http::StatusCode,
-    response::sse::{Event, KeepAlive, Sse},
-    response::{Html, Response},
-    routing::{delete, get, post},
-    Json, Router,
-};
-
-#[cfg(not(feature = "shuttle"))]
 use axum::{
     extract::State,
     http::StatusCode,
@@ -69,14 +58,6 @@ struct IncomingCloudEvent {
     data: Option<Value>,
 }
 
-#[cfg(feature = "shuttle")]
-#[shuttle_runtime::main]
-async fn main() -> shuttle_axum::ShuttleAxum {
-    let app = create_app().await;
-    Ok(app.into())
-}
-
-#[cfg(not(feature = "shuttle"))]
 #[tokio::main]
 async fn main() {
     let app = create_app().await;

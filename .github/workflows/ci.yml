@@ -125,8 +125,13 @@ jobs:
       - name: Generate all JS assets (schemas, types, etc.)
         run: pnpm generate-all
 
-      - name: Deploy to Shuttle
-        uses: shuttle-hq/deploy-action@v2
+      - name: Upload frontend dist artifact
+        uses: actions/upload-artifact@v4
         with:
-          shuttle-api-key: ${{ secrets.SHUTTLE_API_KEY }}
-          project-id: proj_01K477CR6MYM0T4YWRC1N4KVQB
+          name: frontend-dist
+          path: frontend/dist/
+
+      - name: Deployment notice
+        run: |
+          echo "Shuttle deployment removed from CI."
+          echo "If you need automated deployment, replace this step with your preferred deployment action."

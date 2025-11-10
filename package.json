@@ -13,7 +13,7 @@
     "test:ui": "cd frontend && vitest --ui",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:debug": "playwright test --debug --grep",
     "test:e2e:one": "playwright test --grep",
     "spec-studio": "docker run --rm --user=root --network=host --init -v \"$(pwd)/asyncapi.yaml:/app/asyncapi.yml\" asyncapi/cli start studio /app/asyncapi.yml",
     "spec-html": "mkdir -p asyncapi-docs && docker run --rm -v \"$(pwd)/asyncapi-embedded.yaml:/app/asyncapi.yml\" -v \"$(pwd)/asyncapi-docs:/app/output\" asyncapi/cli generate fromTemplate /app/asyncapi.yml @asyncapi/html-template@2.3.0 --output /app/output --force-write",

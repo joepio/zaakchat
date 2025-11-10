@@ -34,9 +34,7 @@ pub struct SearchIndex {
     writer: Arc<RwLock<IndexWriter>>,
     id_field: Field,
     type_field: Field,
-    content_field: Field,
-    // Payload field holds stored JSON for direct hydration
-    payload_field: Field,
+    json_field: Field,
     timestamp_field: Field,
     // Background commit task handle (optional)
     commit_task: Option<JoinHandle<()>>,
@@ -51,21 +49,30 @@ impl SearchIndex {
         commit_interval: Duration,
     ) -> Result<Self, Box<dyn Error + Send + Sync>> {
         let index_path = index_dir.as_ref();
+        // Ensure the index directory exists before attempting to open/create the Tantivy directory.
+        // This prevents failures when the directory is missing and avoids trying to open a non-existent path.
+        if !index_path.exists() {
+            std::fs::create_dir_all(index_path)?;
+        }
         let _dir = MmapDirectory::open(index_path)?;
         // Build schema
         let mut schema_builder = Schema::builder();
         let id_field = schema_builder.add_text_field("id", STRING | STORED);
         let type_field = schema_builder.add_text_field("type", STRING | STORED);
-        let content_field = schema_builder.add_text_field("content", TEXT | STORED);
-        // Store payload JSON as a stored text field (parsed by search module when available)
-        let payload_field = schema_builder.add_text_field("payload", STORED);
+        // Stored JSON payload field: we store the serialized JSON here and index it as a text field as well
+        // so that Tantivy can tokenize and search the JSON content. We also store the field for hydration.
+        let json_field = schema_builder.add_text_field("json_payload", TEXT | STORED);
         let timestamp_field = schema_builder.add_date_field("timestamp", INDEXED | STORED);
         let schema = schema_builder.build();
 
-        // Create or open index
+        // Ensure the index is created or opened.
+        // If an on-disk index already exists in the directory we open it; otherwise create a new index.
+        // This avoids destructive recreation and keeps existing index files unless schema migration is desired.
         let index = if index_path.exists() && index_path.read_dir()?.next().is_some() {
+            // Open existing index on disk
             Index::open_in_dir(index_path)?
         } else {
+            // Create a new index directory with the current schema
             Index::create_in_dir(index_path, schema.clone())?
         };
 
@@ -76,8 +83,7 @@ impl SearchIndex {
             writer: Arc::new(RwLock::new(writer)),
             id_field,
             type_field,
-            content_field,
-            payload_field,
+            json_field,
             timestamp_field,
             commit_task: None,
         };
@@ -108,12 +114,14 @@ impl SearchIndex {
     }
 
     /// Add an event document to the index (non-blocking with respect to commit).
-    /// This function will add the document to the writer but will not commit.
+    /// New behavior: callers can either call this helper with a CloudEvent (legacy),
+    /// which will be serialized into a payload string and delegated to the payload-based API,
+    /// or call `add_event_payload` directly if they already have a serialized payload.
     pub async fn add_event_doc(
         &self,
         event: &CloudEvent,
     ) -> Result<(), Box<dyn Error + Send + Sync>> {
-        // Build textual content
+        // Build textual content (snippet)
         let content = format!(
             "{} {} {} {}",
             event.event_type,
@@ -126,31 +134,51 @@ impl SearchIndex {
                 .unwrap_or_default()
         );
 
-        // Also prepare a stored JSON payload (full CloudEvent) for structured hydration
-        let payload = match serde_json::to_string(&event) {
-            Ok(s) => s,
-            Err(_) => String::new(),
-        };
+        // Serialize CloudEvent to payload JSON once, so callers don't repeatedly clone big structures
+        let payload = serde_json::to_string(event).unwrap_or_default();
 
+        // Parse optional timestamp into DateTime<Utc>
+        let ts = event
+            .time
+            .as_ref()
+            .and_then(|s| DateTime::parse_from_rfc3339(s).ok())
+            .map(|dt| dt.with_timezone(&Utc));
+
+        // Delegate to payload-based add function
+        self.add_event_payload(&event.id, &event.event_type, &content, &payload, ts)
+            .await
+    }
+
+    /// Add an event to the index using already-serialized JSON payload.
+    /// This avoids cloning/parsing heavy CloudEvent values in the caller.
+    pub async fn add_event_payload(
+        &self,
+        id: &str,
+        doc_type: &str,
+        _content: &str,
+        payload_json: &str,
+        timestamp: Option<DateTime<Utc>>,
+    ) -> Result<(), Box<dyn Error + Send + Sync>> {
         let writer = self.writer.write().await;
 
+        // Build document and also populate structured fields where possible.
+        // payload_json is already serialized by caller.
         let mut doc = doc!(
-            self.id_field => event.id.as_str(),
-            self.type_field => event.event_type.as_str(),
-            self.content_field => content.as_str(),
-            self.payload_field => payload.as_str(),
+            self.id_field => id,
+            self.type_field => doc_type,
+            self.json_field => payload_json,
         );
 
-        if let Some(ts_str) = &event.time {
-            if let Ok(dt) = DateTime::parse_from_rfc3339(ts_str) {
-                let utc = dt.with_timezone(&Utc);
-                doc.add_date(
-                    self.timestamp_field,
-                    tantivy::DateTime::from_timestamp_secs(utc.timestamp()),
-                );
-            }
+        // No per-field indexing here: the full JSON payload is already indexed in `json_field`.
+        // This keeps indexing simpler and avoids duplicating field extraction logic.
+        // If needed, advanced JSON-aware queries can be used on `json_field`.
+
+        if let Some(ts) = timestamp {
+            doc.add_date(
+                self.timestamp_field,
+                tantivy::DateTime::from_timestamp_secs(ts.timestamp()),
+            );
         } else {
-            // no time, use now
             let now = Utc::now();
             doc.add_date(
                 self.timestamp_field,
@@ -164,7 +192,7 @@ impl SearchIndex {
     }
 
     /// Add a resource document to the index (non-blocking).
-    /// `data` is the full JSON object for the resource.
+    /// New API: callers can provide the serialized payload string to avoid extra cloning.
     pub async fn add_resource_doc(
         &self,
         id: &str,
@@ -172,20 +200,30 @@ impl SearchIndex {
         data: &JsonValue,
         timestamp: Option<DateTime<Utc>>,
     ) -> Result<(), Box<dyn Error + Send + Sync>> {
+        // Serialize once and delegate to payload-based helper
         let content = data.to_string();
-        // Store payload JSON as well (so search can return structured resource without extra DB lookup)
-        let payload = match serde_json::to_string(data) {
-            Ok(s) => s,
-            Err(_) => String::new(),
-        };
+        let payload = serde_json::to_string(data).unwrap_or_default();
+        let ts = timestamp;
 
+        self.add_resource_payload(id, resource_type, &content, &payload, ts)
+            .await
+    }
+
+    /// Add resource using already-serialized payload JSON.
+    pub async fn add_resource_payload(
+        &self,
+        id: &str,
+        resource_type: &str,
+        _content: &str,
+        payload_json: &str,
+        timestamp: Option<DateTime<Utc>>,
+    ) -> Result<(), Box<dyn Error + Send + Sync>> {
         let writer = self.writer.write().await;
 
         let mut doc = doc!(
             self.id_field => id,
             self.type_field => resource_type,
-            self.content_field => content.as_str(),
-            self.payload_field => payload.as_str(),
+            self.json_field => payload_json,
         );
 
         if let Some(ts) = timestamp {
@@ -228,7 +266,11 @@ impl SearchIndex {
             .try_into()?;
         let searcher = reader.searcher();
 
-        let query_parser = QueryParser::for_index(&self.index, vec![self.content_field]);
+        // Build a query parser that searches across both structured fields and the catch-all:
+        // prefer searching the catch_all, but include title/description/comment and the legacy content.
+        // Build a query parser that searches the stored JSON payload field.
+        // This enables structured/JSON-aware queries over the indexed payload.
+        let query_parser = QueryParser::for_index(&self.index, vec![self.json_field]);
         let query = query_parser.parse_query(query_str)?;
 
         let top_docs = searcher.search(&query, &TopDocs::with_limit(limit))?;
@@ -251,16 +293,15 @@ impl SearchIndex {
                 .to_string();
 
             // textual snippet fallback
-            let content = retrieved_doc
-                .get_first(self.content_field)
+            // Attempt to read stored JSON payload from the index (if present)
+            let payload_opt = retrieved_doc
+                .get_first(self.json_field)
                 .and_then(|v| v.as_str())
                 .map(|s| s.to_string());
 
-            // Attempt to read stored JSON payload from index (if present)
-            let payload_opt = retrieved_doc
-                .get_first(self.payload_field)
-                .and_then(|v| v.as_str())
-                .map(|s| s.to_string());
+            // We no longer populate a generic content snippet when payload is present;
+            // structured payload (event/resource) will be used for hydration.
+            let content: Option<String> = None;
 
             // Hydrate structured payloads where possible.
             // If payload is present, parse it first (prefer using index payload to avoid DB lookup).
@@ -330,9 +371,83 @@ impl SearchIndex {
     }
 
     /// Expose the underlying index directory path for reference (if needed).
+    /// Force immediate commit of pending index changes.
+    ///
+    /// This is provided for tests and for situations where a caller needs
+    /// deterministic visibility of recently added documents in the index.
+    pub async fn commit(&self) -> Result<(), Box<dyn Error + Send + Sync>> {
+        // Acquire writer lock, call commit which returns the number of operations flushed (u64).
+        // Map successful u64 result to () and map errors into a boxed error type.
+        let mut writer = self.writer.write().await;
+        writer
+            .commit()
+            .map(|_n| ())
+            .map_err(|e| Box::new(e) as Box<dyn Error + Send + Sync>)
+    }
+
     pub fn index_path(&self) -> Option<PathBuf> {
-        // Tantivy's Index does not directly expose its on-disk path in a guaranteed way,
-        // but we keep this for future use if necessary.
+        // Tantivy's Index does not reliably expose its on-disk path in a stable cross-platform API.
+        // Return None for now; callers that need the path can track it externally.
         None
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::storage::Storage;
+    use tempfile::TempDir;
+
+    // Verify that when we add a resource and index its payload, a search for a term inside
+    // the payload returns at least one result. This covers the case where the index schema
+    // must include the `json_payload` field and ensures search hydration works.
+    #[tokio::test]
+    async fn test_search_indexes_payload_and_hydrates() {
+        // Create temporary data directory used for both storage and search index
+        let temp_dir = TempDir::new().unwrap();
+        let storage = Storage::new(temp_dir.path()).await.unwrap();
+
+        // Create resource JSON and persist it
+        let resource_data = serde_json::json!({
+            "title": "Important Issue",
+            "description": "This is a critical bug"
+        });
+
+        storage
+            .store_resource("issue-1", "issue", &resource_data)
+            .await
+            .unwrap();
+
+        // Create/open the search index pointing at the same temp dir
+        let index_path = temp_dir.path().join("search_index");
+        let search_index = SearchIndex::open(&index_path, true, std::time::Duration::from_secs(1))
+            .expect("failed to open search index for test");
+
+        // Index the stored resource payload into the search index
+        let payload = serde_json::to_string(&resource_data).unwrap_or_default();
+        search_index
+            .add_resource_payload("issue-1", "issue", "", &payload, None)
+            .await
+            .expect("failed to add resource payload to index");
+
+        // Force a commit so the reader can see the document immediately in the test
+        search_index.commit().await.expect("commit failed");
+
+        // Short pause to let the reader reload (should be immediate but be conservative)
+        tokio::time::sleep(std::time::Duration::from_millis(20)).await;
+
+        // Search for a term that appears in the payload
+        let results = search_index.search(&storage, "critical", 10).await.unwrap();
+
+        assert!(
+            !results.is_empty(),
+            "Expected search to return results, got none"
+        );
+        // And one of the results should hydrate the resource
+        let has_resource = results.iter().any(|r| r.resource.is_some());
+        assert!(
+            has_resource,
+            "Expected at least one result to be hydrated as a resource"
+        );
     }
 }

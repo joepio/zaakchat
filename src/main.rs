@@ -250,9 +250,34 @@ async fn initialize_demo_data(state: &AppState) {
             // can rely on the server-assigned ordering.
             cloud_event.sequence = Some(seq_key.clone());
 
+            // Schedule background indexing of the seed event via the search subsystem.
+            // Serialize the CloudEvent once and pass the payload to the search indexer to avoid
+            // cloning heavy structures per task.
+            {
+                let search = state.search.clone();
+                let id = cloud_event.id.clone();
+                let doc_type = cloud_event.event_type.clone();
+                let payload = serde_json::to_string(&cloud_event).unwrap_or_default();
+                tokio::spawn(async move {
+                    if let Err(e) = search
+                        .add_event_payload(&id, &doc_type, "", &payload, None)
+                        .await
+                    {
+                        eprintln!(
+                            "[init][bg] failed adding seed event to search index id={} err={}",
+                            id, e
+                        );
+                    } else {
+                        println!(
+                            "[init][bg] scheduled seed event added to search index id={}",
+                            id
+                        );
+                    }
+                });
+            }
+
             // Build a handlers::AppState to reuse the same processing logic
-            // This ensures resources are created/updated using the same code path
-            // as runtime events.
+            // This ensures resources are created/updated using the same code path.
             let handlers_state = handlers::AppState {
                 storage: state.storage.clone(),
                 search: state.search.clone(),
@@ -266,6 +291,15 @@ async fn initialize_demo_data(state: &AppState) {
                 eprintln!("Failed to process initial event into resources: {}", e);
             }
         }
+    }
+
+    // After seeding all initial events, ensure the search index is committed so that
+    // subsequent queries (and the initial snapshot) can see the indexed payloads.
+    // This is important for deterministic behavior in tests and for initial front-end load.
+    if let Err(e) = state.search.commit().await {
+        eprintln!("[init] failed to commit search index after seeding: {}", e);
+    } else {
+        println!("[init] committed search index after seeding");
     }
 }
 

@@ -214,6 +214,33 @@ pub async fn handle_event(
     // Attach the assigned sequence to the CloudEvent so clients can use it for ordering/pagination
     event.sequence = Some(seq_key.clone());
 
+    // Schedule background indexing of the event (search subsystem).
+    // Serialize once and pass the payload string to avoid cloning the entire CloudEvent.
+    {
+        let search = state.search.clone();
+        // Serialize CloudEvent once (no snippet content to avoid extra allocations)
+        let payload = serde_json::to_string(&event).unwrap_or_default();
+        let id = event.id.clone();
+        let doc_type = event.event_type.clone();
+        // Do not parse timestamp here; pass None to the search indexer (it can set now)
+        tokio::spawn(async move {
+            if let Err(e) = search
+                .add_event_payload(&id, &doc_type, "", &payload, None)
+                .await
+            {
+                eprintln!(
+                    "[handlers][bg] failed adding event payload to search index id={} err={}",
+                    id, e
+                );
+            } else {
+                println!(
+                    "[handlers][bg] scheduled event payload added to search index id={}",
+                    id
+                );
+            }
+        });
+    }
+
     // Process the event to update resources
     if let Err(e) = process_event(&state, &event).await {
         eprintln!("Failed to process event: {}", e);
@@ -352,6 +379,46 @@ pub async fn process_event(
                 "[handlers] successfully stored resource id={} type={}",
                 commit.resource_id, resource_type
             );
+
+            // Schedule background indexing of the resource via the search subsystem.
+            // Serialize the resource once and pass the payload string to avoid heavy cloning.
+            let resource_id = commit.resource_id.clone();
+            let resource_type_clone = resource_type.clone();
+            let data_clone = new_resource.clone();
+            let search = state.search.clone();
+
+            // Use commit.timestamp if available (try to parse), otherwise pass None.
+            let timestamp_opt = commit
+                .timestamp
+                .as_ref()
+                .and_then(|s| chrono::DateTime::parse_from_rfc3339(s).ok())
+                .map(|dt| dt.with_timezone(&chrono::Utc));
+
+            // Serialize payload once (avoid creating an additional textual snippet)
+            let payload = serde_json::to_string(&data_clone).unwrap_or_default();
+
+            tokio::spawn(async move {
+                if let Err(err) = search
+                    .add_resource_payload(
+                        &resource_id,
+                        &resource_type_clone,
+                        "",
+                        &payload,
+                        timestamp_opt,
+                    )
+                    .await
+                {
+                    eprintln!(
+                        "[handlers][bg] failed adding resource payload to search index id={} err={}",
+                        resource_id, err
+                    );
+                } else {
+                    println!(
+                        "[handlers][bg] scheduled resource payload added to search index id={}",
+                        resource_id
+                    );
+                }
+            });
         }
     } else {
         // For other event types, you might want to handle them differently
@@ -362,10 +429,34 @@ pub async fn process_event(
                 "[handlers] non-json-commit event: storing event.id={} as resource type={}",
                 event.id, resource_type
             );
+            // store resource
             state
                 .storage
                 .store_resource(&event.id, resource_type, data)
                 .await?;
+
+            // schedule resource indexing via search subsystem (serialize once)
+            let id_clone = event.id.clone();
+            let rt_clone = resource_type.to_string();
+            let data_clone = data.clone();
+            let payload = serde_json::to_string(&data_clone).unwrap_or_default();
+            let search = state.search.clone();
+            tokio::spawn(async move {
+                if let Err(err) = search
+                    .add_resource_payload(&id_clone, &rt_clone, "", &payload, None)
+                    .await
+                {
+                    eprintln!(
+                        "[handlers][bg] failed adding non-json-commit resource payload id={} err={}",
+                        id_clone, err
+                    );
+                } else {
+                    println!(
+                        "[handlers][bg] scheduled non-json-commit resource payload added to search index id={}",
+                        id_clone
+                    );
+                }
+            });
         } else {
             println!(
                 "[handlers] non-json-commit event without subject: event.id={}",

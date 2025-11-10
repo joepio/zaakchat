@@ -512,7 +512,8 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
       await page.goto(`/zaak/${issueId}`);
 
       // Add a unique comment
-      const testComment = `Searchable comment - ${generateTestId()}`;
+      const commentID = generateTestId();
+      const testComment = `Searchable comment - ${commentID}`;
       await page
         .locator('textarea[placeholder="Voeg een opmerking toe..."]')
         .fill(testComment);
@@ -532,11 +533,11 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
 
       // Use search to find the comment
       const searchInput = page.locator('input[placeholder*="Zoek"]');
+      await page.waitForTimeout(500); // wait for search index
       await expect(searchInput).toBeVisible();
 
       // Type a portion of the search query to make it unique
-      const searchTerm = testComment.split(" ")[0]; // Use first word
-      await searchInput.fill(searchTerm);
+      await searchInput.fill(commentID);
 
       // Wait for search results to appear
       await page.waitForTimeout(1000); // Give MiniSearch time to index and search
@@ -648,10 +649,15 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
 
         let foundEmptyState = false;
         for (const message of emptyStateMessages) {
-          if (await page.locator(message).isVisible()) {
-            foundEmptyState = true;
-            break;
+          const loc = page.locator(message);
+          const count = await loc.count();
+          for (let i = 0; i < count; i++) {
+            if (await loc.nth(i).isVisible()) {
+              foundEmptyState = true;
+              break;
+            }
           }
+          if (foundEmptyState) break;
         }
 
         // At minimum, page should not crash

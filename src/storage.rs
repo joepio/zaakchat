@@ -44,9 +44,13 @@ pub struct ResourceRecord {
     pub updated_at: String,
 }
 
-/// Storage layer combining redb K/V store and Tantivy search
+/// Storage layer combining redb K/V store.
+/// Search/indexing responsibilities live in the separate `search` module (src/search.rs).
 pub struct Storage {
     db: Arc<Database>,
+    /// Absolute path to the data directory used by this storage instance (e.g. ./data).
+    /// Kept so higher-level modules (e.g. the search subsystem) can locate index files.
+    pub data_dir: std::path::PathBuf,
 }
 
 impl Storage {
@@ -77,7 +81,10 @@ impl Storage {
         // (redb) of events and resources.
         //
         // Initialize storage return value (only DB reference is kept here).
-        Ok(Self { db: Arc::new(db) })
+        Ok(Self {
+            db: Arc::new(db),
+            data_dir: data_dir.to_path_buf(),
+        })
     }
 
     /// Store an event in the K/V store (with diagnostic logging) and assign a monotonically increasing sequence.
@@ -285,8 +292,30 @@ impl Storage {
     /// The search subsystem (index writer, schema fields, periodic committer,
     /// and add/search/delete operations) lives in the dedicated search module.
     ///
-    /// Getters for index fields/writer have been removed from storage to avoid
-    /// tightening storage to any specific search implementation.
+    /// Convenience compatibility wrapper: allow older test code (and other callers)
+    /// to call `storage.search(...)`. This delegates to the search subsystem by
+    /// opening the search index located under `data_dir/search_index` and performing
+    /// the search there. This wrapper exists for backward compatibility; callers
+    /// are encouraged to use the `SearchIndex` API directly (via AppState.search).
+    pub async fn search(
+        &self,
+        query: &str,
+        limit: usize,
+    ) -> Result<Vec<SearchResult>, Box<dyn std::error::Error + Send + Sync>> {
+        // Construct index path relative to storage's data_dir
+        let index_path = self.data_dir.join("search_index");
+        // Open a temporary SearchIndex instance and delegate search.
+        // Note: open() is designed to be cheap for read-only operations and will reuse
+        // the existing on-disk index. If you prefer, higher-level code can keep a
+        // long-lived SearchIndex instance (recommended for production).
+        let search_index = crate::search::SearchIndex::open(
+            &index_path,
+            true,
+            std::time::Duration::from_secs(10),
+        )?;
+        let results = search_index.search(self, query, limit).await?;
+        Ok(results)
+    }
 
     /// Get all resources (paginated)
     pub async fn list_resources(
@@ -500,10 +529,33 @@ mod tests {
             .await
             .unwrap();
 
-        // Give the index a moment to commit
-        tokio::time::sleep(tokio::time::Duration::from_millis(100)).await;
+        // Initialize a SearchIndex pointing at the same test data directory.
+        // Tests should create and manage a SearchIndex explicitly rather than relying on a storage wrapper.
+        let index_path = temp_dir.path().join("search_index");
+        let search_index =
+            crate::search::SearchIndex::open(&index_path, true, std::time::Duration::from_secs(1))
+                .expect("failed to open search index for test");
 
-        let results = storage.search("critical", 10).await.unwrap();
+        // Index the newly stored resource into the search index so the subsequent search can find it.
+        // Serialize the resource once and add it to the index (commit is deferred to the committer).
+        let payload = serde_json::to_string(&resource_data).unwrap_or_default();
+        // Use the payload-based API to avoid cloning large data structures.
+        search_index
+            .add_resource_payload("issue-1", "issue", "", &payload, None)
+            .await
+            .expect("failed to add resource payload to index");
+
+        // Force an immediate commit so the test can deterministically observe the document.
+        search_index
+            .commit()
+            .await
+            .expect("failed to commit index after adding resource payload");
+
+        // Small pause to allow the reader to observe the committed index (should be immediate, but a short sleep is harmless)
+        tokio::time::sleep(tokio::time::Duration::from_millis(10)).await;
+
+        // Call the SearchIndex directly and assert structured results are returned.
+        let results = search_index.search(&storage, "critical", 10).await.unwrap();
         assert!(!results.is_empty());
     }
 

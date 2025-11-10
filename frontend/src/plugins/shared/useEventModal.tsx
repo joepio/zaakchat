@@ -71,7 +71,7 @@ export const EventModalWrapper: React.FC<EventModalWrapperProps> = ({
       <CloudEventModal
         open={showEventModal}
         onClose={onCloseEventModal}
-        cloudEvent={event.originalEvent}
+        cloudEvent={event}
         schemaUrl={data?.schema as string | undefined}
       />
 

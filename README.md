@@ -1,6 +1,6 @@
-# MijnZaken - SSE Demo
+# MijnZaken - JSONCommit
 
-Dit is een simpele front-end applicatie om te demonstreren hoe Server-Sent Events (SSE) zouden kunnen werken voor MijnZaken.
+Dit is een simpele front-end applicatie om te demonstreren hoe JSONCommit (CloudEvents + JSON) zou kunnen werken voor MijnServices applicaties voor VNG Realisatie.
 
 Dit project bevat:
 

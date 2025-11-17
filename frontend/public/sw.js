@@ -84,7 +84,7 @@ self.addEventListener('push', (event) => {
   console.log('[Service Worker] Push received:', event);
 
   let data = {
-    title: 'MijnZaken Update',
+    title: 'ZaakChat Update',
     body: 'Er is een nieuwe update',
     icon: '/icon-192.png',
     badge: '/icon-192.png',

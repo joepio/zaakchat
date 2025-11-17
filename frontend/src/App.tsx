@@ -94,7 +94,7 @@ const ZakenDashboard: React.FC = () => {
           style={{ color: "var(--logo-primary)" }}
           data-testid="main-heading"
         >
-          MijnZaken
+          ZaakChat
         </h1>
         <p
           className="text-base lg:text-lg xl:text-xl max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto"

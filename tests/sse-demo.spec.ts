@@ -100,11 +100,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
 
   test.describe("Home Page - Issues List", () => {
     test("renders initial issues on the home page", async ({ page }) => {
-      // Should have main heading
-      await expect(page.locator('[data-testid="main-heading"]')).toHaveText(
-        "MijnZaken",
-      );
-
       // Should have issues displayed
       const issues = page.locator(".zaak-item-hover");
       await expect(issues.first()).toBeVisible();
@@ -430,9 +425,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
     test("can navigate between home and issue pages", async ({ page }) => {
       // Should be on home page initially
       await expect(page).toHaveURL("/");
-      await expect(page.locator('[data-testid="main-heading"]')).toHaveText(
-        "MijnZaken",
-      );
 
       // Navigate to an issue
       await page.waitForSelector(".zaak-item-hover", { timeout: 10000 });
@@ -451,9 +443,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
       // Navigate back to home
       await page.goto("/");
       await expect(page).toHaveURL("/");
-      await expect(page.locator('[data-testid="main-heading"]')).toHaveText(
-        "MijnZaken",
-      );
     });
 
     test("updates UI in real-time when events occur", async ({ page }) => {

@@ -38,7 +38,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ currentZaakId }) => {
                   to="/"
                   style={{ color: "inherit", textDecoration: "none" }}
                 >
-                  MijnZaken
+                  ZaakChat
                 </Link>
               </h1>
             </div>

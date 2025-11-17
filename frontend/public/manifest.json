@@ -1,6 +1,6 @@
 {
-  "name": "MijnZaken - Real-time zaakbehandeling",
-  "short_name": "MijnZaken",
+  "name": "ZaakChat - Real-time zaakbehandeling",
+  "short_name": "ZaakChat",
   "description": "Real-time zaakbehandeling met Server-Sent Events",
   "start_url": "/",
   "display": "standalone",
@@ -22,4 +22,3 @@
     }
   ]
 }
-

@@ -38,5 +38,5 @@ pnpm run test:e2e:one "schema form"
 # Bouw de docker
 docker build -t joepmeneer/sse-demo:latest .
 # run de docker
-docker run -p 8000:8000 -v "$(pwd)/data:/app/data" joepmeneer/sse-demo:latest
+docker run -p 8000:8000 -v "$(pwd)/data:/app/data" docker.io/joepmeneer/sse-demo:latest
 ```

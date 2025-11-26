@@ -214,6 +214,14 @@ async fn create_app() -> Router {
 
 /// Initialize demo data in storage
 async fn initialize_demo_data(state: &AppState) {
+    // Check if we already have events
+    if let Ok(events) = state.storage.list_events(0, 1).await {
+        if !events.is_empty() {
+            println!("Storage already contains events, skipping initialization");
+            return;
+        }
+    }
+
     let (initial_events, _) = issues::generate_initial_data();
 
     for event_json in initial_events {

@@ -1,8 +1,8 @@
 [package]
-name = "sse-delta-snapshot"
+name = "zaakchat"
 version = "0.1.0"
 edition = "2021"
-default-run = "sse-delta-snapshot"
+default-run = "zaakchat"
 
 [features]
 default = []
@@ -41,5 +41,5 @@ name = "generate_asyncapi"
 path = "src/bin/generate_asyncapi.rs"
 
 [[bin]]
-name = "sse-delta-snapshot"
+name = "zaakchat"
 path = "src/main.rs"

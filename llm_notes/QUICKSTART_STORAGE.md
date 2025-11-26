@@ -12,12 +12,12 @@ This guide will help you get started with the storage-backed version of the SSE 
 1. **Clone the repository** (if not already done):
 ```bash
 git clone <repository-url>
-cd sse-demo
+cd zaakchat
 ```
 
 2. **Install dependencies**:
 ```bash
-cargo build --bin sse-delta-snapshot-storage
+cargo build --bin zaakchat-storage
 ```
 
 ## Running the Application
@@ -25,7 +25,7 @@ cargo build --bin sse-delta-snapshot-storage
 ### Basic Run
 
 ```bash
-cargo run --bin sse-delta-snapshot-storage
+cargo run --bin zaakchat-storage
 ```
 
 The server will start on `http://localhost:8000`
@@ -35,20 +35,20 @@ The server will start on `http://localhost:8000`
 Demo mode generates random events every 10 seconds and resets the database every 5 minutes:
 
 ```bash
-DEMO=1 cargo run --bin sse-delta-snapshot-storage
+DEMO=1 cargo run --bin zaakchat-storage
 ```
 
 ### Custom Data Directory
 
 ```bash
-DATA_DIR=/path/to/data cargo run --bin sse-delta-snapshot-storage
+DATA_DIR=/path/to/data cargo run --bin zaakchat-storage
 ```
 
 ### Production Mode
 
 ```bash
-cargo build --release --bin sse-delta-snapshot-storage
-DATA_DIR=/var/lib/sse-demo ./target/release/sse-delta-snapshot-storage
+cargo build --release --bin zaakchat-storage
+DATA_DIR=/var/lib/zaakchat ./target/release/zaakchat-storage
 ```
 
 ## Verify Installation
@@ -211,7 +211,7 @@ data/
 
 ```bash
 rm -rf data/
-cargo run --bin sse-delta-snapshot-storage
+cargo run --bin zaakchat-storage
 ```
 
 ## Common Operations
@@ -290,7 +290,7 @@ curl "http://localhost:8000/query?q=bug+OR+issue"
 ### Port Already in Use
 ```bash
 # Use a different port
-PORT=8080 cargo run --bin sse-delta-snapshot-storage
+PORT=8080 cargo run --bin zaakchat-storage
 ```
 
 ### Database Locked
@@ -356,7 +356,7 @@ When `DEMO=1` is set:
 
 ```bash
 # Watch demo events in real-time
-DEMO=1 cargo run --bin sse-delta-snapshot-storage &
+DEMO=1 cargo run --bin zaakchat-storage &
 curl -N http://localhost:8000/events/stream
 ```
 

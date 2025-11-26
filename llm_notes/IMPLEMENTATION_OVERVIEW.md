@@ -97,7 +97,7 @@ A complete, production-ready storage system with:
 ## 📁 File Structure
 
 ```
-sse-demo/
+zaakchat/
 ├── src/
 │   ├── storage.rs              (NEW) 17K  - redb + Tantivy layer
 │   ├── handlers.rs             (NEW) 10K  - HTTP endpoint handlers
@@ -209,24 +209,24 @@ Result:       {"title": "New", "nested": {"a": 1, "b": 3, "c": 4}}
 ### Development
 ```bash
 # Build
-cargo build --bin sse-delta-snapshot-storage
+cargo build --bin zaakchat-storage
 
 # Run
-cargo run --bin sse-delta-snapshot-storage
+cargo run --bin zaakchat-storage
 
 # With demo mode (auto-generates events)
-DEMO=1 cargo run --bin sse-delta-snapshot-storage
+DEMO=1 cargo run --bin zaakchat-storage
 ```
 
 ### Production
 ```bash
 # Build release
-cargo build --release --bin sse-delta-snapshot-storage
+cargo build --release --bin zaakchat-storage
 
 # Run with custom data directory
-DATA_DIR=/var/lib/sse-demo \
+DATA_DIR=/var/lib/zaakchat \
 BASE_URL=https://myapp.example.com \
-./target/release/sse-delta-snapshot-storage
+./target/release/zaakchat-storage
 ```
 
 ### Environment Variables

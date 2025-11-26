@@ -35,7 +35,7 @@ jobs:
       - name: Determine image tags
         id: tags
         run: |
-          IMAGE=joepmeneer/sse-demo
+          IMAGE=joepmeneer/zaakchat
           # Short SHA
           SHORT_SHA=${GITHUB_SHA::7}
           # If this run was triggered by a tag, use that tag as a release tag

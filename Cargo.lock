@@ -2293,34 +2293,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sse-delta-snapshot"
-version = "0.1.0"
-dependencies = [
- "async-stream",
- "axum",
- "base64 0.22.1",
- "bincode",
- "chrono",
- "fastrand 2.3.0",
- "futures-util",
- "redb",
- "schemars",
- "serde",
- "serde_json",
- "serde_yaml",
- "tantivy",
- "tempfile",
- "tokio",
- "tokio-stream",
- "tower",
- "tower-http",
- "utoipa",
- "utoipa-axum",
- "uuid",
- "web-push",
-]
-
-[[package]]
 name = "stable_deref_trait"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3261,6 +3233,34 @@ dependencies = [
  "quote",
  "syn 2.0.106",
  "synstructure 0.13.2",
+]
+
+[[package]]
+name = "zaakchat"
+version = "0.1.0"
+dependencies = [
+ "async-stream",
+ "axum",
+ "base64 0.22.1",
+ "bincode",
+ "chrono",
+ "fastrand 2.3.0",
+ "futures-util",
+ "redb",
+ "schemars",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "tantivy",
+ "tempfile",
+ "tokio",
+ "tokio-stream",
+ "tower",
+ "tower-http",
+ "utoipa",
+ "utoipa-axum",
+ "uuid",
+ "web-push",
 ]
 
 [[package]]

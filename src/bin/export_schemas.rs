@@ -1,4 +1,4 @@
-use sse_delta_snapshot::schemas::get_all_schemas;
+use zaakchat::schemas::get_all_schemas;
 use std::fs;
 use std::path::Path;
 

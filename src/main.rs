@@ -1,5 +1,5 @@
-use sse_delta_snapshot::search::SearchIndex;
-use sse_delta_snapshot::{handlers, issues, schemas};
+use zaakchat::search::SearchIndex;
+use zaakchat::{handlers, issues, schemas};
 
 use futures_util::stream::{self, Stream};
 use serde::{Deserialize, Serialize};
@@ -24,7 +24,7 @@ use tokio_stream::StreamExt;
 use tower_http::services::ServeDir;
 use tower_http::{cors::CorsLayer, services::ServeFile};
 
-use sse_delta_snapshot::storage::Storage;
+use zaakchat::storage::Storage;
 
 #[derive(Clone)]
 pub struct AppState {
@@ -38,7 +38,7 @@ pub struct AppState {
     #[allow(dead_code)]
     pub base_url: String,
     // Push notification subscriptions
-    pub push_subscriptions: Arc<RwLock<Vec<sse_delta_snapshot::PushSubscription>>>,
+    pub push_subscriptions: Arc<RwLock<Vec<zaakchat::PushSubscription>>>,
 }
 
 /// CloudEvent following the CloudEvents specification v1.0
@@ -86,7 +86,7 @@ async fn create_app() -> Router {
         .expect("Failed to initialize storage");
 
     // Initialize search index (separate module)
-    let search_index = match sse_delta_snapshot::search::SearchIndex::open(
+    let search_index = match zaakchat::search::SearchIndex::open(
         &data_dir.join("search_index"),
         true,
         std::time::Duration::from_secs(10),

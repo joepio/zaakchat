@@ -1,4 +1,4 @@
-# Multi-stage Dockerfile for sse-demo
+# Multi-stage Dockerfile for ZaakChat
 #
 # Stages:
 # 1) rust_generate  - run Cargo generators (export_schemas, generate_asyncapi) to produce target/schemas and asyncapi artifacts
@@ -6,8 +6,8 @@
 # 3) rust_builder   - build the Rust release binary and include frontend/dist and generated artifacts
 # 4) runtime        - minimal runtime image that runs the server
 #
-# Build from repo root with sse-demo as the build context:
-#   docker build -t sse-demo:latest -f sse-demo/Dockerfile sse-demo
+# Build from repo root with ZaakChat as the build context:
+#   docker build -t joepmeneer/zaakchat:latest -f zaakchat/Dockerfile sse-demo
 #
 # Notes:
 # - This layout keeps Cargo-based generation in the Rust stage where Cargo is available,
@@ -157,8 +157,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Copy the release binary (binary name from Cargo.toml: sse-delta-snapshot)
-COPY --from=rust_builder /workspace/target/release/sse-delta-snapshot ./sse-delta-snapshot
+# Copy the release binary (binary name from Cargo.toml: zaakchat)
+COPY --from=rust_builder /workspace/target/release/zaakchat ./zaakchat
 
 # Copy frontend dist produced earlier
 COPY --from=rust_builder /workspace/dist ./dist
@@ -169,7 +169,7 @@ COPY --from=rust_builder /workspace/asyncapi.json ./asyncapi.json
 COPY --from=rust_builder /workspace/asyncapi-docs ./asyncapi-docs
 
 # Ensure the app binary is executable and owned by non-root user
-RUN chmod +x ./sse-delta-snapshot && chown -R appuser:appuser /app
+RUN chmod +x ./zaakchat && chown -R appuser:appuser /app
 
 USER appuser
 
@@ -184,4 +184,4 @@ ENV DATA_DIR="/app/data"
 VOLUME [ "/app/data" ]
 
 # Start server (binary expects ./dist to exist)
-CMD ["./sse-delta-snapshot"]
+CMD ["./zaakchat"]

@@ -1,5 +1,5 @@
 use serde_json::{json, Value};
-use sse_delta_snapshot::schemas::get_all_schemas;
+use zaakchat::schemas::get_all_schemas;
 use std::collections::HashMap;
 use std::fs;
 
@@ -91,7 +91,7 @@ fn main() {
     println!("\n🔍 Validation:");
     println!("   Structure only:  pnpm run spec-validate");
     println!("   Full validation: Start server first, then validate");
-    println!("                    cargo run --bin sse-delta-snapshot");
+    println!("                    cargo run --bin zaakchat");
     println!("                    # In another terminal:");
     println!("                    pnpm run spec-validate");
 }

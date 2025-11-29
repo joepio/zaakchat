@@ -102,8 +102,6 @@ impl SearchIndex {
                     let mut w = writer_clone.write().await;
                     if let Err(e) = w.commit() {
                         eprintln!("[search][committer] commit failed: {}", e);
-                    } else {
-                        println!("[search][committer] commit completed");
                     }
                 }
             }))

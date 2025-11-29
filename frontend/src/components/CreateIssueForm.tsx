@@ -56,6 +56,7 @@ const CreateIssueForm: React.FC<CreateIssueFormProps> = ({ onCreateIssue }) => {
         description: formData.description.trim() || null,
         assignee: formData.assignee.trim() || null,
         resolution: null,
+        involved: actor ? [actor] : [],
       };
 
       // Use the schema-based CloudEvent utility with session actor

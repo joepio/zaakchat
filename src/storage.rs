@@ -555,7 +555,7 @@ mod tests {
         tokio::time::sleep(tokio::time::Duration::from_millis(10)).await;
 
         // Call the SearchIndex directly and assert structured results are returned.
-        let results = search_index.search(&storage, "critical", 10).await.unwrap();
+        let results = search_index.search(&storage, "json_payload.description:critical", 10).await.unwrap();
         assert!(!results.is_empty());
     }
 

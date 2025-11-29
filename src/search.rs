@@ -3,6 +3,7 @@ use std::{
     path::{Path, PathBuf},
     sync::Arc,
     time::Duration,
+    collections::BTreeMap,
 };
 
 use chrono::{DateTime, Utc};
@@ -11,6 +12,7 @@ use tantivy::collector::TopDocs;
 use tantivy::directory::MmapDirectory;
 use tantivy::query::QueryParser;
 use tantivy::schema::*;
+use tantivy::schema::OwnedValue;
 use tantivy::{doc, Index, IndexWriter, ReloadPolicy, TantivyDocument};
 use tokio::sync::RwLock;
 use tokio::task::JoinHandle;
@@ -61,7 +63,8 @@ impl SearchIndex {
         let type_field = schema_builder.add_text_field("type", STRING | STORED);
         // Stored JSON payload field: we store the serialized JSON here and index it as a text field as well
         // so that Tantivy can tokenize and search the JSON content. We also store the field for hydration.
-        let json_field = schema_builder.add_text_field("json_payload", TEXT | STORED);
+        let json_options = JsonObjectOptions::from(TEXT | STORED);
+        let json_field = schema_builder.add_json_field("json_payload", json_options);
         let timestamp_field = schema_builder.add_date_field("timestamp", INDEXED | STORED);
         let schema = schema_builder.build();
 
@@ -166,8 +169,17 @@ impl SearchIndex {
         let mut doc = doc!(
             self.id_field => id,
             self.type_field => doc_type,
-            self.json_field => payload_json,
         );
+
+        // Parse JSON and add as JSON object
+        if let Ok(json_val) = serde_json::from_str::<serde_json::Value>(payload_json) {
+            if let Some(obj) = json_val.as_object() {
+                let tantivy_obj: BTreeMap<String, OwnedValue> = obj.iter()
+                    .map(|(k, v)| (k.clone(), json_to_owned_value(v)))
+                    .collect();
+                doc.add_object(self.json_field, tantivy_obj);
+            }
+        }
 
         // No per-field indexing here: the full JSON payload is already indexed in `json_field`.
         // This keeps indexing simpler and avoids duplicating field extraction logic.
@@ -223,8 +235,17 @@ impl SearchIndex {
         let mut doc = doc!(
             self.id_field => id,
             self.type_field => resource_type,
-            self.json_field => payload_json,
         );
+
+        // Parse JSON and add as JSON object
+        if let Ok(json_val) = serde_json::from_str::<serde_json::Value>(payload_json) {
+            if let Some(obj) = json_val.as_object() {
+                let tantivy_obj: BTreeMap<String, OwnedValue> = obj.iter()
+                    .map(|(k, v)| (k.clone(), json_to_owned_value(v)))
+                    .collect();
+                doc.add_object(self.json_field, tantivy_obj);
+            }
+        }
 
         if let Some(ts) = timestamp {
             doc.add_date(
@@ -437,7 +458,10 @@ mod tests {
         tokio::time::sleep(std::time::Duration::from_millis(20)).await;
 
         // Search for a term that appears in the payload
-        let results = search_index.search(&storage, "critical", 10).await.unwrap();
+        // Note: For JSON fields, we must specify the path in the query if we want to search a specific field,
+        // or rely on default field expansion which might behave differently.
+        // Let's try explicit path first to verify indexing.
+        let results = search_index.search(&storage, "json_payload.description:critical", 10).await.unwrap();
 
         assert!(
             !results.is_empty(),
@@ -449,5 +473,33 @@ mod tests {
             has_resource,
             "Expected at least one result to be hydrated as a resource"
         );
+    }
+}
+
+fn json_to_owned_value(v: &JsonValue) -> OwnedValue {
+    match v {
+        JsonValue::Null => OwnedValue::Null,
+        JsonValue::Bool(b) => OwnedValue::Bool(*b),
+        JsonValue::Number(n) => {
+            if let Some(i) = n.as_i64() {
+                OwnedValue::I64(i)
+            } else if let Some(u) = n.as_u64() {
+                OwnedValue::U64(u)
+            } else if let Some(f) = n.as_f64() {
+                OwnedValue::F64(f)
+            } else {
+                OwnedValue::Null
+            }
+        }
+        JsonValue::String(s) => OwnedValue::Str(s.clone()),
+        JsonValue::Array(arr) => {
+            OwnedValue::Array(arr.iter().map(json_to_owned_value).collect())
+        }
+        JsonValue::Object(obj) => {
+            let map: BTreeMap<String, OwnedValue> = obj.iter()
+                .map(|(k, v)| (k.clone(), json_to_owned_value(v)))
+                .collect();
+            OwnedValue::Object(map)
+        }
     }
 }

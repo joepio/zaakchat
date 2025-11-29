@@ -80,8 +80,11 @@ fn default_limit() -> usize {
 #[derive(Debug, Deserialize)]
 pub struct QueryParams {
     pub q: String,
+
     #[serde(default = "default_limit")]
     pub limit: usize,
+    /// Optional user identifier to scope the search (e.g. "alice@gemeente.nl")
+    pub user: Option<String>,
 }
 
 /// Query parameters for listing events (used for JSON listing or snapshot pagination)
@@ -606,9 +609,24 @@ pub async fn query_resources(
     State(state): State<AppState>,
     Query(params): Query<QueryParams>,
 ) -> Result<Json<Vec<SearchResult>>, StatusCode> {
+    // Inject user filter if present
+    let final_query = if let Some(user) = &params.user {
+        let user_filter = format!(
+            "(json_payload.involved:\"{}\" OR json_payload.data.resource_data.involved:\"{}\")",
+            user, user
+        );
+        if params.q.trim().is_empty() || params.q.trim() == "*" {
+            user_filter
+        } else {
+            format!("({}) AND {}", params.q, user_filter)
+        }
+    } else {
+        params.q.clone()
+    };
+
     let results = state
         .search
-        .search(&*state.storage, &params.q, params.limit)
+        .search(&*state.storage, &final_query, params.limit)
         .await
         .map_err(|e| {
             eprintln!("Failed to search: {}", e);

@@ -118,6 +118,9 @@ pub struct Issue {
     pub assignee: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolution: Option<String>,
+    /// Lijst van betrokken personen (emails) bij deze zaak
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub involved: Option<Vec<String>>,
 }
 
 /// Taak - een actie die uitgevoerd moet worden om een zaak te behandelen

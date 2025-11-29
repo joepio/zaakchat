@@ -863,6 +863,10 @@ fn generate_create_event_with_data(
 
     if let Some(assignee_email) = assignee {
         issue_data["assignee"] = json!(assignee_email);
+        // Add assignee to involved list
+        issue_data["involved"] = json!([assignee_email]);
+    } else {
+        issue_data["involved"] = json!([]);
     }
 
     create_cloud_event(

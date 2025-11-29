@@ -2,14 +2,22 @@ import React from "react";
 import NotificationBell from "./NotificationBell";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import UserSettingsDialog from "./UserSettingsDialog";
+import { useActor } from "../contexts/ActorContext";
+import UserAvatar from "./UserAvatar";
 
 interface PageHeaderProps {
   currentZaakId?: string;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({ currentZaakId }) => {
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const { userInitial } = useActor();
+
   return (
-    <header
+    <>
+      <header
       className="border-b sticky top-0 z-50"
       style={{
         backgroundColor: "var(--bg-secondary)",
@@ -65,10 +73,23 @@ const PageHeader: React.FC<PageHeaderProps> = ({ currentZaakId }) => {
               API Docs
             </Link>
             <NotificationBell currentZaakId={currentZaakId} />
+            <button
+              onClick={() => setIsSettingsOpen(true)}
+              title="User Settings"
+              className="focus:outline-none hover:opacity-80 transition-opacity"
+            >
+              <UserAvatar name={userInitial} size="sm" />
+            </button>
           </div>
         </div>
       </div>
     </header>
+
+    <UserSettingsDialog
+      isOpen={isSettingsOpen}
+      onClose={() => setIsSettingsOpen(false)}
+    />
+    </>
   );
 };
 

@@ -9,6 +9,7 @@ import type { ReactNode } from "react";
 
 interface ActorContextType {
   actor: string;
+  setActor: (actor: string) => void;
   formattedUserName: string;
   userInitial: string;
 }
@@ -57,6 +58,11 @@ const generateRandomActor = (): string => {
 export const ActorProvider: React.FC<ActorProviderProps> = ({ children }) => {
   const [actor, setActor] = useState<string>("");
 
+  const updateActor = (newActor: string) => {
+    setActor(newActor);
+    localStorage.setItem("session-actor", newActor);
+  };
+
   // Generate actor on mount or if not in localStorage
   useEffect(() => {
     const storedActor = localStorage.getItem("session-actor");
@@ -64,8 +70,7 @@ export const ActorProvider: React.FC<ActorProviderProps> = ({ children }) => {
       setActor(storedActor);
     } else {
       const newActor = generateRandomActor();
-      setActor(newActor);
-      localStorage.setItem("session-actor", newActor);
+      updateActor(newActor);
     }
   }, []);
 
@@ -102,6 +107,7 @@ export const ActorProvider: React.FC<ActorProviderProps> = ({ children }) => {
 
   const value: ActorContextType = {
     actor,
+    setActor: updateActor,
     formattedUserName,
     userInitial,
   };

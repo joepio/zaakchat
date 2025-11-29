@@ -28,6 +28,10 @@ export default defineConfig({
         target: serverUrl,
         changeOrigin: true,
       },
+      "/query": {
+        target: serverUrl,
+        changeOrigin: true,
+      },
     },
   },
   build: {

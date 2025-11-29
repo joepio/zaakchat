@@ -1,6 +1,7 @@
 import React from "react";
 import type { CloudEvent, TimelineEvent, TimelineItemType } from "../types";
 import TimelineItem from "./TimelineItem";
+import UserAvatar from "./UserAvatar";
 
 interface TimelineEventsListProps {
   events: TimelineEvent[];
@@ -42,16 +43,10 @@ const TimelineEventsList: React.FC<TimelineEventsListProps> = ({
             data-testid="timeline-event"
           >
             <div className="flex-shrink-0 mr-3 sm:mr-4 lg:mr-4 xl:mr-5 w-10 sm:w-8 lg:w-10 xl:w-12">
-              <div
-                className="w-10 h-10 sm:w-8 sm:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 rounded-full flex items-center justify-center font-semibold text-sm sm:text-xs lg:text-sm xl:text-base border-2"
-                style={{
-                  backgroundColor: "var(--text-primary)",
-                  color: "var(--text-inverse)",
-                  borderColor: "var(--bg-primary)",
-                }}
-              >
-                {event.actor ? event.actor.charAt(0).toUpperCase() : "?"}
-              </div>
+              <UserAvatar
+                name={event.actor || "?"}
+                className="w-10 h-10 sm:w-8 sm:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 text-sm sm:text-xs lg:text-sm xl:text-base"
+              />
             </div>
             <div className="flex-1 min-w-0">
                 <TimelineItem event={event} itemType={itemType} />

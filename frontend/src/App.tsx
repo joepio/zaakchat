@@ -1,6 +1,7 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import SearchPlayground from "./components/SearchPlayground";
 import ApiDocumentationView from "./components/documentation/ApiDocumentationView";
 import PageHeader from "./components/PageHeader";
 import InstallPrompt from "./components/InstallPrompt";
@@ -102,6 +103,11 @@ const ZakenDashboard: React.FC = () => {
         >
           Een simpel zaaksysteem met realtime updates.
         </p>
+        <div className="mt-4">
+          <Link to="/search-test" className="text-blue-400 hover:text-blue-300 underline">
+            Search Playground
+          </Link>
+        </div>
       </div>
 
       <main className="max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto p-4 md:p-8 lg:p-12 xl:p-16 pt-8 lg:pt-12 xl:pt-16">
@@ -243,6 +249,7 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/" element={<ZakenDashboard />} />
               <Route path="/zaak/:zaakId" element={<IssueTimeline />} />
+              <Route path="/search-test" element={<SearchPlayground />} />
               <Route path="/api-docs" element={<ApiDocumentationView />} />
             </Routes>
           </Router>

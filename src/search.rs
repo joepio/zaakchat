@@ -6,6 +6,7 @@ use std::{
     collections::BTreeMap,
 };
 
+
 use chrono::{DateTime, Utc};
 use serde_json::Value as JsonValue;
 use tantivy::collector::TopDocs;
@@ -163,6 +164,8 @@ impl SearchIndex {
         timestamp: Option<DateTime<Utc>>,
     ) -> Result<(), Box<dyn Error + Send + Sync>> {
         let writer = self.writer.write().await;
+        // Ensure we delete any existing document with this ID to prevent duplicates
+        writer.delete_term(Term::from_field_text(self.id_field, id));
 
         // Build document and also populate structured fields where possible.
         // payload_json is already serialized by caller.
@@ -231,6 +234,8 @@ impl SearchIndex {
         timestamp: Option<DateTime<Utc>>,
     ) -> Result<(), Box<dyn Error + Send + Sync>> {
         let writer = self.writer.write().await;
+        // Ensure we delete any existing document with this ID to prevent duplicates
+        writer.delete_term(Term::from_field_text(self.id_field, id));
 
         let mut doc = doc!(
             self.id_field => id,
@@ -260,6 +265,7 @@ impl SearchIndex {
             );
         }
 
+        println!("[search] DEBUG: adding doc {:?}", doc);
         writer.add_document(doc)?;
         Ok(())
     }
@@ -283,18 +289,21 @@ impl SearchIndex {
         let reader = self
             .index
             .reader_builder()
-            .reload_policy(ReloadPolicy::OnCommitWithDelay)
+            .reload_policy(ReloadPolicy::Manual)
             .try_into()?;
+        if let Err(e) = reader.reload() {
+            eprintln!("[search] warning: failed to reload reader: {}", e);
+        }
         let searcher = reader.searcher();
+    // Build a query parser that searches across both structured fields and the catch-all:
+    // prefer searching the catch_all, but include title/description/comment and the legacy content.
+    // Build a query parser that searches the stored JSON payload field.
+    // This enables structured/JSON-aware queries over the indexed payload.
+    let query_parser = QueryParser::for_index(&self.index, vec![self.json_field]);
 
-        // Build a query parser that searches across both structured fields and the catch-all:
-        // prefer searching the catch_all, but include title/description/comment and the legacy content.
-        // Build a query parser that searches the stored JSON payload field.
-        // This enables structured/JSON-aware queries over the indexed payload.
-        let query_parser = QueryParser::for_index(&self.index, vec![self.json_field]);
-        let query = query_parser.parse_query(query_str)?;
+    let query = query_parser.parse_query(query_str)?;
 
-        let top_docs = searcher.search(&query, &TopDocs::with_limit(limit))?;
+    let top_docs = searcher.search(&query, &TopDocs::with_limit(limit))?;
 
         let mut results: Vec<SearchResult> = Vec::new();
 
@@ -461,7 +470,7 @@ mod tests {
         // Note: For JSON fields, we must specify the path in the query if we want to search a specific field,
         // or rely on default field expansion which might behave differently.
         // Let's try explicit path first to verify indexing.
-        let results = search_index.search(&storage, "json_payload.description:critical", 10).await.unwrap();
+        let results = search_index.search(&storage, "title:important", 10).await.unwrap();
 
         assert!(
             !results.is_empty(),
@@ -473,6 +482,37 @@ mod tests {
             has_resource,
             "Expected at least one result to be hydrated as a resource"
         );
+    }
+
+
+
+    #[tokio::test]
+    async fn test_query_rewriting() -> Result<(), Box<dyn Error + Send + Sync>> {
+        let dir = TempDir::new()?;
+        let index = SearchIndex::open(dir.path(), true, std::time::Duration::from_secs(1))?;
+        let storage = Storage::new(dir.path()).await.unwrap();
+
+        // Add a document with involved field
+        let data = serde_json::json!({
+            "title": "Test Issue",
+            "involved": "involved_user@example.com"
+        });
+        index.add_resource_doc("evt1", "issue", &data, None).await?;
+        index.commit().await?;
+
+        // Test 1: Search with implicit prefix (should be handled by QueryParser default field)
+        let results = index
+            .search_best_effort(&storage, "involved:involved_user@example.com", 10)
+            .await;
+        assert_eq!(results.len(), 1, "Should find with implicit prefix");
+
+        // Test 2: Search with known field (should not be rewritten)
+        let results = index
+            .search_best_effort(&storage, "id:evt1", 10)
+            .await;
+        assert_eq!(results.len(), 1, "Should find with id (not rewritten)");
+
+        Ok(())
     }
 }
 

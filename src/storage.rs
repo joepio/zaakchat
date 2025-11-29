@@ -529,33 +529,23 @@ mod tests {
             .await
             .unwrap();
 
-        // Initialize a SearchIndex pointing at the same test data directory.
-        // Tests should create and manage a SearchIndex explicitly rather than relying on a storage wrapper.
+        // Create/open the search index pointing at the same temp dir
         let index_path = temp_dir.path().join("search_index");
-        let search_index =
-            crate::search::SearchIndex::open(&index_path, true, std::time::Duration::from_secs(1))
-                .expect("failed to open search index for test");
+        let search_index = crate::search::SearchIndex::open(&index_path, true, std::time::Duration::from_secs(1))
+            .expect("failed to open search index for test");
 
-        // Index the newly stored resource into the search index so the subsequent search can find it.
-        // Serialize the resource once and add it to the index (commit is deferred to the committer).
+        // Index the stored resource payload into the search index
         let payload = serde_json::to_string(&resource_data).unwrap_or_default();
-        // Use the payload-based API to avoid cloning large data structures.
         search_index
             .add_resource_payload("issue-1", "issue", "", &payload, None)
             .await
             .expect("failed to add resource payload to index");
 
-        // Force an immediate commit so the test can deterministically observe the document.
-        search_index
-            .commit()
-            .await
-            .expect("failed to commit index after adding resource payload");
-
-        // Small pause to allow the reader to observe the committed index (should be immediate, but a short sleep is harmless)
-        tokio::time::sleep(tokio::time::Duration::from_millis(10)).await;
+        // Force a commit so the reader can see the document immediately in the test
+        search_index.commit().await.expect("commit failed");
 
         // Call the SearchIndex directly and assert structured results are returned.
-        let results = search_index.search(&storage, "json_payload.description:critical", 10).await.unwrap();
+        let results = search_index.search(&storage, "title:important", 10).await.unwrap();
         assert!(!results.is_empty());
     }
 

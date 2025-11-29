@@ -65,7 +65,7 @@ const SearchPlayground: React.FC = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="p-2 rounded border border-gray-600 bg-gray-800 text-white"
-              placeholder="e.g. *, hallo, json_payload.involved:..."
+              placeholder="e.g. *, hallo, involved:alice@example.com"
             />
           </div>
 

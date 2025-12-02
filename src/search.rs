@@ -418,6 +418,23 @@ impl SearchIndex {
         // Return None for now; callers that need the path can track it externally.
         None
     }
+
+    /// Apply authorization filter to a query string.
+    /// This injects a clause to restrict results to items where the user is involved.
+    pub fn apply_authorization_filter(query: &str, user: &str) -> String {
+        // We check two paths:
+        // 1. json_payload.involved: For resources (Issues) that have the field directly.
+        // 2. json_payload.data.resource_data.involved: For events (CloudEvents) where the involved field is inside the resource_data.
+        let user_filter = format!(
+            "(json_payload.involved:\"{}\" OR json_payload.data.resource_data.involved:\"{}\")",
+            user, user
+        );
+        if query.trim().is_empty() || query.trim() == "*" {
+            user_filter
+        } else {
+            format!("({}) AND {}", query, user_filter)
+        }
+    }
 }
 
 #[cfg(test)]
@@ -509,6 +526,55 @@ mod tests {
             .search_best_effort(&storage, "id:evt1", 10)
             .await;
         assert_eq!(results.len(), 1, "Should find with id (not rewritten)");
+
+        Ok(())
+    }
+
+    #[tokio::test]
+    async fn test_authorized_issue_search() -> Result<(), Box<dyn Error + Send + Sync>> {
+        let dir = TempDir::new()?;
+        let index = SearchIndex::open(dir.path(), true, std::time::Duration::from_secs(1))?;
+        let storage = Storage::new(dir.path()).await.unwrap();
+
+        // 1. Create an issue where "alice@example.com" is involved
+        let issue_data = serde_json::json!({
+            "title": "Alice's Issue",
+            "involved": ["alice@example.com"]
+        });
+        index.add_resource_doc("issue-1", "issue", &issue_data, None).await?;
+
+        // 2. Create a comment (just to populate index)
+        let comment_data = serde_json::json!({
+            "content": "Some comment",
+            "parent_id": "issue-1"
+        });
+        index.add_resource_doc("comment-1", "comment", &comment_data, None).await?;
+
+        // Commit to make documents searchable
+        index.commit().await?;
+
+        // 3. Search as Alice (should find the issue)
+        let query_alice = SearchIndex::apply_authorization_filter("*", "alice@example.com");
+        let results_alice = index.search_best_effort(&storage, &query_alice, 10).await;
+
+        // Should find issue-1
+        let found_issue = results_alice.iter().any(|r| r.id == "issue-1");
+        assert!(found_issue, "Alice should see her issue");
+
+        // 4. Search as Bob (should NOT find the issue)
+        let query_bob = SearchIndex::apply_authorization_filter("*", "bob@example.com");
+        let results_bob = index.search_best_effort(&storage, &query_bob, 10).await;
+
+        let found_issue_bob = results_bob.iter().any(|r| r.id == "issue-1");
+        assert!(!found_issue_bob, "Bob should NOT see Alice's issue");
+
+        // 5. Verify query construction
+        let custom_query = SearchIndex::apply_authorization_filter("title:Alice", "alice@example.com");
+        assert!(custom_query.contains("title:Alice"));
+        assert!(custom_query.contains("json_payload.involved:\"alice@example.com\""));
+
+        let results_custom = index.search_best_effort(&storage, &custom_query, 10).await;
+        assert!(!results_custom.is_empty(), "Should find issue with specific query and auth");
 
         Ok(())
     }

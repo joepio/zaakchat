@@ -603,26 +603,18 @@ pub async fn delete_resource(
     Ok(StatusCode::NO_CONTENT)
 }
 
+use crate::auth::AuthUser;
+
 /// GET /query - Search resources using full-text search
 /// Returns structured search results produced by the storage layer.
 pub async fn query_resources(
     State(state): State<AppState>,
+    auth_user: AuthUser,
     Query(params): Query<QueryParams>,
 ) -> Result<Json<Vec<SearchResult>>, StatusCode> {
-    // Inject user filter if present
-    let final_query = if let Some(user) = &params.user {
-        let user_filter = format!(
-            "(json_payload.involved:\"{}\" OR json_payload.data.resource_data.involved:\"{}\")",
-            user, user
-        );
-        if params.q.trim().is_empty() || params.q.trim() == "*" {
-            user_filter
-        } else {
-            format!("({}) AND {}", params.q, user_filter)
-        }
-    } else {
-        params.q.clone()
-    };
+    // Always use the authenticated user for filtering
+    let user = &auth_user.user_id;
+    let final_query = crate::search::SearchIndex::apply_authorization_filter(&params.q, user);
 
     let results = state
         .search
@@ -735,5 +727,27 @@ mod tests {
         assert_eq!(extract_resource_type_from_subject("issue/123"), "issue");
         assert_eq!(extract_resource_type_from_subject("comment/456"), "comment");
         assert_eq!(extract_resource_type_from_subject("unknown/789"), "unknown");
+    }
+}
+
+/// Login Request
+#[derive(Debug, Deserialize)]
+pub struct LoginRequest {
+    pub email: String,
+}
+
+/// Login Response
+#[derive(Debug, Serialize)]
+pub struct LoginResponse {
+    pub token: String,
+}
+
+/// POST /login - Generate JWT for user
+pub async fn login_handler(
+    Json(payload): Json<LoginRequest>,
+) -> Result<Json<LoginResponse>, StatusCode> {
+    match crate::auth::create_jwt(&payload.email) {
+        Ok(token) => Ok(Json(LoginResponse { token })),
+        Err(_) => Err(StatusCode::INTERNAL_SERVER_ERROR),
     }
 }

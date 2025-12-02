@@ -239,7 +239,16 @@ const ZakenDashboard: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import Login from "./components/Login";
+
+const AuthenticatedApp: React.FC = () => {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Login />;
+  }
+
   return (
     <ActorProvider>
       <SSEProvider>
@@ -256,6 +265,14 @@ const App: React.FC = () => {
         </SearchProvider>
       </SSEProvider>
     </ActorProvider>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <AuthProvider>
+      <AuthenticatedApp />
+    </AuthProvider>
   );
 };
 

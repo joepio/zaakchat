@@ -1,11 +1,11 @@
 import React, {
   createContext,
   useContext,
-  useState,
   useEffect,
   useMemo,
 } from "react";
 import type { ReactNode } from "react";
+import { useAuth } from "./AuthContext";
 
 interface ActorContextType {
   actor: string;
@@ -20,59 +20,16 @@ interface ActorProviderProps {
   children: ReactNode;
 }
 
-// Generate a random email-like actor for the session
-const generateRandomActor = (): string => {
-  const domains = ["gmail.com", "outlook.com"];
-  const firstNames = [
-    "alice",
-    "bob",
-    "charlie",
-    "diana",
-    "eve",
-    "frank",
-    "grace",
-    "henry",
-    "iris",
-    "jack",
-  ];
-  const lastNames = [
-    "jansen",
-    "de-vries",
-    "bakker",
-    "visser",
-    "smit",
-    "meijer",
-    "de-jong",
-    "mulder",
-    "de-groot",
-    "janssen",
-  ];
-
-  const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-  const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-  const domain = domains[Math.floor(Math.random() * domains.length)];
-
-  return `${firstName}.${lastName}@${domain}`;
-};
-
 export const ActorProvider: React.FC<ActorProviderProps> = ({ children }) => {
-  const [actor, setActor] = useState<string>("");
+  const { user, login } = useAuth();
 
-  const updateActor = (newActor: string) => {
-    setActor(newActor);
-    localStorage.setItem("session-actor", newActor);
+  // Use the authenticated user as the actor
+  const actor = user || "";
+
+  // Map setActor to login
+  const setActor = (newActor: string) => {
+    login(newActor).catch(console.error);
   };
-
-  // Generate actor on mount or if not in localStorage
-  useEffect(() => {
-    const storedActor = localStorage.getItem("session-actor");
-    if (storedActor) {
-      setActor(storedActor);
-    } else {
-      const newActor = generateRandomActor();
-      updateActor(newActor);
-    }
-  }, []);
 
   // Listen for service worker requests for current actor
   useEffect(() => {
@@ -107,7 +64,7 @@ export const ActorProvider: React.FC<ActorProviderProps> = ({ children }) => {
 
   const value: ActorContextType = {
     actor,
-    setActor: updateActor,
+    setActor,
     formattedUserName,
     userInitial,
   };

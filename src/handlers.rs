@@ -105,6 +105,52 @@ pub struct EventsListParams {
     /// Example: "00000000000000000042"
     #[serde(default)]
     pub after_seq: Option<String>,
+    /// Optional JWT token for authentication (passed in query for SSE)
+    #[serde(default)]
+    pub token: Option<String>,
+}
+
+/// Helper to check if a user has access to a resource (and thus its events)
+async fn check_access(storage: &Storage, user_id: &str, resource_id: &str) -> bool {
+    // 1. Try to fetch the resource
+    let resource = match storage.get_resource(resource_id).await {
+        Ok(Some(r)) => r,
+        _ => return false, // Resource not found or error -> deny
+    };
+
+    // 2. Determine type and check access
+    // We can try to guess type from fields if not explicitly known, but storage stores it.
+    // However, get_resource returns just the JSON Value.
+    // We can inspect the value.
+
+    // Check if it's an Issue
+    if let Some(involved) = resource.get("involved").and_then(|v| v.as_array()) {
+        // It's likely an Issue (or something with involved list)
+        for person in involved {
+            if person.as_str() == Some(user_id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Check if it's a Comment (has parent_id)
+    if let Some(parent_id) = resource.get("parent_id").and_then(|v| v.as_str()) {
+        // Recursively check the parent (Issue)
+        // Prevent infinite recursion if parent points back to self (unlikely but safe to limit?)
+        // For now, just one level up is enough for Comment -> Issue.
+        return Box::pin(check_access(storage, user_id, parent_id)).await;
+    }
+
+    // For other types (Task, Planning, Document), we need to know their parent.
+    // If they don't have a parent link in the JSON, we can't authorize them based on Issue.
+    // Current schema for Task/Planning/Document doesn't show a parent_id.
+    // If they are standalone, we might default to deny or allow.
+    // Given the strict requirement "only shows events where the topic is from an authenticated issue",
+    // we should probably deny if we can't link it to an issue.
+    // However, for the demo, maybe we assume they are open if not linked?
+    // Or maybe we just return false to be safe.
+    false
 }
 
 /// GET /events - Returns an SSE stream by default. If the query `?format=json` is present,
@@ -114,6 +160,30 @@ pub async fn get_or_stream_events(
     _headers: HeaderMap,
     Query(params): Query<EventsListParams>,
 ) -> Result<Response, StatusCode> {
+    {
+        use std::io::Write;
+        if let Ok(mut file) = std::fs::OpenOptions::new().create(true).append(true).open("debug.log") {
+            writeln!(file, "[handlers] Incoming SSE request. Token present: {}", params.token.is_some()).unwrap();
+        }
+    }
+
+    // 1. Authenticate
+    let token = params.token.as_deref().ok_or(StatusCode::UNAUTHORIZED)?;
+    let claims = crate::auth::verify_jwt(token).map_err(|_| {
+        use std::io::Write;
+        if let Ok(mut file) = std::fs::OpenOptions::new().create(true).append(true).open("debug.log") {
+            writeln!(file, "[handlers] SSE connection rejected: invalid token").unwrap();
+        }
+        StatusCode::UNAUTHORIZED
+    })?;
+    let user_id = claims.sub;
+    {
+        use std::io::Write;
+        if let Ok(mut file) = std::fs::OpenOptions::new().create(true).append(true).open("debug.log") {
+            writeln!(file, "[handlers] SSE connection accepted for user: {}", user_id).unwrap();
+        }
+    }
+
     // Only return JSON when explicitly requested via query param `?format=json`.
     let want_json = params
         .format
@@ -132,23 +202,37 @@ pub async fn get_or_stream_events(
                 StatusCode::INTERNAL_SERVER_ERROR
             })?;
 
-        // Filter events by topic if provided
-        let filtered: Vec<CloudEvent> = if let Some(topic) = params.topic.as_deref() {
-            events
-                .into_iter()
-                .filter(|e| {
-                    e.subject
-                        .as_deref()
-                        .map(|s| s.contains(topic))
-                        .unwrap_or(false)
-                        || e.event_type.contains(topic)
-                })
-                .collect()
-        } else {
-            events
-        };
+        // Filter events by topic AND authorization
+        let mut filtered = Vec::new();
+        for event in events {
+            // Topic filter
+            if let Some(topic) = params.topic.as_deref() {
+                let matches = event
+                    .subject
+                    .as_deref()
+                    .map(|s| s.contains(topic))
+                    .unwrap_or(false)
+                    || event.event_type.contains(topic);
+                if !matches {
+                    continue;
+                }
+            }
 
-        // Keep the order as provided by storage (earliest-first). No reversal applied here.
+            // Authorization filter
+            // Use subject as resource_id if available
+            if let Some(subject) = &event.subject {
+                if check_access(&state.storage, &user_id, subject).await {
+                    filtered.push(event);
+                }
+            } else {
+                // Events without subject (system events?) - allow or deny?
+                // Let's allow system events if they are generic, but maybe deny for now.
+                // Actually, "system.reset" might be important.
+                if event.event_type == "system.reset" {
+                    filtered.push(event);
+                }
+            }
+        }
 
         return Ok(Json(filtered).into_response());
     }
@@ -166,21 +250,50 @@ pub async fn get_or_stream_events(
             StatusCode::INTERNAL_SERVER_ERROR
         })?;
 
-    // Keep snapshot order as provided by storage (earliest-first). No reversal applied here.
+    // Filter snapshot events
+    let mut authorized_snapshot = Vec::new();
+    for event in snapshot_events {
+        if let Some(subject) = &event.subject {
+            if check_access(&state.storage, &user_id, subject).await {
+                authorized_snapshot.push(event);
+            }
+        } else if event.event_type == "system.reset" {
+            authorized_snapshot.push(event);
+        }
+    }
 
-    let snapshot = serde_json::to_string(&snapshot_events).unwrap_or_else(|_| "[]".to_string());
+    let snapshot = serde_json::to_string(&authorized_snapshot).unwrap_or_else(|_| "[]".to_string());
 
     let stream = stream::once(async move {
         Ok::<Event, Infallible>(Event::default().event("snapshot").data(snapshot))
     })
     .chain(
         BroadcastStream::new(rx)
-            .map(|msg| {
-                let delta = msg.unwrap();
-                let json = serde_json::to_string(&delta).unwrap_or_else(|_| "{}".to_string());
-                Event::default().event("delta").data(json)
+            .then(move |msg| {
+                let state_clone = state.clone();
+                let user_id_clone = user_id.clone();
+                async move {
+                    match msg {
+                        Ok(event) => {
+                            // Check authorization
+                            if let Some(subject) = &event.subject {
+                                if check_access(&state_clone.storage, &user_id_clone, subject).await {
+                                    return Some(event);
+                                }
+                            } else if event.event_type == "system.reset" {
+                                return Some(event);
+                            }
+                            None
+                        }
+                        Err(_) => None,
+                    }
+                }
             })
-            .map(Ok),
+            .filter_map(|opt| opt)
+            .map(|event| {
+                let json = serde_json::to_string(&event).unwrap_or_else(|_| "{}".to_string());
+                Ok(Event::default().event("delta").data(json))
+            }),
     );
 
     let sse = Sse::new(stream).keep_alive(KeepAlive::default());
@@ -746,6 +859,12 @@ pub struct LoginResponse {
 pub async fn login_handler(
     Json(payload): Json<LoginRequest>,
 ) -> Result<Json<LoginResponse>, StatusCode> {
+    {
+        use std::io::Write;
+        if let Ok(mut file) = std::fs::OpenOptions::new().create(true).append(true).open("debug.log") {
+            writeln!(file, "[handlers] Login request for: {}", payload.email).unwrap();
+        }
+    }
     match crate::auth::create_jwt(&payload.email) {
         Ok(token) => Ok(Json(LoginResponse { token })),
         Err(_) => Err(StatusCode::INTERNAL_SERVER_ERROR),

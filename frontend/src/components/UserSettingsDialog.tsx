@@ -44,12 +44,6 @@ const UserSettingsDialog: React.FC<UserSettingsDialogProps> = ({
               cursor: "not-allowed"
             }}
           />
-          <p
-            className="mt-1 text-xs"
-            style={{ color: "var(--text-tertiary)" }}
-          >
-            Signed in as {user}
-          </p>
         </div>
       </div>
 

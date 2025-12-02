@@ -15,7 +15,8 @@ const Login: React.FC = () => {
 
     try {
       await login(email);
-    } catch (err) {
+    } catch (error) {
+      console.error("Login failed:", error);
       setError("Failed to login. Please try again.");
     } finally {
       setLoading(false);

@@ -10,6 +10,7 @@ import React, {
 } from "react";
 import type { CloudEvent, Issue } from "../types";
 import { useActor } from "./ActorContext";
+import { useAuth } from "./AuthContext";
 import { createTaskCompletionEvent } from "../utils/taskUtils";
 
 interface IssueWithActivity extends Issue {
@@ -41,6 +42,7 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
   >("connecting");
   const eventSourceRef = useRef<EventSource | null>(null);
   const { actor } = useActor();
+  const { token } = useAuth();
 
   // Derive issues from items store with lastActivity calculated from events
   const issues = useMemo(() => {
@@ -212,11 +214,17 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
   const sendEvent = useCallback(
     async (event: CloudEvent) => {
       try {
+        const headers: Record<string, string> = {
+          "Content-Type": "application/json",
+        };
+
+        if (token) {
+          headers["Authorization"] = `Bearer ${token}`;
+        }
+
         const response = await fetch("/events", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers,
           body: JSON.stringify(event),
         });
 
@@ -231,7 +239,7 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
         throw error;
       }
     },
-    [processCloudEvent],
+    [processCloudEvent, token],
   );
 
   // Complete a task
@@ -387,7 +395,9 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
 
       setConnectionStatus("connecting");
 
-      const eventSource = new EventSource("/events");
+      // Append token to URL if available
+      const url = token ? `/events?token=${encodeURIComponent(token)}` : "/events";
+      const eventSource = new EventSource(url);
       eventSourceRef.current = eventSource;
 
       setupEventSourceHandlers(eventSource);
@@ -401,7 +411,7 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
         eventSourceRef.current.close();
       }
     };
-  }, [setupEventSourceHandlers]);
+  }, [setupEventSourceHandlers, token]);
 
   const contextValue: SSEContextType = {
     events,

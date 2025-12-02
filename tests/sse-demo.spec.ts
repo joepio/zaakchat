@@ -16,33 +16,51 @@ async function resetServerState() {
   }
 }
 
+// Helper function to get auth token
+async function getAuthToken(requestContext) {
+  const response = await requestContext.post(`${serverUrl}/login`, {
+    data: { email: "test-user@example.com" },
+  });
+  if (!response.ok()) {
+    throw new Error(`Failed to login: ${response.statusText()}`);
+  }
+  const data = await response.json();
+  return data.token;
+}
+
 // Helper function to create a new issue for test isolation
 async function createNewIssue(title: string, description: string) {
   const requestContext = await request.newContext();
-  const issueId = `zaak-${generateTestId()}`;
-  const event = {
-    specversion: "1.0",
-    id: `event-${generateTestId()}`,
-    source: "test-runner",
-    type: "json.commit",
-    subject: issueId,
-    time: new Date().toISOString(),
-    datacontenttype: "application/json",
-    data: {
-      schema: `${serverUrl}/schemas/Issue`,
-      resource_id: issueId,
-      resource_data: {
-        id: issueId,
-        title,
-        description,
-        status: "open",
-        involved: ["test-user@example.com"],
-      },
-    },
-  };
+  let issueId;
 
   try {
+    const token = await getAuthToken(requestContext);
+    issueId = `zaak-${generateTestId()}`;
+    const event = {
+      specversion: "1.0",
+      id: `event-${generateTestId()}`,
+      source: "test-runner",
+      type: "json.commit",
+      subject: issueId,
+      time: new Date().toISOString(),
+      datacontenttype: "application/json",
+      data: {
+        schema: `${serverUrl}/schemas/Issue`,
+        resource_id: issueId,
+        resource_data: {
+          id: issueId,
+          title,
+          description,
+          status: "open",
+          involved: ["test-user@example.com"],
+        },
+      },
+    };
+
     const response = await requestContext.post(`${serverUrl}/events`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
       data: event,
     });
     if (!response.ok()) {
@@ -111,7 +129,9 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
   });
 
   test.beforeEach(async ({ page }) => {
+    page.on('console', msg => console.log(`[BROWSER] ${msg.text()}`));
     await login(page);
+    await resetServerState();
   });
 
   test.describe("Home Page - Issues List", () => {
@@ -462,6 +482,8 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
     });
 
     test("updates UI in real-time when events occur", async ({ page }) => {
+      page.on('console', msg => console.log(`[BROWSER] ${msg.text()}`));
+
       const issueId = await createNewIssue(
         "Test Issue for Real-time Updates",
         "This is a test issue created for real-time updates test.",

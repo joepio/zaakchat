@@ -1,4 +1,5 @@
 pub mod types;
+pub mod graphql;
 pub use types::{PushKeys, PushSubscription};
 
 pub mod handlers;

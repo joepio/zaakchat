@@ -63,6 +63,8 @@ async fn main() {
     let app = create_app().await;
     let addr = "0.0.0.0:8000";
     println!("→ http://{addr}");
+    println!("→ GraphQL Playground: http://{addr}/graphql");
+    println!("→ GraphiQL: http://{addr}/graphiql");
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     serve(listener, app).await.unwrap();
 }
@@ -81,9 +83,9 @@ async fn create_app() -> Router {
         .map(PathBuf::from)
         .unwrap_or_else(|_| PathBuf::from("./data"));
 
-    let storage = Storage::new(&data_dir)
+    let storage = Arc::new(Storage::new(&data_dir)
         .await
-        .expect("Failed to initialize storage");
+        .expect("Failed to initialize storage"));
 
     // Initialize search index (separate module)
     let search_index = match zaakchat::search::SearchIndex::open(
@@ -98,7 +100,7 @@ async fn create_app() -> Router {
     let (tx, _) = broadcast::channel(256);
 
     let state = AppState {
-        storage: Arc::new(storage),
+        storage: storage.clone(),
         search: search_index.clone(),
         tx: tx.clone(),
         base_url: base_url.clone(),
@@ -198,18 +200,39 @@ async fn create_app() -> Router {
         .route("/schemas/{*name}", get(crate::schemas::handle_get_schema))
         .with_state(handler_state);
 
+    // Initialize GraphQL schema
+    let schema = zaakchat::graphql::create_schema(search_index.clone(), storage.clone());
+
     // Combine API routes with static file serving
     let app = Router::new()
         .merge(api_routes)
+        .route("/graphql", get(graphql_playground).post(graphql_handler))
+        .route("/graphiql", get(graphiql))
         .route("/asyncapi-docs/asyncapi.yaml", get(serve_asyncapi_yaml))
         .route("/asyncapi-docs/asyncapi.json", get(serve_asyncapi_json))
         .route("/asyncapi-docs", get(serve_asyncapi_docs))
         .nest_service("/asyncapi-docs/css", ServeDir::new("asyncapi-docs/css"))
         .nest_service("/asyncapi-docs/js", ServeDir::new("asyncapi-docs/js"))
         .fallback_service(ServeDir::new("dist").fallback(ServeFile::new("dist/index.html")))
-        .layer(CorsLayer::permissive());
+        .layer(CorsLayer::permissive())
+        .with_state(schema);
 
     app
+}
+
+async fn graphql_playground() -> impl axum::response::IntoResponse {
+    axum::response::Html(async_graphql::http::playground_source(async_graphql::http::GraphQLPlaygroundConfig::new("/graphql")))
+}
+
+async fn graphiql() -> impl axum::response::IntoResponse {
+    axum::response::Html(async_graphql::http::graphiql_source("/graphql", None))
+}
+
+async fn graphql_handler(
+    State(schema): State<zaakchat::graphql::AppSchema>,
+    req: async_graphql_axum::GraphQLRequest,
+) -> async_graphql_axum::GraphQLResponse {
+    schema.execute(req.into_inner()).await.into()
 }
 
 /// Initialize demo data in storage

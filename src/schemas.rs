@@ -3,9 +3,10 @@ use schemars::{schema_for, JsonSchema};
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use std::collections::HashMap;
+use async_graphql::{Enum, SimpleObject};
 
 /// CloudEvents specification struct
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, SimpleObject)]
 pub struct CloudEvent {
     /// Versie van de CloudEvents specificatie (altijd "1.0")
     pub specversion: String,
@@ -49,7 +50,7 @@ pub struct CloudEvent {
 /// - Het aanmaken van een nieuwe resource (resource_data bevat de volledige resource)
 /// - Het updaten van een bestaande resource (patch bevat de wijzigingen)
 /// - Het verwijderen van een resource (deleted: true markeert de resource als verwijderd)
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, SimpleObject)]
 pub struct JSONCommit {
     /// URL naar het JSON Schema dat de structuur van de resource beschrijft (bijv. "http://localhost:8000/schemas/Comment")
     /// Dit bepaalt welke velden de resource moet hebben en wat hun dataype is.
@@ -77,7 +78,7 @@ pub struct JSONCommit {
 }
 
 /// Soorten items in het zaaksysteem
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, Enum, Copy, Eq, PartialEq)]
 #[serde(rename_all = "snake_case")]
 pub enum ItemType {
     /// Zaak - een burgerzaak of aanvraag die behandeld wordt
@@ -93,7 +94,7 @@ pub enum ItemType {
 }
 
 /// Document dat bij een zaak hoort (bijv. paspoortfoto, uittreksel GBA)
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, SimpleObject)]
 pub struct Document {
     /// Bestandsnaam of titel van het document (bijv. "Paspoortfoto_Jan_Jansen.jpg")
     pub title: String,
@@ -104,7 +105,7 @@ pub struct Document {
 }
 
 /// Zaak - een burgerzaak of aanvraag die door de gemeente behandeld wordt
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, SimpleObject)]
 pub struct Issue {
     /// Korte, duidelijke titel van de zaak (bijv. "Paspoort aanvragen", "Kapvergunning Dorpsstraat 12")
     pub title: String,
@@ -124,7 +125,7 @@ pub struct Issue {
 }
 
 /// Taak - een actie die uitgevoerd moet worden om een zaak te behandelen
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, SimpleObject)]
 pub struct Task {
     /// Korte actie-omschrijving (bijv. "Documenten controleren", "Afspraak inplannen")
     pub cta: String,
@@ -140,7 +141,7 @@ pub struct Task {
 }
 
 /// Status van een zaak in behandeling
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, Enum, Copy, Eq, PartialEq)]
 #[serde(rename_all = "snake_case")]
 pub enum IssueStatus {
     /// Nieuw binnengekomen, nog niet in behandeling genomen
@@ -153,7 +154,7 @@ pub enum IssueStatus {
 }
 
 /// Reactie - een opmerking, vraag of toelichting bij een zaak
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, SimpleObject)]
 pub struct Comment {
     /// De tekst van de reactie (bijv. "Documenten zijn goedgekeurd", "Burger gebeld voor aanvullende info")
     pub content: String,
@@ -166,7 +167,7 @@ pub struct Comment {
 }
 
 /// Planning - een tijdlijn met verschillende stappen of fasen voor zaakbehandeling
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, SimpleObject)]
 pub struct Planning {
     /// Naam van de planning (bijv. "Vergunningsprocedure", "Paspoort aanvraag proces")
     pub title: String,
@@ -178,7 +179,7 @@ pub struct Planning {
 }
 
 /// Een specifieke stap of mijlpaal binnen een planning
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, SimpleObject)]
 pub struct PlanningMoment {
     /// Geplande of gerealiseerde datum (YYYY-MM-DD, bijv. "2024-01-15")
     pub date: String,
@@ -189,7 +190,7 @@ pub struct PlanningMoment {
 }
 
 /// Status van een planning moment
-#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema, Enum, Copy, Eq, PartialEq)]
 #[serde(rename_all = "snake_case")]
 pub enum PlanningStatus {
     /// Afgerond - deze stap is voltooid

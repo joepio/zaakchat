@@ -32,6 +32,10 @@ export default defineConfig({
         target: serverUrl,
         changeOrigin: true,
       },
+      "/login": {
+        target: serverUrl,
+        changeOrigin: true,
+      },
     },
   },
   build: {

@@ -36,6 +36,7 @@ async function createNewIssue(title: string, description: string) {
         title,
         description,
         status: "open",
+        involved: ["test-user@example.com"],
       },
     },
   };
@@ -89,13 +90,28 @@ function generateTestId(): string {
   return `test-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 }
 
+// Helper function to login
+async function login(page) {
+  await page.goto("/");
+
+  // Check if we are on the login page
+  const loginHeader = page.locator('h1:has-text("ZaakChat Login")');
+  if (await loginHeader.isVisible()) {
+    await page.fill('input[type="email"]', "test-user@example.com");
+    await page.click('button:has-text("Sign In")');
+
+    // Wait for dashboard to load
+    await expect(page.locator('[data-testid="main-heading"]')).toBeVisible();
+  }
+}
+
 test.describe("SSE Demo Application - Comprehensive Tests", () => {
   test.beforeAll(async () => {
     await resetServerState();
   });
 
   test.beforeEach(async ({ page }) => {
-    await page.goto("/");
+    await login(page);
   });
 
   test.describe("Home Page - Issues List", () => {

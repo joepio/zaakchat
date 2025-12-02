@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Modal from "./Modal";
 import { Button } from "./ActionButton";
-import { useActor } from "../contexts/ActorContext";
+import { useAuth } from "../contexts/AuthContext";
 
 interface UserSettingsDialogProps {
   isOpen: boolean;
@@ -12,26 +12,16 @@ const UserSettingsDialog: React.FC<UserSettingsDialogProps> = ({
   isOpen,
   onClose,
 }) => {
-  const { actor, setActor } = useActor();
-  const [email, setEmail] = useState(actor);
+  const { user, logout } = useAuth();
 
-  useEffect(() => {
-    if (isOpen) {
-      setEmail(actor);
-    }
-  }, [isOpen, actor]);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setActor(email.trim());
-      onClose();
-    }
+  const handleLogout = () => {
+    logout();
+    onClose();
   };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="User Settings">
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-4">
         <div>
           <label
             htmlFor="email"
@@ -43,34 +33,39 @@ const UserSettingsDialog: React.FC<UserSettingsDialogProps> = ({
           <input
             id="email"
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-2 rounded border focus:outline-none focus:ring-2"
+            value={user || ""}
+            readOnly
+            className="w-full px-3 py-2 rounded border focus:outline-none"
             style={{
-              backgroundColor: "var(--bg-primary)",
+              backgroundColor: "var(--bg-secondary)",
               borderColor: "var(--border-primary)",
               color: "var(--text-primary)",
+              opacity: 0.8,
+              cursor: "not-allowed"
             }}
-            placeholder="Enter your email"
-            required
           />
           <p
             className="mt-1 text-xs"
             style={{ color: "var(--text-tertiary)" }}
           >
-            This email will be used to identify you in the system.
+            Signed in as {user}
           </p>
         </div>
+      </div>
 
-        <div className="flex justify-end gap-2 pt-4">
-          <Button variant="secondary" onClick={onClose} type="button">
-            Cancel
+        <div className="flex justify-end gap-2 pt-4 border-t" style={{ borderColor: "var(--border-primary)" }}>
+          <Button variant="secondary" onClick={onClose}>
+            Close
           </Button>
-          <Button variant="primary" type="submit">
-            Save Changes
+          <Button
+            variant="primary"
+            onClick={handleLogout}
+            className="bg-red-600 hover:bg-red-700 border-red-600"
+          >
+            Sign Out
           </Button>
         </div>
-      </form>
+
     </Modal>
   );
 };

@@ -1,5 +1,6 @@
 use zaakchat::search::SearchIndex;
 use zaakchat::{handlers, issues, schemas};
+pub mod auth;
 
 use futures_util::stream::{self, Stream};
 use serde::{Deserialize, Serialize};
@@ -196,6 +197,7 @@ async fn create_app() -> Router {
         .route("/reset/", post(reset_state_handler))
         .route("/schemas", get(crate::schemas::handle_get_schemas_index))
         .route("/schemas/{*name}", get(crate::schemas::handle_get_schema))
+        .route("/login", post(handlers::login_handler))
         .with_state(handler_state);
 
     // Combine API routes with static file serving

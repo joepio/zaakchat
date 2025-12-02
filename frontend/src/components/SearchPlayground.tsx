@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useActor } from "../contexts/ActorContext";
+import React, { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import { Button } from "./ActionButton";
 import PageHeader from "./PageHeader";
 
 const SearchPlayground: React.FC = () => {
-  const { actor } = useActor();
+  const { token, user: authUser } = useAuth();
   const [query, setQuery] = useState("*");
-  const [user, setUser] = useState(actor);
 
-  useEffect(() => {
-    setUser(actor);
-  }, [actor]);
   const [results, setResults] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -24,11 +20,13 @@ const SearchPlayground: React.FC = () => {
     try {
       const params = new URLSearchParams();
       params.append("q", query);
-      if (user) {
-        params.append("user", user);
-      }
 
-      const response = await fetch(`/query?${params.toString()}`);
+      const response = await fetch(`/query?${params.toString()}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
       if (!response.ok) {
         throw new Error(`Search failed: ${response.status} ${response.statusText}`);
       }
@@ -54,6 +52,11 @@ const SearchPlayground: React.FC = () => {
       <div className="max-w-4xl mx-auto p-8 pt-12">
         <h1 className="text-3xl font-bold mb-8">Search Playground</h1>
 
+        <div className="mb-6 p-4 bg-gray-800 rounded border border-gray-700">
+          <p className="text-sm text-gray-400">Authenticated as:</p>
+          <p className="font-mono text-green-400">{authUser}</p>
+        </div>
+
         <form onSubmit={handleSearch} className="space-y-4 mb-8">
           <div className="flex flex-col gap-2">
             <label htmlFor="query" className="font-semibold">
@@ -66,20 +69,6 @@ const SearchPlayground: React.FC = () => {
               onChange={(e) => setQuery(e.target.value)}
               className="p-2 rounded border border-gray-600 bg-gray-800 text-white"
               placeholder="e.g. *, hallo, involved:alice@example.com"
-            />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label htmlFor="user" className="font-semibold">
-              User (optional)
-            </label>
-            <input
-              id="user"
-              type="text"
-              value={user}
-              onChange={(e) => setUser(e.target.value)}
-              className="p-2 rounded border border-gray-600 bg-gray-800 text-white"
-              placeholder="e.g. joepmeindertsma@gmail.com"
             />
           </div>
 

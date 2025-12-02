@@ -82,6 +82,16 @@ pub fn create_jwt(user_id: &str) -> Result<String, jsonwebtoken::errors::Error> 
     )
 }
 
+/// Helper to verify a JWT token
+pub fn verify_jwt(token: &str) -> Result<Claims, jsonwebtoken::errors::Error> {
+    let secret = env::var("JWT_SECRET").unwrap_or_else(|_| "secret".to_string());
+    let decoding_key = DecodingKey::from_secret(secret.as_bytes());
+    let validation = Validation::default();
+
+    let token_data = decode::<Claims>(token, &decoding_key, &validation)?;
+    Ok(token_data.claims)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

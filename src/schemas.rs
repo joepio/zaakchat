@@ -169,7 +169,8 @@ pub struct Comment {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 pub struct Planning {
     /// Naam van de planning (bijv. "Vergunningsprocedure", "Paspoort aanvraag proces")
-    pub title: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
     /// Uitleg over wat deze planning behelst en welke stappen doorlopen worden
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
@@ -181,7 +182,8 @@ pub struct Planning {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 pub struct PlanningMoment {
     /// Geplande of gerealiseerde datum (YYYY-MM-DD, bijv. "2024-01-15")
-    pub date: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub date: Option<String>,
     /// Naam van deze stap (bijv. "Intake gesprek", "Documentcheck", "Besluit gemeente")
     pub title: String,
     /// In welke fase dit moment zich bevindt

@@ -169,7 +169,10 @@ COPY --from=rust_builder /workspace/asyncapi.json ./asyncapi.json
 COPY --from=rust_builder /workspace/asyncapi-docs ./asyncapi-docs
 
 # Ensure the app binary is executable and owned by non-root user
-RUN chmod +x ./zaakchat && chown -R appuser:appuser /app
+# Also create the data directory and ensure it's owned by appuser
+RUN mkdir -p /app/data && \
+    chmod +x ./zaakchat && \
+    chown -R appuser:appuser /app
 
 USER appuser
 

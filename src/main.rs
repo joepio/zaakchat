@@ -79,6 +79,8 @@ async fn create_app() -> Router {
         .map(PathBuf::from)
         .unwrap_or_else(|_| PathBuf::from("./data"));
 
+    println!("Using data directory: {:?}", data_dir.canonicalize().unwrap_or_else(|_| data_dir.clone()));
+
     let storage = Storage::new(&data_dir)
         .await
         .expect("Failed to initialize storage");

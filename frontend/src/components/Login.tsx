@@ -28,15 +28,29 @@ const Login: React.FC = () => {
       className="min-h-screen flex items-center justify-center p-4"
       style={{
         backgroundColor: "var(--bg-primary)",
-        color: "var(--text-primary)",
       }}
     >
-      <div className="max-w-md w-full bg-gray-900 p-8 rounded-lg shadow-lg border border-gray-800">
-        <h1 className="text-2xl font-bold mb-6 text-center">ZaakChat Login</h1>
+      <div
+        className="max-w-md w-full p-8 rounded-lg shadow-lg"
+        style={{
+          backgroundColor: "var(--bg-secondary)",
+          border: "1px solid var(--border-primary)",
+        }}
+      >
+        <h1
+          className="text-2xl font-bold mb-6 text-center"
+          style={{ color: "var(--text-primary)" }}
+        >
+          ZaakChat Login
+        </h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium mb-2"
+              style={{ color: "var(--text-secondary)" }}
+            >
               Email Address
             </label>
             <input
@@ -45,13 +59,25 @@ const Login: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors"
+              className="w-full p-3 rounded border outline-none transition-colors"
+              style={{
+                backgroundColor: "var(--bg-primary)",
+                borderColor: "var(--border-primary)",
+                color: "var(--text-primary)",
+              }}
               placeholder="name@example.com"
             />
           </div>
 
           {error && (
-            <div className="text-red-400 text-sm text-center bg-red-900/20 p-2 rounded border border-red-900/50">
+            <div
+              className="text-sm text-center p-2 rounded border"
+              style={{
+                backgroundColor: "var(--error-bg)",
+                color: "var(--error-text)",
+                borderColor: "var(--error-border)",
+              }}
+            >
               {error}
             </div>
           )}

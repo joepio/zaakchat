@@ -19,8 +19,28 @@ const IssueTimeline: React.FC = () => {
   const { events, issues, sendEvent } = useSSE();
 
   const [showEditModal, setShowEditModal] = useState(false);
+  const [issueNotFound, setIssueNotFound] = useState(false);
 
   const issue = zaakId ? issues[zaakId] : null;
+
+  // Detect if issue doesn't exist after a reasonable timeout
+  // This is not the ideal solution, but since we rely on fetching all events
+  // before we can render the issue, we need to do this for now.
+  useEffect(() => {
+    if (!zaakId) return;
+
+    // Reset not found state when zaakId changes
+    setIssueNotFound(false);
+
+    // If issue is not found after 3 seconds, assume it doesn't exist
+    const timeout = setTimeout(() => {
+      if (!issues[zaakId]) {
+        setIssueNotFound(true);
+      }
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [zaakId, issues]);
 
   // Scroll to item if hash is present in URL
   useEffect(() => {
@@ -159,6 +179,23 @@ const IssueTimeline: React.FC = () => {
   }
 
   if (!issue) {
+    if (issueNotFound) {
+      return (
+        <div className="min-h-screen flex flex-col items-center justify-center text-center p-8 bg-bg-primary">
+          <h1 className="text-3xl text-text-primary mb-4">Zaak niet gevonden</h1>
+          <p className="text-text-secondary mb-6">
+            De zaak met ID "{zaakId}" bestaat niet of is verwijderd.
+          </p>
+          <Link
+            to="/"
+            className="text-link-primary hover:text-link-hover hover:underline font-medium"
+          >
+            ← Terug naar Zaken
+          </Link>
+        </div>
+      );
+    }
+
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center p-8 bg-bg-primary">
         <h1 className="text-3xl text-text-primary mb-4">Zaak laden...</h1>

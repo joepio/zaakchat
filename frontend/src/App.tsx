@@ -218,6 +218,7 @@ const ZakenDashboard: React.FC = () => {
           variant="primary"
           size="md"
           onClick={() => setIsCreateModalOpen(true)}
+          data-testid="create-issue-button"
         >
           + Nieuwe Zaak Aanmaken
         </Button>

@@ -217,33 +217,85 @@ const SchemaField: React.FC<SchemaFieldProps> = ({
     }
 
     // Handle arrays (general case)
-    if (fieldProps.type === "array") {
+    const isArrayType =
+      fieldProps.type === "array" ||
+      (Array.isArray(fieldProps.type) && fieldProps.type.includes("array"));
+
+    if (isArrayType) {
+      const arrayValue = Array.isArray(value) ? value : [];
+      const [newItemValue, setNewItemValue] = React.useState("");
+
+      const addItem = () => {
+        if (newItemValue.trim()) {
+          const newValue = [...arrayValue, newItemValue.trim()];
+          onChange(fieldName, newValue);
+          setNewItemValue("");
+        }
+      };
+
+      const removeItem = (index: number) => {
+        const newValue = arrayValue.filter((_: any, i: number) => i !== index);
+        onChange(fieldName, newValue);
+      };
+
+      const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          addItem();
+        }
+      };
+
       return (
-        <input
-          type="text"
-          id={fieldId}
-          value={Array.isArray(value) ? value.join(", ") : value}
-          onChange={(e) => {
-            const arrayValue = e.target.value
-              ? e.target.value
-                  .split(",")
-                  .map((s) => s.trim())
-                  .filter((s) => s.length > 0)
-              : [];
-            onChange(fieldName, arrayValue);
-          }}
-          placeholder={
-            fieldName === "mentions"
-              ? "Bijv. alice@gemeente.nl, bob@gemeente.nl"
-              : "Waarden gescheiden door komma's"
-          }
-          className="w-full px-3 py-2 border rounded-md text-sm"
-          style={{
-            backgroundColor: "var(--bg-primary)",
-            borderColor: "var(--border-primary)",
-            color: "var(--text-primary)",
-          }}
-        />
+        <div className="space-y-3">
+          {arrayValue.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {arrayValue.map((item: string, index: number) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 px-2 py-1 rounded-md border text-sm"
+                  style={{
+                    backgroundColor: "var(--bg-secondary)",
+                    borderColor: "var(--border-primary)",
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  <span>{item}</span>
+                  <button
+                    type="button"
+                    onClick={() => removeItem(index)}
+                    className="text-xs hover:text-red-400 transition-colors"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    ✕
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+          <div className="flex gap-2">
+            <input
+              type="text"
+              id={fieldId}
+              value={newItemValue}
+              onChange={(e) => setNewItemValue(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder={
+                fieldName === "mentions" || fieldName === "involved"
+                  ? "Bijv. naam@gemeente.nl"
+                  : "Nieuw item toevoegen..."
+              }
+              className="flex-1 px-3 py-2 border rounded-md text-sm"
+              style={{
+                backgroundColor: "var(--bg-primary)",
+                borderColor: "var(--border-primary)",
+                color: "var(--text-primary)",
+              }}
+            />
+            <Button variant="secondary" size="sm" onClick={addItem} type="button">
+              Toevoegen
+            </Button>
+          </div>
+        </div>
       );
     }
 

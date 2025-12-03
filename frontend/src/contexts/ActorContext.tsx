@@ -2,7 +2,6 @@ import React, {
   createContext,
   useContext,
   useEffect,
-  useMemo,
 } from "react";
 import type { ReactNode } from "react";
 import { useAuth } from "./AuthContext";
@@ -10,8 +9,6 @@ import { useAuth } from "./AuthContext";
 interface ActorContextType {
   actor: string;
   setActor: (actor: string) => void;
-  formattedUserName: string;
-  userInitial: string;
 }
 
 const ActorContext = createContext<ActorContextType | undefined>(undefined);
@@ -49,24 +46,9 @@ export const ActorProvider: React.FC<ActorProviderProps> = ({ children }) => {
     };
   }, [actor]);
 
-  const { formattedUserName, userInitial } = useMemo(() => {
-    if (!actor) {
-      return { formattedUserName: "Gebruiker", userInitial: "U" };
-    }
-    const userInitial = actor.charAt(0).toUpperCase();
-    const userName = actor.split("@")[0].replace(".", " ");
-    const formattedUserName = userName
-      .split(" ")
-      .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
-      .join(" ");
-    return { formattedUserName, userInitial };
-  }, [actor]);
-
   const value: ActorContextType = {
     actor,
     setActor,
-    formattedUserName,
-    userInitial,
   };
 
   return (

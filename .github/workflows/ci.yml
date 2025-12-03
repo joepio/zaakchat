@@ -38,14 +38,14 @@ jobs:
       - name: Install JS deps
         run: pnpm install
 
+      - name: Generate types and front-end build
+        run: pnpm generate-all && pnpm build
+
       - name: Build backend (release)
         run: cargo build --release
 
       - name: Install Playwright
         run: pnpm exec playwright install --with-deps chromium
-
-      - name: Generate types and front-end build
-        run: pnpm generate-all && pnpm build
 
       - name: Start backend server
         run: |

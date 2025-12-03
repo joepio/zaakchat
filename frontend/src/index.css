@@ -78,6 +78,7 @@
   --border-secondary: var(--ro-grijs-2);
   --border-hover: var(--ro-grijs-4);
   --border-focus: var(--ro-hemelblauw);
+  --error-border: var(--ro-rood);
 
   --link-primary: var(--ro-hemelblauw);
   --link-hover: var(--ro-donkerblauw);

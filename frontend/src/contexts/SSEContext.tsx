@@ -22,6 +22,8 @@ interface SSEContextType {
   issues: Record<string, IssueWithActivity>;
   items: Record<string, Record<string, unknown>>; // Unified item store for all item types
   connectionStatus: "connecting" | "connected" | "disconnected" | "error";
+  errorMessage: string | null;
+  retryConnection: () => void;
   sendEvent: (event: CloudEvent) => Promise<void>;
   completeTask: (taskId: string, issueId?: string) => Promise<void>;
 }
@@ -40,7 +42,10 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
   const [connectionStatus, setConnectionStatus] = useState<
     "connecting" | "connected" | "disconnected" | "error"
   >("connecting");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [retryCount, setRetryCount] = useState(0);
   const eventSourceRef = useRef<EventSource | null>(null);
+  const retryTimeoutRef = useRef<number | null>(null);
   const { actor } = useActor();
   const { token } = useAuth();
 
@@ -271,9 +276,30 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
         setConnectionStatus("connected");
       });
 
-      eventSource.addEventListener("error", () => {
+      eventSource.addEventListener("error", (event) => {
+        console.error("[SSE] Connection error:", event);
         setConnectionStatus("error");
-        setTimeout(() => setConnectionStatus("connecting"), 1000);
+
+        // Determine error message based on retry count
+        if (retryCount > 3) {
+          setErrorMessage(
+            "Unable to connect to server. Please check your connection and try again."
+          );
+        } else {
+          setErrorMessage("Connection lost. Reconnecting...");
+        }
+
+        // Exponential backoff: 1s, 2s, 4s, 8s, max 10s
+        const backoffDelay = Math.min(1000 * Math.pow(2, retryCount), 10000);
+
+        if (retryTimeoutRef.current) {
+          clearTimeout(retryTimeoutRef.current);
+        }
+
+        retryTimeoutRef.current = window.setTimeout(() => {
+          setConnectionStatus("connecting");
+          setRetryCount((prev) => prev + 1);
+        }, backoffDelay);
       });
 
       // Handle snapshot (initial full state)
@@ -394,6 +420,7 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
       }
 
       setConnectionStatus("connecting");
+      setErrorMessage(null);
 
       // Append token to URL if available
       const url = token ? `/events?token=${encodeURIComponent(token)}` : "/events";
@@ -410,14 +437,29 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
       if (eventSourceRef.current) {
         eventSourceRef.current.close();
       }
+      if (retryTimeoutRef.current) {
+        clearTimeout(retryTimeoutRef.current);
+      }
     };
   }, [setupEventSourceHandlers, token]);
+
+  // Manual retry function
+  const retryConnection = useCallback(() => {
+    setRetryCount(0);
+    setErrorMessage(null);
+    if (retryTimeoutRef.current) {
+      clearTimeout(retryTimeoutRef.current);
+    }
+    setConnectionStatus("connecting");
+  }, []);
 
   const contextValue: SSEContextType = {
     events,
     issues,
     items,
     connectionStatus,
+    errorMessage,
+    retryConnection,
     sendEvent,
     completeTask,
   };

@@ -19,6 +19,7 @@ import DeadlineBadge from "./components/DeadlineBadge";
 import PlanningStatusBadge from "./components/PlanningStatusBadge";
 import { shouldShowPlanningStatus } from "./utils/planningUtils";
 import Card from "./components/Card";
+import { ConnectionErrorBanner } from "./components/ConnectionErrorBanner";
 
 import type { CloudEvent, Issue } from "./types";
 import "./App.css";
@@ -254,6 +255,7 @@ const AuthenticatedApp: React.FC = () => {
     <ActorProvider>
       <SSEProvider>
         <SearchProvider>
+          <ConnectionErrorBanner />
           <Router>
             <ScrollToTop />
             <Routes>

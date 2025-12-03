@@ -13,7 +13,10 @@ interface PageHeaderProps {
 
 const PageHeader: React.FC<PageHeaderProps> = ({ currentZaakId }) => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const { userInitial } = useActor();
+  const { actor } = useActor();
+
+  // Derive user initial from actor email
+  const userInitial = actor ? actor.charAt(0).toUpperCase() : 'U';
 
   return (
     <>

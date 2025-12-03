@@ -110,6 +110,52 @@ pub struct EventsListParams {
     pub token: Option<String>,
 }
 
+/// Helper to get all topics (issue IDs) a user has access to using Tantivy search.
+/// This is much faster than checking access for each event individually (O(1) vs O(n) queries).
+async fn get_authorized_topics(
+    state: &AppState,
+    user_id: &str,
+) -> Result<std::collections::HashSet<String>, StatusCode> {
+    // Query Tantivy for all issues where the user is involved
+    // Tantivy supports nested JSON field queries: json_payload.involved:username
+    // Note: We search for the username part only (before @) because Tantivy's tokenizer
+    // splits on @ and other special characters
+    let username = user_id.split('@').next().unwrap_or(user_id);
+    let query = format!("json_payload.involved:{}", username);
+
+    eprintln!("[auth] Searching for authorized topics with query: {}", query);
+
+    // Search with a high limit (we want all issues the user has access to)
+    let results = state.search.search(&state.storage, &query, 10000)
+        .await
+        .map_err(|e| {
+            eprintln!("[auth] Tantivy search failed: {}", e);
+            StatusCode::INTERNAL_SERVER_ERROR
+        })?;
+
+    eprintln!("[auth] Tantivy returned {} results", results.len());
+
+    // Extract resource IDs for issues only (filter by type)
+    // SearchResult.id contains the resource ID for resource matches
+    let mut topic_set = std::collections::HashSet::new();
+    for result in results {
+        // Check if this is an issue by looking at the resource data
+        if let Some(resource) = &result.resource {
+            if let Some(involved) = resource.get("involved").and_then(|v| v.as_array()) {
+                // This is an issue (has involved array)
+                // Check if user is actually in the involved list
+                if involved.iter().any(|v| v.as_str() == Some(user_id)) {
+                    topic_set.insert(result.id.clone());
+                    eprintln!("[auth] Added authorized topic: {}", result.id);
+                }
+            }
+        }
+    }
+
+    eprintln!("[auth] Total authorized topics: {}", topic_set.len());
+    Ok(topic_set)
+}
+
 /// Helper to check if a user has access to a resource (and thus its events)
 async fn check_access(storage: &Storage, user_id: &str, resource_id: &str) -> bool {
     // 1. Try to fetch the resource
@@ -250,17 +296,27 @@ pub async fn get_or_stream_events(
             StatusCode::INTERNAL_SERVER_ERROR
         })?;
 
-    // Filter snapshot events
-    let mut authorized_snapshot = Vec::new();
-    for event in snapshot_events {
-        if let Some(subject) = &event.subject {
-            if check_access(&state.storage, &user_id, subject).await {
-                authorized_snapshot.push(event);
+    // OPTIMIZATION: Get all authorized topics at once using Tantivy (O(1) query)
+    // instead of checking each event individually (O(n) queries)
+    let authorized_topics = get_authorized_topics(&state, &user_id)
+        .await
+        .map_err(|e| {
+            eprintln!("Failed to get authorized topics: {}", e);
+            StatusCode::INTERNAL_SERVER_ERROR
+        })?;
+
+    // Filter snapshot events using in-memory HashSet lookup (very fast!)
+    let authorized_snapshot: Vec<_> = snapshot_events
+        .into_iter()
+        .filter(|event| {
+            if let Some(subject) = &event.subject {
+                authorized_topics.contains(subject)
+            } else {
+                // Allow system events without a subject
+                event.event_type == "system.reset"
             }
-        } else if event.event_type == "system.reset" {
-            authorized_snapshot.push(event);
-        }
-    }
+        })
+        .collect();
 
     let snapshot = serde_json::to_string(&authorized_snapshot).unwrap_or_else(|_| "[]".to_string());
 

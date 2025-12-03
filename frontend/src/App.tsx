@@ -233,7 +233,10 @@ const ZakenDashboard: React.FC = () => {
         maxWidth="600px"
       >
         <div style={{ backgroundColor: "var(--bg-secondary)" }}>
-          <CreateIssueForm onCreateIssue={handleCreateIssue} />
+          <CreateIssueForm
+            onCreateIssue={handleCreateIssue}
+            onCancel={() => setIsCreateModalOpen(false)}
+          />
         </div>
       </Modal>
       <InstallPrompt />

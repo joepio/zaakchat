@@ -74,6 +74,7 @@ export interface EventPluginWrapperProps {
   children: React.ReactNode;
   editFormComponent?: React.ReactNode;
   showEditButton?: boolean;
+  editModalTitle?: string;
   onDelete?: () => void;
   showDeleteButton?: boolean;
 }
@@ -85,6 +86,7 @@ export const EventPluginWrapper: React.FC<EventPluginWrapperProps> = ({
   children,
   editFormComponent,
   showEditButton = false,
+  editModalTitle = "Bewerken",
   onDelete,
   showDeleteButton = false,
 }) => {
@@ -176,6 +178,7 @@ export interface ResourcePluginWrapperProps {
   children: React.ReactNode; // The resource content
   editFormComponent?: React.ReactNode;
   showEditButton?: boolean;
+  editModalTitle?: string;
   onDelete?: () => void;
   showDeleteButton?: boolean;
 }
@@ -188,6 +191,7 @@ export const ResourcePluginWrapper: React.FC<ResourcePluginWrapperProps> = ({
   children,
   editFormComponent,
   showEditButton = false,
+  editModalTitle = "Bewerken",
   onDelete,
   showDeleteButton = false,
 }) => {
@@ -257,7 +261,7 @@ export const ResourcePluginWrapper: React.FC<ResourcePluginWrapperProps> = ({
         <Modal
           isOpen={showEditModal}
           onClose={() => setShowEditModal(false)}
-          title="Bewerken"
+          title={editModalTitle}
           maxWidth="600px"
         >
           {React.isValidElement(editFormComponent) &&

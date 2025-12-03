@@ -220,7 +220,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
         "This is a test issue created for commenting test.",
       );
       await page.goto(`/zaak/${issueId}`);
-      await waitForIssueDetailPage(page);
 
       // Submit a unique comment
       const testComment = `Test comment - ${generateTestId()}`;
@@ -251,7 +250,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
         "This is a test issue created for comment persistence test.",
       );
       await page.goto(`/zaak/${issueId}`);
-      await waitForIssueDetailPage(page);
 
       const testComment = `Persistent comment - ${generateTestId()}`;
 
@@ -290,7 +288,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
         "This is a test issue created for schema form access test.",
       );
       await page.goto(`/zaak/${issueId}`);
-      await waitForIssueDetailPage(page);
 
       // Should show "Item Toevoegen" section
       await expect(page.locator('text="Item Toevoegen"')).toBeVisible();
@@ -308,7 +305,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
         "This is a test issue created for task creation test.",
       );
       await page.goto(`/zaak/${issueId}`);
-      await waitForIssueDetailPage(page);
 
       // Scroll to the Item Toevoegen section
       await page.locator('text="Item Toevoegen"').scrollIntoViewIfNeeded();
@@ -318,24 +314,24 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
       await taskButton.click({ timeout: 10000 });
 
       // Should show task form fields - wait for form to appear after click
-      await expect(page.getByRole("textbox", { name: "Actie*" })).toBeVisible({
+      await expect(page.getByRole("textbox", { name: "Cta*" })).toBeVisible({
         timeout: 15000,
       });
       await expect(
-        page.getByRole("textbox", { name: "Beschrijving*" }),
+        page.getByRole("textbox", { name: "Description*" }),
       ).toBeVisible();
-      await expect(page.getByRole("textbox", { name: "URL*" })).toBeVisible();
+      await expect(page.getByRole("textbox", { name: "Url*" })).toBeVisible();
 
       // Fill out the task form
       const testCta = `Test Task ${generateTestId()}`;
       const testDescription = `Test task description ${generateTestId()}`;
 
-      await page.getByRole("textbox", { name: "Actie*" }).fill(testCta);
+      await page.getByRole("textbox", { name: "Cta*" }).fill(testCta);
       await page
-        .getByRole("textbox", { name: "Beschrijving*" })
+        .getByRole("textbox", { name: "Description*" })
         .fill(testDescription);
       await page
-        .getByRole("textbox", { name: "URL*" })
+        .getByRole("textbox", { name: "Url*" })
         .fill("https://example.com/todo");
 
       // Submit the form
@@ -355,7 +351,7 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
       } else {
         // Fallback: check if form was submitted (fields cleared or form closed)
         const ctaFieldVisible = await page
-          .getByRole("textbox", { name: "Actie*" })
+          .getByRole("textbox", { name: "Cta*" })
           .isVisible();
         const submitButtonVisible = await submitButton.isVisible();
 
@@ -372,7 +368,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
         "This is a test issue created for document creation and deletion test.",
       );
       await page.goto(`/zaak/${issueId}`);
-      await waitForIssueDetailPage(page);
 
       // Scroll to the Item Toevoegen section
       await page.locator('text="Item Toevoegen"').scrollIntoViewIfNeeded();
@@ -382,21 +377,21 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
       await documentButton.click({ timeout: 10000 });
 
       // Should show document form fields
-      await expect(page.getByRole("textbox", { name: "Titel*" })).toBeVisible({
+      await expect(page.getByRole("textbox", { name: "Title*" })).toBeVisible({
         timeout: 15000,
       });
-      await expect(page.getByRole("textbox", { name: "URL*" })).toBeVisible();
+      await expect(page.getByRole("textbox", { name: "Url*" })).toBeVisible();
       await expect(
-        page.getByRole("spinbutton", { name: "Grootte*" }),
+        page.getByRole("spinbutton", { name: "Size*" }),
       ).toBeVisible();
 
       // Fill out the document form
       const testTitle = `Test Document ${generateTestId()}`;
       const testUrl = `https://example.com/document-${generateTestId()}.pdf`;
 
-      await page.getByRole("textbox", { name: "Titel*" }).fill(testTitle);
-      await page.getByRole("textbox", { name: "URL*" }).fill(testUrl);
-      await page.getByRole("spinbutton", { name: "Grootte*" }).fill("1024");
+      await page.getByRole("textbox", { name: "Title*" }).fill(testTitle);
+      await page.getByRole("textbox", { name: "Url*" }).fill(testUrl);
+      await page.getByRole("spinbutton", { name: "Size*" }).fill("1024");
 
       // Submit the form
       const submitButton = page.locator('button:has-text("Item Aanmaken")');
@@ -483,7 +478,7 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
       await page.goto(`/zaak/${issueId}`);
       await waitForIssueDetailPage(page);
 
-      const testComment = `Real-time test - ${generateTestId()}`;
+      // Verify comment is still therestComment = `Real-time test - ${generateTestId()}`;
       await page
         .locator('textarea[placeholder="Voeg een opmerking toe..."]')
         .fill(testComment);
@@ -529,7 +524,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
         "This is a test issue created for comment search test.",
       );
       await page.goto(`/zaak/${issueId}`);
-      await waitForIssueDetailPage(page);
 
       // Add a unique comment
       const commentID = generateTestId();
@@ -585,14 +579,14 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
       page,
       context,
     }) => {
-      // Navigate to app root (uses baseURL from config)
-      await page.goto("/");
+      // Always test against backend origin so SW is available
+      const origin = serverUrl;
 
-      // Get the actual origin we are running on (could be 5173 or 8000)
-      const origin = new URL(page.url()).origin;
-
-      // Allow notifications for this origin
+      // Allow notifications
       await context.grantPermissions(["notifications"], { origin });
+
+      // Navigate to backend-served app (serves /sw.js)
+      await page.goto(origin + "/");
 
       // Ensure service worker API exists
       await page.waitForFunction(() => "serviceWorker" in navigator);
@@ -712,7 +706,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
         "This is a test issue created for form validation test.",
       );
       await page.goto(`/zaak/${issueId}`);
-      await waitForIssueDetailPage(page);
 
       // Scroll to Item Toevoegen section and select task type
       await page.locator('text="Item Toevoegen"').scrollIntoViewIfNeeded();
@@ -723,9 +716,9 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
       await submitButton.click();
 
       // Form should still be visible (validation should prevent submission)
-      await expect(page.getByRole("textbox", { name: "Actie*" })).toBeVisible();
+      await expect(page.getByRole("textbox", { name: "Cta*" })).toBeVisible();
       await expect(
-        page.getByRole("textbox", { name: "Beschrijving*" }),
+        page.getByRole("textbox", { name: "Description*" }),
       ).toBeVisible();
     });
 
@@ -735,7 +728,6 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
         "This is a test issue created for disabled states test.",
       );
       await page.goto(`/zaak/${issueId}`);
-      await waitForIssueDetailPage(page);
 
       // Comment form should start with disabled send button
       const commentTextarea = page.locator(

@@ -33,8 +33,23 @@ const SchemaField: React.FC<SchemaFieldProps> = ({
 
   if (!fieldProps) return null;
 
+  const LABEL_OVERRIDES: Record<string, string> = {
+    involved: "Betrokkenen",
+    assignee: "Behandelaar",
+    description: "Beschrijving",
+    title: "Titel",
+    resolution: "Besluit",
+    status: "Status",
+    url: "URL",
+    size: "Grootte",
+    deadline: "Deadline",
+    cta: "Actie",
+    content: "Inhoud",
+  };
+
   const fieldId = `${idPrefix}-${fieldName}`;
   const fieldLabel =
+    LABEL_OVERRIDES[fieldName] ||
     fieldProps.title ||
     fieldName.charAt(0).toUpperCase() + fieldName.slice(1).replace("_", " ");
   const fieldDescription = fieldProps.description;

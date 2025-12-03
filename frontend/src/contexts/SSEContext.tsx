@@ -305,45 +305,15 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
       // Handle snapshot (initial full state)
       eventSource.addEventListener("snapshot", (e) => {
         try {
-          const snapshotEvents = JSON.parse(e.data) as CloudEvent[];
+          const events = JSON.parse(e.data) as CloudEvent[];
 
-          // Debug: only log snapshot events that reference the specific resource id
-          const debugResourceId =
-            "comment-167c0bd3-85c2-45b0-9733-51a35e50ecbb";
-          try {
-            const matched = snapshotEvents.filter((ev) => {
-              const d = ev.data as any;
-              if (!d) return false;
-              // Check common JSONCommit shapes: resource_id, resource_data.id
-              if (d.resource_id && d.resource_id === debugResourceId)
-                return true;
-              if (
-                d.resource_data &&
-                d.resource_data.id &&
-                d.resource_data.id === debugResourceId
-              )
-                return true;
-              return false;
-            });
-            if (matched.length > 0) {
-              console.log(
-                "[SSE DEBUG] snapshot contains matching events for",
-                debugResourceId,
-                matched,
-              );
-            }
-          } catch (innerErr) {
-            // don't break snapshot processing because of debug logic
-            console.warn(
-              "[SSE DEBUG] error while checking snapshot for debug resource:",
-              innerErr,
-            );
-          }
-
-          setEvents(snapshotEvents);
-          processSnapshot(snapshotEvents);
+          setEvents(events);
+          processSnapshot(events);
+          setConnectionStatus("connected");
+          setErrorMessage(null);
         } catch (error) {
           console.error("Error processing snapshot:", error);
+          setErrorMessage("Failed to parse server data");
         }
       });
 
@@ -358,46 +328,8 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
             return;
           }
 
-          // Debug: log only if this delta references the specific resource id
-          const debugResourceId =
-            "comment-167c0bd3-85c2-45b0-9733-51a35e50ecbb";
-          try {
-            const d = cloudEvent.data as any;
-            if (d) {
-              if (d.resource_id && d.resource_id === debugResourceId) {
-                console.log(
-                  "[SSE DEBUG] delta matches resource_id:",
-                  debugResourceId,
-                  cloudEvent,
-                );
-              } else if (
-                d.resource_data &&
-                d.resource_data.id &&
-                d.resource_data.id === debugResourceId
-              ) {
-                console.log(
-                  "[SSE DEBUG] delta matches resource_data.id:",
-                  debugResourceId,
-                  cloudEvent,
-                );
-              } else if (
-                d.patch &&
-                d.resource_id &&
-                d.resource_id === debugResourceId
-              ) {
-                console.log(
-                  "[SSE DEBUG] delta patch for resource_id:",
-                  debugResourceId,
-                  cloudEvent,
-                );
-              }
-            }
-          } catch (innerErr) {
-            console.warn(
-              "[SSE DEBUG] error while checking delta for debug resource:",
-              innerErr,
-            );
-          }
+          // Debug: log all deltas
+          // console.log("[SSE DEBUG] Received delta:", cloudEvent);
 
           // Add to events list
           setEvents((prevEvents) => [...prevEvents, cloudEvent]);

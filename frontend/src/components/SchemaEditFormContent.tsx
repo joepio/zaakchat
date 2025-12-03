@@ -48,7 +48,8 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
   const [changedFields, setChangedFields] = useState<Set<string>>(new Set());
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [currentSchema, setCurrentSchema] = useState<Record<string, unknown> | null>(null);
+  const [currentSchema, setCurrentSchema] = useState<any>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Initialize form data when component mounts
   useEffect(() => {
@@ -60,10 +61,11 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
   // Load schema on mount
   useEffect(() => {
     const loadSchema = async () => {
+      // Capitalize the first letter to match backend schema names
+      const schemaName =
+        itemType.charAt(0).toUpperCase() + itemType.slice(1).toLowerCase();
+
       try {
-        // Capitalize the first letter to match backend schema names
-        const schemaName =
-          itemType.charAt(0).toUpperCase() + itemType.slice(1).toLowerCase();
         console.log(
           `Loading schema for item type: ${itemType} -> ${schemaName}`,
         );
@@ -71,7 +73,16 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
         console.log(`Loaded schema for ${schemaName}:`, schema);
         setCurrentSchema(schema);
       } catch (error) {
-        console.error("Error loading schema:", error);
+        console.error(`Error loading schema ${schemaName}:`, error);
+        // Fallback to lowercase if capitalized fails
+        try {
+          const lowerName = itemType.toLowerCase();
+          console.log(`Retrying with lowercase: ${lowerName}`);
+          const schema = await fetchSchema(lowerName as ItemType);
+          setCurrentSchema(schema);
+        } catch (retryError) {
+          console.error("Error loading schema (retry failed):", retryError);
+        }
       }
     };
 
@@ -83,6 +94,7 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
     if (!currentSchema || isSubmitting) return;
 
     setIsSubmitting(true);
+    setSubmitError(null); // Clear previous errors
     try {
       let event: CloudEvent;
 
@@ -136,7 +148,8 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
       await onSubmit(event);
       onCancel(); // Close the form after successful submission
     } catch (error) {
-      console.error("Error submitting item:", error);
+      console.error("Error submitting form:", error);
+      setSubmitError(error instanceof Error ? error.message : "Er is een fout opgetreden");
     } finally {
       setIsSubmitting(false);
     }
@@ -188,7 +201,20 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
     <form onSubmit={handleSubmit} className="space-y-4 relative">
       <InfoHelp variant="schemas" schemaUrl={schemaUrl} />
 
-      {currentSchema.properties &&
+      {submitError && (
+        <div
+          className="p-3 rounded-md text-sm mb-4"
+          style={{
+            backgroundColor: "var(--bg-error-subtle)",
+            color: "var(--text-error)",
+            border: "1px solid var(--border-error)",
+          }}
+        >
+          {submitError}
+        </div>
+      )}
+      {currentSchema &&
+        (currentSchema.properties &&
         typeof currentSchema.properties === "object" &&
         currentSchema.properties !== null
           ? Object.keys(currentSchema.properties as Record<string, unknown>)
@@ -221,7 +247,7 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
                   </div>
                 );
               })
-          : null}
+          : null)}
 
       <div className="flex justify-between pt-4">
         {!isCreateMode && (

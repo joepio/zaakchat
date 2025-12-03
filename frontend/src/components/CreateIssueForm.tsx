@@ -6,9 +6,10 @@ import { useActor } from "../contexts/ActorContext";
 
 interface CreateIssueFormProps {
   onCreateIssue: (event: CloudEvent) => Promise<void>;
+  onCancel: () => void;
 }
 
-const CreateIssueForm: React.FC<CreateIssueFormProps> = ({ onCreateIssue }) => {
+const CreateIssueForm: React.FC<CreateIssueFormProps> = ({ onCreateIssue, onCancel }) => {
   const navigate = useNavigate();
   const { actor } = useActor();
   const [error, setError] = useState<string>("");
@@ -38,11 +39,6 @@ const CreateIssueForm: React.FC<CreateIssueFormProps> = ({ onCreateIssue }) => {
     }
   };
 
-  const handleCancel = () => {
-    // Navigate back to home or previous page
-    navigate("/");
-  };
-
   // Pre-fill form with default values
   const initialData = {
     status: "open", // Default status for new issues
@@ -68,7 +64,7 @@ const CreateIssueForm: React.FC<CreateIssueFormProps> = ({ onCreateIssue }) => {
         itemType="issue"
         initialData={initialData}
         onSubmit={handleSubmit}
-        onCancel={handleCancel}
+        onCancel={onCancel}
         zaakId="" // Empty for new issues
         isCreateMode={true}
       />

@@ -5,6 +5,8 @@ test.describe("Involved User Flow", () => {
   test("should allow an involved user to access the issue and comment", async ({
     page,
   }) => {
+    page.on('console', msg => console.log(`BROWSER LOG: ${msg.text()}`));
+
     // 1. Login as primary user (User A)
     await login(page);
 
@@ -16,24 +18,18 @@ test.describe("Involved User Flow", () => {
     const issueTitle = `Involved Test Issue ${uniqueId}`;
     const involvedEmail = `involved-${uniqueId}@example.com`;
 
-    // Select Issue type (if not already selected or if it's a generic form)
     // Assuming the create form defaults to Issue or has a selector.
     // Based on SchemaForm.tsx, we might need to select "Task" or "Comment" but here we want "Issue".
     // Wait, SchemaForm filters out "Issue". We need to use the dedicated "Create Issue" button/form.
     // The "create-issue-button" likely opens CreateIssueForm.tsx.
 
-    await page.fill('input[name="title"]', issueTitle);
-    await page.fill(
-      'input[name="description"]',
+    await page.getByLabel("Titel").fill(issueTitle);
+    await page.getByLabel("Beschrijving").fill(
       "Test description for involved user flow",
     );
 
-    // Add involved person
-    // The involved field is an array. We need to type and press Enter or click Add.
-    // Based on my recent change to SchemaField.tsx:
-    const involvedInput = page.locator(
-      'input[placeholder="Bijv. naam@gemeente.nl"]',
-    );
+    // 3. Add involved person
+    const involvedInput = page.getByLabel("Betrokkenen");
     await involvedInput.fill(involvedEmail);
     await involvedInput.press("Enter");
 

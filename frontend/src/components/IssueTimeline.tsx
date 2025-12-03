@@ -179,6 +179,7 @@ const IssueTimeline: React.FC = () => {
   }
 
   if (!issue) {
+    console.log(`[IssueTimeline] No issue found for id: ${zaakId}. issueNotFound: ${issueNotFound}`);
     if (issueNotFound) {
       return (
         <div className="min-h-screen flex flex-col items-center justify-center text-center p-8 bg-bg-primary">
@@ -208,6 +209,8 @@ const IssueTimeline: React.FC = () => {
       </div>
     );
   }
+
+  console.log(`[IssueTimeline] Rendering issue: ${issue.id}`);
 
   return (
     <div

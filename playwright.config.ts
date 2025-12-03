@@ -71,13 +71,14 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'cargo run',
-  //   url: 'http://localhost:8000',
-  //   reuseExistingServer: !process.env.CI,
-  //   env: {
-  //     // Disable auto-events for deterministic testing
-  //     // Don't set DEMO environment variable
-  //   },
-  // },
+  /* Run your local dev server before starting the tests */
+  webServer: {
+    command: 'cargo run',
+    url: 'http://localhost:8000',
+    reuseExistingServer: !process.env.CI,
+    env: {
+      // Disable auto-events for deterministic testing
+      // Don't set DEMO environment variable
+    },
+  },
 });

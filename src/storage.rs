@@ -55,7 +55,7 @@ pub struct Storage {
 
 impl Storage {
     /// Create a new storage instance
-    pub async fn new(data_dir: &Path) -> Result<Self, Box<dyn std::error::Error>> {
+    pub async fn new(data_dir: &Path) -> Result<Self, Box<dyn std::error::Error + Send + Sync>> {
         // Create directories
         let db_path = data_dir.join("data.redb");
         let index_path = data_dir.join("search_index");
@@ -92,7 +92,7 @@ impl Storage {
     pub async fn store_event(
         &self,
         event: &CloudEvent,
-    ) -> Result<String, Box<dyn std::error::Error>> {
+    ) -> Result<String, Box<dyn std::error::Error + Send + Sync>> {
         // Diagnostic: log attempt to store event
         println!(
             "[storage] attempt store_event: id={} type={} source={}",
@@ -217,7 +217,7 @@ impl Storage {
         id: &str,
         resource_type: &str,
         data: &JsonValue,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         // Diagnostic: log attempt to store resource
         println!(
             "[storage] attempt store_resource: id={} type={}",
@@ -252,7 +252,7 @@ impl Storage {
     pub async fn get_resource(
         &self,
         id: &str,
-    ) -> Result<Option<JsonValue>, Box<dyn std::error::Error>> {
+    ) -> Result<Option<JsonValue>, Box<dyn std::error::Error + Send + Sync>> {
         let read_txn = self.db.begin_read()?;
         let table = read_txn.open_table(RESOURCES_TABLE)?;
 
@@ -269,7 +269,7 @@ impl Storage {
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, id: &str) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn delete_resource(&self, id: &str) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         let write_txn = self.db.begin_write()?;
         {
             let mut table = write_txn.open_table(RESOURCES_TABLE)?;
@@ -322,7 +322,7 @@ impl Storage {
         &self,
         offset: usize,
         limit: usize,
-    ) -> Result<Vec<(String, JsonValue)>, Box<dyn std::error::Error>> {
+    ) -> Result<Vec<(String, JsonValue)>, Box<dyn std::error::Error + Send + Sync>> {
         let mut results = Vec::new();
 
         let read_txn = self.db.begin_read()?;
@@ -358,7 +358,7 @@ impl Storage {
         &self,
         after_seq: Option<String>,
         limit: usize,
-    ) -> Result<Vec<CloudEvent>, Box<dyn std::error::Error>> {
+    ) -> Result<Vec<CloudEvent>, Box<dyn std::error::Error + Send + Sync>> {
         // Read events by sequence lexicographic order from EVENTS_BY_SEQ_TABLE (ensures server processing order).
         let read_txn = self.db.begin_read()?;
         let table = read_txn.open_table(EVENTS_BY_SEQ_TABLE)?;
@@ -411,7 +411,7 @@ impl Storage {
         &self,
         offset: usize,
         limit: usize,
-    ) -> Result<Vec<CloudEvent>, Box<dyn std::error::Error>> {
+    ) -> Result<Vec<CloudEvent>, Box<dyn std::error::Error + Send + Sync>> {
         // If offset is zero, simply return first `limit` events
         if offset == 0 {
             return self.list_events_after(None, limit).await;

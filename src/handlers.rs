@@ -177,6 +177,7 @@ async fn check_access(storage: &Storage, user_id: &str, resource_id: &str) -> bo
                 return true;
             }
         }
+        eprintln!("[auth] Access denied for user {} to resource {}. Involved: {:?}", user_id, resource_id, involved);
         return false;
     }
 
@@ -388,6 +389,7 @@ pub async fn handle_event(
 
     // Schedule background indexing of the event (search subsystem).
     // Serialize once and pass the payload string to avoid cloning the entire CloudEvent.
+    // Index the event synchronously
     {
         let search = state.search.clone();
         // Serialize CloudEvent once (no snippet content to avoid extra allocations)
@@ -395,28 +397,36 @@ pub async fn handle_event(
         let id = event.id.clone();
         let doc_type = event.event_type.clone();
         // Do not parse timestamp here; pass None to the search indexer (it can set now)
-        tokio::spawn(async move {
-            if let Err(e) = search
-                .add_event_payload(&id, &doc_type, "", &payload, None)
-                .await
-            {
-                eprintln!(
-                    "[handlers][bg] failed adding event payload to search index id={} err={}",
-                    id, e
-                );
-            } else {
-                println!(
-                    "[handlers][bg] scheduled event payload added to search index id={}",
-                    id
-                );
-            }
-        });
+
+        if let Err(e) = search
+            .add_event_payload(&id, &doc_type, "", &payload, None)
+            .await
+        {
+            eprintln!(
+                "[handlers] failed adding event payload to search index id={} err={}",
+                id, e
+            );
+        } else {
+            println!(
+                "[handlers] event payload added to search index id={}",
+                id
+            );
+        }
     }
 
     // Process the event to update resources
     if let Err(e) = process_event(&state, &event).await {
         eprintln!("Failed to process event: {}", e);
         return Err(StatusCode::INTERNAL_SERVER_ERROR);
+    }
+
+    // Force a commit to ensure the event is searchable immediately
+    // This is critical for the "create then view" flow where the user expects
+    // the new item to be available in the snapshot immediately.
+    if let Err(e) = state.search.commit().await {
+        eprintln!("[handlers] failed to commit search index: {}", e);
+    } else {
+        println!("[handlers] search index committed");
     }
 
     // Broadcast the event (with attached sequence) to SSE subscribers
@@ -429,7 +439,7 @@ pub async fn handle_event(
 pub async fn process_event(
     state: &AppState,
     event: &CloudEvent,
-) -> Result<(), Box<dyn std::error::Error>> {
+) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     // Extract data from the event
     let data = match &event.data {
         Some(d) => d,
@@ -569,28 +579,27 @@ pub async fn process_event(
             // Serialize payload once (avoid creating an additional textual snippet)
             let payload = serde_json::to_string(&data_clone).unwrap_or_default();
 
-            tokio::spawn(async move {
-                if let Err(err) = search
-                    .add_resource_payload(
-                        &resource_id,
-                        &resource_type_clone,
-                        "",
-                        &payload,
-                        timestamp_opt,
-                    )
-                    .await
-                {
-                    eprintln!(
-                        "[handlers][bg] failed adding resource payload to search index id={} err={}",
-                        resource_id, err
-                    );
-                } else {
-                    println!(
-                        "[handlers][bg] scheduled resource payload added to search index id={}",
-                        resource_id
-                    );
-                }
-            });
+            // Index the resource synchronously
+            if let Err(err) = search
+                .add_resource_payload(
+                    &resource_id,
+                    &resource_type_clone,
+                    "",
+                    &payload,
+                    timestamp_opt,
+                )
+                .await
+            {
+                eprintln!(
+                    "[handlers] failed adding resource payload to search index id={} err={}",
+                    resource_id, err
+                );
+            } else {
+                println!(
+                    "[handlers] resource payload added to search index id={}",
+                    resource_id
+                );
+            }
         }
     } else {
         // For other event types, you might want to handle them differently
@@ -613,22 +622,21 @@ pub async fn process_event(
             let data_clone = data.clone();
             let payload = serde_json::to_string(&data_clone).unwrap_or_default();
             let search = state.search.clone();
-            tokio::spawn(async move {
-                if let Err(err) = search
-                    .add_resource_payload(&id_clone, &rt_clone, "", &payload, None)
-                    .await
-                {
-                    eprintln!(
-                        "[handlers][bg] failed adding non-json-commit resource payload id={} err={}",
-                        id_clone, err
-                    );
-                } else {
-                    println!(
-                        "[handlers][bg] scheduled non-json-commit resource payload added to search index id={}",
-                        id_clone
-                    );
-                }
-            });
+            // Index resource synchronously
+            if let Err(err) = search
+                .add_resource_payload(&id_clone, &rt_clone, "", &payload, None)
+                .await
+            {
+                eprintln!(
+                    "[handlers] failed adding non-json-commit resource payload id={} err={}",
+                    id_clone, err
+                );
+            } else {
+                println!(
+                    "[handlers] non-json-commit resource payload added to search index id={}",
+                    id_clone
+                );
+            }
         } else {
             println!(
                 "[handlers] non-json-commit event without subject: event.id={}",
@@ -924,5 +932,34 @@ pub async fn login_handler(
     match crate::auth::create_jwt(&payload.email) {
         Ok(token) => Ok(Json(LoginResponse { token })),
         Err(_) => Err(StatusCode::INTERNAL_SERVER_ERROR),
+    }
+}
+
+#[cfg(test)]
+mod tests_access {
+    use super::*;
+    use tempfile::TempDir;
+
+    #[tokio::test]
+    async fn test_check_access_with_hyphenated_email() {
+        let temp_dir = TempDir::new().unwrap();
+        let storage = Storage::new(temp_dir.path()).await.unwrap();
+
+        let issue_id = "issue-1";
+        let user_id = "test-user@example.com";
+
+        let issue_data = serde_json::json!({
+            "title": "Test Issue",
+            "involved": [user_id]
+        });
+
+        storage.store_resource(issue_id, "issue", &issue_data).await.unwrap();
+
+        let has_access = check_access(&storage, user_id, issue_id).await;
+        assert!(has_access, "User should have access to the issue");
+
+        let other_user = "other@example.com";
+        let has_access_other = check_access(&storage, other_user, issue_id).await;
+        assert!(!has_access_other, "Other user should NOT have access");
     }
 }

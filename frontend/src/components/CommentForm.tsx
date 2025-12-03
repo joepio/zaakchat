@@ -12,10 +12,19 @@ interface CommentFormProps {
 }
 
 const CommentForm: React.FC<CommentFormProps> = ({ zaakId, onSubmit }) => {
-  const { actor, userInitial } = useActor();
+  const { actor } = useActor();
+
+  // Derive user initial from actor email
+  const userInitial = actor ? actor.charAt(0).toUpperCase() : 'U';
+
   const [commentText, setCommentText] = useState("");
   const [isSubmittingComment, setIsSubmittingComment] = useState(false);
   const [commentError, setCommentError] = useState<string | null>(null);
+  const [submitOnEnter, setSubmitOnEnter] = useState(() => {
+    // Load preference from localStorage, default to true
+    const saved = localStorage.getItem('commentSubmitOnEnter');
+    return saved !== null ? saved === 'true' : true;
+  });
 
   const handleCommentSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,6 +58,21 @@ const CommentForm: React.FC<CommentFormProps> = ({ zaakId, onSubmit }) => {
     } finally {
       setIsSubmittingComment(false);
     }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    // Submit on Ctrl+Enter or Cmd+Enter if enabled
+    if (submitOnEnter && e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      if (commentText.trim() && !isSubmittingComment) {
+        handleCommentSubmit(e as unknown as React.FormEvent);
+      }
+    }
+  };
+
+  const handleSubmitOnEnterChange = (checked: boolean) => {
+    setSubmitOnEnter(checked);
+    localStorage.setItem('commentSubmitOnEnter', String(checked));
   };
 
   return (
@@ -99,6 +123,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ zaakId, onSubmit }) => {
                 placeholder="Voeg een opmerking toe..."
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
+                onKeyDown={handleKeyDown}
                 onFocus={(e) => {
                   e.currentTarget.style.borderColor = "var(--border-focus)";
                 }}
@@ -109,7 +134,16 @@ const CommentForm: React.FC<CommentFormProps> = ({ zaakId, onSubmit }) => {
                 disabled={isSubmittingComment}
               />
 
-              <div className="flex justify-end">
+              <div className="flex justify-between items-center">
+                <label className="flex items-center gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
+                  <input
+                    type="checkbox"
+                    checked={submitOnEnter}
+                    onChange={(e) => handleSubmitOnEnterChange(e.target.checked)}
+                    className="cursor-pointer"
+                  />
+                  <span>Druk op Ctrl+Enter om te verzenden</span>
+                </label>
                 <Button
                   type="submit"
                   variant="primary"

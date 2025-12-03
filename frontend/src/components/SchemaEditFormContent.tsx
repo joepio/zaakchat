@@ -42,6 +42,7 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
 }) => {
   const { actor } = useActor();
   const [formData, setFormData] = useState<Record<string, unknown>>({});
+  const [changedFields, setChangedFields] = useState<Set<string>>(new Set());
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentSchema, setCurrentSchema] = useState<Record<string, unknown> | null>(null);
@@ -49,6 +50,7 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
   // Initialize form data when component mounts
   useEffect(() => {
     setFormData(initialData);
+    setChangedFields(new Set()); // Reset changed fields when initialData changes
   }, [initialData]);
 
   // Load schema on mount
@@ -78,10 +80,18 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
 
     setIsSubmitting(true);
     try {
+      // Only send the fields that were actually changed
+      const patch: Record<string, unknown> = {};
+      changedFields.forEach(fieldName => {
+        patch[fieldName] = formData[fieldName];
+      });
+
+      console.log('Submitting patch with only changed fields:', patch);
+
       const event = createItemUpdatedEvent(
         itemType as ItemType,
         itemId,
-        formData,
+        patch,
         { actor, subject: zaakId }
       );
       await onSubmit(event);
@@ -118,6 +128,8 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
       ...prev,
       [fieldName]: value,
     }));
+    // Track that this field has been changed
+    setChangedFields(prev => new Set(prev).add(fieldName));
   };
 
   if (!currentSchema) {
@@ -143,6 +155,13 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
                   Object.prototype.hasOwnProperty.call(initialData, fieldName) ||
                   Object.prototype.hasOwnProperty.call(currentSchema.properties, fieldName)
                 );
+              })
+              .sort((a, b) => {
+                // Always show 'title' first
+                if (a === 'title') return -1;
+                if (b === 'title') return 1;
+                // Then sort alphabetically
+                return a.localeCompare(b);
               })
               .map((fieldName) => {
                 return (

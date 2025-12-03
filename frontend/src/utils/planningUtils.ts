@@ -149,9 +149,11 @@ export const isPlanningActive = (planning: ExtendedPlanning): boolean => {
 export const sortPlanningMoments = (
   moments: PlanningMoment[]
 ): PlanningMoment[] => {
-  return [...moments].sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-  );
+  return [...moments]
+    .filter((moment) => moment.date != null) // Filter out moments without dates
+    .sort(
+      (a, b) => new Date(a.date!).getTime() - new Date(b.date!).getTime()
+    );
 };
 
 /**

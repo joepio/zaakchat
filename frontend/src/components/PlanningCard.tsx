@@ -120,10 +120,10 @@ const PlanningCard: React.FC<PlanningCardProps> = ({ planning, zaakId }) => {
                     </div>
                   </div>
                   <div className="text-xs sm:text-sm lg:text-sm xl:text-base text-text-tertiary whitespace-nowrap">
-                    {new Date(moment.date).toLocaleDateString("nl-NL", {
+                    {moment.date ? new Date(moment.date).toLocaleDateString("nl-NL", {
                       day: "numeric",
                       month: "short",
-                    })}
+                    }) : "-"}
                   </div>
                 </div>
               </div>

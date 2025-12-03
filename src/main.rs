@@ -1,5 +1,5 @@
 use zaakchat::search::SearchIndex;
-use zaakchat::{handlers, issues, schemas};
+use zaakchat::{handlers, schemas};
 pub mod auth;
 
 use futures_util::stream::{self, Stream};
@@ -15,11 +15,8 @@ use axum::{
     routing::{delete, get, post},
     serve, Json, Router,
 };
-use std::{convert::Infallible, sync::Arc, time::Duration};
-use tokio::{
-    sync::{broadcast, RwLock},
-    time::sleep,
-};
+use std::{convert::Infallible, sync::Arc};
+use tokio::sync::{broadcast, RwLock};
 use tokio_stream::wrappers::BroadcastStream;
 use tokio_stream::StreamExt;
 use tower_http::services::ServeDir;
@@ -106,67 +103,6 @@ async fn create_app() -> Router {
         push_subscriptions: Arc::new(RwLock::new(Vec::new())),
     };
 
-    // Initialize with demo data if storage is empty
-    initialize_demo_data(&state).await;
-
-    // Optional: emit demo events every 10s
-    if std::env::var("DEMO").is_ok() {
-        let demo_state = state.clone();
-        tokio::spawn(async move {
-            loop {
-                sleep(Duration::from_secs(10)).await;
-
-                // Get current issues from storage
-                let resources = demo_state
-                    .storage
-                    .list_resources(0, 100)
-                    .await
-                    .unwrap_or_default();
-
-                let mut issues_map = std::collections::HashMap::new();
-                for (id, data) in resources {
-                    if data.get("title").is_some() {
-                        // Likely an issue
-                        issues_map.insert(id, data);
-                    }
-                }
-
-                // Generate a random demo event
-                if let Some(demo_event_json) = issues::generate_demo_event(&issues_map) {
-                    if let Some(cloud_event) = issues::json_to_cloudevent(&demo_event_json) {
-                        // Store via the proper handler
-                        let _ = handlers::handle_event(
-                            State(handlers::AppState {
-                                storage: demo_state.storage.clone(),
-                                search: demo_state.search.clone(),
-                                tx: demo_state.tx.clone(),
-                                push_subscriptions: demo_state.push_subscriptions.clone(),
-                            }),
-                            Json(cloud_event),
-                        )
-                        .await;
-                    }
-                }
-            }
-        });
-
-        // Reset all app state every 5 minutes
-        let reset_state = state.clone();
-        tokio::spawn(async move {
-            loop {
-                sleep(Duration::from_secs(300)).await;
-
-                let reset_time = chrono::Utc::now().format("%Y-%m-%d %H:%M:%S UTC");
-                println!("🔄 [{}] Resetting all app state...", reset_time);
-
-                initialize_demo_data(&reset_state).await;
-
-                let complete_time = chrono::Utc::now().format("%Y-%m-%d %H:%M:%S UTC");
-                println!("✅ [{}] App state reset complete", complete_time);
-            }
-        });
-    }
-
     // Create handler state
     let handler_state = handlers::AppState {
         storage: state.storage.clone(),
@@ -214,85 +150,7 @@ async fn create_app() -> Router {
     app
 }
 
-/// Initialize demo data in storage
-async fn initialize_demo_data(state: &AppState) {
-    // Check if we already have events
-    if let Ok(events) = state.storage.list_events(0, 1).await {
-        if !events.is_empty() {
-            println!("Storage already contains events, skipping initialization");
-            return;
-        }
-    }
 
-    let (initial_events, _) = issues::generate_initial_data();
-
-    for event_json in initial_events {
-        if let Some(mut cloud_event) = issues::json_to_cloudevent(&event_json) {
-            // Store the event (persist to the DB) and obtain assigned sequence key
-            let seq_key = match state.storage.store_event(&cloud_event).await {
-                Ok(s) => s,
-                Err(e) => {
-                    eprintln!("Failed to store initial event: {}", e);
-                    continue;
-                }
-            };
-
-            // Attach the assigned sequence to the CloudEvent so downstream processing and clients
-            // can rely on the server-assigned ordering.
-            cloud_event.sequence = Some(seq_key.clone());
-
-            // Schedule background indexing of the seed event via the search subsystem.
-            // Serialize the CloudEvent once and pass the payload to the search indexer to avoid
-            // cloning heavy structures per task.
-            {
-                let search = state.search.clone();
-                let id = cloud_event.id.clone();
-                let doc_type = cloud_event.event_type.clone();
-                let payload = serde_json::to_string(&cloud_event).unwrap_or_default();
-                tokio::spawn(async move {
-                    if let Err(e) = search
-                        .add_event_payload(&id, &doc_type, "", &payload, None)
-                        .await
-                    {
-                        eprintln!(
-                            "[init][bg] failed adding seed event to search index id={} err={}",
-                            id, e
-                        );
-                    } else {
-                        println!(
-                            "[init][bg] scheduled seed event added to search index id={}",
-                            id
-                        );
-                    }
-                });
-            }
-
-            // Build a handlers::AppState to reuse the same processing logic
-            // This ensures resources are created/updated using the same code path.
-            let handlers_state = handlers::AppState {
-                storage: state.storage.clone(),
-                search: state.search.clone(),
-                tx: state.tx.clone(),
-                push_subscriptions: state.push_subscriptions.clone(),
-            };
-
-            // Process the event to create/update resources using the handler logic.
-            // Log any error but continue with the remaining initial events.
-            if let Err(e) = handlers::process_event(&handlers_state, &cloud_event).await {
-                eprintln!("Failed to process initial event into resources: {}", e);
-            }
-        }
-    }
-
-    // After seeding all initial events, ensure the search index is committed so that
-    // subsequent queries (and the initial snapshot) can see the indexed payloads.
-    // This is important for deterministic behavior in tests and for initial front-end load.
-    if let Err(e) = state.search.commit().await {
-        eprintln!("[init] failed to commit search index after seeding: {}", e);
-    } else {
-        println!("[init] committed search index after seeding");
-    }
-}
 
 /* The helper `extract_resource_type` was removed from `main.rs` because resource-type
 detection is handled centrally in the handlers module. Keeping duplicate helpers
@@ -328,14 +186,17 @@ async fn sse_handler(
 async fn reset_state_handler(
     State(state): State<handlers::AppState>,
 ) -> Result<Json<&'static str>, StatusCode> {
-    initialize_demo_data(&AppState {
-        storage: state.storage.clone(),
-        search: state.search.clone(),
-        tx: state.tx.clone(),
-        base_url: "http://localhost:8000".to_string(),
-        push_subscriptions: Arc::new(RwLock::new(Vec::new())),
-    })
-    .await;
+    // Clear storage
+    if let Err(e) = state.storage.clear().await {
+        eprintln!("Failed to clear storage: {}", e);
+        return Err(StatusCode::INTERNAL_SERVER_ERROR);
+    }
+
+    // Clear search index
+    if let Err(e) = state.search.clear().await {
+        eprintln!("Failed to clear search index: {}", e);
+        return Err(StatusCode::INTERNAL_SERVER_ERROR);
+    }
 
     Ok(Json("ok"))
 }

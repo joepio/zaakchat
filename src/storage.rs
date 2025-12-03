@@ -283,6 +283,35 @@ impl Storage {
         Ok(())
     }
 
+    /// Clear all data from storage (events, resources, and metadata)
+    pub async fn clear(&self) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+        let write_txn = self.db.begin_write()?;
+        {
+            // Clear events table
+            let mut events_table = write_txn.open_table(EVENTS_BY_SEQ_TABLE)?;
+            // Collect keys first to avoid iterator invalidation issues
+            let keys: Vec<String> = events_table.iter()?.map(|r| r.map(|(k, _)| k.value().to_string())).collect::<Result<_, _>>()?;
+            for key in keys {
+                events_table.remove(key.as_str())?;
+            }
+
+            // Clear resources table
+            let mut resources_table = write_txn.open_table(RESOURCES_TABLE)?;
+            let keys: Vec<String> = resources_table.iter()?.map(|r| r.map(|(k, _)| k.value().to_string())).collect::<Result<_, _>>()?;
+            for key in keys {
+                resources_table.remove(key.as_str())?;
+            }
+
+            // Reset meta table (sequence counter)
+            let mut meta_table = write_txn.open_table(META_TABLE)?;
+            meta_table.remove("last_seq")?;
+        }
+        write_txn.commit()?;
+
+        println!("[storage] cleared all data");
+        Ok(())
+    }
+
     // Note: indexing is performed asynchronously by background tasks and commits are batched periodically.
 
     /// Search/index responsibilities have been moved to `src/search.rs`.

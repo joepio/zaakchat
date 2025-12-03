@@ -413,6 +413,15 @@ impl SearchIndex {
             .map_err(|e| Box::new(e) as Box<dyn Error + Send + Sync>)
     }
 
+    /// Clear all documents from the index
+    pub async fn clear(&self) -> Result<(), Box<dyn Error + Send + Sync>> {
+        let mut writer = self.writer.write().await;
+        writer.delete_all_documents()?;
+        writer.commit()?;
+        println!("[search] cleared all documents");
+        Ok(())
+    }
+
     pub fn index_path(&self) -> Option<PathBuf> {
         // Tantivy's Index does not reliably expose its on-disk path in a stable cross-platform API.
         // Return None for now; callers that need the path can track it externally.

@@ -3278,7 +3278,6 @@ dependencies = [
  "base64 0.22.1",
  "bincode",
  "chrono",
- "fastrand 2.3.0",
  "futures-util",
  "jsonwebtoken",
  "redb",

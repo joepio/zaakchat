@@ -110,6 +110,8 @@ function generateTestId(): string {
 }
 
 test.describe("SSE Demo Application - Comprehensive Tests", () => {
+  test.describe.configure({ mode: 'serial' });
+
   test.beforeAll(async () => {
     await resetServerState();
   });
@@ -122,6 +124,10 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
 
   test.describe("Home Page - Issues List", () => {
     test("renders initial issues on the home page", async ({ page }) => {
+      // Create an issue first
+      await createNewIssue("Initial Issue", "Description");
+      await page.reload();
+
       // Should have issues displayed
       const issues = page.locator(".zaak-item-hover");
       await expect(issues.first()).toBeVisible();
@@ -132,33 +138,67 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
       await expect(firstIssue.locator('a[href*="/zaak/"]')).toBeVisible(); // link
     });
 
-    test("shows task names as static text on home page (not buttons)", async ({
+    test("shows task names as buttons on home page", async ({
       page,
     }) => {
+      // Create an issue first
+      const issueId = await createNewIssue("Task Issue", "Description");
+
+      // Create a task via API
+      const requestContext = await request.newContext();
+      const token = await getAuthToken(requestContext);
+
+      const taskText = "Locatie inspectie";
+
+      const event = {
+        specversion: "1.0",
+        id: `event-${generateTestId()}`,
+        source: "test-runner",
+        type: "json.commit",
+        subject: issueId,
+        time: new Date().toISOString(),
+        datacontenttype: "application/json",
+        data: {
+          schema: `${serverUrl}/schemas/Task`,
+          resource_id: `task-${generateTestId()}`,
+          resource_data: {
+            cta: taskText,
+            description: "Test task",
+            url: "/test",
+            status: "open"
+          },
+        },
+      };
+
+      await requestContext.post(`${serverUrl}/events`, {
+        headers: { Authorization: `Bearer ${token}` },
+        data: event,
+      });
+
+      await page.reload();
       await page.waitForSelector(".zaak-item-hover", { timeout: 10000 });
 
-      // Task names should appear as static text, not buttons
-      const taskTexts = [
-        "Locatie inspectie",
-        "Gegevens verifiëren",
-        "Documenten controleren",
-      ];
+      // Task name should appear as button
+      const taskElement = page.locator(`text="${taskText}"`).first();
+      // Wait for element to appear
+      await expect(taskElement).toBeVisible({ timeout: 10000 });
 
-      for (const taskText of taskTexts) {
-        const taskElement = page.locator(`text="${taskText}"`).first();
-        if (await taskElement.isVisible()) {
-          // Should be static text, not a button
-          await expect(taskElement).toBeVisible();
-          // Verify it's not a clickable button
-          const isInButton = await taskElement.evaluate(
-            (el) => el.closest("button") !== null,
-          );
-          expect(isInButton).toBe(false);
-        }
+      if (await taskElement.isVisible()) {
+        // Should be a button
+        await expect(taskElement).toBeVisible();
+        // Verify it IS a clickable button
+        const isInButton = await taskElement.evaluate(
+          (el) => el.closest("button") !== null,
+        );
+        expect(isInButton).toBe(true);
       }
     });
 
     test("can navigate to issue detail page", async ({ page }) => {
+      // Create an issue first
+      await createNewIssue("Nav Issue", "Description");
+      await page.reload();
+
       await page.waitForSelector(".zaak-item-hover", { timeout: 10000 });
 
       // Click on an issue
@@ -451,6 +491,10 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
 
   test.describe("Navigation and Real-time Updates", () => {
     test("can navigate between home and issue pages", async ({ page }) => {
+      // Create an issue first
+      await createNewIssue("Nav Test Issue", "Description");
+      await page.reload();
+
       // Should be on home page initially
       await expect(page).toHaveURL("/");
 

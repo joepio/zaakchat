@@ -10,9 +10,10 @@ export async function waitForSSEConnection(page: Page, timeout = 10000) {
   // This ensures the connection is ready before tests proceed
   await page.waitForFunction(
     () => {
-      // Check if we have any issues loaded (SSE connection successful)
+      // Check if we have any issues loaded OR the empty state message
       const issues = document.querySelectorAll('.zaak-item-hover');
-      return issues.length > 0;
+      const noIssues = document.querySelector('[data-testid="no-issues"]');
+      return issues.length > 0 || noIssues !== null;
     },
     { timeout }
   );

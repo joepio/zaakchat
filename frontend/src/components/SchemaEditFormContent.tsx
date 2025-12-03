@@ -3,18 +3,20 @@ import { fetchSchema } from "../types/interfaces";
 import { Button } from "./ActionButton";
 import SchemaField from "./SchemaField";
 import InfoHelp from "./InfoHelp";
-import { createItemUpdatedEvent, createItemDeletedEvent } from "../utils/cloudEvents";
+import { createItemUpdatedEvent, createItemDeletedEvent, createItemCreatedEvent } from "../utils/cloudEvents";
+import { generateUUID } from "../utils/uuid";
 import { useActor } from "../contexts/ActorContext";
 import type { ItemType } from "../types";
 import type { CloudEvent } from "../types/interfaces";
 
 interface SchemaEditFormContentProps {
   itemType: string;
-  itemId: string;
-  initialData: Record<string, unknown>;
+  itemId?: string; // Optional for create mode
+  initialData?: Record<string, unknown>; // Optional for create mode
   onSubmit: (event: CloudEvent) => Promise<void>;
   onCancel: () => void;
   zaakId: string;
+  isCreateMode?: boolean; // New prop to indicate create vs edit mode
 }
 
 // Default labels for known types
@@ -35,10 +37,11 @@ const DEFAULT_LABELS: Record<string, string> = {
 const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
   itemType,
   itemId,
-  initialData,
+  initialData = {},
   onSubmit,
   onCancel,
   zaakId,
+  isCreateMode = false,
 }) => {
   const { actor } = useActor();
   const [formData, setFormData] = useState<Record<string, unknown>>({});
@@ -49,9 +52,10 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
 
   // Initialize form data when component mounts
   useEffect(() => {
-    setFormData(initialData);
-    setChangedFields(new Set()); // Reset changed fields when initialData changes
-  }, [initialData]);
+    setFormData(initialData || {});
+    // In create mode, all fields are "changed" since we're creating new data
+    setChangedFields(isCreateMode ? new Set() : new Set());
+  }, [initialData, isCreateMode]);
 
   // Load schema on mount
   useEffect(() => {
@@ -80,42 +84,81 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
 
     setIsSubmitting(true);
     try {
-      // Only send the fields that were actually changed
-      const patch: Record<string, unknown> = {};
-      changedFields.forEach(fieldName => {
-        patch[fieldName] = formData[fieldName];
-      });
+      let event: CloudEvent;
 
-      console.log('Submitting patch with only changed fields:', patch);
+      if (isCreateMode) {
+        // In create mode, send all form data as the resource
+        const resourceId = generateUUID();
 
-      const event = createItemUpdatedEvent(
-        itemType as ItemType,
-        itemId,
-        patch,
-        { actor, subject: zaakId }
-      );
+        // Prepare resource data with automatic defaults for issues
+        let resourceData: Record<string, unknown> = {
+          id: resourceId,
+          ...formData,
+        };
+
+        // For issues, ensure status is "open" and current user is in involved array
+        if (itemType.toLowerCase() === 'issue') {
+          resourceData.status = 'open';
+
+          // Ensure current user is in the involved array
+          const currentInvolved = Array.isArray(formData.involved) ? formData.involved : [];
+          const involvedSet = new Set(currentInvolved);
+          if (actor) {
+            involvedSet.add(actor);
+          }
+          resourceData.involved = Array.from(involvedSet);
+        }
+
+        console.log('Creating new item:', resourceData);
+
+        event = createItemCreatedEvent(
+          itemType as ItemType,
+          resourceData as { id: string },
+          { actor, subject: zaakId }
+        );
+      } else {
+        // In edit mode, only send the fields that were actually changed
+        const patch: Record<string, unknown> = {};
+        changedFields.forEach(fieldName => {
+          patch[fieldName] = formData[fieldName];
+        });
+
+        console.log('Submitting patch with only changed fields:', patch);
+
+        event = createItemUpdatedEvent(
+          itemType as ItemType,
+          itemId!,
+          patch,
+          { actor, subject: zaakId }
+        );
+      }
+
       await onSubmit(event);
-      onCancel(); // Close the modal after successful submission
+      onCancel(); // Close the form after successful submission
     } catch (error) {
-      console.error("Error updating item:", error);
+      console.error("Error submitting item:", error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleDelete = async () => {
+    if (isCreateMode) return; // No delete in create mode
+
     const typeLabel = DEFAULT_LABELS[itemType.toLowerCase()] || itemType;
-    if (!confirm(`Weet je zeker dat je dit ${typeLabel.toLowerCase()} wilt verwijderen?`)) return;
+    if (!confirm(`Weet je zeker dat je dit ${typeLabel.toLowerCase()} wilt verwijderen?`)) {
+      return;
+    }
 
     setIsDeleting(true);
     try {
       const event = createItemDeletedEvent(
         itemType as ItemType,
-        itemId,
+        itemId!,
         { actor, subject: zaakId }
       );
       await onSubmit(event);
-      onCancel(); // Close the modal after successful deletion
+      onCancel();
     } catch (error) {
       console.error("Error deleting item:", error);
     } finally {
@@ -128,22 +171,22 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
       ...prev,
       [fieldName]: value,
     }));
-    // Track that this field has been changed
-    setChangedFields(prev => new Set(prev).add(fieldName));
+    // Track that this field has been changed (in edit mode)
+    // In create mode, we don't track changes since everything is new
+    if (!isCreateMode) {
+      setChangedFields(prev => new Set(prev).add(fieldName));
+    }
   };
 
   if (!currentSchema) {
     return <div>Schema laden...</div>;
   }
 
+  const schemaUrl = `http://localhost:8000/schemas/${itemType.charAt(0).toUpperCase() + itemType.slice(1).toLowerCase()}`;
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="relative">
-        <InfoHelp variant="schemas" schemaUrl={`http://localhost:8000/schemas/${itemType.charAt(0).toUpperCase() + itemType.slice(1).toLowerCase()}`} />
-        <h2 className="text-lg font-semibold mb-4">
-          {DEFAULT_LABELS[itemType.toLowerCase()] || itemType} bewerken
-        </h2>
-      </div>
+    <form onSubmit={handleSubmit} className="space-y-4 relative">
+      <InfoHelp variant="schemas" schemaUrl={schemaUrl} />
 
       {currentSchema.properties &&
         typeof currentSchema.properties === "object" &&
@@ -181,15 +224,19 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
           : null}
 
       <div className="flex justify-between pt-4">
-        <Button
-          type="button"
-          variant="secondary"
-          onClick={handleDelete}
-          disabled={isDeleting}
-          className="text-red-600 hover:text-red-700"
-        >
-          {isDeleting ? "Verwijderen..." : "Verwijderen"}
-        </Button>
+        {!isCreateMode && (
+          <Button
+            type="button"
+            variant="danger"
+            size="md"
+            onClick={handleDelete}
+            disabled={isSubmitting || isDeleting}
+            loading={isDeleting}
+          >
+            {isDeleting ? "Verwijderen..." : "Verwijderen"}
+          </Button>
+        )}
+        {isCreateMode && <div />} {/* Spacer for flex layout */}
 
         <div className="flex gap-2">
           <Button
@@ -203,9 +250,9 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
           <Button
             type="submit"
             variant="primary"
-            disabled={isSubmitting}
+            disabled={isSubmitting || isDeleting}
           >
-            {isSubmitting ? "Opslaan..." : "Opslaan"}
+            {isSubmitting ? (isCreateMode ? "Aanmaken..." : "Opslaan...") : (isCreateMode ? "Aanmaken" : "Opslaan")}
           </Button>
         </div>
       </div>

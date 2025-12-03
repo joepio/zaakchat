@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "./Modal";
 import SchemaEditFormContent from "./SchemaEditFormContent";
+import InfoHelp from "./InfoHelp";
 import type { CloudEvent } from "../types/interfaces";
 
 interface SchemaEditFormProps {
@@ -40,6 +41,7 @@ const SchemaEditForm: React.FC<SchemaEditFormProps> = ({
   if (!isOpen) return null;
 
   const typeLabel = DEFAULT_LABELS[itemType.toLowerCase()] || itemType;
+  const schemaUrl = `http://localhost:8000/schemas/${itemType.charAt(0).toUpperCase() + itemType.slice(1).toLowerCase()}`;
 
   return (
     <Modal
@@ -47,6 +49,7 @@ const SchemaEditForm: React.FC<SchemaEditFormProps> = ({
       onClose={onClose}
       title={`${typeLabel} bewerken`}
       maxWidth="600px"
+      headerActions={<InfoHelp variant="schemas" schemaUrl={schemaUrl} />}
     >
       <div style={{ backgroundColor: "var(--bg-secondary)" }}>
         <SchemaEditFormContent

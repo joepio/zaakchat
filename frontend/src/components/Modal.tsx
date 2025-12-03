@@ -8,6 +8,7 @@ interface ModalProps {
   title: string;
   children: React.ReactNode;
   maxWidth?: string;
+  headerActions?: React.ReactNode;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -16,6 +17,7 @@ const Modal: React.FC<ModalProps> = ({
   title,
   children,
   maxWidth = "600px",
+  headerActions,
 }) => {
   // Handle ESC key to close modal
   useEffect(() => {
@@ -69,14 +71,17 @@ const Modal: React.FC<ModalProps> = ({
           >
             {title}
           </h2>
-          <Button
-            variant="icon"
-            size="sm"
-            onClick={onClose}
-            title="Close modal"
-          >
-            ×
-          </Button>
+          <div className="flex items-center gap-2">
+            {headerActions}
+            <Button
+              variant="icon"
+              size="sm"
+              onClick={onClose}
+              title="Close modal"
+            >
+              ×
+            </Button>
+          </div>
         </div>
         <div className="p-6 md:p-4" style={{ color: "var(--text-primary)" }}>
           {children}

@@ -40,3 +40,20 @@ docker build -t joepmeneer/zaakchat:latest .
 # run de docker
 docker run -p 8000:8000 -v "$(pwd)/data:/app/data" docker.io/joepmeneer/zaakchat:latest
 ```
+
+## Deployment
+
+### Deploy to VPS
+
+1. Copy the deployment script to your VPS:
+```sh
+scp deploy.sh root@161.35.156.229:~/deploy-zaakchat.sh
+```
+
+2. SSH into your VPS and run the script:
+```sh
+ssh root@161.35.156.229
+chmod +x deploy-zaakchat.sh
+# Pull image and restart container
+./deploy-zaakchat.sh
+```

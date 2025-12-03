@@ -17,7 +17,9 @@ const CreateIssueForm: React.FC<CreateIssueFormProps> = ({ onCreateIssue }) => {
     title: "",
     description: "",
     assignee: "",
+    involved: [],
   });
+  const [newInvolved, setNewInvolved] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string>("");
@@ -56,7 +58,11 @@ const CreateIssueForm: React.FC<CreateIssueFormProps> = ({ onCreateIssue }) => {
         description: formData.description.trim() || null,
         assignee: formData.assignee.trim() || null,
         resolution: null,
-        involved: actor ? [actor] : [],
+        resolution: null,
+        involved: [
+          ...(actor ? [actor] : []),
+          ...formData.involved.filter((email) => email !== actor),
+        ],
       };
 
       // Use the schema-based CloudEvent utility with session actor
@@ -72,6 +78,7 @@ const CreateIssueForm: React.FC<CreateIssueFormProps> = ({ onCreateIssue }) => {
         title: "",
         description: "",
         assignee: "",
+        involved: [],
       });
     } catch (err) {
       setError(
@@ -132,6 +139,87 @@ const CreateIssueForm: React.FC<CreateIssueFormProps> = ({ onCreateIssue }) => {
               borderColor: "var(--border-primary)",
             }}
           />
+        </div>
+
+        <div className="mb-4">
+          <label
+            className="block text-sm font-medium mb-1"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Betrokkenen
+          </label>
+          <div className="flex flex-wrap gap-2 mb-2">
+            {formData.involved.map((email, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 px-2 py-1 rounded-md border text-sm"
+                style={{
+                  backgroundColor: "var(--bg-primary)",
+                  borderColor: "var(--border-primary)",
+                  color: "var(--text-primary)",
+                }}
+              >
+                <span>{email}</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFormData((prev) => ({
+                      ...prev,
+                      involved: prev.involved.filter((_, i) => i !== index),
+                    }));
+                  }}
+                  className="text-xs hover:text-red-400 transition-colors"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-2">
+            <input
+              type="email"
+              value={newInvolved}
+              onChange={(e) => setNewInvolved(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  if (newInvolved.trim()) {
+                    setFormData((prev) => ({
+                      ...prev,
+                      involved: [...prev.involved, newInvolved.trim()],
+                    }));
+                    setNewInvolved("");
+                  }
+                }
+              }}
+              placeholder="Bijv. naam@gemeente.nl"
+              disabled={isSubmitting}
+              className="form-input flex-1 px-3 py-2 text-base rounded-md border transition-colors duration-150 focus:outline-none disabled:opacity-60"
+              style={{
+                backgroundColor: "var(--bg-primary)",
+                color: "var(--text-primary)",
+                borderColor: "var(--border-primary)",
+              }}
+            />
+            <Button
+              type="button"
+              variant="secondary"
+              size="sm"
+              onClick={() => {
+                if (newInvolved.trim()) {
+                  setFormData((prev) => ({
+                    ...prev,
+                    involved: [...prev.involved, newInvolved.trim()],
+                  }));
+                  setNewInvolved("");
+                }
+              }}
+              disabled={isSubmitting}
+            >
+              Toevoegen
+            </Button>
+          </div>
         </div>
 
         {error && (

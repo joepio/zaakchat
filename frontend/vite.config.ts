@@ -36,6 +36,10 @@ export default defineConfig({
         target: serverUrl,
         changeOrigin: true,
       },
+      "/reset/": {
+        target: serverUrl,
+        changeOrigin: true,
+      },
     },
   },
   build: {

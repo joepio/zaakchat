@@ -83,6 +83,7 @@ export interface IssueFormData {
   // the form always supplies a string for these fields (empty string when omitted)
   description: string;
   assignee: string;
+  involved: string[];
 }
 
 export interface PatchFormData {

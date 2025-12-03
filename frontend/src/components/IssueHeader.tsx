@@ -64,7 +64,41 @@ const IssueHeader: React.FC<IssueHeaderProps> = ({
 
       <div className="text-xs text-text-tertiary" data-testid="issue-assignee">
         <strong className="text-text-primary">Toegewezen aan:</strong>{" "}
-        {String(issue.assignee) || "Niet toegewezen"}
+        {issue.assignee || "Niet toegewezen"}
+      </div>
+
+      <div className="text-xs text-text-tertiary mt-2" data-testid="issue-involved">
+        <div className="flex items-center gap-2">
+          <strong className="text-text-primary">Betrokkenen:</strong>
+          {onEdit && (
+            <button
+              onClick={onEdit}
+              className="inline-flex items-center justify-center w-4 h-4 rounded-full hover:bg-bg-tertiary transition-colors"
+              title="Betrokkenen bewerken"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              <i className="fa-solid fa-plus text-xs" aria-hidden="true"></i>
+            </button>
+          )}
+        </div>
+        {issue.involved && issue.involved.length > 0 ? (
+          <div className="flex flex-wrap gap-1 mt-1">
+            {issue.involved.map((email, index) => (
+              <span
+                key={index}
+                className="inline-flex items-center px-2 py-0.5 rounded text-xs"
+                style={{
+                  backgroundColor: "var(--bg-tertiary)",
+                  color: "var(--text-primary)",
+                }}
+              >
+                {email}
+              </span>
+            ))}
+          </div>
+        ) : (
+          <span className="text-text-tertiary ml-1">Geen betrokkenen</span>
+        )}
       </div>
     </Card>
   );

@@ -86,7 +86,6 @@ export const EventPluginWrapper: React.FC<EventPluginWrapperProps> = ({
   children,
   editFormComponent,
   showEditButton = false,
-  editModalTitle = "Bewerken",
   onDelete,
   showDeleteButton = false,
 }) => {

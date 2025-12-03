@@ -20,7 +20,8 @@
     "spec-validate": "docker run --rm --user=root -v \"$(pwd)/asyncapi.yaml:/app/asyncapi.yml\" asyncapi/cli validate /app/asyncapi.yml",
     "generate": "node scripts/generate-types.js",
     "generate-asyncapi": "cargo run --bin generate_asyncapi",
-    "generate-all": "cargo run --bin export_schemas && cargo run --bin generate_asyncapi && node scripts/generate-types.js && cd frontend && vite build"
+    "generate-all": "cargo run --bin export_schemas && cargo run --bin generate_asyncapi && node scripts/generate-types.js && cd frontend && vite build",
+    "prepare": "husky"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
@@ -49,13 +50,18 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "json-schema-to-typescript": "^15.0.4",
+    "lint-staged": "^16.2.7",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2",
     "vitest": "^2.1.8"
+  },
+  "lint-staged": {
+    "frontend/**/*.{js,jsx,ts,tsx}": "eslint --config frontend/eslint.config.js --fix"
   }
 }

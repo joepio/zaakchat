@@ -44,6 +44,7 @@ jobs:
           echo $! > backend.pid
         env:
           RUST_LOG: info
+          MOCK_EMAIL: "true"
       - name: Wait for backend to be ready
         run: |
           timeout 60 bash -c 'until curl -f http://localhost:8000/schemas > /dev/null 2>&1; do sleep 2; done'

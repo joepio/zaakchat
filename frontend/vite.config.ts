@@ -61,4 +61,4 @@ export default defineConfig({
     pool: "forks",
     isolate: true,
   },
-});
+} as any);

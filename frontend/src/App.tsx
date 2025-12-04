@@ -244,40 +244,50 @@ const ZakenDashboard: React.FC = () => {
   );
 };
 
-import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import { AuthProvider } from "./contexts/AuthContext";
+import { useAuth } from "./hooks/useAuth";
 import Login from "./components/Login";
+import VerifyLogin from "./pages/VerifyLogin";
 
-const AuthenticatedApp: React.FC = () => {
+const AppContent: React.FC = () => {
   const { isAuthenticated } = useAuth();
 
-  if (!isAuthenticated) {
-    return <Login />;
-  }
-
   return (
-    <ActorProvider>
-      <SSEProvider>
-        <SearchProvider>
-          <ConnectionErrorBanner />
-          <Router>
-            <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<ZakenDashboard />} />
-              <Route path="/zaak/:zaakId" element={<IssueTimeline />} />
-              <Route path="/search-test" element={<SearchPlayground />} />
-              <Route path="/api-docs" element={<ApiDocumentationView />} />
-            </Routes>
-          </Router>
-        </SearchProvider>
-      </SSEProvider>
-    </ActorProvider>
+    <Routes>
+      <Route path="/verify-login" element={<VerifyLogin />} />
+      <Route
+        path="/*"
+        element={
+          isAuthenticated ? (
+            <ActorProvider>
+              <SSEProvider>
+                <SearchProvider>
+                  <ConnectionErrorBanner />
+                  <ScrollToTop />
+                  <Routes>
+                    <Route path="/" element={<ZakenDashboard />} />
+                    <Route path="/zaak/:zaakId" element={<IssueTimeline />} />
+                    <Route path="/search-test" element={<SearchPlayground />} />
+                    <Route path="/api-docs" element={<ApiDocumentationView />} />
+                  </Routes>
+                </SearchProvider>
+              </SSEProvider>
+            </ActorProvider>
+          ) : (
+            <Login />
+          )
+        }
+      />
+    </Routes>
   );
 };
 
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <AuthenticatedApp />
+      <Router>
+        <AppContent />
+      </Router>
     </AuthProvider>
   );
 };

@@ -10,7 +10,7 @@ import React, {
 } from "react";
 import type { CloudEvent, Issue } from "../types";
 import { useActor } from "./ActorContext";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../hooks/useAuth";
 import { createTaskCompletionEvent } from "../utils/taskUtils";
 
 interface IssueWithActivity extends Issue {
@@ -341,7 +341,7 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
         }
       });
     },
-    [processSnapshot, processCloudEvent],
+    [processSnapshot, processCloudEvent, retryCount],
   );
 
   // Connect to SSE endpoint

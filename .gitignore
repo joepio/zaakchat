@@ -5,6 +5,7 @@ target
 
 # Secrets
 Secrets*.toml
+.env
 
 # Logs
 server.log

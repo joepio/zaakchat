@@ -103,7 +103,7 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
         const resourceId = generateUUID();
 
         // Prepare resource data with automatic defaults for issues
-        let resourceData: Record<string, unknown> = {
+        const resourceData: Record<string, unknown> = {
           id: resourceId,
           ...formData,
         };

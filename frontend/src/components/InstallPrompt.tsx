@@ -10,7 +10,6 @@ function isStandalone(): boolean {
   // iOS Safari uses navigator.standalone
   // Other browsers support display-mode media query
   const mql = window.matchMedia && window.matchMedia("(display-mode: standalone)");
-  // @ts-ignore - iOS only
   const iosStandalone = (window.navigator as any).standalone === true;
   return (mql && mql.matches) || iosStandalone;
 }

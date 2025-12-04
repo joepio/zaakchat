@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "./Modal";
 import { Button } from "./ActionButton";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 
 interface UserSettingsDialogProps {
   isOpen: boolean;

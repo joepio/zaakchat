@@ -97,7 +97,7 @@ const NotificationBell: React.FC<NotificationBellProps> = ({
     });
 
     return Array.from(activitiesByIssue.values()).slice(0, 5);
-  }, [events, issues, currentZaakId, actor]);
+  }, [events, issues, currentZaakId, actor, lastSeenTime]);
 
   // Close notification dropdown when clicking outside
   useEffect(() => {

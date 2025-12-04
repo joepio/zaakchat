@@ -1,4 +1,5 @@
 pub mod auth;
+pub mod email;
 pub mod types;
 pub use types::{PushKeys, PushSubscription};
 

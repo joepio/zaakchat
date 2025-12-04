@@ -919,19 +919,67 @@ pub struct LoginResponse {
     pub token: String,
 }
 
-/// POST /login - Generate JWT for user
+/// POST /login - Initiate passwordless login
 pub async fn login_handler(
+    State(state): State<AppState>,
     Json(payload): Json<LoginRequest>,
-) -> Result<Json<LoginResponse>, StatusCode> {
-    {
-        use std::io::Write;
-        if let Ok(mut file) = std::fs::OpenOptions::new().create(true).append(true).open("debug.log") {
-            writeln!(file, "[handlers] Login request for: {}", payload.email).unwrap();
-        }
+) -> Result<Json<serde_json::Value>, StatusCode> {
+    // Generate a secure random token
+    let token = uuid::Uuid::new_v4().to_string();
+
+    // Set expiration (e.g., 15 minutes)
+    let expires_at = chrono::Utc::now()
+        .checked_add_signed(chrono::Duration::minutes(15))
+        .unwrap()
+        .timestamp();
+
+    // Store pending login
+    if let Err(e) = state.storage.store_pending_login(&token, &payload.email, expires_at).await {
+        eprintln!("Failed to store pending login: {}", e);
+        return Err(StatusCode::INTERNAL_SERVER_ERROR);
     }
-    match crate::auth::create_jwt(&payload.email) {
-        Ok(token) => Ok(Json(LoginResponse { token })),
-        Err(_) => Err(StatusCode::INTERNAL_SERVER_ERROR),
+
+    // Send magic link
+    if let Err(e) = crate::email::send_magic_link(&payload.email, &token).await {
+        eprintln!("Failed to send magic link: {}", e);
+        return Err(StatusCode::INTERNAL_SERVER_ERROR);
+    }
+
+    Ok(Json(serde_json::json!({
+        "message": "Magic link sent. Check your email."
+    })))
+}
+
+/// GET /auth/verify - Verify magic link token
+#[derive(Deserialize)]
+pub struct VerifyParams {
+    token: String,
+}
+
+pub async fn verify_login_handler(
+    State(state): State<AppState>,
+    Query(params): Query<VerifyParams>,
+) -> Result<Json<LoginResponse>, StatusCode> {
+    // Retrieve and consume token
+    let record = state.storage.get_and_remove_pending_login(&params.token).await.map_err(|e| {
+        eprintln!("Failed to get pending login: {}", e);
+        StatusCode::INTERNAL_SERVER_ERROR
+    })?;
+
+    if let Some(login) = record {
+        // Check expiration
+        if chrono::Utc::now().timestamp() > login.expires_at {
+            return Err(StatusCode::UNAUTHORIZED);
+        }
+
+        // Generate JWT
+        match crate::auth::create_jwt(&login.email) {
+            Ok(token) => Ok(Json(LoginResponse { token })),
+            Err(_) => Err(StatusCode::INTERNAL_SERVER_ERROR),
+        }
+    } else {
+        // Invalid or expired (already consumed) token
+        Err(StatusCode::UNAUTHORIZED)
     }
 }
 

@@ -58,6 +58,7 @@ struct IncomingCloudEvent {
 
 #[tokio::main]
 async fn main() {
+    dotenv::dotenv().ok();
     let app = create_app().await;
     let addr = "0.0.0.0:8000";
     println!("→ http://{addr}");
@@ -136,6 +137,7 @@ async fn create_app() -> Router {
         .route("/schemas", get(crate::schemas::handle_get_schemas_index))
         .route("/schemas/{*name}", get(crate::schemas::handle_get_schema))
         .route("/login", post(handlers::login_handler))
+        .route("/auth/verify", get(handlers::verify_login_handler))
         .with_state(handler_state);
 
     // Combine API routes with static file serving

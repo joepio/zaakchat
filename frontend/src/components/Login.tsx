@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 import { Button } from "./ActionButton";
 
 const Login: React.FC = () => {
@@ -7,6 +7,7 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [magicLinkSent, setMagicLinkSent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,13 +16,49 @@ const Login: React.FC = () => {
 
     try {
       await login(email);
+      setMagicLinkSent(true);
     } catch (error) {
       console.error("Login failed:", error);
-      setError("Failed to login. Please try again.");
+      setError("Failed to send magic link. Please try again.");
     } finally {
       setLoading(false);
     }
   };
+
+  if (magicLinkSent) {
+    return (
+      <div
+        className="min-h-screen flex items-center justify-center p-4"
+        style={{ backgroundColor: "var(--bg-primary)" }}
+      >
+        <div
+          className="max-w-md w-full p-8 rounded-lg shadow-lg text-center"
+          style={{
+            backgroundColor: "var(--bg-secondary)",
+            border: "1px solid var(--border-primary)",
+          }}
+        >
+          <h1
+            className="text-2xl font-bold mb-4"
+            style={{ color: "var(--text-primary)" }}
+          >
+            Check your email
+          </h1>
+          <p className="mb-6" style={{ color: "var(--text-secondary)" }}>
+            We've sent a magic link to <strong>{email}</strong>.
+            <br />
+            Click the link in the email to sign in.
+          </p>
+          <Button
+            variant="secondary"
+            onClick={() => setMagicLinkSent(false)}
+          >
+            Back to Login
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -88,7 +125,7 @@ const Login: React.FC = () => {
             disabled={loading}
             className="w-full justify-center"
           >
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ? "Sending Magic Link..." : "Send Magic Link"}
           </Button>
         </form>
       </div>

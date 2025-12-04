@@ -1,14 +1,15 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
 interface AuthContextType {
   token: string | null;
   user: string | null;
   login: (email: string) => Promise<void>;
+  verifyLogin: (token: string) => Promise<void>;
   logout: () => void;
   isAuthenticated: boolean;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -21,27 +22,36 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 
   const login = async (email: string) => {
-    try {
-      const response = await fetch("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+    const response = await fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
 
-      if (!response.ok) {
-        throw new Error("Login failed");
-      }
-
-      const data = await response.json();
-      setToken(data.token);
-      setUser(email);
-      localStorage.setItem("auth_token", data.token);
-      localStorage.setItem("auth_user", email);
-    } catch (error) {
-      throw error;
+    if (!response.ok) {
+      throw new Error("Login failed");
     }
+    // No token returned here anymore
+  };
+
+  const verifyLogin = async (verifyToken: string) => {
+    const response = await fetch(`/auth/verify?token=${verifyToken}`);
+
+    if (!response.ok) {
+      throw new Error("Verification failed");
+    }
+
+    const data = await response.json();
+    // Decode JWT to get email (sub)
+    const payload = JSON.parse(atob(data.token.split('.')[1]));
+    const email = payload.sub;
+
+    setToken(data.token);
+    setUser(email);
+    localStorage.setItem("auth_token", data.token);
+    localStorage.setItem("auth_user", email);
   };
 
   const logout = () => {
@@ -57,6 +67,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         token,
         user,
         login,
+        verifyLogin,
         logout,
         isAuthenticated: !!token,
       }}
@@ -64,12 +75,4 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       {children}
     </AuthContext.Provider>
   );
-};
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
 };

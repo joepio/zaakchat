@@ -4,7 +4,7 @@ import React, {
   useEffect,
 } from "react";
 import type { ReactNode } from "react";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../hooks/useAuth";
 
 interface ActorContextType {
   actor: string;

@@ -47,7 +47,6 @@ export default defineConfig({
     emptyOutDir: true,
   },
   assetsInclude: ["**/*.json"],
-  // @ts-ignore - Vitest options
   test: {
     globals: true,
     environment: "jsdom",

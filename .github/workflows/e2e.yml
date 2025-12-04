@@ -40,7 +40,7 @@ jobs:
       - run: pnpm generate-all
       - name: Start backend server
         run: |
-          cargo run --release &
+          ./target/release/zaakchat &
           echo $! > backend.pid
         env:
           RUST_LOG: info

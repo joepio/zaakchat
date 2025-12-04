@@ -14,6 +14,7 @@ use std::convert::Infallible;
 use std::sync::Arc;
 use tokio_stream::wrappers::BroadcastStream;
 use tokio_stream::StreamExt;
+use crate::email::EmailService;
 
 use crate::schemas::{CloudEvent, JSONCommit};
 use crate::storage::{SearchResult, Storage};
@@ -33,6 +34,8 @@ pub struct AppState {
     pub tx: tokio::sync::broadcast::Sender<CloudEvent>,
     /// Push notification subscriptions (shared across handlers)
     pub push_subscriptions: Arc<tokio::sync::RwLock<Vec<PushSubscription>>>,
+    /// Email service for sending magic links and notifications
+    pub email_service: Arc<EmailService>,
 }
 
 /// Convenience constructor for handlers to create an AppState when needed.
@@ -41,12 +44,14 @@ impl AppState {
         storage: Arc<Storage>,
         search: Arc<crate::search::SearchIndex>,
         tx: tokio::sync::broadcast::Sender<CloudEvent>,
+        email_service: Arc<EmailService>,
     ) -> Self {
         Self {
             storage,
             search,
             tx,
             push_subscriptions: Arc::new(tokio::sync::RwLock::new(Vec::new())),
+            email_service,
         }
     }
 }
@@ -940,7 +945,7 @@ pub async fn login_handler(
     }
 
     // Send magic link
-    if let Err(e) = crate::email::send_magic_link(&payload.email, &token).await {
+    if let Err(e) = state.email_service.send_magic_link(&payload.email, &token).await {
         eprintln!("Failed to send magic link: {}", e);
         return Err(StatusCode::INTERNAL_SERVER_ERROR);
     }

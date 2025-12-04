@@ -16,7 +16,7 @@ test.describe("Involved User Flow", () => {
 
     const uniqueId = Date.now();
     const issueTitle = `Involved Test Issue ${uniqueId}`;
-    const involvedEmail = `involved-${uniqueId}@example.com`;
+    const involvedEmail = `involved-${uniqueId}@zaakchat.nl`;
 
     // Assuming the create form defaults to Issue or has a selector.
     // Based on SchemaForm.tsx, we might need to select "Task" or "Comment" but here we want "Issue".

@@ -79,6 +79,7 @@ export default defineConfig({
     env: {
       // Disable auto-events for deterministic testing
       // Don't set DEMO environment variable
+      MOCK_EMAIL: "true",
     },
   },
 });

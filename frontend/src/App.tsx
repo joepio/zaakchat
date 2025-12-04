@@ -25,7 +25,7 @@ import type { CloudEvent, Issue } from "./types";
 import "./App.css";
 
 const ZakenDashboard: React.FC = () => {
-  const { issues, events, items, sendEvent, completeTask } = useSSE();
+  const { issues, events, items, sendEvent, completeTask, connectionStatus } = useSSE();
   const [animatingIssues, setAnimatingIssues] = useState<Set<string>>(
     new Set(),
   );
@@ -119,7 +119,9 @@ const ZakenDashboard: React.FC = () => {
               style={{ color: "var(--text-secondary)" }}
               data-testid="no-issues"
             >
-              Geen zaken gevonden.
+              {connectionStatus === "error"
+                ? "Kan geen verbinding maken met de server."
+                : "Geen zaken gevonden."}
             </p>
           ) : (
             issueEntries.map(([id, issue]) => {
@@ -282,11 +284,14 @@ const AppContent: React.FC = () => {
   );
 };
 
+import { Toaster } from "react-hot-toast";
+
 const App: React.FC = () => {
   return (
     <AuthProvider>
       <Router>
         <AppContent />
+        <Toaster position="bottom-right" />
       </Router>
     </AuthProvider>
   );

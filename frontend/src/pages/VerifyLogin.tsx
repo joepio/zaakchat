@@ -8,6 +8,8 @@ const VerifyLogin: React.FC = () => {
   const { verifyLogin } = useAuth();
   const [status, setStatus] = useState<"verifying" | "success" | "error">("verifying");
 
+  const verificationAttempted = React.useRef(false);
+
   useEffect(() => {
     const verify = async () => {
       const token = searchParams.get("token");
@@ -15,6 +17,10 @@ const VerifyLogin: React.FC = () => {
         setStatus("error");
         return;
       }
+
+      // Prevent double verification in Strict Mode
+      if (verificationAttempted.current) return;
+      verificationAttempted.current = true;
 
       try {
         await verifyLogin(token);

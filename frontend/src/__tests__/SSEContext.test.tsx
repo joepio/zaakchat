@@ -138,7 +138,7 @@ const createCommentEvent = (
     resource_data: {
       id: commentId,
       content,
-      author: "test@example.com",
+      author: "test@zaakchat.nl",
     },
   },
 });

@@ -47,7 +47,7 @@ const UserSettingsDialog: React.FC<UserSettingsDialogProps> = ({
         </div>
       </div>
 
-        <div className="flex justify-end gap-2 pt-4 border-t" style={{ borderColor: "var(--border-primary)" }}>
+        <div className="flex justify-end gap-2 pt-4">
           <Button variant="secondary" onClick={onClose}>
             Close
           </Button>

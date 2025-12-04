@@ -40,6 +40,10 @@ export default defineConfig({
         target: serverUrl,
         changeOrigin: true,
       },
+      "/auth": {
+        target: serverUrl,
+        changeOrigin: true,
+      },
     },
   },
   build: {

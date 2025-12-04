@@ -1,5 +1,6 @@
 use zaakchat::search::SearchIndex;
 use zaakchat::{handlers, schemas};
+use zaakchat::email::{EmailService, PostmarkTransport, MockTransport, EmailTransport};
 pub mod auth;
 
 use futures_util::stream::{self, Stream};
@@ -37,6 +38,8 @@ pub struct AppState {
     pub base_url: String,
     // Push notification subscriptions
     pub push_subscriptions: Arc<RwLock<Vec<zaakchat::PushSubscription>>>,
+    // Email service
+    pub email_service: Arc<EmailService>,
 }
 
 /// CloudEvent following the CloudEvents specification v1.0
@@ -98,12 +101,24 @@ async fn create_app() -> Router {
 
     let (tx, _) = broadcast::channel(256);
 
+    // Initialize Email Service
+    let mock_mode = std::env::var("MOCK_EMAIL").unwrap_or_default();
+    let email_transport: Arc<dyn EmailTransport> = if mock_mode == "true" || mock_mode == "1" {
+        Arc::new(MockTransport::new(base_url.clone()))
+    } else {
+        let api_token = std::env::var("POSTMARK_API_TOKEN").expect("POSTMARK_API_TOKEN not set");
+        let sender = std::env::var("POSTMARK_SENDER_EMAIL").expect("POSTMARK_SENDER_EMAIL not set");
+        Arc::new(PostmarkTransport::new(api_token, sender, base_url.clone()))
+    };
+    let email_service = Arc::new(EmailService::new(email_transport));
+
     let state = AppState {
         storage: Arc::new(storage),
         search: search_index.clone(),
         tx: tx.clone(),
         base_url: base_url.clone(),
         push_subscriptions: Arc::new(RwLock::new(Vec::new())),
+        email_service: email_service.clone(),
     };
 
     // Create handler state
@@ -112,6 +127,7 @@ async fn create_app() -> Router {
         search: state.search.clone(),
         tx: state.tx.clone(),
         push_subscriptions: state.push_subscriptions.clone(),
+        email_service: state.email_service.clone(),
     };
 
     // API routes with new storage-backed endpoints

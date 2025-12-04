@@ -1,32 +1,19 @@
-import { test, expect, request } from "@playwright/test";
-import { login, waitForIssueDetailPage } from "./helpers";
+import { test, expect, request, Page } from "@playwright/test";
+import {
+  resetServerState,
+  waitForIssueDetailPage,
+  login,
+  getApiAuthToken,
+} from "./helpers";
 
-const serverUrl = "http://localhost:8000";
+const serverUrl = process.env.CI ? "http://localhost:8000" : "http://localhost:5173";
 
-// Helper function to reset server state for individual tests
-async function resetServerState() {
-  const requestContext = await request.newContext();
-  try {
-    const response = await requestContext.post(`${serverUrl}/reset/`);
-    if (response.ok()) {
-    }
-  } catch (error) {
-    console.warn("⚠️ Could not reset server state:", error);
-  } finally {
-    await requestContext.dispose();
-  }
-}
-
-// Helper function to get auth token
-async function getAuthToken(requestContext) {
-  const response = await requestContext.post(`${serverUrl}/login`, {
-    data: { email: "test-user@example.com" },
+// Helper to generate UUID
+function generateUUID() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
   });
-  if (!response.ok()) {
-    throw new Error(`Failed to login: ${response.statusText()}`);
-  }
-  const data = await response.json();
-  return data.token;
 }
 
 // Helper function to create a new issue for test isolation
@@ -35,73 +22,50 @@ async function createNewIssue(title: string, description: string) {
   let issueId;
 
   try {
-    const token = await getAuthToken(requestContext);
-    issueId = `zaak-${generateTestId()}`;
+    const token = await getApiAuthToken(requestContext);
+    issueId = generateUUID();
     const event = {
       specversion: "1.0",
-      id: `event-${generateTestId()}`,
-      source: "test-runner",
+      id: generateUUID(),
+      source: "frontend-create",
       type: "json.commit",
       subject: issueId,
       time: new Date().toISOString(),
       datacontenttype: "application/json",
+      dataschema: "http://localhost:8000/schemas/JSONCommit",
       data: {
         schema: `${serverUrl}/schemas/Issue`,
         resource_id: issueId,
+        actor: "test-user@zaakchat.nl",
         resource_data: {
           id: issueId,
           title,
           description,
           status: "open",
-          involved: ["test-user@example.com"],
+          involved: ["test-user@zaakchat.nl"],
         },
       },
     };
 
-    const response = await requestContext.post(`${serverUrl}/events`, {
+    console.log("Sending event:", JSON.stringify(event, null, 2));
+
+    const response = await requestContext.post(serverUrl + "/events", {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: "Bearer " + token,
       },
       data: event,
     });
+
+    console.log("Create issue response status:", response.status());
     if (!response.ok()) {
-      throw new Error(`Failed to create issue: ${response.statusText()}`);
+      console.log("Create issue response body:", await response.text());
+      throw new Error("Failed to create issue: " + response.statusText());
     }
   } finally {
     await requestContext.dispose();
   }
 
   return issueId;
-}
-
-// Helper function to navigate to first issue
-async function navigateToFirstIssue(page) {
-  // First check if we have any issues available
-  const issuesOrEmpty = await page.waitForSelector(
-    '.zaak-item-hover, :has-text("Geen zaken"), [data-testid="no-issues"]',
-    { timeout: 10000 },
-  );
-
-  // Check if we actually have issues to navigate to
-  const issuesCount = await page.locator(".zaak-item-hover").count();
-  if (issuesCount === 0) {
-    throw new Error("No issues available to navigate to");
-  }
-
-  // Get the href first, then navigate directly to avoid DOM race conditions
-  const firstIssue = page.locator(".zaak-item-hover").first();
-  const link = firstIssue.locator('a[href*="/zaak/"]');
-  await link.waitFor({ state: "visible", timeout: 5000 });
-
-  const href = await link.getAttribute("href");
-  if (!href) {
-    throw new Error("Could not get href from first issue link");
-  }
-
-  // Navigate directly to the URL instead of clicking the potentially unstable element
-  await page.goto(href);
-  await expect(page.locator("h1").nth(1)).toBeVisible();
-  return firstIssue;
 }
 
 // Helper to generate unique test identifiers
@@ -112,20 +76,21 @@ function generateTestId(): string {
 test.describe("SSE Demo Application - Comprehensive Tests", () => {
   test.describe.configure({ mode: 'serial' });
 
-  test.beforeAll(async () => {
-    await resetServerState();
+  test.beforeAll(async ({ request }) => {
+    await resetServerState(request);
   });
 
   test.beforeEach(async ({ page }) => {
     page.on('console', msg => console.log(`[BROWSER] ${msg.text()}`));
     await login(page);
-    await resetServerState();
   });
 
   test.describe("Home Page - Issues List", () => {
     test("renders initial issues on the home page", async ({ page }) => {
       // Create an issue first
+      console.log("Creating new issue...");
       await createNewIssue("Initial Issue", "Description");
+      console.log("Issue created. Waiting for it to appear...");
       await page.reload();
 
       // Should have issues displayed
@@ -146,7 +111,7 @@ test.describe("SSE Demo Application - Comprehensive Tests", () => {
 
       // Create a task via API
       const requestContext = await request.newContext();
-      const token = await getAuthToken(requestContext);
+      const token = await getApiAuthToken(requestContext);
 
       const taskText = "Locatie inspectie";
 

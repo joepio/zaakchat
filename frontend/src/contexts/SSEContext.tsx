@@ -12,6 +12,7 @@ import type { CloudEvent, Issue } from "../types";
 import { useActor } from "./ActorContext";
 import { useAuth } from "../hooks/useAuth";
 import { createTaskCompletionEvent } from "../utils/taskUtils";
+import toast from "react-hot-toast";
 
 interface IssueWithActivity extends Issue {
   lastActivity?: string;
@@ -47,7 +48,7 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
   const eventSourceRef = useRef<EventSource | null>(null);
   const retryTimeoutRef = useRef<number | null>(null);
   const { actor } = useActor();
-  const { token } = useAuth();
+  const { token, logout } = useAuth();
 
   // Derive issues from items store with lastActivity calculated from events
   const issues = useMemo(() => {
@@ -234,13 +235,26 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
         });
 
         if (!response.ok) {
-          throw new Error(`Failed to send event: ${response.statusText}`);
+          let errorMessage = `Failed to send event: ${response.statusText}`;
+          try {
+            const errorData = await response.json();
+            if (errorData.error) {
+              errorMessage = errorData.error;
+            } else if (errorData.message) {
+              errorMessage = errorData.message;
+            }
+          } catch (_e) {
+            const text = await response.text();
+            if (text) errorMessage = text;
+          }
+          throw new Error(errorMessage);
         }
 
         // Process the event locally for immediate UI responsiveness
         processCloudEvent(event);
       } catch (error) {
         console.error("Error sending event:", error);
+        toast.error(error instanceof Error ? error.message : "Failed to send event");
         throw error;
       }
     },
@@ -271,14 +285,35 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
 
   // Setup SSE connection handlers
   const setupEventSourceHandlers = useCallback(
-    (eventSource: EventSource) => {
+    (eventSource: EventSource, url: string) => {
       eventSource.addEventListener("open", () => {
         setConnectionStatus("connected");
       });
 
-      eventSource.addEventListener("error", (event) => {
+      eventSource.addEventListener("error", async (event) => {
         console.error("[SSE] Connection error:", event);
+
+        // Check if it's an auth error
+        try {
+            const res = await fetch(url);
+            if (res.status === 401) {
+                toast.error("Sessie verlopen. Log opnieuw in.");
+                logout();
+                eventSource.close();
+                return;
+            }
+        } catch (e) {
+            // Network error, continue to retry logic
+        }
+
         setConnectionStatus("error");
+
+        // Show toast for immediate feedback
+        if (connectionStatus === "connected") {
+           toast.error("Connection to server lost");
+        } else if (retryCount === 0) {
+           toast.error("Unable to connect to server");
+        }
 
         // Determine error message based on retry count
         if (retryCount > 3) {
@@ -329,7 +364,7 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
           }
 
           // Debug: log all deltas
-          // console.log("[SSE DEBUG] Received delta:", cloudEvent);
+          console.log("[SSE DEBUG] Received delta:", cloudEvent);
 
           // Add to events list
           setEvents((prevEvents) => [...prevEvents, cloudEvent]);
@@ -352,14 +387,16 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
       }
 
       setConnectionStatus("connecting");
-      setErrorMessage(null);
+      if (retryCount === 0) {
+        setErrorMessage(null);
+      }
 
       // Append token to URL if available
       const url = token ? `/events?token=${encodeURIComponent(token)}` : "/events";
       const eventSource = new EventSource(url);
       eventSourceRef.current = eventSource;
 
-      setupEventSourceHandlers(eventSource);
+      setupEventSourceHandlers(eventSource, url);
     };
 
     connectSSE();

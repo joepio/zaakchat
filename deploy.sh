@@ -19,6 +19,7 @@ echo "📥 Pulling latest images..."
 podman-compose pull
 
 echo "🚀 Starting services with Docker Compose..."
+podman-compose down || true
 podman-compose up -d
 
 echo "✅ Deployment complete!"

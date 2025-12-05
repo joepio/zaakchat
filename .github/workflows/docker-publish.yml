@@ -75,7 +75,10 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          source: "deploy.sh,docker-compose.yml,Caddyfile"
+          source: |
+            deploy.sh
+            docker-compose.yml
+            Caddyfile
           target: "./"
 
       - name: Deploy via SSH

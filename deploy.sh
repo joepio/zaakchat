@@ -7,15 +7,7 @@ echo "🚀 Deploying ZaakChat..."
 IMAGE="docker.io/joepmeneer/zaakchat:latest"
 CONTAINER_NAME="zaakchat"
 PORT="8000"
-DATA_DIR="/root/zaakchat-data"
-
-# Create data directory if it doesn't exist
-mkdir -p "$DATA_DIR"
-
-# Fix permissions: The container runs as non-root user (UID 1000).
-# We need to ensure the host directory is writable by this user.
-echo "🔧 Fixing permissions for $DATA_DIR..."
-chown -R 1000:1000 "$DATA_DIR"
+VOLUME_NAME="zaakchat_data"
 
 echo "📥 Pulling latest image..."
 podman pull "$IMAGE"
@@ -33,7 +25,10 @@ echo "🚀 Starting new container..."
 podman run -d \
     --name "$CONTAINER_NAME" \
     -p "${PORT}:8000" \
-    -v "${DATA_DIR}:/app/data" \
+    -v "${VOLUME_NAME}:/app/data" \
+    -e POSTMARK_API_TOKEN \
+    -e POSTMARK_SENDER_EMAIL="noreply@zaakchat.nl" \
+    -e BASE_URL="https://zaakchat.nl" \
     --restart=unless-stopped \
     "$IMAGE"
 

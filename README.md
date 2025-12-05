@@ -38,7 +38,11 @@ pnpm run test:e2e:one "schema form"
 # Bouw de docker
 docker build -t joepmeneer/zaakchat:latest .
 # run de docker
-docker run -p 8000:8000 -v "$(pwd)/data:/app/data" docker.io/joepmeneer/zaakchat:latest
+docker run -d \
+  -p 8000:8000 \
+  -v zaakchat_local_data:/app/data \
+  -e MOCK_EMAIL=true \
+  docker.io/joepmeneer/zaakchat:latest
 ```
 
 ## Deployment

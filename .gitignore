@@ -2,6 +2,8 @@
 target
 /target
 .shuttle*
+test_email.json
+test_notification.json
 
 # Secrets
 Secrets*.toml

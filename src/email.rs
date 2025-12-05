@@ -102,7 +102,7 @@ impl EmailTransport for PostmarkTransport {
               <body>
                 <h1>Log in to ZaakChat</h1>
                 <p>Click the link below to log in:</p>
-                <p><a href=\"{}\">{}</a></p>
+                <p><a href="{}">{}</a></p>
                 <p>This link will expire in 15 minutes.</p>
               </body>
             </html>"#,

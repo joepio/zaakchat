@@ -60,6 +60,12 @@ const UserSettingsDialog: React.FC<UserSettingsDialogProps> = ({
           </Button>
         </div>
 
+        <div className="text-center pt-4 border-t border-[var(--border-primary)] mt-4">
+          <p className="text-xs text-[var(--text-secondary)]">
+            v{__APP_VERSION__} • {new Date(__BUILD_TIMESTAMP__).toLocaleString()}
+          </p>
+        </div>
+
     </Modal>
   );
 };

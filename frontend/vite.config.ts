@@ -47,6 +47,10 @@ export default defineConfig({
     emptyOutDir: true,
   },
   assetsInclude: ["**/*.json"],
+  define: {
+    __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
+    __BUILD_TIMESTAMP__: JSON.stringify(new Date().toISOString()),
+  },
   test: {
     globals: true,
     environment: "jsdom",

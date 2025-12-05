@@ -75,7 +75,7 @@ export default defineConfig({
   webServer: {
     command: 'cargo run',
     url: 'http://localhost:8000',
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: true,
     env: {
       // Disable auto-events for deterministic testing
       // Don't set DEMO environment variable

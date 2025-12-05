@@ -61,11 +61,16 @@ where
     }
 }
 
-/// Helper to create a JWT for a user (useful for testing/demo)
+/// Helper to create a JWT for a user with default 24h expiration
 pub fn create_jwt(user_id: &str) -> Result<String, jsonwebtoken::errors::Error> {
+    create_jwt_with_expiry(user_id, chrono::Duration::hours(24))
+}
+
+/// Helper to create a JWT for a user with custom expiration
+pub fn create_jwt_with_expiry(user_id: &str, duration: chrono::Duration) -> Result<String, jsonwebtoken::errors::Error> {
     let secret = env::var("JWT_SECRET").unwrap_or_else(|_| "secret".to_string());
     let expiration = chrono::Utc::now()
-        .checked_add_signed(chrono::Duration::hours(24))
+        .checked_add_signed(duration)
         .expect("valid timestamp")
         .timestamp() as usize;
 

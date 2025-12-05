@@ -212,6 +212,34 @@ const IssueTimeline: React.FC = () => {
 
   console.log(`[IssueTimeline] Rendering issue: ${issue.id}`);
 
+  const handleAddInvolved = async (email: string) => {
+    if (!issue || !zaakId) return;
+
+    const currentInvolved = issue.involved || [];
+    if (currentInvolved.includes(email)) return;
+
+    const newInvolved = [...currentInvolved, email];
+
+    const event: CloudEvent = {
+      specversion: "1.0",
+      id: crypto.randomUUID(),
+      source: "frontend-issue-timeline",
+      type: "json.commit",
+      time: new Date().toISOString(),
+      datacontenttype: "application/json",
+      data: {
+        resource_id: zaakId,
+        schema: "https://zaakchat.nl/schemas/Issue.json",
+        timestamp: new Date().toISOString(),
+        patch: {
+          involved: newInvolved,
+        },
+      },
+    };
+
+    await sendEvent(event);
+  };
+
   return (
     <div
       className="min-h-screen font-sans"
@@ -231,6 +259,7 @@ const IssueTimeline: React.FC = () => {
             <IssueHeader
               issue={issue}
               onEdit={handleEditIssue}
+              onAddInvolved={handleAddInvolved}
             />
           )}
         </div>

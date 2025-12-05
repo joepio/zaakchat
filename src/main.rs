@@ -128,6 +128,7 @@ async fn create_app() -> Router {
         tx: state.tx.clone(),
         push_subscriptions: state.push_subscriptions.clone(),
         email_service: state.email_service.clone(),
+        active_users: std::sync::Arc::new(dashmap::DashMap::new()),
     };
 
     // API routes with new storage-backed endpoints
@@ -148,6 +149,7 @@ async fn create_app() -> Router {
         .route("/query", get(handlers::query_resources))
         // Debug endpoint to inspect persisted DB counts and samples
         .route("/debug/db", get(handlers::debug_db))
+        .route("/api/email/inbound", post(handlers::inbound_email_handler))
         // Legacy endpoints (can be removed later)
         .route("/reset/", post(reset_state_handler))
         .route("/schemas", get(crate::schemas::handle_get_schemas_index))

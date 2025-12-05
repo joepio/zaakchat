@@ -10,7 +10,7 @@ import React, {
 } from "react";
 import type { CloudEvent, Issue } from "../types";
 import { useActor } from "./ActorContext";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../contexts/AuthContext";
 import { createTaskCompletionEvent } from "../utils/taskUtils";
 import toast from "react-hot-toast";
 

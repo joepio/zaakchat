@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useAuth } from "../hooks/useAuth";
+import { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import { Button } from "./ActionButton";
 
 const Login: React.FC = () => {

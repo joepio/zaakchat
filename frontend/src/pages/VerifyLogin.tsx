@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../contexts/AuthContext";
 
 const VerifyLogin: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -25,9 +25,10 @@ const VerifyLogin: React.FC = () => {
       try {
         await verifyLogin(token);
         setStatus("success");
-        // Redirect to home after a short delay
+        // Redirect to home or specified path after a short delay
+        const redirectPath = searchParams.get("redirect") || "/";
         setTimeout(() => {
-          navigate("/");
+          navigate(redirectPath);
         }, 1500);
       } catch (error) {
         console.error("Verification failed:", error);

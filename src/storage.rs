@@ -22,7 +22,6 @@ const EVENTS_BY_SEQ_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("
 const RESOURCES_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("resources");
 /// Meta table for storing counters and small metadata (e.g. last assigned sequence)
 const META_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("meta");
-const PENDING_LOGINS_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("pending_logins");
 
 /// Record for storing events
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -43,13 +42,6 @@ pub struct ResourceRecord {
     pub resource_type: String, // issue, comment, task, planning, document
     pub data: String,          // JSON serialized
     pub updated_at: String,
-}
-
-/// Record for pending logins
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct PendingLoginRecord {
-    pub email: String,
-    pub expires_at: i64, // Unix timestamp
 }
 
 /// Storage layer combining redb K/V store.
@@ -80,7 +72,6 @@ impl Storage {
             let _ = write_txn.open_table(EVENTS_BY_SEQ_TABLE)?;
             let _ = write_txn.open_table(RESOURCES_TABLE)?;
             let _ = write_txn.open_table(META_TABLE)?;
-            let _ = write_txn.open_table(PENDING_LOGINS_TABLE)?;
         }
         write_txn.commit()?;
 
@@ -315,12 +306,7 @@ impl Storage {
             let mut meta_table = write_txn.open_table(META_TABLE)?;
             meta_table.remove("last_seq")?;
 
-            // Clear pending logins table
-            let mut pending_logins_table = write_txn.open_table(PENDING_LOGINS_TABLE)?;
-            let keys: Vec<String> = pending_logins_table.iter()?.map(|r| r.map(|(k, _)| k.value().to_string())).collect::<Result<_, _>>()?;
-            for key in keys {
-                pending_logins_table.remove(key.as_str())?;
-            }
+
         }
         write_txn.commit()?;
 
@@ -328,54 +314,10 @@ impl Storage {
         Ok(())
     }
 
-    /// Store a pending login token
-    pub async fn store_pending_login(
-        &self,
-        token: &str,
-        email: &str,
-        expires_at: i64,
-    ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-        let write_txn = self.db.begin_write()?;
-        {
-            let mut table = write_txn.open_table(PENDING_LOGINS_TABLE)?;
-            let record = PendingLoginRecord {
-                email: email.to_string(),
-                expires_at,
-            };
-            let serialized = bincode::serialize(&record)?;
-            table.insert(token, serialized.as_slice())?;
-        }
-        write_txn.commit()?;
-        Ok(())
-    }
 
-    /// Get and remove a pending login token (consume it)
-    pub async fn get_and_remove_pending_login(
-        &self,
-        token: &str,
-    ) -> Result<Option<PendingLoginRecord>, Box<dyn std::error::Error + Send + Sync>> {
-        let write_txn = self.db.begin_write()?;
-        let record = {
-            let mut table = write_txn.open_table(PENDING_LOGINS_TABLE)?;
 
-            // 1. Read the record (if exists)
-            // We must drop the 'value' guard before we can call remove()
-            let record_opt = if let Some(value) = table.get(token)? {
-                Some(bincode::deserialize::<PendingLoginRecord>(value.value())?)
-            } else {
-                None
-            };
 
-            // 2. Remove if found
-            if record_opt.is_some() {
-                table.remove(token)?;
-            }
 
-            record_opt
-        };
-        write_txn.commit()?;
-        Ok(record)
-    }
 
     // Note: indexing is performed asynchronously by background tasks and commits are batched periodically.
 

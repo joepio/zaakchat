@@ -1,0 +1,5 @@
+{
+  "magic_link": "http://localhost:5173/verify-login?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VwbWVpbmRlcnRzbWFAZ21haWwuY29tIiwiZXhwIjoxNzY0OTUxNjkyLCJpYXQiOjE3NjQ5NTA3OTJ9.TSIq83_vZFMOVRoyPP63u4JZyl3Ql2joamD-BEpiW8s",
+  "to": "joepmeindertsma@gmail.com",
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VwbWVpbmRlcnRzbWFAZ21haWwuY29tIiwiZXhwIjoxNzY0OTUxNjkyLCJpYXQiOjE3NjQ5NTA3OTJ9.TSIq83_vZFMOVRoyPP63u4JZyl3Ql2joamD-BEpiW8s"
+}

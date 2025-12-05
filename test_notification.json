@@ -1,0 +1,8 @@
+{
+  "html_body": "<html><body><p>dwadwa</p><p><a href=\"http://localhost:5173/verify-login?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhd2lvZG5hd29pbkBhd2lvbmR3YS5jb20iLCJleHAiOjE3NjUwMzcyNTIsImlhdCI6MTc2NDk1MDg1Mn0.it6yBXRU2IOHxPQr6BK9kgdEXceClDdKLQJvtzE9U5U&redirect=/chat/eb6dacb4-63e6-4deb-ac9a-260d06da61e9\">Bekijk in ZaakChat</a></p></body></html>",
+  "reply_to": "c677cf964ad4b602877125dc320323ab+eb6dacb4-63e6-4deb-ac9a-260d06da61e9@inbound.postmarkapp.com",
+  "subject": "Nieuwe Reactie op eb6dacb4-63e6-4deb-ac9a-260d06da61e9",
+  "text_body": "dwadwa\n\nBekijk in ZaakChat: http://localhost:5173/verify-login?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhd2lvZG5hd29pbkBhd2lvbmR3YS5jb20iLCJleHAiOjE3NjUwMzcyNTIsImlhdCI6MTc2NDk1MDg1Mn0.it6yBXRU2IOHxPQr6BK9kgdEXceClDdKLQJvtzE9U5U&redirect=/chat/eb6dacb4-63e6-4deb-ac9a-260d06da61e9",
+  "thread_id": "eb6dacb4-63e6-4deb-ac9a-260d06da61e9",
+  "to": "awiodnawoin@awiondwa.com"
+}

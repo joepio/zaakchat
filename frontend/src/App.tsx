@@ -246,8 +246,8 @@ const ZakenDashboard: React.FC = () => {
   );
 };
 
-import { AuthProvider } from "./contexts/AuthContext";
-import { useAuth } from "./hooks/useAuth";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+// import { useAuth } from "./hooks/useAuth"; // Removed
 import Login from "./components/Login";
 import VerifyLogin from "./pages/VerifyLogin";
 

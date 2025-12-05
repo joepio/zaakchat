@@ -15,6 +15,8 @@ use std::sync::Arc;
 use tokio_stream::wrappers::BroadcastStream;
 use tokio_stream::StreamExt;
 use crate::email::EmailService;
+use dashmap::DashMap;
+use std::time::{Duration, Instant};
 
 use crate::schemas::{CloudEvent, JSONCommit};
 use crate::storage::{SearchResult, Storage};
@@ -36,6 +38,8 @@ pub struct AppState {
     pub push_subscriptions: Arc<tokio::sync::RwLock<Vec<PushSubscription>>>,
     /// Email service for sending magic links and notifications
     pub email_service: Arc<EmailService>,
+    /// Track active users for smart notification suppression
+    pub active_users: Arc<DashMap<String, Instant>>,
 }
 
 /// Convenience constructor for handlers to create an AppState when needed.
@@ -52,6 +56,7 @@ impl AppState {
             tx,
             push_subscriptions: Arc::new(tokio::sync::RwLock::new(Vec::new())),
             email_service,
+            active_users: Arc::new(DashMap::new()),
         }
     }
 }
@@ -212,29 +217,15 @@ pub async fn get_or_stream_events(
     _headers: HeaderMap,
     Query(params): Query<EventsListParams>,
 ) -> Result<Response, StatusCode> {
-    {
-        use std::io::Write;
-        if let Ok(mut file) = std::fs::OpenOptions::new().create(true).append(true).open("debug.log") {
-            writeln!(file, "[handlers] Incoming SSE request. Token present: {}", params.token.is_some()).unwrap();
-        }
-    }
-
     // 1. Authenticate
     let token = params.token.as_deref().ok_or(StatusCode::UNAUTHORIZED)?;
     let claims = crate::auth::verify_jwt(token).map_err(|_| {
-        use std::io::Write;
-        if let Ok(mut file) = std::fs::OpenOptions::new().create(true).append(true).open("debug.log") {
-            writeln!(file, "[handlers] SSE connection rejected: invalid token").unwrap();
-        }
         StatusCode::UNAUTHORIZED
     })?;
     let user_id = claims.sub;
-    {
-        use std::io::Write;
-        if let Ok(mut file) = std::fs::OpenOptions::new().create(true).append(true).open("debug.log") {
-            writeln!(file, "[handlers] SSE connection accepted for user: {}", user_id).unwrap();
-        }
-    }
+
+    // Update active status
+    state.active_users.insert(user_id.clone(), Instant::now());
 
     // Only return JSON when explicitly requested via query param `?format=json`.
     let want_json = params
@@ -335,6 +326,9 @@ pub async fn get_or_stream_events(
                 let state_clone = state.clone();
                 let user_id_clone = user_id.clone();
                 async move {
+                    // Update active status on every event check (keep-alive ish)
+                    state_clone.active_users.insert(user_id_clone.clone(), Instant::now());
+
                     match msg {
                         Ok(event) => {
                             // Check authorization
@@ -411,11 +405,6 @@ pub async fn handle_event(
                 "[handlers] failed adding event payload to search index id={} err={}",
                 id, e
             );
-        } else {
-            println!(
-                "[handlers] event payload added to search index id={}",
-                id
-            );
         }
     }
 
@@ -430,14 +419,172 @@ pub async fn handle_event(
     // the new item to be available in the snapshot immediately.
     if let Err(e) = state.search.commit().await {
         eprintln!("[handlers] failed to commit search index: {}", e);
-    } else {
-        println!("[handlers] search index committed");
     }
 
     // Broadcast the event (with attached sequence) to SSE subscribers
     let _ = state.tx.send(event.clone());
 
     Ok((StatusCode::ACCEPTED, Json(event)).into_response())
+}
+
+/// Helper to send notifications for new comments/issues
+async fn send_notifications_for_event(state: &AppState, event: &CloudEvent, resource: &Value, old_resource: Option<&Value>) {
+    // 1. Determine if this is a notify-able event (new comment or issue)
+    let resource_id = match resource.get("id").and_then(|v| v.as_str()) {
+        Some(id) => id,
+        None => return,
+    };
+
+    // Determine type
+    let is_comment = resource.get("content").is_some() && resource.get("parent_id").is_some();
+    let is_issue = resource.get("title").is_some() && resource.get("involved").is_some();
+
+    if !is_comment && !is_issue {
+        return;
+    }
+
+    // 2. Determine recipients and message type
+    let mut recipients = Vec::new();
+    let mut thread_id = resource_id.to_string();
+    let mut subject = String::new();
+    let mut content_prefix = String::new();
+
+    if is_issue {
+        // Get current involved
+        let new_involved: Vec<String> = resource.get("involved")
+            .and_then(|v| v.as_array())
+            .map(|arr| arr.iter().filter_map(|v| v.as_str().map(String::from)).collect())
+            .unwrap_or_default();
+
+        if let Some(old) = old_resource {
+            // Update: Check for newly added users
+            let old_involved: Vec<String> = old.get("involved")
+                .and_then(|v| v.as_array())
+                .map(|arr| arr.iter().filter_map(|v| v.as_str().map(String::from)).collect())
+                .unwrap_or_default();
+
+            // Find users in new but not in old
+            for user in new_involved {
+                if !old_involved.contains(&user) {
+                    recipients.push(user);
+                }
+            }
+
+            if recipients.is_empty() {
+                return; // No new users added, no notification needed for issue update
+            }
+
+            subject = format!("Je bent toegevoegd aan Zaak: {}", resource.get("title").and_then(|v| v.as_str()).unwrap_or("Naamloos"));
+            content_prefix = "Je bent toegevoegd aan deze zaak.".to_string();
+
+        } else {
+            // New Issue: Notify all involved
+            recipients = new_involved;
+            subject = format!("Nieuwe Zaak: {}", resource.get("title").and_then(|v| v.as_str()).unwrap_or("Naamloos"));
+        }
+    } else if is_comment {
+        // Only notify for NEW comments (old_resource is None)
+        if old_resource.is_some() {
+            return; // Skip edits
+        }
+
+        // For comments, the thread_id IS the event subject (which is the issue ID)
+        // We trust the frontend/event creator to set this correctly.
+        if let Some(subject) = &event.subject {
+            thread_id = subject.clone();
+
+            // Fetch the parent issue to get involved users
+            if let Ok(Some(parent)) = state.storage.get_resource(&thread_id).await {
+                if let Some(involved) = parent.get("involved").and_then(|v| v.as_array()) {
+                    for user in involved {
+                        if let Some(u) = user.as_str() {
+                            recipients.push(u.to_string());
+                        }
+                    }
+                }
+            }
+        }
+        subject = format!("Nieuwe Reactie op {}", thread_id);
+    }
+
+    // 3. Determine author (to exclude from notifications)
+    // Use the CloudEvent source as the author.
+    let author = &event.source;
+
+    // 4. Send emails
+    let base_url = std::env::var("BASE_URL").unwrap_or_else(|_| "https://zaakchat.nl".to_string());
+
+    for recipient in recipients {
+        // Skip author
+        if recipient == author.as_str() {
+            continue;
+        }
+
+        // Smart Suppression: Check if user is active (seen in last 2 mins)
+        if let Some(last_seen) = state.active_users.get(&recipient) {
+            if last_seen.elapsed() < Duration::from_secs(120) {
+                println!("[notify] Suppressing email to {} (active)", recipient);
+                continue;
+            }
+        }
+
+        let content = if is_issue {
+            resource.get("description").and_then(|v| v.as_str()).unwrap_or("")
+        } else {
+            resource.get("content").and_then(|v| v.as_str()).unwrap_or("")
+        };
+
+        let full_content = if !content_prefix.is_empty() {
+            format!("{}\n\n{}", content_prefix, content)
+        } else {
+            content.to_string()
+        };
+
+        // Generate magic link token
+        let magic_link = match crate::auth::create_jwt(&recipient) {
+            Ok(token) => {
+                let link = format!("{}/verify-login?token={}&redirect=/zaak/{}", base_url, token, thread_id);
+                println!("[notify] Generated magic link for {}: {}", recipient, link);
+                link
+            },
+            Err(e) => {
+                eprintln!("[notify] Failed to create JWT for {}: {}", recipient, e);
+                format!("{}/zaak/{}", base_url, thread_id) // Fallback to normal link
+            }
+        };
+
+        let html_body = format!(
+            "<html><body><p>{}</p><p><a href=\"{}\">Bekijk in ZaakChat</a></p></body></html>",
+            full_content.replace("\n", "<br>"), magic_link
+        );
+        let text_body = format!("{}\n\nBekijk in ZaakChat: {}", full_content, magic_link);
+
+        // Reply-To: hash+issue_id@inbound.postmarkapp.com
+        let reply_to = format!("c677cf964ad4b602877125dc320323ab+{}@inbound.postmarkapp.com", thread_id);
+
+        println!("[notify] Sending email to {} for thread {}", recipient, thread_id);
+        tokio::spawn({
+            let email_service = state.email_service.clone();
+            let recipient = recipient.clone();
+            let subject = subject.clone();
+            let html_body = html_body.clone();
+            let text_body = text_body.clone();
+            let reply_to = reply_to.clone();
+            let thread_id = thread_id.clone();
+            async move {
+                if let Err(e) = email_service.send_notification(
+                    &recipient,
+                    &subject,
+                    &html_body,
+                    &text_body,
+                    Some(&reply_to),
+                    Some(&thread_id),
+                ).await {
+                    eprintln!("[notify] Failed to send email to {}: {}", recipient, e);
+                }
+            }
+        });
+    }
 }
 
 /// Process an event and update resources accordingly
@@ -453,35 +600,15 @@ pub async fn process_event(
 
     // Check if this is a JSONCommit event (accept both legacy and NL-VNG names)
     if event.event_type == "nl.vng.zaken.json-commit.v1" || event.event_type == "json.commit" {
-        // Log the incoming event and data shape for diagnostics
-        println!(
-            "[handlers] processing json-commit event id={} subject={:?} source={}",
-            event.id, event.subject, event.source
-        );
-
         let commit: JSONCommit = serde_json::from_value(data.clone())?;
-
-        // Log commit details that matter for resource creation
-        println!(
-            "[handlers] commit parsed: resource_id={} schema={} resource_data_present={} patch_present={}",
-            commit.resource_id,
-            commit.schema,
-            commit.resource_data.is_some(),
-            commit.patch.is_some()
-        );
 
         // Handle deletion
         if commit.deleted.unwrap_or(false) {
-            println!("[handlers] deleting resource id={}", commit.resource_id);
             state.storage.delete_resource(&commit.resource_id).await?;
             return Ok(());
         }
 
         // Determine resource type more robustly:
-        // 1. Prefer schema hint (if it contains known type names)
-        // 2. Fallback to subject hint
-        // 3. Inspect resource_data keys (title/content/cta/moments/url)
-        // 4. Otherwise "unknown"
         let mut resource_type = extract_resource_type_from_schema(&commit.schema).to_string();
 
         if resource_type == "unknown" {
@@ -512,33 +639,18 @@ pub async fn process_event(
             }
         }
 
-        // Final diagnostics before storing
-        println!(
-            "[handlers] storing resource id={} determined_type={} resource_data_present={}",
-            commit.resource_id,
-            resource_type,
-            commit.resource_data.is_some()
-        );
-
         // Get existing resource if it exists
         let existing_resource = state.storage.get_resource(&commit.resource_id).await?;
+        let old_resource = existing_resource.clone(); // Capture old state
 
         // Apply changes (merge patch or replace with resource_data)
         let new_resource = if let Some(mut existing) = existing_resource {
             // Apply patch if provided
             if let Some(patch) = &commit.patch {
-                println!(
-                    "[handlers] applying patch to existing resource id={}",
-                    commit.resource_id
-                );
                 apply_json_merge_patch(&mut existing, patch);
             }
             // Override with full resource_data if provided
             if let Some(resource_data) = &commit.resource_data {
-                println!(
-                    "[handlers] replacing existing resource id={} with provided resource_data",
-                    commit.resource_id
-                );
                 existing = resource_data.clone();
             }
             existing
@@ -551,71 +663,49 @@ pub async fn process_event(
         };
 
         // Store the updated resource
-        if let Err(e) = state
+        state
             .storage
             .store_resource(&commit.resource_id, &resource_type, &new_resource)
+            .await?;
+
+        // Schedule background indexing of the resource via the search subsystem.
+        let resource_id = commit.resource_id.clone();
+        let resource_type_clone = resource_type.clone();
+        let data_clone = new_resource.clone();
+        let search = state.search.clone();
+
+        let timestamp_opt = commit
+            .timestamp
+            .as_ref()
+            .and_then(|s| chrono::DateTime::parse_from_rfc3339(s).ok())
+            .map(|dt| dt.with_timezone(&chrono::Utc));
+
+        let payload = serde_json::to_string(&data_clone).unwrap_or_default();
+
+        if let Err(err) = search
+            .add_resource_payload(
+                &resource_id,
+                &resource_type_clone,
+                "",
+                &payload,
+                timestamp_opt,
+            )
             .await
         {
             eprintln!(
-                "[handlers] failed to store resource id={} type={} error={}",
-                commit.resource_id, resource_type, e
+                "[handlers] failed adding resource payload to search index id={} err={}",
+                resource_id, err
             );
-            return Err(e);
-        } else {
-            println!(
-                "[handlers] successfully stored resource id={} type={}",
-                commit.resource_id, resource_type
-            );
-
-            // Schedule background indexing of the resource via the search subsystem.
-            // Serialize the resource once and pass the payload string to avoid heavy cloning.
-            let resource_id = commit.resource_id.clone();
-            let resource_type_clone = resource_type.clone();
-            let data_clone = new_resource.clone();
-            let search = state.search.clone();
-
-            // Use commit.timestamp if available (try to parse), otherwise pass None.
-            let timestamp_opt = commit
-                .timestamp
-                .as_ref()
-                .and_then(|s| chrono::DateTime::parse_from_rfc3339(s).ok())
-                .map(|dt| dt.with_timezone(&chrono::Utc));
-
-            // Serialize payload once (avoid creating an additional textual snippet)
-            let payload = serde_json::to_string(&data_clone).unwrap_or_default();
-
-            // Index the resource synchronously
-            if let Err(err) = search
-                .add_resource_payload(
-                    &resource_id,
-                    &resource_type_clone,
-                    "",
-                    &payload,
-                    timestamp_opt,
-                )
-                .await
-            {
-                eprintln!(
-                    "[handlers] failed adding resource payload to search index id={} err={}",
-                    resource_id, err
-                );
-            } else {
-                println!(
-                    "[handlers] resource payload added to search index id={}",
-                    resource_id
-                );
-            }
         }
+
+        // Trigger Notifications
+        send_notifications_for_event(state, event, &new_resource, old_resource.as_ref()).await;
+
     } else {
         // For other event types, you might want to handle them differently
         // For now, we'll just store them as-is if a subject exists
         if let Some(subject) = &event.subject {
             let resource_type = extract_resource_type_from_subject(subject);
-            println!(
-                "[handlers] non-json-commit event: storing event.id={} as resource type={}",
-                event.id, resource_type
-            );
-            // store resource
             state
                 .storage
                 .store_resource(&event.id, resource_type, data)
@@ -636,17 +726,7 @@ pub async fn process_event(
                     "[handlers] failed adding non-json-commit resource payload id={} err={}",
                     id_clone, err
                 );
-            } else {
-                println!(
-                    "[handlers] non-json-commit resource payload added to search index id={}",
-                    id_clone
-                );
             }
-        } else {
-            println!(
-                "[handlers] non-json-commit event without subject: event.id={}",
-                event.id
-            );
         }
     }
 
@@ -798,17 +878,136 @@ pub async fn query_resources(
     let user = &auth_user.user_id;
     let final_query = crate::search::SearchIndex::apply_authorization_filter(&params.q, user);
 
-    let results = state
-        .search
-        .search(&*state.storage, &final_query, params.limit)
+    let results = state.search.search(&state.storage, &final_query, params.limit)
         .await
         .map_err(|e| {
-            eprintln!("Failed to search: {}", e);
+            eprintln!("Failed to search resources: {}", e);
             StatusCode::INTERNAL_SERVER_ERROR
         })?;
 
-    // Return the structured results directly (each result may contain an `event` and/or `resource`).
     Ok(Json(results))
+}
+
+/// POST /api/email/inbound - Handle incoming Postmark webhooks
+pub async fn inbound_email_handler(
+    State(state): State<AppState>,
+    Json(payload): Json<Value>,
+) -> Result<StatusCode, StatusCode> {
+    println!("[inbound] Received webhook");
+
+    // 1. Extract Sender (From)
+    let from = payload.get("From").and_then(|v| v.as_str()).ok_or(StatusCode::BAD_REQUEST)?;
+    // Extract email from "Name <email@domain.com>" format if needed
+    // Simple extraction:
+    let sender_email = if let Some(start) = from.find('<') {
+        if let Some(end) = from.find('>') {
+            &from[start + 1..end]
+        } else {
+            from
+        }
+    } else {
+        from
+    };
+
+    // 2. Extract Thread ID (Issue ID) from OriginalRecipient
+    // Format: c677cf964ad4b602877125dc320323ab+<issue_id>@inbound.postmarkapp.com
+    let recipient = payload.get("OriginalRecipient").and_then(|v| v.as_str()).ok_or(StatusCode::BAD_REQUEST)?;
+    let parts: Vec<&str> = recipient.split('+').collect();
+    if parts.len() < 2 {
+        eprintln!("[inbound] Invalid recipient format: {}", recipient);
+        return Err(StatusCode::BAD_REQUEST);
+    }
+    let issue_id_part = parts[1];
+    let issue_id = issue_id_part.split('@').next().unwrap_or(issue_id_part);
+
+    // 3. Extract Content (TextBody)
+    // Postmark provides TextBody and HtmlBody. We prefer TextBody for comments.
+    // We might need to strip the quoted reply (Postmark usually handles this via StrippedTextReply, but let's check)
+    let content = payload.get("StrippedTextReply")
+        .and_then(|v| v.as_str())
+        .filter(|s| !s.is_empty())
+        .or_else(|| payload.get("TextBody").and_then(|v| v.as_str()))
+        .unwrap_or("");
+
+    if content.is_empty() {
+        eprintln!("[inbound] Empty content");
+        return Ok(StatusCode::OK); // Don't error, just ignore
+    }
+
+    println!("[inbound] Parsed reply from {} for issue {}: {}", sender_email, issue_id, content);
+
+    // 4. Create Comment
+    let comment_id = uuid::Uuid::new_v4().to_string();
+    let timestamp = chrono::Utc::now().to_rfc3339();
+
+    let comment_data = serde_json::json!({
+        "id": comment_id,
+        "parent_id": issue_id,
+        "content": content,
+        "author": sender_email,
+        "created_at": timestamp,
+    });
+
+    let event = CloudEvent {
+        specversion: "1.0".to_string(),
+        id: uuid::Uuid::new_v4().to_string(),
+        // Use sender email as source so they are identified as author
+        source: sender_email.to_string(),
+        // Subject should be the Issue ID (thread ID)
+        subject: Some(issue_id.to_string()),
+        event_type: "json.commit".to_string(),
+        time: Some(timestamp.clone()),
+        datacontenttype: Some("application/json".to_string()),
+        dataschema: None,
+        dataref: None,
+        sequence: None,
+        sequencetype: None,
+        data: Some(serde_json::json!({
+            "resource_id": comment_id,
+            "schema": "https://zaakchat.nl/schemas/Comment.json",
+            "timestamp": timestamp,
+            "resource_data": comment_data
+        })),
+    };
+
+    // Use handle_event logic (store, index, broadcast)
+    // We can't call handle_event directly because of Axum types, so we replicate the logic or extract a shared function.
+    // For simplicity, let's call the internal logic.
+
+    let seq_key = state.storage.store_event(&event).await.map_err(|e| {
+        eprintln!("Failed to store inbound event: {}", e);
+        StatusCode::INTERNAL_SERVER_ERROR
+    })?;
+
+    // We need to mutate event to add sequence, but we can't easily here without cloning.
+    // Let's just create a new event with sequence for broadcasting.
+    let mut broadcast_event = event.clone();
+    broadcast_event.sequence = Some(seq_key);
+
+    // Indexing
+    {
+        let search = state.search.clone();
+        let payload = serde_json::to_string(&broadcast_event).unwrap_or_default();
+        let id = broadcast_event.id.clone();
+        let doc_type = broadcast_event.event_type.clone();
+        if let Err(e) = search.add_event_payload(&id, &doc_type, "", &payload, None).await {
+            eprintln!("[inbound] failed indexing: {}", e);
+        }
+    }
+
+    // Process (store resource)
+    if let Err(e) = process_event(&state, &broadcast_event).await {
+        eprintln!("[inbound] failed processing: {}", e);
+        return Err(StatusCode::INTERNAL_SERVER_ERROR);
+    }
+
+    // Commit search
+    let _ = state.search.commit().await;
+
+    // Broadcast
+    let _ = state.tx.send(broadcast_event);
+
+    Ok(StatusCode::OK)
 }
 
 /// GET /debug/db - Return counts and sample ids of events and resources for diagnostics.
@@ -929,20 +1128,14 @@ pub async fn login_handler(
     State(state): State<AppState>,
     Json(payload): Json<LoginRequest>,
 ) -> Result<Json<serde_json::Value>, StatusCode> {
-    // Generate a secure random token
-    let token = uuid::Uuid::new_v4().to_string();
-
-    // Set expiration (e.g., 15 minutes)
-    let expires_at = chrono::Utc::now()
-        .checked_add_signed(chrono::Duration::minutes(15))
-        .unwrap()
-        .timestamp();
-
-    // Store pending login
-    if let Err(e) = state.storage.store_pending_login(&token, &payload.email, expires_at).await {
-        eprintln!("Failed to store pending login: {}", e);
-        return Err(StatusCode::INTERNAL_SERVER_ERROR);
-    }
+    // Generate a short-lived JWT (15 minutes) for the magic link
+    let token = match crate::auth::create_jwt_with_expiry(&payload.email, chrono::Duration::minutes(15)) {
+        Ok(t) => t,
+        Err(e) => {
+            eprintln!("Failed to create login JWT: {}", e);
+            return Err(StatusCode::INTERNAL_SERVER_ERROR);
+        }
+    };
 
     // Send magic link
     if let Err(e) = state.email_service.send_magic_link(&payload.email, &token).await {
@@ -962,29 +1155,22 @@ pub struct VerifyParams {
 }
 
 pub async fn verify_login_handler(
-    State(state): State<AppState>,
+    State(_state): State<AppState>,
     Query(params): Query<VerifyParams>,
 ) -> Result<Json<LoginResponse>, StatusCode> {
-    // Retrieve and consume token
-    let record = state.storage.get_and_remove_pending_login(&params.token).await.map_err(|e| {
-        eprintln!("Failed to get pending login: {}", e);
-        StatusCode::INTERNAL_SERVER_ERROR
-    })?;
-
-    if let Some(login) = record {
-        // Check expiration
-        if chrono::Utc::now().timestamp() > login.expires_at {
-            return Err(StatusCode::UNAUTHORIZED);
+    // Verify the token directly as a JWT
+    match crate::auth::verify_jwt(&params.token) {
+        Ok(claims) => {
+            // Token is valid. Issue a new long-lived session JWT (24h).
+            match crate::auth::create_jwt(&claims.sub) {
+                Ok(token) => Ok(Json(LoginResponse { token })),
+                Err(_) => Err(StatusCode::INTERNAL_SERVER_ERROR),
+            }
+        },
+        Err(_) => {
+            // Invalid or expired
+            Err(StatusCode::UNAUTHORIZED)
         }
-
-        // Generate JWT
-        match crate::auth::create_jwt(&login.email) {
-            Ok(token) => Ok(Json(LoginResponse { token })),
-            Err(_) => Err(StatusCode::INTERNAL_SERVER_ERROR),
-        }
-    } else {
-        // Invalid or expired (already consumed) token
-        Err(StatusCode::UNAUTHORIZED)
     }
 }
 

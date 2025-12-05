@@ -1,5 +1,5 @@
 // Service Worker for PWA
-const CACHE_NAME = 'mijnzaken-v1';
+const CACHE_NAME = 'mijnzaken-v3'; // Bumped version for fresh start
 const RUNTIME_CACHE = 'runtime-cache';
 
 // Install event - cache essential resources
@@ -39,8 +39,15 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
 
-  // Always pass through non-GET, API and SSE requests
-  if (request.method !== 'GET' || request.url.includes('/events') || request.url.includes('/api/')) {
+  // Always pass through non-GET, API, SSE, and Vite HMR requests
+  if (
+    request.method !== 'GET' ||
+    request.url.includes('/events') ||
+    request.url.includes('/api/') ||
+    request.url.includes('hot-update') || // Vite HMR
+    request.url.includes('socket') || // Vite HMR socket
+    request.url.includes('verify-login') // Always fetch verify-login from network
+  ) {
     return;
   }
 

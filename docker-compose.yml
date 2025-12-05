@@ -1,0 +1,29 @@
+services:
+  zaakchat:
+    image: docker.io/joepmeneer/zaakchat:latest
+    container_name: zaakchat
+    restart: unless-stopped
+    environment:
+      - POSTMARK_API_TOKEN
+      - POSTMARK_SENDER_EMAIL=noreply@zaakchat.nl
+      - BASE_URL=https://zaakchat.nl
+    volumes:
+      - zaakchat_data:/app/data
+
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+    depends_on:
+      - zaakchat
+
+volumes:
+  zaakchat_data:
+    external: true
+  caddy_data:

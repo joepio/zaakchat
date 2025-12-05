@@ -1,0 +1,3 @@
+zaakchat.nl {
+    reverse_proxy zaakchat:8000
+}

@@ -12,6 +12,11 @@ DATA_DIR="/root/zaakchat-data"
 # Create data directory if it doesn't exist
 mkdir -p "$DATA_DIR"
 
+# Fix permissions: The container runs as non-root user (UID 1000).
+# We need to ensure the host directory is writable by this user.
+echo "🔧 Fixing permissions for $DATA_DIR..."
+chown -R 1000:1000 "$DATA_DIR"
+
 echo "📥 Pulling latest image..."
 podman pull "$IMAGE"
 

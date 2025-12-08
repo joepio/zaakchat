@@ -67,19 +67,33 @@ const PageHeader: React.FC<PageHeaderProps> = ({ currentZaakId }) => {
           <SearchBar />
 
           {/* Right side - Navigation and notifications */}
-          <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
+          <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
             <Link
               to="/api-docs"
-              className="block text-xs sm:text-sm font-medium"
+              className="flex items-center justify-center h-10 px-4 rounded-full transition-colors text-xs sm:text-sm font-medium"
               style={{ color: "var(--text-secondary)" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--bg-hover)";
+                e.currentTarget.style.color = "var(--text-primary)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = "var(--text-secondary)";
+              }}
             >
               API Docs
             </Link>
             <NotificationBell currentZaakId={currentZaakId} />
             <button
               onClick={() => setIsSettingsOpen(true)}
-              title="User Settings"
-              className="focus:outline-none hover:opacity-80 transition-opacity"
+              title="Instellingen"
+              className="flex items-center justify-center w-10 h-10 rounded-full transition-colors focus:outline-none cursor-pointer"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--bg-hover)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }}
             >
               <UserAvatar name={userInitial} size="sm" />
             </button>

@@ -52,7 +52,7 @@ const CommentPlugin: React.FC<EventPluginProps> = ({
       event={event}
       data={data}
       timeInfo={timeInfo}
-      actionText="reactie toegevoegd"
+      actionText=""
       editFormComponent={editFormComponent}
       showEditButton={true}
     >

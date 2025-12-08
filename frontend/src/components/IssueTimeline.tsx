@@ -302,7 +302,7 @@ const IssueTimeline: React.FC = () => {
               <SectionLabel>Tijdlijn</SectionLabel>
               <button
                 onClick={() => setShowSystemEvents(!showSystemEvents)}
-                className="text-xs flex items-center gap-1 hover:underline transition-all mb-1"
+                className="text-xs flex items-center gap-1 hover:underline transition-all mb-3 lg:mb-4 xl:mb-5 pr-3 sm:pr-4 lg:pr-4 xl:pr-5"
                 style={{ color: "var(--text-tertiary)" }}
               >
                 <i className={`fa-solid ${showSystemEvents ? 'fa-eye-slash' : 'fa-eye'}`}></i>

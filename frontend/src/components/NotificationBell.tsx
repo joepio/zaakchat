@@ -241,17 +241,18 @@ const NotificationBell: React.FC<NotificationBellProps> = ({
       <Button
         variant="ghost"
         size="md"
+        icon={true}
         onClick={handleBellClick}
-        className="relative border rounded-md p-2 md:p-1.5 text-xl md:text-base"
-        style={{
-          borderColor: "var(--border-primary)",
-        }}
+        className="relative"
       >
         <i className="fa-solid fa-bell" aria-hidden="true"></i>
         {newEventsCount > 0 && (
           <span
-            className="absolute -top-1 -right-1 text-xs font-semibold px-1.5 py-0.5 rounded-full min-w-[16px] text-center text-white"
-            style={{ backgroundColor: "var(--text-error)" }}
+            className="absolute top-0 right-0 text-xs font-semibold px-1 rounded-full min-w-[16px] text-center text-white border-2"
+            style={{
+              backgroundColor: "var(--text-error)",
+              borderColor: "var(--bg-secondary)"
+            }}
           >
             {newEventsCount}
           </span>

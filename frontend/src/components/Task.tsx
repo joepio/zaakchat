@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import type { Task as TaskType } from "../types";
 import DeadlineBadge from "./DeadlineBadge";
 import { Button } from "./ActionButton";
+import MarkdownRenderer from "./MarkdownRenderer";
 
 interface TaskProps {
   task: TaskType;
@@ -53,7 +54,7 @@ const Task: React.FC<TaskProps> = ({
               isCompact ? "text-sm" : "text-base"
             }`}
           >
-            {task.description}
+            <MarkdownRenderer content={task.description} />
           </div>
         </div>
       </div>
@@ -79,13 +80,13 @@ const Task: React.FC<TaskProps> = ({
         )}
 
         <div className={`${isCompact ? "mb-3" : "mb-4"}`}>
-          <p
+          <div
             className={`text-text-primary leading-relaxed m-0 ${
               isCompact ? "text-sm" : "text-base"
             }`}
           >
-            {task.description}
-          </p>
+            <MarkdownRenderer content={task.description} />
+          </div>
         </div>
 
         <div className="flex gap-3 items-center md:flex-col md:items-stretch">

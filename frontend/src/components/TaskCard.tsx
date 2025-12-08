@@ -4,6 +4,7 @@ import ActionButton, { Button } from "./ActionButton";
 import { useSSE } from "../contexts/SSEContext";
 import DeadlineBadge from "./DeadlineBadge";
 import SchemaEditForm from "./SchemaEditForm";
+import MarkdownRenderer from "./MarkdownRenderer";
 
 interface TaskCardProps {
   task: ExtendedTask;
@@ -21,7 +22,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, zaakId }) => {
           <strong>✅ Taak voltooid: {task.cta}</strong>
         </p>
         <div className="text-sm sm:text-base lg:text-lg xl:text-xl text-text-secondary">
-          {task.description}
+          <MarkdownRenderer content={task.description} />
         </div>
       </div>
     );
@@ -32,12 +33,12 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, zaakId }) => {
     <>
       <div className="p-0" id={task.id}>
         <div className="flex justify-between items-start mb-4">
-          <p
+          <div
             className="m-0 leading-relaxed text-sm sm:text-base lg:text-lg xl:text-xl flex-1"
             data-testid="task-description"
           >
-            {task.description}
-          </p>
+            <MarkdownRenderer content={task.description} />
+          </div>
           <Button
             variant="icon"
             size="sm"

@@ -5,6 +5,7 @@ import { ResourcePluginWrapper } from "../shared/TimelineEventUI";
 import SchemaEditFormContent from "../../components/SchemaEditFormContent";
 import DeletedItem from "../../components/DeletedItem";
 import { useSSE } from "../../contexts/SSEContext";
+import MarkdownRenderer from "../../components/MarkdownRenderer";
 
 const CommentPlugin: React.FC<EventPluginProps> = ({
   event,
@@ -56,12 +57,16 @@ const CommentPlugin: React.FC<EventPluginProps> = ({
       showEditButton={true}
     >
       <div className="prose max-w-none">
-        <p
+        <div
           className="m-0 mb-2 leading-relaxed text-sm sm:text-base lg:text-lg xl:text-xl"
           style={{ color: "var(--text-primary)" }}
         >
-          {comment.content || "Geen inhoud"}
-        </p>
+          {comment.content ? (
+            <MarkdownRenderer content={comment.content} />
+          ) : (
+            "Geen inhoud"
+          )}
+        </div>
         {comment.mentions && comment.mentions.length > 0 && (
           <div className="mt-2">
             <small

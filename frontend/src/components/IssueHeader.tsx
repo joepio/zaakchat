@@ -3,6 +3,8 @@ import type { Issue } from "../types";
 import Card from "./Card";
 import { Button } from "./ActionButton";
 
+import MarkdownRenderer from "./MarkdownRenderer";
+
 interface IssueHeaderProps {
   issue: Issue;
   onEdit?: () => void;
@@ -72,9 +74,13 @@ const IssueHeader: React.FC<IssueHeaderProps> = ({
         </div>
       </div>
 
-      <p className="text-sm leading-relaxed text-text-primary mb-3">
-        {String(issue.description) || "Geen beschrijving beschikbaar."}
-      </p>
+      <div className="text-sm leading-relaxed text-text-primary mb-3">
+        {issue.description ? (
+          <MarkdownRenderer content={issue.description} />
+        ) : (
+          "Geen beschrijving beschikbaar."
+        )}
+      </div>
 
       <div className="text-xs text-text-tertiary" data-testid="issue-assignee">
         <strong className="text-text-primary">Toegewezen aan:</strong>{" "}

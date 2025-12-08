@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "cd frontend && vite",
-    "build": "cd frontend && tsc -b && vite build",
+    "build": "npm run bump-sw && cd frontend && tsc -b && vite build",
     "lint": "cd frontend && eslint .",
     "preview": "cd frontend && vite preview",
     "test": "cd frontend && vitest --run",
@@ -21,7 +21,8 @@
     "generate": "node scripts/generate-types.js",
     "generate-asyncapi": "cargo run --bin generate_asyncapi",
     "generate-all": "cargo run --bin export_schemas && cargo run --bin generate_asyncapi && node scripts/generate-types.js && cd frontend && vite build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "bump-sw": "node frontend/scripts/bump-sw.js"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
@@ -30,13 +31,16 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hot-toast": "^2.6.0",
-    "react-router-dom": "^7.9.1"
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.9.1",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@fortawesome/fontawesome-free": "^7.1.0",
     "@playwright/test": "^1.40.0",
     "@tailwindcss/postcss": "^4.1.13",
+    "@tailwindcss/typography": "^0.5.19",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.1",

@@ -10,7 +10,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language = "json" }) => {
     <pre
       className="p-4 rounded-lg overflow-x-auto text-sm"
       style={{
-        backgroundColor: "var(--ro-grijs-2)",
+        backgroundColor: "var(--bg-tertiary)",
         color: "var(--text-primary)",
       }}
     >

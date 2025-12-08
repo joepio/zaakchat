@@ -9,6 +9,7 @@ import ThreeLevelsSection from "./sections/ThreeLevelsSection";
 import EventProducersSection from "./sections/EventProducersSection";
 import EventConsumersSection from "./sections/EventConsumersSection";
 import GetStartedFooter from "./sections/GetStartedFooter";
+import SearchDocumentationSection from "./sections/SearchDocumentationSection";
 
 const ApiDocumentationView: React.FC = () => {
   return (
@@ -45,6 +46,7 @@ const ApiDocumentationView: React.FC = () => {
           {/* Table of Contents */}
           <TableOfContents
             items={[
+              { id: "search-endpoint", title: "Search Endpoint & Playground" },
               { id: "json-commit", title: "JSONCommit - Één Event Type" },
               { id: "waarom-cloudevents", title: "Waarom CloudEvents?" },
               { id: "drie-niveaus", title: "De 3 Niveaus van Event Structuur" },
@@ -53,6 +55,7 @@ const ApiDocumentationView: React.FC = () => {
             ]}
           />
 
+          <SearchDocumentationSection />
           <JSONCommitSection />
           <WhyCloudEventsSection />
           <ThreeLevelsSection />

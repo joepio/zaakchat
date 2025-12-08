@@ -12,6 +12,8 @@ import DeploymentPlugin from "./DeploymentPlugin";
 import SystemEventPlugin from "./SystemEventPlugin";
 import DocumentPlugin from "./DocumentPlugin";
 
+import GenericResourcePlugin from "./GenericResourcePlugin";
+
 // Plugin registry - map event types to components
 export const eventPlugins: Record<TimelineItemType, EventPluginComponent> = {
   comment: CommentPlugin,
@@ -33,7 +35,7 @@ export const eventPlugins: Record<TimelineItemType, EventPluginComponent> = {
 export const getEventPlugin = (
   eventType: TimelineItemType,
 ): EventPluginComponent => {
-  return eventPlugins[eventType] || eventPlugins.system_event;
+  return eventPlugins[eventType] || GenericResourcePlugin;
 };
 
 // Export individual plugins for direct use if needed

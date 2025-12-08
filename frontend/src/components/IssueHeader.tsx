@@ -4,6 +4,7 @@ import Card from "./Card";
 import { Button } from "./ActionButton";
 
 import MarkdownRenderer from "./MarkdownRenderer";
+import PropertiesRenderer from "./PropertiesRenderer";
 
 interface IssueHeaderProps {
   issue: Issue;
@@ -82,13 +83,8 @@ const IssueHeader: React.FC<IssueHeaderProps> = ({
         )}
       </div>
 
-      <div className="text-xs text-text-tertiary" data-testid="issue-assignee">
-        <strong className="text-text-primary">Toegewezen aan:</strong>{" "}
-        {issue.assignee || "Niet toegewezen"}
-      </div>
-
-      <div className="text-xs text-text-tertiary mt-2" data-testid="issue-involved">
-        <div className="flex items-center gap-2 mb-1">
+      <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 text-xs mt-2" data-testid="issue-involved">
+        <div className="flex-shrink-0 min-w-[120px] max-w-[200px] flex items-center gap-2">
           <strong className="text-text-primary">Betrokkenen:</strong>
           {onAddInvolved && !isAddingInvolved && (
             <button
@@ -102,56 +98,76 @@ const IssueHeader: React.FC<IssueHeaderProps> = ({
           )}
         </div>
 
-        {isAddingInvolved && (
-          <form onSubmit={handleAddSubmit} className="flex items-center gap-2 mb-2">
-            <input
-              type="email"
-              value={newEmail}
-              onChange={(e) => setNewEmail(e.target.value)}
-              placeholder="Email adres..."
-              className="px-2 py-1 text-sm border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-              style={{
-                backgroundColor: "var(--bg-primary)",
-                borderColor: "var(--border-primary)",
-                color: "var(--text-primary)"
-              }}
-              autoFocus
-            />
-            <button
-              type="submit"
-              className="px-2 py-1 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700"
-            >
-              Toevoegen
-            </button>
-            <button
-              type="button"
-              onClick={() => setIsAddingInvolved(false)}
-              className="px-2 py-1 text-xs font-medium text-gray-600 bg-gray-200 rounded hover:bg-gray-300"
-            >
-              Annuleren
-            </button>
-          </form>
-        )}
-
-        {issue.involved && issue.involved.length > 0 ? (
-          <div className="flex flex-wrap gap-1">
-            {issue.involved.map((email, index) => (
-              <span
-                key={index}
-                className="inline-flex items-center px-2 py-0.5 rounded text-xs"
+        <div className="flex-grow break-words text-text-primary">
+          {isAddingInvolved && (
+            <form onSubmit={handleAddSubmit} className="flex items-center gap-2 mb-2">
+              <input
+                type="email"
+                value={newEmail}
+                onChange={(e) => setNewEmail(e.target.value)}
+                placeholder="Email adres..."
+                className="px-2 py-1 text-sm border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
                 style={{
-                  backgroundColor: "var(--bg-tertiary)",
-                  color: "var(--text-primary)",
+                  backgroundColor: "var(--bg-primary)",
+                  borderColor: "var(--border-primary)",
+                  color: "var(--text-primary)"
                 }}
+                autoFocus
+              />
+              <button
+                type="submit"
+                className="px-2 py-1 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700"
               >
-                {email}
-              </span>
-            ))}
-          </div>
-        ) : (
-          <span className="text-text-tertiary">Geen betrokkenen</span>
-        )}
+                Toevoegen
+              </button>
+              <button
+                type="button"
+                onClick={() => setIsAddingInvolved(false)}
+                className="px-2 py-1 text-xs font-medium text-gray-600 bg-gray-200 rounded hover:bg-gray-300"
+              >
+                Annuleren
+              </button>
+            </form>
+          )}
+
+          {issue.involved && issue.involved.length > 0 ? (
+            <div className="flex flex-wrap gap-1">
+              {issue.involved.map((email, index) => (
+                <span
+                  key={index}
+                  className="inline-flex items-center px-1.5 py-0.5 rounded text-xs border"
+                  style={{
+                    backgroundColor: "var(--bg-tertiary)",
+                    borderColor: "var(--border-primary)",
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  {email}
+                </span>
+              ))}
+            </div>
+          ) : (
+            !isAddingInvolved && <span className="text-text-tertiary">Geen betrokkenen</span>
+          )}
+        </div>
       </div>
+
+      <PropertiesRenderer
+        className="mt-2 pt-2"
+        data={issue as unknown as Record<string, unknown>}
+        schemaUrl="Issue"
+        ignoredProperties={[
+          "id",
+          "title",
+          "description",
+          "status",
+          "assignee",
+          "involved",
+          "created_at",
+          "updated_at",
+          "lastActivity"
+        ]}
+      />
     </Card>
   );
 };

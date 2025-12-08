@@ -1,5 +1,5 @@
 // Service Worker for PWA
-const CACHE_NAME = 'mijnzaken-v1765190728'; // Bumped version for fresh start
+const CACHE_NAME = 'mijnzaken-v1765191268'; // Bumped version for fresh start
 const RUNTIME_CACHE = 'runtime-cache';
 
 // Install event - cache essential resources

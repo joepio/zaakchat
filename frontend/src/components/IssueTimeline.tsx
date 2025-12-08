@@ -23,6 +23,22 @@ const IssueTimeline: React.FC = () => {
 
   const issue = zaakId ? issues[zaakId] : null;
 
+  const [showSystemEvents, setShowSystemEvents] = useState(false);
+
+  // Define what counts as a system event that should be hidden by default
+  const isSystemEvent = (itemType: TimelineItemType) => {
+    return [
+      "issue_created",
+      "issue_updated",
+      "issue_deleted",
+      "field_update",
+      "status_change",
+      "system_event",
+      "system_update"
+    ].includes(itemType);
+  };
+
+
   // Detect if issue doesn't exist after a reasonable timeout
   // This is not the ideal solution, but since we rely on fetching all events
   // before we can render the issue, we need to do this for now.
@@ -156,6 +172,15 @@ const IssueTimeline: React.FC = () => {
     return "system_event";
   };
 
+  const hiddenCount = useMemo(() => {
+    return timelineEvents.filter(event => {
+      const itemType = getTimelineItemType(event.originalEvent);
+      return isSystemEvent(itemType);
+    }).length;
+  }, [timelineEvents]);
+
+
+
   const handleCommentSubmit = async (event: CloudEvent) => {
     await sendEvent(event);
   };
@@ -273,10 +298,24 @@ const IssueTimeline: React.FC = () => {
         {/* Timeline section */}
         {timelineEvents.length > 0 && (
           <div className="mb-6 lg:mb-8 xl:mb-10">
-            <SectionLabel>Tijdlijn</SectionLabel>
+            <div className="flex justify-between items-end mb-4">
+              <SectionLabel>Tijdlijn</SectionLabel>
+              <button
+                onClick={() => setShowSystemEvents(!showSystemEvents)}
+                className="text-xs flex items-center gap-1 hover:underline transition-all mb-1"
+                style={{ color: "var(--text-tertiary)" }}
+              >
+                <i className={`fa-solid ${showSystemEvents ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                {showSystemEvents
+                  ? "Verberg details"
+                  : `Toon ${hiddenCount} verborgen details`
+                }
+              </button>
+            </div>
             <TimelineEventsList
               events={timelineEvents}
               getTimelineItemType={getTimelineItemType}
+              showSystemEvents={showSystemEvents}
             />
           </div>
         )}

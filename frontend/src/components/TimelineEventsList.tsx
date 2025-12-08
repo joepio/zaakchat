@@ -6,12 +6,16 @@ import UserAvatar from "./UserAvatar";
 interface TimelineEventsListProps {
   events: TimelineEvent[];
   getTimelineItemType: (event: CloudEvent) => TimelineItemType;
+  showSystemEvents: boolean;
 }
 
 const TimelineEventsList: React.FC<TimelineEventsListProps> = ({
   events,
   getTimelineItemType,
+  showSystemEvents,
 }) => {
+  // const [showSystemEvents, setShowSystemEvents] = useState(false); // Moved to parent
+
   if (events.length === 0) {
     return (
       <div className="text-center py-6 sm:py-8">
@@ -25,21 +29,44 @@ const TimelineEventsList: React.FC<TimelineEventsListProps> = ({
     );
   }
 
+  // Define what counts as a system event that should be hidden by default
+  const isSystemEvent = (itemType: TimelineItemType) => {
+    return [
+      "issue_created",
+      "issue_updated",
+      "issue_deleted",
+      "field_update",
+      "status_change",
+      "system_event",
+      "system_update"
+    ].includes(itemType);
+  };
+
+  const filteredEvents = events.filter((event) => {
+    if (showSystemEvents) return true;
+    const itemType = getTimelineItemType(event.originalEvent);
+    return !isSystemEvent(itemType);
+  });
+
+
+
   return (
     <div className="relative">
+
+
       {/* Timeline line - responsive positioning to center on avatars */}
       <div
-        className="absolute left-5 sm:left-4 lg:left-5 xl:left-6 top-0 bottom-0 w-0.5 z-10"
+        className="absolute left-5 sm:left-4 lg:left-5 xl:left-6 top-10 bottom-0 w-0.5 z-10"
         style={{ backgroundColor: "var(--border-primary)" }}
       />
 
-      {events.map((event) => {
+      {filteredEvents.map((event) => {
         const itemType = getTimelineItemType(event.originalEvent);
         return (
           <div
             key={event.id}
             id={event.id}
-            className="flex mb-4 sm:mb-5 lg:mb-6 xl:mb-8 relative z-20"
+            className="flex mb-4 sm:mb-5 lg:mb-6 xl:mb-8 relative z-20 animate-timeline-appear"
             data-testid="timeline-event"
           >
             <div className="flex-shrink-0 mr-3 sm:mr-4 lg:mr-4 xl:mr-5 w-10 sm:w-8 lg:w-10 xl:w-12">
@@ -54,6 +81,8 @@ const TimelineEventsList: React.FC<TimelineEventsListProps> = ({
           </div>
         );
       })}
+
+
     </div>
   );
 };

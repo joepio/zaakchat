@@ -8,6 +8,17 @@ Dit project bevat:
 - **Back-end** met API endpoints voor `/events` voor JSONCommits / CloudEvents en `/schemas` endpoints voor JSON schema serving. Geschreven in Rust met Axum en Tokio.
 - **AsyncAPI specificatie** voor het protocol op basis van CloudEvents + SSE, met daarin schemas voor de verschillende berichten. Deze wordt gegenereerd door het back-end.
 
+## Voor inwoners
+
+- **Overzichtelijk**. Al jouw zaken, taken, en de planning in 1 overzicht.
+- **Gebruiksvriendelijk**. Een overzichtelijke tijdlijn van alles wat er gebeurt. Direct kunnen chatten met jouw gemeente.
+- **Snel**. Geschreven in Rust en React. Sneller is haast niet mogelijk.
+
+## Voor gemeenten
+
+- **Zelf hosten**. Docker + Docker-Compose is beschikbaar. Geen externe database nodig.
+- **Open source**. Geen addertjes onder het gras.
+
 ![Screenshot](screenshot.png)
 
 ## Lokaal draaien

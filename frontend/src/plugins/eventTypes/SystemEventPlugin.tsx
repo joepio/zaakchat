@@ -122,13 +122,63 @@ const SystemEventPlugin: React.FC<EventPluginProps> = ({
     return "systeem event";
   };
 
+  const text = getChangeText();
+
+  // Determine link target
+  let linkTarget: string | null = null;
+  const resourceId = data.resource_id as string;
+
+  // Extract item type again (duplicated logic, could be refined but keeping it self-contained for now)
+  let itemType = "unknown";
+  const schema = data.schema as string;
+  if (schema) {
+    const schemaName = schema.split("/").pop();
+    if (schemaName) {
+      itemType = schemaName.toLowerCase();
+    }
+  } else if (data.item_type) {
+    itemType = data.item_type as string; // Fallback
+  }
+
+  if (resourceId) {
+    if (itemType === "task" || itemType === "planning" || itemType === "issue") {
+      linkTarget = `#${resourceId}`;
+    }
+  }
+
   return (
     <EventPluginWrapper
       event={event}
       data={data}
       timeInfo={timeInfo}
     >
-      <span>{getChangeText()}</span>
+      {linkTarget ? (
+        <a
+          href={linkTarget}
+          className="hover:underline hover:text-blue-600 transition-colors cursor-pointer"
+          onClick={(e) => {
+            // Smooth scroll handled by global CSS or if we want manual control:
+            const element = document.getElementById(resourceId);
+             if (element) {
+               e.preventDefault();
+               element.scrollIntoView({ behavior: "smooth", block: "center" });
+               // Add highlight effect
+               const originalBg = element.style.backgroundColor;
+               const originalTrans = element.style.transition;
+               element.style.transition = "background-color 0.5s ease";
+               element.style.backgroundColor = "rgba(251, 191, 36, 0.2)"; // yellow-400 with opacity
+               setTimeout(() => {
+                 element.style.backgroundColor = originalBg;
+                 element.style.transition = originalTrans;
+               }, 2000);
+             }
+          }}
+        >
+          {text}
+        </a>
+      ) : (
+        <span>{text}</span>
+      )}
     </EventPluginWrapper>
   );
 };

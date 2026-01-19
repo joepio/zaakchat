@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=https://topaz.sh/schema/config.json
+---
+version: 2
+
+logging:
+  prod: true
+  log_level: info
+  grpc_log_level: info
+
+directory:
+  db_path: "${TOPAZ_DB_DIR}/zaakchat.db"
+  request_timeout: 5s
+
+remote_directory:
+  address: "0.0.0.0:9292"
+  insecure: true
+  no_tls: false
+
+jwt:
+  acceptable_time_skew_seconds: 5
+
+auth:
+  options:
+    default:
+      enable_api_key: false
+      enable_anonymous: true
+
+api:
+  health:
+    listen_address: "0.0.0.0:9494"
+  metrics:
+    listen_address: "0.0.0.0:9696"
+    zpages: true
+
+  services:
+    model:
+      grpc:
+        listen_address: "0.0.0.0:9292"
+        certs:
+          tls_key_path: "${TOPAZ_CERTS_DIR}/grpc.key"
+          tls_cert_path: "${TOPAZ_CERTS_DIR}/grpc.crt"
+          tls_ca_cert_path: "${TOPAZ_CERTS_DIR}/grpc-ca.crt"
+    reader:
+      needs:
+        - model
+      grpc:
+        listen_address: "0.0.0.0:9292"
+        certs:
+          tls_key_path: "${TOPAZ_CERTS_DIR}/grpc.key"
+          tls_cert_path: "${TOPAZ_CERTS_DIR}/grpc.crt"
+          tls_ca_cert_path: "${TOPAZ_CERTS_DIR}/grpc-ca.crt"
+    writer:
+      needs:
+        - model
+      grpc:
+        listen_address: "0.0.0.0:9292"
+        certs:
+          tls_key_path: "${TOPAZ_CERTS_DIR}/grpc.key"
+          tls_cert_path: "${TOPAZ_CERTS_DIR}/grpc.crt"
+          tls_ca_cert_path: "${TOPAZ_CERTS_DIR}/grpc-ca.crt"
+    authorizer:
+      needs:
+        - reader
+      grpc:
+        listen_address: "0.0.0.0:8281"
+        certs:
+          tls_key_path: "${TOPAZ_CERTS_DIR}/grpc.key"
+          tls_cert_path: "${TOPAZ_CERTS_DIR}/grpc.crt"
+          tls_ca_cert_path: "${TOPAZ_CERTS_DIR}/grpc-ca.crt"
+      gateway:
+        listen_address: "0.0.0.0:8282"
+        allowed_origins:
+          - http://localhost
+          - http://localhost:*
+        certs:
+          tls_key_path: "${TOPAZ_CERTS_DIR}/gateway.key"
+          tls_cert_path: "${TOPAZ_CERTS_DIR}/gateway.crt"
+          tls_ca_cert_path: "${TOPAZ_CERTS_DIR}/gateway-ca.crt"
+        http: true
+
+opa:
+  instance_id: "-"
+  graceful_shutdown_period_seconds: 2
+  config:
+    services:
+      ghcr:
+        url: https://ghcr.io
+        type: oci
+    bundles:
+      zaakchat:
+        service: ghcr
+        resource: ghcr.io/aserto-policies/policy-authzen:latest
+        persist: false
+        config:
+          polling:
+            min_delay_seconds: 60
+            max_delay_seconds: 120

@@ -58,6 +58,10 @@ docker run -d \
 
 ## Deployment
 
+It's currently running on a VPS on DigitalOcean (161.35.156.229).
+The mails are sent through PostMark.
+Both are managed by Joep Meindertsma.
+
 ### Deploy to VPS
 
 1. Copy the deployment script to your VPS:

@@ -1,5 +1,6 @@
 //! HTTP handlers for /events, /resources, and /query endpoints
 
+use crate::email::EmailService;
 use axum::{
     extract::{Path, Query, State},
     http::{HeaderMap, StatusCode},
@@ -7,16 +8,15 @@ use axum::{
     response::{IntoResponse, Response},
     Json,
 };
+use dashmap::DashMap;
 use futures_util::stream;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::convert::Infallible;
 use std::sync::Arc;
+use std::time::{Duration, Instant};
 use tokio_stream::wrappers::BroadcastStream;
 use tokio_stream::StreamExt;
-use crate::email::EmailService;
-use dashmap::DashMap;
-use std::time::{Duration, Instant};
 
 use crate::schemas::{CloudEvent, JSONCommit};
 use crate::storage::{SearchResult, Storage};
@@ -133,10 +133,15 @@ async fn get_authorized_topics(
     let username = user_id.split('@').next().unwrap_or(user_id);
     let query = format!("json_payload.involved:{}", username);
 
-    eprintln!("[auth] Searching for authorized topics with query: {}", query);
+    eprintln!(
+        "[auth] Searching for authorized topics with query: {}",
+        query
+    );
 
     // Search with a high limit (we want all issues the user has access to)
-    let results = state.search.search(&state.storage, &query, 10000)
+    let results = state
+        .search
+        .search(&state.storage, &query, 10000)
         .await
         .map_err(|e| {
             eprintln!("[auth] Tantivy search failed: {}", e);
@@ -187,16 +192,17 @@ async fn check_access(storage: &Storage, user_id: &str, resource_id: &str) -> bo
                 return true;
             }
         }
-        eprintln!("[auth] Access denied for user {} to resource {}. Involved: {:?}", user_id, resource_id, involved);
+        eprintln!(
+            "[auth] Access denied for user {} to resource {}. Involved: {:?}",
+            user_id, resource_id, involved
+        );
         return false;
     }
 
-    // Check if it's a Comment (has parent_id)
-    if let Some(parent_id) = resource.get("parent_id").and_then(|v| v.as_str()) {
-        // Recursively check the parent (Issue)
-        // Prevent infinite recursion if parent points back to self (unlikely but safe to limit?)
-        // For now, just one level up is enough for Comment -> Issue.
-        return Box::pin(check_access(storage, user_id, parent_id)).await;
+    // Check if it's a Comment (has quote_comment)
+    if let Some(quote_id) = resource.get("quote_comment").and_then(|v| v.as_str()) {
+        // Recursively check access on the quoted comment associated resource
+        return Box::pin(check_access(storage, user_id, quote_id)).await;
     }
 
     // For other types (Task, Planning, Document), we need to know their parent.
@@ -219,9 +225,7 @@ pub async fn get_or_stream_events(
 ) -> Result<Response, StatusCode> {
     // 1. Authenticate
     let token = params.token.as_deref().ok_or(StatusCode::UNAUTHORIZED)?;
-    let claims = crate::auth::verify_jwt(token).map_err(|_| {
-        StatusCode::UNAUTHORIZED
-    })?;
+    let claims = crate::auth::verify_jwt(token).map_err(|_| StatusCode::UNAUTHORIZED)?;
     let user_id = claims.sub;
 
     // Update active status
@@ -295,12 +299,10 @@ pub async fn get_or_stream_events(
 
     // OPTIMIZATION: Get all authorized topics at once using Tantivy (O(1) query)
     // instead of checking each event individually (O(n) queries)
-    let authorized_topics = get_authorized_topics(&state, &user_id)
-        .await
-        .map_err(|e| {
-            eprintln!("Failed to get authorized topics: {}", e);
-            StatusCode::INTERNAL_SERVER_ERROR
-        })?;
+    let authorized_topics = get_authorized_topics(&state, &user_id).await.map_err(|e| {
+        eprintln!("Failed to get authorized topics: {}", e);
+        StatusCode::INTERNAL_SERVER_ERROR
+    })?;
 
     // Filter snapshot events using in-memory HashSet lookup (very fast!)
     let authorized_snapshot: Vec<_> = snapshot_events
@@ -327,13 +329,16 @@ pub async fn get_or_stream_events(
                 let user_id_clone = user_id.clone();
                 async move {
                     // Update active status on every event check (keep-alive ish)
-                    state_clone.active_users.insert(user_id_clone.clone(), Instant::now());
+                    state_clone
+                        .active_users
+                        .insert(user_id_clone.clone(), Instant::now());
 
                     match msg {
                         Ok(event) => {
                             // Check authorization
                             if let Some(subject) = &event.subject {
-                                if check_access(&state_clone.storage, &user_id_clone, subject).await {
+                                if check_access(&state_clone.storage, &user_id_clone, subject).await
+                                {
                                     return Some(event);
                                 }
                             } else if event.event_type == "system.reset" {
@@ -389,12 +394,20 @@ pub async fn handle_event(
     // Schedule background indexing of the event (search subsystem).
     // Serialize once and pass the payload string to avoid cloning the entire CloudEvent.
     // Index the event synchronously
+    // Schedule background indexing of the event (search subsystem).
+    // Serialize once and pass the payload string to avoid cloning the entire CloudEvent.
+    // Index the event synchronously
     {
         let search = state.search.clone();
         // Serialize CloudEvent once (no snippet content to avoid extra allocations)
         let payload = serde_json::to_string(&event).unwrap_or_default();
         let id = event.id.clone();
-        let doc_type = event.event_type.clone();
+
+        // Architecture Decision: All CloudEvents are indexed with doc_type="Event".
+        // This allows searching the audit history via is:Event.
+        // Specific event types (e.g. json.commit) are properties of the event payload.
+        let doc_type = "Event".to_string();
+
         // Do not parse timestamp here; pass None to the search indexer (it can set now)
 
         if let Err(e) = search
@@ -428,7 +441,12 @@ pub async fn handle_event(
 }
 
 /// Helper to send notifications for new comments/issues
-async fn send_notifications_for_event(state: &AppState, event: &CloudEvent, resource: &Value, old_resource: Option<&Value>) {
+async fn send_notifications_for_event(
+    state: &AppState,
+    event: &CloudEvent,
+    resource: &Value,
+    old_resource: Option<&Value>,
+) {
     // 1. Determine if this is a notify-able event (new comment or issue)
     let resource_id = match resource.get("id").and_then(|v| v.as_str()) {
         Some(id) => id,
@@ -436,7 +454,7 @@ async fn send_notifications_for_event(state: &AppState, event: &CloudEvent, reso
     };
 
     // Determine type
-    let is_comment = resource.get("content").is_some() && resource.get("parent_id").is_some();
+    let is_comment = resource.get("content").is_some();
     let is_issue = resource.get("title").is_some() && resource.get("involved").is_some();
 
     if !is_comment && !is_issue {
@@ -451,16 +469,26 @@ async fn send_notifications_for_event(state: &AppState, event: &CloudEvent, reso
 
     if is_issue {
         // Get current involved
-        let new_involved: Vec<String> = resource.get("involved")
+        let new_involved: Vec<String> = resource
+            .get("involved")
             .and_then(|v| v.as_array())
-            .map(|arr| arr.iter().filter_map(|v| v.as_str().map(String::from)).collect())
+            .map(|arr| {
+                arr.iter()
+                    .filter_map(|v| v.as_str().map(String::from))
+                    .collect()
+            })
             .unwrap_or_default();
 
         if let Some(old) = old_resource {
             // Update: Check for newly added users
-            let old_involved: Vec<String> = old.get("involved")
+            let old_involved: Vec<String> = old
+                .get("involved")
                 .and_then(|v| v.as_array())
-                .map(|arr| arr.iter().filter_map(|v| v.as_str().map(String::from)).collect())
+                .map(|arr| {
+                    arr.iter()
+                        .filter_map(|v| v.as_str().map(String::from))
+                        .collect()
+                })
                 .unwrap_or_default();
 
             // Find users in new but not in old
@@ -474,13 +502,24 @@ async fn send_notifications_for_event(state: &AppState, event: &CloudEvent, reso
                 return; // No new users added, no notification needed for issue update
             }
 
-            subject = format!("Je bent toegevoegd aan Zaak: {}", resource.get("title").and_then(|v| v.as_str()).unwrap_or("Naamloos"));
+            subject = format!(
+                "Je bent toegevoegd aan Zaak: {}",
+                resource
+                    .get("title")
+                    .and_then(|v| v.as_str())
+                    .unwrap_or("Naamloos")
+            );
             content_prefix = "Je bent toegevoegd aan deze zaak.".to_string();
-
         } else {
             // New Issue: Notify all involved
             recipients = new_involved;
-            subject = format!("Nieuwe Zaak: {}", resource.get("title").and_then(|v| v.as_str()).unwrap_or("Naamloos"));
+            subject = format!(
+                "Nieuwe Zaak: {}",
+                resource
+                    .get("title")
+                    .and_then(|v| v.as_str())
+                    .unwrap_or("Naamloos")
+            );
         }
     } else if is_comment {
         // Only notify for NEW comments (old_resource is None)
@@ -529,9 +568,15 @@ async fn send_notifications_for_event(state: &AppState, event: &CloudEvent, reso
         }
 
         let content = if is_issue {
-            resource.get("description").and_then(|v| v.as_str()).unwrap_or("")
+            resource
+                .get("description")
+                .and_then(|v| v.as_str())
+                .unwrap_or("")
         } else {
-            resource.get("content").and_then(|v| v.as_str()).unwrap_or("")
+            resource
+                .get("content")
+                .and_then(|v| v.as_str())
+                .unwrap_or("")
         };
 
         let full_content = if !content_prefix.is_empty() {
@@ -543,10 +588,13 @@ async fn send_notifications_for_event(state: &AppState, event: &CloudEvent, reso
         // Generate magic link token
         let magic_link = match crate::auth::create_jwt(&recipient) {
             Ok(token) => {
-                let link = format!("{}/verify-login?token={}&redirect=/zaak/{}", base_url, token, thread_id);
+                let link = format!(
+                    "{}/verify-login?token={}&redirect=/zaak/{}",
+                    base_url, token, thread_id
+                );
                 println!("[notify] Generated magic link for {}: {}", recipient, link);
                 link
-            },
+            }
             Err(e) => {
                 eprintln!("[notify] Failed to create JWT for {}: {}", recipient, e);
                 format!("{}/zaak/{}", base_url, thread_id) // Fallback to normal link
@@ -555,14 +603,21 @@ async fn send_notifications_for_event(state: &AppState, event: &CloudEvent, reso
 
         let html_body = format!(
             "<html><body><p>{}</p><p><a href=\"{}\">Bekijk in ZaakChat</a></p></body></html>",
-            full_content.replace("\n", "<br>"), magic_link
+            full_content.replace("\n", "<br>"),
+            magic_link
         );
         let text_body = format!("{}\n\nBekijk in ZaakChat: {}", full_content, magic_link);
 
         // Reply-To: hash+issue_id@inbound.postmarkapp.com
-        let reply_to = format!("c677cf964ad4b602877125dc320323ab+{}@inbound.postmarkapp.com", thread_id);
+        let reply_to = format!(
+            "c677cf964ad4b602877125dc320323ab+{}@inbound.postmarkapp.com",
+            thread_id
+        );
 
-        println!("[notify] Sending email to {} for thread {}", recipient, thread_id);
+        println!(
+            "[notify] Sending email to {} for thread {}",
+            recipient, thread_id
+        );
         tokio::spawn({
             let email_service = state.email_service.clone();
             let recipient = recipient.clone();
@@ -572,14 +627,17 @@ async fn send_notifications_for_event(state: &AppState, event: &CloudEvent, reso
             let reply_to = reply_to.clone();
             let thread_id = thread_id.clone();
             async move {
-                if let Err(e) = email_service.send_notification(
-                    &recipient,
-                    &subject,
-                    &html_body,
-                    &text_body,
-                    Some(&reply_to),
-                    Some(&thread_id),
-                ).await {
+                if let Err(e) = email_service
+                    .send_notification(
+                        &recipient,
+                        &subject,
+                        &html_body,
+                        &text_body,
+                        Some(&reply_to),
+                        Some(&thread_id),
+                    )
+                    .await
+                {
                     eprintln!("[notify] Failed to send email to {}: {}", recipient, e);
                 }
             }
@@ -625,15 +683,15 @@ pub async fn process_event(
                 if resource_data.is_object() {
                     let obj = resource_data.as_object().unwrap();
                     if obj.contains_key("title") {
-                        resource_type = "issue".to_string();
+                        resource_type = "Issue".to_string();
                     } else if obj.contains_key("content") {
-                        resource_type = "comment".to_string();
+                        resource_type = "Comment".to_string();
                     } else if obj.contains_key("cta") {
-                        resource_type = "task".to_string();
+                        resource_type = "Task".to_string();
                     } else if obj.contains_key("moments") {
-                        resource_type = "planning".to_string();
+                        resource_type = "Planning".to_string();
                     } else if obj.get("url").is_some() || obj.get("size").is_some() {
-                        resource_type = "document".to_string();
+                        resource_type = "Document".to_string();
                     }
                 }
             }
@@ -671,8 +729,28 @@ pub async fn process_event(
         // Schedule background indexing of the resource via the search subsystem.
         let resource_id = commit.resource_id.clone();
         let resource_type_clone = resource_type.clone();
-        let data_clone = new_resource.clone();
+        let mut data_clone = new_resource.clone();
         let search = state.search.clone();
+        // AUTH FIX: Denormalize 'involved' for Comments (and other child resources)
+        // Comments don't have 'involved' field, so they fail the default auth filter.
+        // We look up the parent issue and copy its 'involved' list into the indexing payload.
+        if (resource_type_clone == "Comment" || resource_type_clone == "comment")
+            && data_clone.get("involved").is_none()
+        {
+            // Use event.subject as the parent Issue ID
+            // The frontend sends zaakId as subject for Comments
+            let parent_id_opt = event.subject.clone();
+
+            if let Some(parent_id) = parent_id_opt {
+                if let Ok(Some(parent)) = state.storage.get_resource(&parent_id).await {
+                    if let Some(involved) = parent.get("involved") {
+                        if let Some(obj) = data_clone.as_object_mut() {
+                            obj.insert("involved".to_string(), involved.clone());
+                        }
+                    }
+                }
+            }
+        }
 
         let timestamp_opt = commit
             .timestamp
@@ -700,7 +778,6 @@ pub async fn process_event(
 
         // Trigger Notifications
         send_notifications_for_event(state, event, &new_resource, old_resource.as_ref()).await;
-
     } else {
         // For other event types, you might want to handle them differently
         // For now, we'll just store them as-is if a subject exists
@@ -736,15 +813,15 @@ pub async fn process_event(
 /// Extract resource type from schema URL
 fn extract_resource_type_from_schema(schema: &str) -> &str {
     if schema.contains("Issue") {
-        "issue"
+        "Issue"
     } else if schema.contains("Comment") {
-        "comment"
+        "Comment"
     } else if schema.contains("Task") {
-        "task"
+        "Task"
     } else if schema.contains("Planning") {
-        "planning"
+        "Planning"
     } else if schema.contains("Document") {
-        "document"
+        "Document"
     } else {
         "unknown"
     }
@@ -753,15 +830,15 @@ fn extract_resource_type_from_schema(schema: &str) -> &str {
 /// Extract resource type from subject
 fn extract_resource_type_from_subject(subject: &str) -> &str {
     if subject.contains("issue") {
-        "issue"
+        "Issue"
     } else if subject.contains("comment") {
-        "comment"
+        "Comment"
     } else if subject.contains("task") {
-        "task"
+        "Task"
     } else if subject.contains("planning") {
-        "planning"
+        "Planning"
     } else if subject.contains("document") {
-        "document"
+        "Document"
     } else {
         "unknown"
     }
@@ -878,7 +955,9 @@ pub async fn query_resources(
     let user = &auth_user.user_id;
     let final_query = crate::search::SearchIndex::apply_authorization_filter(&params.q, user);
 
-    let results = state.search.search(&state.storage, &final_query, params.limit)
+    let results = state
+        .search
+        .search(&state.storage, &final_query, params.limit)
         .await
         .map_err(|e| {
             eprintln!("Failed to search resources: {}", e);
@@ -896,7 +975,10 @@ pub async fn inbound_email_handler(
     println!("[inbound] Received webhook");
 
     // 1. Extract Sender (From)
-    let from = payload.get("From").and_then(|v| v.as_str()).ok_or(StatusCode::BAD_REQUEST)?;
+    let from = payload
+        .get("From")
+        .and_then(|v| v.as_str())
+        .ok_or(StatusCode::BAD_REQUEST)?;
     // Extract email from "Name <email@domain.com>" format if needed
     // Simple extraction:
     let sender_email = if let Some(start) = from.find('<') {
@@ -911,7 +993,10 @@ pub async fn inbound_email_handler(
 
     // 2. Extract Thread ID (Issue ID) from OriginalRecipient
     // Format: c677cf964ad4b602877125dc320323ab+<issue_id>@inbound.postmarkapp.com
-    let recipient = payload.get("OriginalRecipient").and_then(|v| v.as_str()).ok_or(StatusCode::BAD_REQUEST)?;
+    let recipient = payload
+        .get("OriginalRecipient")
+        .and_then(|v| v.as_str())
+        .ok_or(StatusCode::BAD_REQUEST)?;
     let parts: Vec<&str> = recipient.split('+').collect();
     if parts.len() < 2 {
         eprintln!("[inbound] Invalid recipient format: {}", recipient);
@@ -923,7 +1008,8 @@ pub async fn inbound_email_handler(
     // 3. Extract Content (TextBody)
     // Postmark provides TextBody and HtmlBody. We prefer TextBody for comments.
     // We might need to strip the quoted reply (Postmark usually handles this via StrippedTextReply, but let's check)
-    let content = payload.get("StrippedTextReply")
+    let content = payload
+        .get("StrippedTextReply")
         .and_then(|v| v.as_str())
         .filter(|s| !s.is_empty())
         .or_else(|| payload.get("TextBody").and_then(|v| v.as_str()))
@@ -934,7 +1020,10 @@ pub async fn inbound_email_handler(
         return Ok(StatusCode::OK); // Don't error, just ignore
     }
 
-    println!("[inbound] Parsed reply from {} for issue {}: {}", sender_email, issue_id, content);
+    println!(
+        "[inbound] Parsed reply from {} for issue {}: {}",
+        sender_email, issue_id, content
+    );
 
     // 4. Create Comment
     let comment_id = uuid::Uuid::new_v4().to_string();
@@ -990,7 +1079,10 @@ pub async fn inbound_email_handler(
         let payload = serde_json::to_string(&broadcast_event).unwrap_or_default();
         let id = broadcast_event.id.clone();
         let doc_type = broadcast_event.event_type.clone();
-        if let Err(e) = search.add_event_payload(&id, &doc_type, "", &payload, None).await {
+        if let Err(e) = search
+            .add_event_payload(&id, &doc_type, "", &payload, None)
+            .await
+        {
             eprintln!("[inbound] failed indexing: {}", e);
         }
     }
@@ -1090,24 +1182,170 @@ mod tests {
     #[test]
     fn test_extract_resource_type_from_schema() {
         assert_eq!(
-            extract_resource_type_from_schema("http://example.com/Issue"),
-            "issue"
+            extract_resource_type_from_schema("https://zaakchat.nl/schemas/Issue.json"),
+            "Issue"
         );
         assert_eq!(
-            extract_resource_type_from_schema("http://example.com/Comment"),
-            "comment"
+            extract_resource_type_from_schema("https://zaakchat.nl/schemas/Comment.json"),
+            "Comment"
         );
         assert_eq!(
-            extract_resource_type_from_schema("http://example.com/Task"),
-            "task"
+            extract_resource_type_from_schema("https://other.com/schemas/Task"),
+            "Task"
         );
+        assert_eq!(extract_resource_type_from_schema("unknown"), "unknown");
     }
 
     #[test]
     fn test_extract_resource_type_from_subject() {
-        assert_eq!(extract_resource_type_from_subject("issue/123"), "issue");
-        assert_eq!(extract_resource_type_from_subject("comment/456"), "comment");
-        assert_eq!(extract_resource_type_from_subject("unknown/789"), "unknown");
+        assert_eq!(
+            extract_resource_type_from_subject("new issue created"),
+            "Issue"
+        );
+        assert_eq!(
+            extract_resource_type_from_subject("comment added"),
+            "Comment"
+        );
+        assert_eq!(extract_resource_type_from_subject("unknown"), "unknown");
+    }
+
+    #[tokio::test]
+    async fn test_integration_event_processing_and_search(
+    ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+        use crate::email::EmailService;
+        use crate::handlers::{handle_event, AppState};
+        use crate::search::SearchIndex;
+        use crate::storage::Storage;
+        use chrono::Utc;
+        use std::sync::Arc;
+        use tempfile::TempDir;
+        use tokio::sync::broadcast;
+
+        let dir = TempDir::new()?;
+        let storage_path = dir.path().join("data");
+        std::fs::create_dir_all(&storage_path)?;
+        let index_path = dir.path().join("index");
+        // SearchIndex creates dir if missing
+
+        let storage = Arc::new(Storage::new(&storage_path).await?);
+        let search = Arc::new(SearchIndex::open(
+            &index_path,
+            true,
+            std::time::Duration::from_millis(50),
+        )?); // fast commit
+        let (tx, _rx) = broadcast::channel(100);
+
+        let transport = Arc::new(crate::email::MockTransport::new(
+            "http://test.local".to_string(),
+        ));
+        let email_service = Arc::new(EmailService::new(transport));
+
+        // Use AppState::new to correctly initialize all fields (active_users, push_subscriptions)
+        let state = AppState::new(storage, search, tx, email_service);
+
+        use axum::extract::State;
+        use axum::Json;
+
+        // Define test user
+        let user = "integration@example.com";
+
+        // 1. Create Issue Event
+        let issue_id = "issue-int-1";
+        let issue_event = crate::schemas::CloudEvent {
+            id: "evt-1".to_string(),
+            source: "test".to_string(),
+            specversion: "1.0".to_string(),
+            event_type: "json.commit".to_string(),
+            subject: None,
+            time: Some(Utc::now().to_rfc3339()),
+            datacontenttype: Some("application/json".to_string()),
+            dataschema: None,
+            dataref: None,
+            sequencetype: None,
+            data: Some(serde_json::json!({
+                "resource_id": issue_id,
+                "schema": "https://zaakchat.nl/schemas/Issue.json",
+                "resource_data": {
+                    "title": "Integration Issue",
+                    "status": "open",
+                    "involved": [user]
+                },
+                "msg_type": "resource",
+                "commit_id": "c1",
+                "author": "me",
+                "timestamp": Utc::now().to_rfc3339()
+            })),
+            sequence: None,
+        };
+
+        handle_event(State(state.clone()), Json(issue_event))
+            .await
+            .unwrap();
+
+        // 2. Create Comment Event (referencing Issue)
+        let comment_id = "comment-int-1";
+        let comment_event = crate::schemas::CloudEvent {
+            id: "evt-2".to_string(),
+            source: "test".to_string(),
+            specversion: "1.0".to_string(),
+            event_type: "json.commit".to_string(),
+            subject: None,
+            time: Some(Utc::now().to_rfc3339()),
+            datacontenttype: Some("application/json".to_string()),
+            dataschema: None,
+            dataref: None,
+            sequencetype: None,
+            data: Some(serde_json::json!({
+                "resource_id": comment_id,
+                "schema": "https://zaakchat.nl/schemas/Comment.json",
+                "resource_data": {
+                    "content": "Integration Comment",
+                    "quote_comment": null
+                },
+                 "msg_type": "resource",
+                 "commit_id": "c2",
+                 "author": "me",
+                 "timestamp": Utc::now().to_rfc3339()
+            })),
+            sequence: None,
+        };
+
+        // Inject subject (Issue ID) so process_event knows the parent
+        let mut comment_event = comment_event;
+        comment_event.subject = Some(issue_id.to_string());
+
+        handle_event(State(state.clone()), Json(comment_event))
+            .await
+            .unwrap();
+
+        // Allow indexing (handle_event calls commit, but let's be safe or wait if needed)
+        // handle_event calls search.commit() at the end, so it should be visible.
+
+        // 3. Search
+        let q_auth = SearchIndex::apply_authorization_filter("type:Comment", user);
+        let results = state
+            .search
+            .search_best_effort(&state.storage, &q_auth, 10)
+            .await;
+
+        let found = results.iter().any(|r| r.id == comment_id);
+
+        if !found {
+            println!(
+                "DEBUG: Authorized search returned {} results.",
+                results.len()
+            );
+            for r in &results {
+                println!("Result: {:?}", r);
+            }
+        }
+
+        assert!(
+            found,
+            "Should find Comment with injected involved field via handle_event pipeline"
+        );
+
+        Ok(())
     }
 }
 
@@ -1129,16 +1367,21 @@ pub async fn login_handler(
     Json(payload): Json<LoginRequest>,
 ) -> Result<Json<serde_json::Value>, StatusCode> {
     // Generate a short-lived JWT (15 minutes) for the magic link
-    let token = match crate::auth::create_jwt_with_expiry(&payload.email, chrono::Duration::minutes(15)) {
-        Ok(t) => t,
-        Err(e) => {
-            eprintln!("Failed to create login JWT: {}", e);
-            return Err(StatusCode::INTERNAL_SERVER_ERROR);
-        }
-    };
+    let token =
+        match crate::auth::create_jwt_with_expiry(&payload.email, chrono::Duration::minutes(15)) {
+            Ok(t) => t,
+            Err(e) => {
+                eprintln!("Failed to create login JWT: {}", e);
+                return Err(StatusCode::INTERNAL_SERVER_ERROR);
+            }
+        };
 
     // Send magic link
-    if let Err(e) = state.email_service.send_magic_link(&payload.email, &token).await {
+    if let Err(e) = state
+        .email_service
+        .send_magic_link(&payload.email, &token)
+        .await
+    {
         eprintln!("Failed to send magic link: {}", e);
         return Err(StatusCode::INTERNAL_SERVER_ERROR);
     }
@@ -1166,7 +1409,7 @@ pub async fn verify_login_handler(
                 Ok(token) => Ok(Json(LoginResponse { token })),
                 Err(_) => Err(StatusCode::INTERNAL_SERVER_ERROR),
             }
-        },
+        }
         Err(_) => {
             // Invalid or expired
             Err(StatusCode::UNAUTHORIZED)
@@ -1192,7 +1435,10 @@ mod tests_access {
             "involved": [user_id]
         });
 
-        storage.store_resource(issue_id, "issue", &issue_data).await.unwrap();
+        storage
+            .store_resource(issue_id, "issue", &issue_data)
+            .await
+            .unwrap();
 
         let has_access = check_access(&storage, user_id, issue_id).await;
         assert!(has_access, "User should have access to the issue");

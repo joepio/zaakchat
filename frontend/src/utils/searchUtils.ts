@@ -29,7 +29,17 @@ export function transformQuery(input: string, currentUserEmail?: string): string
     // Handle "is:type"
     if (part.startsWith("is:")) {
       const type = part.substring(3);
-      return `type:${type}`;
+      const lower = type.toLowerCase();
+      const map: Record<string, string> = {
+        "issue": "Issue",
+        "comment": "Comment",
+        "task": "Task",
+        "planning": "Planning",
+        "document": "Document",
+        "event": "Event"
+      };
+      const casedType = map[lower] || type;
+      return `type:${casedType}`;
     }
 
     // Handle generic key:value
@@ -77,9 +87,9 @@ export function getSuggestions(
 
     // Hardcoded suggestions for "is:"
     if (key === "is") {
-      const types = ["issue", "task", "comment", "document", "planning"];
+      const types = ["Issue", "Task", "Comment", "Document", "Planning", "Event"];
       return types
-        .filter(t => t.startsWith(valuePrefix))
+        .filter(t => t.toLowerCase().startsWith(valuePrefix.toLowerCase()))
         .map(t => ({ type: "value", text: t, description: `Filter by ${t} type` }));
     }
 

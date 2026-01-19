@@ -4,6 +4,15 @@ import { SSEProvider, useSSE } from "../contexts/SSEContext";
 import type { CloudEvent } from "../types";
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 
+// Mock contexts
+vi.mock("../contexts/ActorContext", () => ({
+  useActor: () => ({ actor: "test-actor" }),
+}));
+
+vi.mock("../contexts/AuthContext", () => ({
+  useAuth: () => ({ token: "test-token", logout: vi.fn() }),
+}));
+
 // Mock EventSource
 class MockEventSource {
   url: string;
@@ -385,6 +394,7 @@ describe("SSEContext", () => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              Authorization: "Bearer test-token",
             },
           }),
         );

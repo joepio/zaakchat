@@ -56,7 +56,7 @@ const SmartSearchInput: React.FC<SmartSearchInputProps> = ({ onSearch, isLoading
 
   const handleSchemaButtonClick = (schemaName: string) => {
       // Toggle logic: if already present, remove it. If different one present, replace it. If query empty, add it.
-      const type = schemaName.toLowerCase();
+      const type = schemaName;
       const regex = /\bis:[a-zA-Z]+\b/;
 
       let newValue = inputValue;

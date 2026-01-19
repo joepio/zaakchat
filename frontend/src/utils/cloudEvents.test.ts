@@ -62,7 +62,7 @@ describe("cloudEvents", () => {
       const comment: Comment = {
         id: "comment-1",
         content: "Hello",
-        parent_id: null,
+        quote_comment: null,
         mentions: null,
       };
 
@@ -160,7 +160,7 @@ describe("cloudEvents", () => {
       const comment: Comment = {
         id: "comment-test-uuid-123",
         content: "Test comment",
-        parent_id: null,
+        quote_comment: null,
         mentions: null,
       };
 
@@ -179,7 +179,7 @@ describe("cloudEvents", () => {
       const comment: Comment = {
         id: "comment-123",
         content: "Test with options",
-        parent_id: "parent-comment-123",
+        quote_comment: "parent-comment-123",
         mentions: ["alice@gemeente.nl"],
       };
 

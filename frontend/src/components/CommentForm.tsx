@@ -38,7 +38,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ zaakId, onSubmit }) => {
       const comment: Comment = {
         id: `comment-${generateUUID()}`,
         content: commentText.trim(),
-        parent_id: null,
+        quote_comment: null,
         mentions: null,
       };
 

@@ -157,9 +157,9 @@ pub enum IssueStatus {
 pub struct Comment {
     /// De tekst van de reactie (bijv. "Documenten zijn goedgekeurd", "Burger gebeld voor aanvullende info")
     pub content: String,
-    /// ID van de reactie waar dit een antwoord op is (voor discussies met meerdere berichten)
+    /// ID van de reactie waar dit een antwoord op is (voor discussies met meerdere berichten - 'quoting')
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub parent_id: Option<String>,
+    pub quote_comment: Option<String>,
     /// Email adressen van collega's die specifiek genoemd worden (bijv. "@alice@gemeente.nl")
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mentions: Option<Vec<String>>,

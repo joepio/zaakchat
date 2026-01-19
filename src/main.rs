@@ -1,6 +1,6 @@
+use zaakchat::email::{EmailService, EmailTransport, MockTransport, PostmarkTransport};
 use zaakchat::search::SearchIndex;
 use zaakchat::{handlers, schemas};
-use zaakchat::email::{EmailService, PostmarkTransport, MockTransport, EmailTransport};
 pub mod auth;
 
 use futures_util::stream::{self, Stream};
@@ -14,7 +14,7 @@ use axum::{
     response::sse::{Event, KeepAlive, Sse},
     response::{Html, Response},
     routing::{delete, get, post},
-    serve, Json, Router,
+    serve, Router,
 };
 use std::{convert::Infallible, sync::Arc};
 use tokio::sync::{broadcast, RwLock};
@@ -83,7 +83,10 @@ async fn create_app() -> Router {
         .map(PathBuf::from)
         .unwrap_or_else(|_| PathBuf::from("./data"));
 
-    println!("Using data directory: {:?}", data_dir.canonicalize().unwrap_or_else(|_| data_dir.clone()));
+    println!(
+        "Using data directory: {:?}",
+        data_dir.canonicalize().unwrap_or_else(|_| data_dir.clone())
+    );
 
     let storage = Storage::new(&data_dir)
         .await
@@ -151,7 +154,6 @@ async fn create_app() -> Router {
         .route("/debug/db", get(handlers::debug_db))
         .route("/api/email/inbound", post(handlers::inbound_email_handler))
         // Legacy endpoints (can be removed later)
-        .route("/reset/", post(reset_state_handler))
         .route("/schemas", get(crate::schemas::handle_get_schemas_index))
         .route("/schemas/{*name}", get(crate::schemas::handle_get_schema))
         .route("/login", post(handlers::login_handler))
@@ -171,8 +173,6 @@ async fn create_app() -> Router {
 
     app
 }
-
-
 
 /* The helper `extract_resource_type` was removed from `main.rs` because resource-type
 detection is handled centrally in the handlers module. Keeping duplicate helpers
@@ -205,23 +205,6 @@ async fn sse_handler(
 }
 
 /// Reset state handler
-async fn reset_state_handler(
-    State(state): State<handlers::AppState>,
-) -> Result<Json<&'static str>, StatusCode> {
-    // Clear storage
-    if let Err(e) = state.storage.clear().await {
-        eprintln!("Failed to clear storage: {}", e);
-        return Err(StatusCode::INTERNAL_SERVER_ERROR);
-    }
-
-    // Clear search index
-    if let Err(e) = state.search.clear().await {
-        eprintln!("Failed to clear search index: {}", e);
-        return Err(StatusCode::INTERNAL_SERVER_ERROR);
-    }
-
-    Ok(Json("ok"))
-}
 
 /// Push subscription handler
 #[allow(dead_code)]

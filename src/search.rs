@@ -1,19 +1,17 @@
 use std::{
+    collections::BTreeMap,
     error::Error,
     path::{Path, PathBuf},
     sync::Arc,
     time::Duration,
-    collections::BTreeMap,
 };
-
 
 use chrono::{DateTime, Utc};
 use serde_json::Value as JsonValue;
 use tantivy::collector::TopDocs;
-use tantivy::directory::MmapDirectory;
 use tantivy::query::QueryParser;
-use tantivy::schema::*;
 use tantivy::schema::OwnedValue;
+use tantivy::schema::*;
 use tantivy::{doc, Index, IndexWriter, ReloadPolicy, TantivyDocument};
 use tokio::sync::RwLock;
 use tokio::task::JoinHandle;
@@ -57,7 +55,7 @@ impl SearchIndex {
         if !index_path.exists() {
             std::fs::create_dir_all(index_path)?;
         }
-        let _dir = MmapDirectory::open(index_path)?;
+
         // Build schema
         let mut schema_builder = Schema::builder();
         let id_field = schema_builder.add_text_field("id", STRING | STORED);
@@ -175,7 +173,8 @@ impl SearchIndex {
         // Parse JSON and add as JSON object
         if let Ok(json_val) = serde_json::from_str::<serde_json::Value>(payload_json) {
             if let Some(obj) = json_val.as_object() {
-                let tantivy_obj: BTreeMap<String, OwnedValue> = obj.iter()
+                let tantivy_obj: BTreeMap<String, OwnedValue> = obj
+                    .iter()
                     .map(|(k, v)| (k.clone(), json_to_owned_value(v)))
                     .collect();
                 doc.add_object(self.json_field, tantivy_obj);
@@ -243,7 +242,8 @@ impl SearchIndex {
         // Parse JSON and add as JSON object
         if let Ok(json_val) = serde_json::from_str::<serde_json::Value>(payload_json) {
             if let Some(obj) = json_val.as_object() {
-                let tantivy_obj: BTreeMap<String, OwnedValue> = obj.iter()
+                let tantivy_obj: BTreeMap<String, OwnedValue> = obj
+                    .iter()
                     .map(|(k, v)| (k.clone(), json_to_owned_value(v)))
                     .collect();
                 doc.add_object(self.json_field, tantivy_obj);
@@ -293,15 +293,15 @@ impl SearchIndex {
             eprintln!("[search] warning: failed to reload reader: {}", e);
         }
         let searcher = reader.searcher();
-    // Build a query parser that searches across both structured fields and the catch-all:
-    // prefer searching the catch_all, but include title/description/comment and the legacy content.
-    // Build a query parser that searches the stored JSON payload field.
-    // This enables structured/JSON-aware queries over the indexed payload.
-    let query_parser = QueryParser::for_index(&self.index, vec![self.json_field]);
+        // Build a query parser that searches across both structured fields and the catch-all:
+        // prefer searching the catch_all, but include title/description/comment and the legacy content.
+        // Build a query parser that searches the stored JSON payload field.
+        // This enables structured/JSON-aware queries over the indexed payload.
+        let query_parser = QueryParser::for_index(&self.index, vec![self.json_field]);
 
-    let query = query_parser.parse_query(query_str)?;
+        let query = query_parser.parse_query(query_str)?;
 
-    let top_docs = searcher.search(&query, &TopDocs::with_limit(limit))?;
+        let top_docs = searcher.search(&query, &TopDocs::with_limit(limit))?;
 
         let mut results: Vec<SearchResult> = Vec::new();
 
@@ -351,9 +351,15 @@ impl SearchIndex {
             }
 
             match doc_type.as_str() {
-                "issue" | "comment" | "task" | "planning" | "document" => {
+                "Issue" | "Comment" | "Task" | "Planning" | "Document" | "issue" | "comment"
+                | "task" | "planning" | "document" => {
                     if let Ok(Some(json)) = storage.get_resource(&id).await {
                         resource = Some(json);
+                    }
+                }
+                "Event" => {
+                    if let Ok(Some(ev)) = storage.get_event(&id).await {
+                        event = Some(ev);
                     }
                 }
                 _ => {
@@ -494,7 +500,10 @@ mod tests {
         // Note: For JSON fields, we must specify the path in the query if we want to search a specific field,
         // or rely on default field expansion which might behave differently.
         // Let's try explicit path first to verify indexing.
-        let results = search_index.search(&storage, "title:important", 10).await.unwrap();
+        let results = search_index
+            .search(&storage, "title:important", 10)
+            .await
+            .unwrap();
 
         assert!(
             !results.is_empty(),
@@ -507,8 +516,6 @@ mod tests {
             "Expected at least one result to be hydrated as a resource"
         );
     }
-
-
 
     #[tokio::test]
     async fn test_query_rewriting() -> Result<(), Box<dyn Error + Send + Sync>> {
@@ -531,9 +538,7 @@ mod tests {
         assert_eq!(results.len(), 1, "Should find with implicit prefix");
 
         // Test 2: Search with known field (should not be rewritten)
-        let results = index
-            .search_best_effort(&storage, "id:evt1", 10)
-            .await;
+        let results = index.search_best_effort(&storage, "id:evt1", 10).await;
         assert_eq!(results.len(), 1, "Should find with id (not rewritten)");
 
         Ok(())
@@ -550,14 +555,18 @@ mod tests {
             "title": "Alice's Issue",
             "involved": ["alice@example.com"]
         });
-        index.add_resource_doc("issue-1", "issue", &issue_data, None).await?;
+        index
+            .add_resource_doc("issue-1", "issue", &issue_data, None)
+            .await?;
 
         // 2. Create a comment (just to populate index)
         let comment_data = serde_json::json!({
             "content": "Some comment",
             "parent_id": "issue-1"
         });
-        index.add_resource_doc("comment-1", "comment", &comment_data, None).await?;
+        index
+            .add_resource_doc("comment-1", "comment", &comment_data, None)
+            .await?;
 
         // Commit to make documents searchable
         index.commit().await?;
@@ -578,12 +587,104 @@ mod tests {
         assert!(!found_issue_bob, "Bob should NOT see Alice's issue");
 
         // 5. Verify query construction
-        let custom_query = SearchIndex::apply_authorization_filter("title:Alice", "alice@example.com");
+        let custom_query =
+            SearchIndex::apply_authorization_filter("title:Alice", "alice@example.com");
         assert!(custom_query.contains("title:Alice"));
         assert!(custom_query.contains("json_payload.involved:\"alice@example.com\""));
 
         let results_custom = index.search_best_effort(&storage, &custom_query, 10).await;
-        assert!(!results_custom.is_empty(), "Should find issue with specific query and auth");
+        assert!(
+            !results_custom.is_empty(),
+            "Should find issue with specific query and auth"
+        );
+
+        Ok(())
+    }
+    #[tokio::test]
+    async fn test_repro_issue_and_comment_search() -> Result<(), Box<dyn Error + Send + Sync>> {
+        let dir = TempDir::new()?;
+        let index = SearchIndex::open(dir.path(), true, std::time::Duration::from_secs(1))?;
+        let storage = Storage::new(dir.path()).await.unwrap();
+
+        let user = "joep@example.com";
+
+        // 1. Create and Store Issue (hydrated source)
+        let issue_id = "issue-123";
+        let issue_data = serde_json::json!({
+            "title": "Test Issue",
+            "status": "open",
+            "involved": [user]
+        });
+        storage
+            .store_resource(issue_id, "Issue", &issue_data)
+            .await?;
+
+        // 2. Index Issue (as handlers.rs would)
+        // Note: handlers.rs sends capitalized "Issue"
+        let issue_payload = serde_json::to_string(&issue_data)?;
+        index
+            .add_resource_payload(issue_id, "Issue", "", &issue_payload, None)
+            .await?;
+
+        // 3. Create and Store Comment
+        let comment_id = "comment-456";
+        let comment_data = serde_json::json!({
+            "content": "This is a comment",
+            "parent_id": issue_id,
+            // Raw comment in storage usually DOES NOT have 'involved'
+        });
+        storage
+            .store_resource(comment_id, "Comment", &comment_data)
+            .await?;
+
+        // 4. Index Comment (Simulation of what handlers.rs does)
+        // CASE A: Raw Indexing (Should Fail Auth)
+        let raw_comment_payload = serde_json::to_string(&comment_data)?;
+        index
+            .add_resource_payload(comment_id, "Comment", "", &raw_comment_payload, None)
+            .await?;
+        index.commit().await?;
+
+        // Verify CASE A: Search as user -> Should find Issue, but NOT Comment
+        let q_auth = SearchIndex::apply_authorization_filter("*", user);
+        let results = index.search_best_effort(&storage, &q_auth, 10).await;
+
+        let found_issue = results.iter().any(|r| r.id == issue_id);
+        let found_comment = results.iter().any(|r| r.id == comment_id);
+
+        assert!(found_issue, "Should be able to find Issue");
+        assert!(
+            !found_comment,
+            "Should NOT find Comment without injected 'involved'"
+        );
+
+        // 5. Index Comment (With Injection - Simulating handlers.rs fix)
+        // CASE B: Injected 'involved'
+        let mut enriched_comment = comment_data.clone();
+        if let Some(obj) = enriched_comment.as_object_mut() {
+            obj.insert("involved".to_string(), serde_json::json!([user]));
+        }
+        let enriched_payload = serde_json::to_string(&enriched_comment)?;
+
+        index
+            .add_resource_payload(comment_id, "Comment", "", &enriched_payload, None)
+            .await?;
+        index.commit().await?;
+
+        // Verify CASE B: Search as user -> Should find Comment now
+        let results_b = index.search_best_effort(&storage, &q_auth, 10).await;
+        let found_comment_b = results_b.iter().any(|r| r.id == comment_id);
+
+        // Debugging output
+        if !found_comment_b {
+            println!("DEBUG: Search query: {}", q_auth);
+            println!("DEBUG: Results: {:?}", results_b);
+        }
+
+        assert!(
+            found_comment_b,
+            "Should find Comment AFTER injecting 'involved'"
+        );
 
         Ok(())
     }
@@ -605,11 +706,10 @@ fn json_to_owned_value(v: &JsonValue) -> OwnedValue {
             }
         }
         JsonValue::String(s) => OwnedValue::Str(s.clone()),
-        JsonValue::Array(arr) => {
-            OwnedValue::Array(arr.iter().map(json_to_owned_value).collect())
-        }
+        JsonValue::Array(arr) => OwnedValue::Array(arr.iter().map(json_to_owned_value).collect()),
         JsonValue::Object(obj) => {
-            let map: BTreeMap<String, OwnedValue> = obj.iter()
+            let map: BTreeMap<String, OwnedValue> = obj
+                .iter()
                 .map(|(k, v)| (k.clone(), json_to_owned_value(v)))
                 .collect();
             OwnedValue::Object(map)

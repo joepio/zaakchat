@@ -548,6 +548,63 @@ mod tests {
             "ItemType enum schema should be available"
         );
     }
+
+    #[test]
+    fn test_cloudevent_deserialization_validation() {
+        // Missing subject should fail
+        let json = json!({
+            "specversion": "1.0",
+            "id": "test-id",
+            "source": "test-source",
+            "type": "test-type",
+            "data": {}
+        });
+        let result: Result<CloudEvent, _> = serde_json::from_value(json);
+        assert!(result.is_err(), "CloudEvent should require subject");
+
+        // Full valid event should pass
+        let json = json!({
+            "specversion": "1.0",
+            "id": "test-id",
+            "source": "test-source",
+            "subject": "test-subject",
+            "type": "test-type"
+        });
+        let result: Result<CloudEvent, _> = serde_json::from_value(json);
+        assert!(
+            result.is_ok(),
+            "Valid CloudEvent should pass: {:?}",
+            result.err()
+        );
+    }
+
+    #[test]
+    fn test_json_commit_deserialization_validation() {
+        // Missing actor should fail
+        let json = json!({
+            "schema": "Issue",
+            "resource_id": "test-res"
+        });
+        let result: Result<JSONCommit, _> = serde_json::from_value(json);
+        assert!(result.is_err(), "JSONCommit should require actor");
+
+        // Missing resource_id should fail
+        let json = json!({
+            "schema": "Issue",
+            "actor": "user@example.com"
+        });
+        let result: Result<JSONCommit, _> = serde_json::from_value(json);
+        assert!(result.is_err(), "JSONCommit should require resource_id");
+
+        // Valid commit should pass
+        let json = json!({
+            "schema": "Issue",
+            "resource_id": "test-res",
+            "actor": "user@example.com"
+        });
+        let result: Result<JSONCommit, _> = serde_json::from_value(json);
+        assert!(result.is_ok());
+    }
 }
 
 #[tokio::test]

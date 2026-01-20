@@ -118,6 +118,7 @@ const createIssueEvent = (
   data: {
     schema: "http://localhost:8000/schemas/Issue",
     resource_id: id,
+    actor: "test-actor",
     resource_data: {
       id,
       title,
@@ -144,6 +145,7 @@ const createCommentEvent = (
   data: {
     schema: "http://localhost:8000/schemas/Comment",
     resource_id: commentId,
+    actor: "test-actor",
     resource_data: {
       id: commentId,
       content,
@@ -454,7 +456,7 @@ describe("SSEContext", () => {
         specversion: "1.0",
         id: "reset-event",
         source: "test",
-        subject: null,
+        subject: "system",
         type: "system.reset",
         time: new Date().toISOString(),
         datacontenttype: "application/json",

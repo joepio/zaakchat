@@ -1252,7 +1252,7 @@ mod tests {
                 },
                 "msg_type": "resource",
                 "commit_id": "c1",
-                "author": "me",
+                "actor": user,
                 "timestamp": Utc::now().to_rfc3339()
             })),
             sequence: None,
@@ -1284,7 +1284,7 @@ mod tests {
                 },
                  "msg_type": "resource",
                  "commit_id": "c2",
-                 "author": "me",
+                 "actor": user,
                  "timestamp": Utc::now().to_rfc3339()
             })),
             sequence: None,

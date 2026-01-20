@@ -14,8 +14,7 @@ pub struct CloudEvent {
     /// Bron systeem dat de gebeurtenis heeft aangemaakt (bijv. "zaaksysteem", "frontend-demo")
     pub source: String,
     /// Het onderwerp van de gebeurtenis, meestal de zaak ID waar het over gaat
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub subject: Option<String>,
+    pub subject: String,
     /// Type gebeurtenis. Hier is het altijd "json.commit"
     #[serde(rename = "type")]
     pub event_type: String,
@@ -57,8 +56,7 @@ pub struct JSONCommit {
     /// Unieke identificatie van de resource waar deze commit over gaat.
     pub resource_id: String,
     /// Email van de persoon die de actie heeft uitgevoerd (bijv. "alice@gemeente.nl", "user@gemeente.nl")
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub actor: Option<String>,
+    pub actor: String,
     /// Tijdstip waarop de commit plaatsvond (ISO 8601 formaat: 2024-01-15T10:30:00Z)
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,

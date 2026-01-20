@@ -1,7 +1,9 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useSSE } from "../contexts/SSEContext";
-import type { CloudEvent, TimelineEvent, TimelineItemType } from "../types";
+import type { CloudEvent, TimelineEvent, TimelineItemType, Issue } from "../types";
+import { useActor } from "../contexts/ActorContext";
+import { createItemUpdatedEvent } from "../utils/cloudEvents";
 
 import IssueHeader from "./IssueHeader";
 import PageHeader from "./PageHeader";
@@ -17,6 +19,7 @@ const IssueTimeline: React.FC = () => {
   const { zaakId } = useParams<{ zaakId: string }>();
   const location = useLocation();
   const { events, issues, sendEvent } = useSSE();
+  const { actor } = useActor();
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [issueNotFound, setIssueNotFound] = useState(false);
@@ -238,32 +241,23 @@ const IssueTimeline: React.FC = () => {
   console.log(`[IssueTimeline] Rendering issue: ${issue.id}`);
 
   const handleAddInvolved = async (email: string) => {
-    if (!issue || !zaakId) return;
+    if (!issue || !zaakId || !actor) return;
 
     const currentInvolved = issue.involved || [];
     if (currentInvolved.includes(email)) return;
 
     const newInvolved = [...currentInvolved, email];
 
-    const event: CloudEvent = {
-      specversion: "1.0",
-      id: crypto.randomUUID(),
-      source: "frontend-issue-timeline",
-      type: "json.commit",
-      time: new Date().toISOString(),
-      datacontenttype: "application/json",
-      data: {
-        resource_id: zaakId,
-        schema: "https://zaakchat.nl/schemas/Issue.json",
-        timestamp: new Date().toISOString(),
-        patch: {
-          involved: newInvolved,
-        },
-      },
-    };
+    const event = createItemUpdatedEvent<Issue>(
+      "issue",
+      zaakId,
+      { involved: newInvolved },
+      { actor, subject: zaakId, source: "frontend-issue-timeline" }
+    );
 
     await sendEvent(event);
   };
+
 
   return (
     <div

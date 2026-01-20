@@ -254,12 +254,7 @@ pub async fn get_or_stream_events(
         for event in events {
             // Topic filter
             if let Some(topic) = params.topic.as_deref() {
-                let matches = event
-                    .subject
-                    .as_deref()
-                    .map(|s| s.contains(topic))
-                    .unwrap_or(false)
-                    || event.event_type.contains(topic);
+                let matches = event.subject.contains(topic) || event.event_type.contains(topic);
                 if !matches {
                     continue;
                 }
@@ -267,17 +262,8 @@ pub async fn get_or_stream_events(
 
             // Authorization filter
             // Use subject as resource_id if available
-            if let Some(subject) = &event.subject {
-                if check_access(&state.storage, &user_id, subject).await {
-                    filtered.push(event);
-                }
-            } else {
-                // Events without subject (system events?) - allow or deny?
-                // Let's allow system events if they are generic, but maybe deny for now.
-                // Actually, "system.reset" might be important.
-                if event.event_type == "system.reset" {
-                    filtered.push(event);
-                }
+            if check_access(&state.storage, &user_id, &event.subject).await {
+                filtered.push(event);
             }
         }
 
@@ -308,12 +294,7 @@ pub async fn get_or_stream_events(
     let authorized_snapshot: Vec<_> = snapshot_events
         .into_iter()
         .filter(|event| {
-            if let Some(subject) = &event.subject {
-                authorized_topics.contains(subject)
-            } else {
-                // Allow system events without a subject
-                event.event_type == "system.reset"
-            }
+            authorized_topics.contains(&event.subject) || event.event_type == "system.reset"
         })
         .collect();
 
@@ -327,6 +308,7 @@ pub async fn get_or_stream_events(
             .then(move |msg| {
                 let state_clone = state.clone();
                 let user_id_clone = user_id.clone();
+                let authorized_topics = authorized_topics.clone();
                 async move {
                     // Update active status on every event check (keep-alive ish)
                     state_clone
@@ -336,12 +318,19 @@ pub async fn get_or_stream_events(
                     match msg {
                         Ok(event) => {
                             // Check authorization
-                            if let Some(subject) = &event.subject {
-                                if check_access(&state_clone.storage, &user_id_clone, subject).await
-                                {
-                                    return Some(event);
-                                }
-                            } else if event.event_type == "system.reset" {
+                            // Optimization: use the static set first
+                            if authorized_topics.contains(&event.subject)
+                                || event.event_type == "system.reset"
+                            {
+                                return Some(event);
+                            }
+
+                            // Dynamic check for new issues or updated access
+                            if check_access(&state_clone.storage, &user_id_clone, &event.subject)
+                                .await
+                            {
+                                // Note: We can't easily update authorized_topics here as it's a cloned HashSet
+                                // in a stream. But check_access is fast enough for the delta stream.
                                 return Some(event);
                             }
                             None
@@ -529,16 +518,14 @@ async fn send_notifications_for_event(
 
         // For comments, the thread_id IS the event subject (which is the issue ID)
         // We trust the frontend/event creator to set this correctly.
-        if let Some(subject) = &event.subject {
-            thread_id = subject.clone();
+        thread_id = event.subject.clone();
 
-            // Fetch the parent issue to get involved users
-            if let Ok(Some(parent)) = state.storage.get_resource(&thread_id).await {
-                if let Some(involved) = parent.get("involved").and_then(|v| v.as_array()) {
-                    for user in involved {
-                        if let Some(u) = user.as_str() {
-                            recipients.push(u.to_string());
-                        }
+        // Fetch the parent issue to get involved users
+        if let Ok(Some(parent)) = state.storage.get_resource(&thread_id).await {
+            if let Some(involved) = parent.get("involved").and_then(|v| v.as_array()) {
+                for user in involved {
+                    if let Some(u) = user.as_str() {
+                        recipients.push(u.to_string());
                     }
                 }
             }
@@ -670,11 +657,9 @@ pub async fn process_event(
         let mut resource_type = extract_resource_type_from_schema(&commit.schema).to_string();
 
         if resource_type == "unknown" {
-            if let Some(subject) = &event.subject {
-                let subj_type = extract_resource_type_from_subject(subject);
-                if subj_type != "unknown" {
-                    resource_type = subj_type.to_string();
-                }
+            let subj_type = extract_resource_type_from_subject(&event.subject);
+            if subj_type != "unknown" {
+                resource_type = subj_type.to_string();
             }
         }
 
@@ -739,14 +724,12 @@ pub async fn process_event(
         {
             // Use event.subject as the parent Issue ID
             // The frontend sends zaakId as subject for Comments
-            let parent_id_opt = event.subject.clone();
+            let parent_id = event.subject.clone();
 
-            if let Some(parent_id) = parent_id_opt {
-                if let Ok(Some(parent)) = state.storage.get_resource(&parent_id).await {
-                    if let Some(involved) = parent.get("involved") {
-                        if let Some(obj) = data_clone.as_object_mut() {
-                            obj.insert("involved".to_string(), involved.clone());
-                        }
+            if let Ok(Some(parent)) = state.storage.get_resource(&parent_id).await {
+                if let Some(involved) = parent.get("involved") {
+                    if let Some(obj) = data_clone.as_object_mut() {
+                        obj.insert("involved".to_string(), involved.clone());
                     }
                 }
             }
@@ -779,31 +762,28 @@ pub async fn process_event(
         // Trigger Notifications
         send_notifications_for_event(state, event, &new_resource, old_resource.as_ref()).await;
     } else {
-        // For other event types, you might want to handle them differently
-        // For now, we'll just store them as-is if a subject exists
-        if let Some(subject) = &event.subject {
-            let resource_type = extract_resource_type_from_subject(subject);
-            state
-                .storage
-                .store_resource(&event.id, resource_type, data)
-                .await?;
+        // For other event types, we'll just store them as-is
+        let resource_type = extract_resource_type_from_subject(&event.subject);
+        state
+            .storage
+            .store_resource(&event.id, resource_type, data)
+            .await?;
 
-            // schedule resource indexing via search subsystem (serialize once)
-            let id_clone = event.id.clone();
-            let rt_clone = resource_type.to_string();
-            let data_clone = data.clone();
-            let payload = serde_json::to_string(&data_clone).unwrap_or_default();
-            let search = state.search.clone();
-            // Index resource synchronously
-            if let Err(err) = search
-                .add_resource_payload(&id_clone, &rt_clone, "", &payload, None)
-                .await
-            {
-                eprintln!(
-                    "[handlers] failed adding non-json-commit resource payload id={} err={}",
-                    id_clone, err
-                );
-            }
+        // schedule resource indexing via search subsystem (serialize once)
+        let id_clone = event.id.clone();
+        let rt_clone = resource_type.to_string();
+        let data_clone = data.clone();
+        let payload = serde_json::to_string(&data_clone).unwrap_or_default();
+        let search = state.search.clone();
+        // Index resource synchronously
+        if let Err(err) = search
+            .add_resource_payload(&id_clone, &rt_clone, "", &payload, None)
+            .await
+        {
+            eprintln!(
+                "[handlers] failed adding non-json-commit resource payload id={} err={}",
+                id_clone, err
+            );
         }
     }
 
@@ -1043,7 +1023,7 @@ pub async fn inbound_email_handler(
         // Use sender email as source so they are identified as author
         source: sender_email.to_string(),
         // Subject should be the Issue ID (thread ID)
-        subject: Some(issue_id.to_string()),
+        subject: issue_id.to_string(),
         event_type: "json.commit".to_string(),
         time: Some(timestamp.clone()),
         datacontenttype: Some("application/json".to_string()),
@@ -1256,7 +1236,7 @@ mod tests {
             source: "test".to_string(),
             specversion: "1.0".to_string(),
             event_type: "json.commit".to_string(),
-            subject: None,
+            subject: issue_id.to_string(),
             time: Some(Utc::now().to_rfc3339()),
             datacontenttype: Some("application/json".to_string()),
             dataschema: None,
@@ -1289,7 +1269,7 @@ mod tests {
             source: "test".to_string(),
             specversion: "1.0".to_string(),
             event_type: "json.commit".to_string(),
-            subject: None,
+            subject: issue_id.to_string(),
             time: Some(Utc::now().to_rfc3339()),
             datacontenttype: Some("application/json".to_string()),
             dataschema: None,
@@ -1312,7 +1292,7 @@ mod tests {
 
         // Inject subject (Issue ID) so process_event knows the parent
         let mut comment_event = comment_event;
-        comment_event.subject = Some(issue_id.to_string());
+        comment_event.subject = issue_id.to_string();
 
         handle_event(State(state.clone()), Json(comment_event))
             .await
@@ -1447,4 +1427,32 @@ mod tests_access {
         let has_access_other = check_access(&storage, other_user, issue_id).await;
         assert!(!has_access_other, "Other user should NOT have access");
     }
+}
+
+/// Reset handler for E2E tests
+pub async fn reset_handler(
+    State(state): State<AppState>,
+) -> Result<impl axum::response::IntoResponse, (axum::http::StatusCode, String)> {
+    // 1. Clear storage
+    if let Err(e) = state.storage.clear().await {
+        return Err((
+            axum::http::StatusCode::INTERNAL_SERVER_ERROR,
+            format!("Failed to clear storage: {}", e),
+        ));
+    }
+
+    // 2. Clear search index
+    if let Err(e) = state.search.clear().await {
+        return Err((
+            axum::http::StatusCode::INTERNAL_SERVER_ERROR,
+            format!("Failed to clear search index: {}", e),
+        ));
+    }
+
+    // 3. Clear active users
+    state.active_users.clear();
+
+    println!("[reset] Server state wiped (storage + search + active_users)");
+
+    Ok(axum::http::StatusCode::OK)
 }

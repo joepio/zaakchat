@@ -13,11 +13,11 @@ export async function waitForSSEConnection(page: Page, timeout = 10000) {
   await page.waitForFunction(
     () => {
       // Check if we have any issues loaded OR the empty state message
-      const issues = document.querySelectorAll('.zaak-item-hover');
+      const issues = document.querySelectorAll(".zaak-item-hover");
       const noIssues = document.querySelector('[data-testid="no-issues"]');
       return issues.length > 0 || noIssues !== null;
     },
-    { timeout }
+    { timeout },
   );
 }
 
@@ -25,8 +25,8 @@ export async function waitForIssueDetailPage(page: Page, timeout = 10000) {
   // Wait for issue detail page to load via SSE
   // Check for the issue header which indicates the page has loaded
   await page.waitForSelector('[data-testid="issue-header"]', {
-    state: 'visible',
-    timeout
+    state: "visible",
+    timeout,
   });
 }
 
@@ -69,10 +69,13 @@ export async function login(page: Page) {
   }
 
   if (magicLink) {
-    // Fix: Ensure magic link uses the correct frontend port (5173) when running locally
-    // The backend generates links with port 8000, but we want to stay on the frontend origin
-    if (!process.env.CI && magicLink.includes(":8000")) {
-      magicLink = magicLink.replace(":8000", ":5173");
+    // Fix: Ensure magic link uses the same origin as the current page (e.g. handle 5173 vs 5174)
+    if (!process.env.CI) {
+      const url = new URL(magicLink);
+      const currentOrigin = new URL(page.url()).origin;
+      url.protocol = new URL(currentOrigin).protocol;
+      url.host = new URL(currentOrigin).host;
+      magicLink = url.toString();
     }
     await page.goto(magicLink);
     // Wait for dashboard to load AFTER verification
@@ -80,14 +83,19 @@ export async function login(page: Page) {
     // Wait for SSE connection to establish and load initial data
     await waitForSSEConnection(page);
   } else {
-    console.warn("[helpers] No mock email file found after polling, proceeding without auto-login.");
+    console.warn(
+      "[helpers] No mock email file found after polling, proceeding without auto-login.",
+    );
     // If we didn't auto-login, we might still be on the login page or dashboard if already logged in (checked at start)
     // But if we are here, it means we tried to login and failed to find the email.
     // We can try to wait for dashboard anyway in case we were already logged in (but the check at start should have caught that)
   }
 }
 
-export async function getApiAuthToken(request: APIRequestContext, email = "test-user@zaakchat.nl") {
+export async function getApiAuthToken(
+  request: APIRequestContext,
+  email = "test-user@zaakchat.nl",
+) {
   // 1. Initiate login
   const loginRes = await request.post("/login", {
     data: { email },
@@ -114,7 +122,7 @@ export async function getApiAuthToken(request: APIRequestContext, email = "test-
       // Ignore
     }
     // Wait 500ms
-    await new Promise(r => setTimeout(r, 500));
+    await new Promise((r) => setTimeout(r, 500));
   }
 
   if (!token) {

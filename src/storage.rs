@@ -147,7 +147,7 @@ impl Storage {
             id: event.id.clone(),
             event_type: event.event_type.clone(),
             source: event.source.clone(),
-            subject: event.subject.clone(),
+            subject: Some(event.subject.clone()),
             time: event.time.clone(),
             sequence: Some(seq.to_string()),
             data: serde_json::to_string(&event.data)?,
@@ -195,7 +195,7 @@ impl Storage {
                     specversion: "1.0".to_string(),
                     id: rec.id,
                     source: rec.source,
-                    subject: rec.subject,
+                    subject: rec.subject.unwrap_or_else(|| "unknown".to_string()),
                     event_type: rec.event_type,
                     time: rec.time,
                     datacontenttype: Some("application/json".to_string()),
@@ -269,7 +269,10 @@ impl Storage {
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, id: &str) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    pub async fn delete_resource(
+        &self,
+        id: &str,
+    ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         let write_txn = self.db.begin_write()?;
         {
             let mut table = write_txn.open_table(RESOURCES_TABLE)?;
@@ -290,14 +293,20 @@ impl Storage {
             // Clear events table
             let mut events_table = write_txn.open_table(EVENTS_BY_SEQ_TABLE)?;
             // Collect keys first to avoid iterator invalidation issues
-            let keys: Vec<String> = events_table.iter()?.map(|r| r.map(|(k, _)| k.value().to_string())).collect::<Result<_, _>>()?;
+            let keys: Vec<String> = events_table
+                .iter()?
+                .map(|r| r.map(|(k, _)| k.value().to_string()))
+                .collect::<Result<_, _>>()?;
             for key in keys {
                 events_table.remove(key.as_str())?;
             }
 
             // Clear resources table
             let mut resources_table = write_txn.open_table(RESOURCES_TABLE)?;
-            let keys: Vec<String> = resources_table.iter()?.map(|r| r.map(|(k, _)| k.value().to_string())).collect::<Result<_, _>>()?;
+            let keys: Vec<String> = resources_table
+                .iter()?
+                .map(|r| r.map(|(k, _)| k.value().to_string()))
+                .collect::<Result<_, _>>()?;
             for key in keys {
                 resources_table.remove(key.as_str())?;
             }
@@ -305,19 +314,12 @@ impl Storage {
             // Reset meta table (sequence counter)
             let mut meta_table = write_txn.open_table(META_TABLE)?;
             meta_table.remove("last_seq")?;
-
-
         }
         write_txn.commit()?;
 
         println!("[storage] cleared all data");
         Ok(())
     }
-
-
-
-
-
 
     // Note: indexing is performed asynchronously by background tasks and commits are batched periodically.
 
@@ -420,7 +422,7 @@ impl Storage {
                 specversion: "1.0".to_string(),
                 id: rec.id,
                 source: rec.source,
-                subject: rec.subject,
+                subject: rec.subject.unwrap_or_else(|| "unknown".to_string()),
                 event_type: rec.event_type,
                 time: rec.time,
                 datacontenttype: Some("application/json".to_string()),
@@ -512,7 +514,7 @@ mod tests {
             specversion: "1.0".to_string(),
             id: "test-event-1".to_string(),
             source: "test".to_string(),
-            subject: Some("test-subject".to_string()),
+            subject: "test-subject".to_string(),
             event_type: "test.event".to_string(),
             time: Some(chrono::Utc::now().to_rfc3339()),
             datacontenttype: Some("application/json".to_string()),
@@ -567,8 +569,9 @@ mod tests {
 
         // Create/open the search index pointing at the same temp dir
         let index_path = temp_dir.path().join("search_index");
-        let search_index = crate::search::SearchIndex::open(&index_path, true, std::time::Duration::from_secs(1))
-            .expect("failed to open search index for test");
+        let search_index =
+            crate::search::SearchIndex::open(&index_path, true, std::time::Duration::from_secs(1))
+                .expect("failed to open search index for test");
 
         // Index the stored resource payload into the search index
         let payload = serde_json::to_string(&resource_data).unwrap_or_default();
@@ -581,7 +584,10 @@ mod tests {
         search_index.commit().await.expect("commit failed");
 
         // Call the SearchIndex directly and assert structured results are returned.
-        let results = search_index.search(&storage, "title:important", 10).await.unwrap();
+        let results = search_index
+            .search(&storage, "title:important", 10)
+            .await
+            .unwrap();
         assert!(!results.is_empty());
     }
 

@@ -251,6 +251,7 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
         }
 
         // Process the event locally for immediate UI responsiveness
+        setEvents((prev) => [...prev, event]);
         processCloudEvent(event);
       } catch (error) {
         console.error("Error sending event:", error);
@@ -366,8 +367,13 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
           // Debug: log all deltas
           console.log("[SSE DEBUG] Received delta:", cloudEvent);
 
-          // Add to events list
-          setEvents((prevEvents) => [...prevEvents, cloudEvent]);
+          // Add to events list if not already present (prevent duplicates from local optimistic updates)
+          setEvents((prevEvents) => {
+            if (prevEvents.some(e => e.id === cloudEvent.id)) {
+              return prevEvents;
+            }
+            return [...prevEvents, cloudEvent];
+          });
 
           // Process the event to update issues state
           processCloudEvent(cloudEvent);

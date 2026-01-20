@@ -94,7 +94,7 @@ export const EventPluginWrapper: React.FC<EventPluginWrapperProps> = ({
 
   return (
     <>
-      <div className="flex items-center justify-between w-full py-2">
+      <div className="flex items-center justify-between w-full py-2" data-testid="timeline-item-event">
         <span
           className="text-sm sm:text-base lg:text-lg xl:text-xl"
           style={{ color: "var(--text-secondary)" }}
@@ -199,7 +199,11 @@ export const ResourcePluginWrapper: React.FC<ResourcePluginWrapperProps> = ({
 
   return (
     <>
-      <Card padding="sm" id={data.resource_id as string || data.item_id as string}>
+      <Card
+        padding="sm"
+        id={data.resource_id as string || data.item_id as string}
+        data-testid="timeline-item-resource"
+      >
         <div className="flex items-center justify-between w-full mb-3">
           <span
             className="text-sm sm:text-base lg:text-lg xl:text-xl"

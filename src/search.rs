@@ -126,7 +126,7 @@ impl SearchIndex {
             "{} {} {} {}",
             event.event_type,
             event.source,
-            event.subject.as_deref().unwrap_or(""),
+            event.subject,
             event
                 .data
                 .as_ref()

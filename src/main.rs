@@ -153,6 +153,7 @@ async fn create_app() -> Router {
         // Debug endpoint to inspect persisted DB counts and samples
         .route("/debug/db", get(handlers::debug_db))
         .route("/api/email/inbound", post(handlers::inbound_email_handler))
+        .route("/reset/", post(handlers::reset_handler))
         // Legacy endpoints (can be removed later)
         .route("/schemas", get(crate::schemas::handle_get_schemas_index))
         .route("/schemas/{*name}", get(crate::schemas::handle_get_schema))

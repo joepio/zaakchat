@@ -36,6 +36,8 @@ const IssueUpdatedPlugin: React.FC<EventPluginProps> = ({
         value && value !== null
           ? `toegewezen aan ${valueText}`
           : "toewijzing verwijderd";
+    } else if (key === "involved") {
+      changeText = `betrokkenen gewijzigd`;
     } else {
       if (valueText.length > 30) {
         valueText = valueText.substring(0, 30) + "...";

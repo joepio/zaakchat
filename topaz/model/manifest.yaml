@@ -1,41 +1,25 @@
-# yaml-language-server: $schema=https://www.topaz.sh/schema/manifest.json
+# manifest.yaml
 ---
 model:
   version: 3
 
 types:
-  ### display_name: Identity ###
-  identity: {}
-
-  ### display_name: User ###
   user:
     relations:
-      ### display_name: identifier ###
-      identifier: identity
+      manager: user
 
-  ### display_name: Issue ###
   issue:
     relations:
-      # Users listed in the involved array
-      involved: user | identity
-      # Optional owner
-      owner: user | identity
-
+      owner: user
+      involved: user
     permissions:
-      read: involved | owner
-      write: involved | owner
-      delete: owner
+      read: owner | involved
+      write: owner
 
-  ### display_name: Comment ###
   comment:
     relations:
-      # Comments belong to an issue
-      parent: issue
-      # Or directly involved users
-      involved: user | identity
-
+      owner: user
+      issue: issue
     permissions:
-      # Read if involved in comment or involved in parent issue
-      read: involved | parent#read
-      write: involved | parent#write
-      delete: involved | parent#delete
+      read: owner | issue->read
+      write: owner

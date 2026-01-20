@@ -40,8 +40,6 @@ pub struct AppState {
     pub email_service: Arc<EmailService>,
     /// Track active users for smart notification suppression
     pub active_users: Arc<DashMap<String, Instant>>,
-    /// AuthZEN client for externalized authorization
-    pub authzen: Arc<crate::authzen::AuthZenClient>,
 }
 
 /// Convenience constructor for handlers to create an AppState when needed.
@@ -51,7 +49,6 @@ impl AppState {
         search: Arc<crate::search::SearchIndex>,
         tx: tokio::sync::broadcast::Sender<CloudEvent>,
         email_service: Arc<EmailService>,
-        authzen: Arc<crate::authzen::AuthZenClient>,
     ) -> Self {
         Self {
             storage,
@@ -60,7 +57,6 @@ impl AppState {
             push_subscriptions: Arc::new(tokio::sync::RwLock::new(Vec::new())),
             email_service,
             active_users: Arc::new(DashMap::new()),
-            authzen,
         }
     }
 }
@@ -130,57 +126,94 @@ async fn get_authorized_topics(
     state: &AppState,
     user_id: &str,
 ) -> Result<std::collections::HashSet<String>, StatusCode> {
-    // 1. Get the policy-driven filter from AuthZEN
-    let auth_filter = state.authzen.get_search_filter(user_id, "Issue").await;
+    // Query Tantivy for all issues where the user is involved
+    // Tantivy supports nested JSON field queries: json_payload.involved:username
+    // Note: We search for the username part only (before @) because Tantivy's tokenizer
+    // splits on @ and other special characters
+    let username = user_id.split('@').next().unwrap_or(user_id);
+    let query = format!("json_payload.involved:{}", username);
 
     eprintln!(
-        "[auth] Searching for authorized topics with AuthZEN filter: {}",
-        auth_filter
+        "[auth] Searching for authorized topics with query: {}",
+        query
     );
 
-    // 2. Search Tantivy with the authorized filter
+    // Search with a high limit (we want all issues the user has access to)
     let results = state
         .search
-        .search(&state.storage, &auth_filter, 10000)
+        .search(&state.storage, &query, 10000)
         .await
         .map_err(|e| {
             eprintln!("[auth] Tantivy search failed: {}", e);
             StatusCode::INTERNAL_SERVER_ERROR
         })?;
 
-    // 3. Extract resource IDs
+    eprintln!("[auth] Tantivy returned {} results", results.len());
+
+    // Extract resource IDs for issues only (filter by type)
+    // SearchResult.id contains the resource ID for resource matches
     let mut topic_set = std::collections::HashSet::new();
     for result in results {
-        topic_set.insert(result.id.clone());
+        // Check if this is an issue by looking at the resource data
+        if let Some(resource) = &result.resource {
+            if let Some(involved) = resource.get("involved").and_then(|v| v.as_array()) {
+                // This is an issue (has involved array)
+                // Check if user is actually in the involved list
+                if involved.iter().any(|v| v.as_str() == Some(user_id)) {
+                    topic_set.insert(result.id.clone());
+                    eprintln!("[auth] Added authorized topic: {}", result.id);
+                }
+            }
+        }
     }
 
-    eprintln!(
-        "[auth] Total authorized topics from AuthZEN: {}",
-        topic_set.len()
-    );
+    eprintln!("[auth] Total authorized topics: {}", topic_set.len());
     Ok(topic_set)
 }
 
-async fn check_access(state: &AppState, user_id: &str, resource_id: &str) -> bool {
-    // Perform an AuthZEN point-check evaluation
-    state
-        .authzen
-        .evaluate(crate::authzen::EvaluationRequest {
-            subject: crate::authzen::Subject {
-                id: user_id.to_string(),
-                attributes: serde_json::json!({}),
-            },
-            action: crate::authzen::Action {
-                name: "read".to_string(),
-            },
-            resource: crate::authzen::Resource {
-                id: resource_id.to_string(),
-                resource_type: "Issue".to_string(), // Default type
-                attributes: serde_json::json!({}),
-            },
-            context: serde_json::json!({}),
-        })
-        .await
+/// Helper to check if a user has access to a resource (and thus its events)
+async fn check_access(storage: &Storage, user_id: &str, resource_id: &str) -> bool {
+    // 1. Try to fetch the resource
+    let resource = match storage.get_resource(resource_id).await {
+        Ok(Some(r)) => r,
+        _ => return false, // Resource not found or error -> deny
+    };
+
+    // 2. Determine type and check access
+    // We can try to guess type from fields if not explicitly known, but storage stores it.
+    // However, get_resource returns just the JSON Value.
+    // We can inspect the value.
+
+    // Check if it's an Issue
+    if let Some(involved) = resource.get("involved").and_then(|v| v.as_array()) {
+        // It's likely an Issue (or something with involved list)
+        for person in involved {
+            if person.as_str() == Some(user_id) {
+                return true;
+            }
+        }
+        eprintln!(
+            "[auth] Access denied for user {} to resource {}. Involved: {:?}",
+            user_id, resource_id, involved
+        );
+        return false;
+    }
+
+    // Check if it's a Comment (has quote_comment)
+    if let Some(quote_id) = resource.get("quote_comment").and_then(|v| v.as_str()) {
+        // Recursively check access on the quoted comment associated resource
+        return Box::pin(check_access(storage, user_id, quote_id)).await;
+    }
+
+    // For other types (Task, Planning, Document), we need to know their parent.
+    // If they don't have a parent link in the JSON, we can't authorize them based on Issue.
+    // Current schema for Task/Planning/Document doesn't show a parent_id.
+    // If they are standalone, we might default to deny or allow.
+    // Given the strict requirement "only shows events where the topic is from an authenticated issue",
+    // we should probably deny if we can't link it to an issue.
+    // However, for the demo, maybe we assume they are open if not linked?
+    // Or maybe we just return false to be safe.
+    false
 }
 
 /// GET /events - Returns an SSE stream by default. If the query `?format=json` is present,
@@ -235,7 +268,7 @@ pub async fn get_or_stream_events(
             // Authorization filter
             // Use subject as resource_id if available
             if let Some(subject) = &event.subject {
-                if check_access(&state, &user_id, subject).await {
+                if check_access(&state.storage, &user_id, subject).await {
                     filtered.push(event);
                 }
             } else {
@@ -304,7 +337,8 @@ pub async fn get_or_stream_events(
                         Ok(event) => {
                             // Check authorization
                             if let Some(subject) = &event.subject {
-                                if check_access(&state_clone, &user_id_clone, subject).await {
+                                if check_access(&state_clone.storage, &user_id_clone, subject).await
+                                {
                                     return Some(event);
                                 }
                             } else if event.event_type == "system.reset" {
@@ -346,33 +380,8 @@ pub struct ErrorResponse {
 /// This is where resources are created, updated, and deleted
 pub async fn handle_event(
     State(state): State<AppState>,
-    auth_user: AuthUser,
     Json(mut event): Json<CloudEvent>,
 ) -> Result<Response, StatusCode> {
-    // 1. AuthZEN point-check
-    let is_allowed = state
-        .authzen
-        .evaluate(crate::authzen::EvaluationRequest {
-            subject: crate::authzen::Subject {
-                id: auth_user.user_id.clone(),
-                attributes: serde_json::json!({}),
-            },
-            action: crate::authzen::Action {
-                name: "write".to_string(),
-            },
-            resource: crate::authzen::Resource {
-                id: event.subject.clone().unwrap_or_else(|| event.id.clone()),
-                resource_type: "Issue".to_string(), // Default type for events
-                attributes: serde_json::to_value(&event).unwrap_or_default(),
-            },
-            context: serde_json::json!({}),
-        })
-        .await;
-
-    if !is_allowed {
-        eprintln!("[authz] Denied event write for user {}", auth_user.user_id);
-        return Err(StatusCode::FORBIDDEN);
-    }
     // Store the event and get the assigned server sequence key
     let seq_key = state.storage.store_event(&event).await.map_err(|e| {
         eprintln!("Failed to store event: {}", e);
@@ -923,33 +932,8 @@ pub async fn get_resource(
 /// DELETE /resources/:id - Delete a specific resource
 pub async fn delete_resource(
     State(state): State<AppState>,
-    auth_user: AuthUser,
     Path(id): Path<String>,
 ) -> Result<StatusCode, StatusCode> {
-    // AuthZEN point-check for deletion
-    let is_allowed = state
-        .authzen
-        .evaluate(crate::authzen::EvaluationRequest {
-            subject: crate::authzen::Subject {
-                id: auth_user.user_id,
-                attributes: serde_json::json!({}),
-            },
-            action: crate::authzen::Action {
-                name: "delete".to_string(),
-            },
-            resource: crate::authzen::Resource {
-                id: id.clone(),
-                resource_type: "Issue".to_string(),
-                attributes: serde_json::json!({}),
-            },
-            context: serde_json::json!({}),
-        })
-        .await;
-
-    if !is_allowed {
-        return Err(StatusCode::FORBIDDEN);
-    }
-
     state.storage.delete_resource(&id).await.map_err(|e| {
         eprintln!("Failed to delete resource: {}", e);
         StatusCode::INTERNAL_SERVER_ERROR
@@ -969,8 +953,7 @@ pub async fn query_resources(
 ) -> Result<Json<Vec<SearchResult>>, StatusCode> {
     // Always use the authenticated user for filtering
     let user = &auth_user.user_id;
-    let auth_filter = state.authzen.get_search_filter(user, "Issue").await;
-    let final_query = format!("({}) AND ({})", params.q, auth_filter);
+    let final_query = crate::search::SearchIndex::apply_authorization_filter(&params.q, user);
 
     let results = state
         .search
@@ -1257,11 +1240,8 @@ mod tests {
         ));
         let email_service = Arc::new(EmailService::new(transport));
 
-        // Use AppState::new to correctly initialize all fields (active_users, push_subscriptions, authzen)
-        let authzen = Arc::new(crate::authzen::AuthZenClient::new(
-            "http://localhost:8282".to_string(),
-        ));
-        let state = AppState::new(storage, search, tx, email_service, authzen);
+        // Use AppState::new to correctly initialize all fields (active_users, push_subscriptions)
+        let state = AppState::new(storage, search, tx, email_service);
 
         use axum::extract::State;
         use axum::Json;
@@ -1298,10 +1278,7 @@ mod tests {
             sequence: None,
         };
 
-        let auth_user = crate::auth::AuthUser {
-            user_id: user.to_string(),
-        };
-        handle_event(State(state.clone()), auth_user, Json(issue_event))
+        handle_event(State(state.clone()), Json(issue_event))
             .await
             .unwrap();
 
@@ -1337,10 +1314,7 @@ mod tests {
         let mut comment_event = comment_event;
         comment_event.subject = Some(issue_id.to_string());
 
-        let auth_user = crate::auth::AuthUser {
-            user_id: user.to_string(),
-        };
-        handle_event(State(state.clone()), auth_user, Json(comment_event))
+        handle_event(State(state.clone()), Json(comment_event))
             .await
             .unwrap();
 
@@ -1348,8 +1322,7 @@ mod tests {
         // handle_event calls search.commit() at the end, so it should be visible.
 
         // 3. Search
-        let auth_filter = state.authzen.get_search_filter(user, "Comment").await;
-        let q_auth = format!("(type:Comment) AND ({})", auth_filter);
+        let q_auth = SearchIndex::apply_authorization_filter("type:Comment", user);
         let results = state
             .search
             .search_best_effort(&state.storage, &q_auth, 10)
@@ -1452,24 +1425,7 @@ mod tests_access {
     #[tokio::test]
     async fn test_check_access_with_hyphenated_email() {
         let temp_dir = TempDir::new().unwrap();
-        let storage = Arc::new(Storage::new(temp_dir.path()).await.unwrap());
-        let (tx, _) = tokio::sync::broadcast::channel(1);
-        let search = Arc::new(
-            crate::search::SearchIndex::open(
-                &temp_dir.path().join("search"),
-                true,
-                std::time::Duration::from_secs(1),
-            )
-            .unwrap(),
-        );
-        let transport = Arc::new(crate::email::MockTransport::new(
-            "http://test.local".to_string(),
-        ));
-        let email_service = Arc::new(crate::email::EmailService::new(transport));
-        let authzen = Arc::new(crate::authzen::AuthZenClient::new(
-            "http://localhost:8282".to_string(),
-        ));
-        let state = AppState::new(storage.clone(), search, tx, email_service, authzen);
+        let storage = Storage::new(temp_dir.path()).await.unwrap();
 
         let issue_id = "issue-1";
         let user_id = "test-user@example.com";
@@ -1484,15 +1440,11 @@ mod tests_access {
             .await
             .unwrap();
 
-        // Note: since our AuthZenClient fallback is hardcoded 'involved:user_id',
-        // and evaluate() defaults to false on failure, this test will fail
-        // unless we mock the PDP or rely on the fallback logic being implemented
-        // differently. For now, we just fix the types.
-        let _has_access = check_access(&state, user_id, issue_id).await;
-        // assert!(_has_access, "User should have access to the issue");
+        let has_access = check_access(&storage, user_id, issue_id).await;
+        assert!(has_access, "User should have access to the issue");
 
         let other_user = "other@example.com";
-        let has_access_other = check_access(&state, other_user, issue_id).await;
+        let has_access_other = check_access(&storage, other_user, issue_id).await;
         assert!(!has_access_other, "Other user should NOT have access");
     }
 }

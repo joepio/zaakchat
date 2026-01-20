@@ -40,8 +40,6 @@ pub struct AppState {
     pub push_subscriptions: Arc<RwLock<Vec<zaakchat::PushSubscription>>>,
     // Email service
     pub email_service: Arc<EmailService>,
-    // AuthZEN client
-    pub authzen: Arc<zaakchat::authzen::AuthZenClient>,
 }
 
 /// CloudEvent following the CloudEvents specification v1.0
@@ -117,10 +115,6 @@ async fn create_app() -> Router {
     };
     let email_service = Arc::new(EmailService::new(email_transport));
 
-    // Initialize AuthZEN Client
-    let pdp_url = std::env::var("PDP_URL").unwrap_or_else(|_| "http://localhost:8282".to_string());
-    let authzen = Arc::new(zaakchat::authzen::AuthZenClient::new(pdp_url));
-
     let state = AppState {
         storage: Arc::new(storage),
         search: search_index.clone(),
@@ -128,7 +122,6 @@ async fn create_app() -> Router {
         base_url: base_url.clone(),
         push_subscriptions: Arc::new(RwLock::new(Vec::new())),
         email_service: email_service.clone(),
-        authzen: authzen.clone(),
     };
 
     // Create handler state
@@ -139,7 +132,6 @@ async fn create_app() -> Router {
         push_subscriptions: state.push_subscriptions.clone(),
         email_service: state.email_service.clone(),
         active_users: std::sync::Arc::new(dashmap::DashMap::new()),
-        authzen: authzen.clone(),
     };
 
     // API routes with new storage-backed endpoints

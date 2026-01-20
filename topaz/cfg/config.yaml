@@ -3,9 +3,8 @@
 version: 2
 
 logging:
-  prod: true
+  prod: false
   log_level: info
-  grpc_log_level: info
 
 directory:
   db_path: "${TOPAZ_DB_DIR}/zaakchat.db"
@@ -14,7 +13,7 @@ directory:
 remote_directory:
   address: "0.0.0.0:9292"
   insecure: true
-  no_tls: false
+  no_tls: true
 
 jwt:
   acceptable_time_skew_seconds: 5
@@ -30,57 +29,44 @@ api:
     listen_address: "0.0.0.0:9494"
   metrics:
     listen_address: "0.0.0.0:9696"
-    zpages: true
 
   services:
     model:
       grpc:
         listen_address: "0.0.0.0:9292"
-        certs:
-          tls_key_path: "${TOPAZ_CERTS_DIR}/grpc.key"
-          tls_cert_path: "${TOPAZ_CERTS_DIR}/grpc.crt"
-          tls_ca_cert_path: "${TOPAZ_CERTS_DIR}/grpc-ca.crt"
+      gateway:
+        listen_address: "0.0.0.0:9392"
+        http: true
     reader:
       needs:
         - model
       grpc:
         listen_address: "0.0.0.0:9292"
-        certs:
-          tls_key_path: "${TOPAZ_CERTS_DIR}/grpc.key"
-          tls_cert_path: "${TOPAZ_CERTS_DIR}/grpc.crt"
-          tls_ca_cert_path: "${TOPAZ_CERTS_DIR}/grpc-ca.crt"
+      gateway:
+        listen_address: "0.0.0.0:9393"
+        http: true
     writer:
       needs:
         - model
       grpc:
         listen_address: "0.0.0.0:9292"
-        certs:
-          tls_key_path: "${TOPAZ_CERTS_DIR}/grpc.key"
-          tls_cert_path: "${TOPAZ_CERTS_DIR}/grpc.crt"
-          tls_ca_cert_path: "${TOPAZ_CERTS_DIR}/grpc-ca.crt"
+      gateway:
+        listen_address: "0.0.0.0:9394"
+        http: true
     authorizer:
       needs:
         - reader
       grpc:
         listen_address: "0.0.0.0:8281"
-        certs:
-          tls_key_path: "${TOPAZ_CERTS_DIR}/grpc.key"
-          tls_cert_path: "${TOPAZ_CERTS_DIR}/grpc.crt"
-          tls_ca_cert_path: "${TOPAZ_CERTS_DIR}/grpc-ca.crt"
       gateway:
         listen_address: "0.0.0.0:8282"
         allowed_origins:
           - http://localhost
           - http://localhost:*
-        certs:
-          tls_key_path: "${TOPAZ_CERTS_DIR}/gateway.key"
-          tls_cert_path: "${TOPAZ_CERTS_DIR}/gateway.crt"
-          tls_ca_cert_path: "${TOPAZ_CERTS_DIR}/gateway-ca.crt"
         http: true
 
 opa:
-  instance_id: "-"
-  graceful_shutdown_period_seconds: 2
+  instance_id: zaakchat
   config:
     services:
       ghcr:
@@ -89,9 +75,5 @@ opa:
     bundles:
       zaakchat:
         service: ghcr
-        resource: ghcr.io/aserto-policies/policy-authzen:latest
+        resource: ghcr.io/aserto-policies/policy-todo:latest
         persist: false
-        config:
-          polling:
-            min_delay_seconds: 60
-            max_delay_seconds: 120

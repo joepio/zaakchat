@@ -70,9 +70,10 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       case "primary":
         return {
           backgroundColor: "var(--button-primary-bg)",
-          color: "var(--text-inverse)",
+          color: "var(--text-primary)",
           borderColor: "var(--button-primary-bg)",
           border: "1px solid",
+          borderRadius: !icon ? "var(--border-radius)" : "9999px",
         };
       case "secondary":
         return {
@@ -80,19 +81,22 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           color: "var(--text-primary)",
           borderColor: "var(--border-primary)",
           border: "1px solid",
+          borderRadius: !icon ? "var(--border-radius)" : "9999px",
         };
       case "danger":
         return {
           backgroundColor: "var(--button-danger-bg)",
-          color: "var(--text-inverse)",
+          color: "var(--text-primary)",
           borderColor: "var(--button-danger-bg)",
           border: "1px solid",
+          borderRadius: !icon ? "var(--border-radius)" : "9999px",
         };
       case "ghost":
         return {
           backgroundColor: "transparent",
           color: "var(--text-secondary)",
           border: "none",
+          borderRadius: !icon ? "var(--border-radius)" : "9999px",
         };
       case "link":
         return {
@@ -100,12 +104,14 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           color: "var(--text-tertiary)",
           border: "none",
           textDecoration: "none",
+          borderRadius: "0",
         };
       case "icon":
         return {
           backgroundColor: "transparent",
           color: "var(--text-secondary)",
           border: "none",
+          borderRadius: "9999px",
         };
       default:
         return {
@@ -113,6 +119,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           color: "var(--text-primary)",
           borderColor: "var(--border-primary)",
           border: "1px solid",
+          borderRadius: !icon ? "var(--border-radius)" : "9999px",
         };
     }
   };
@@ -122,7 +129,6 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       case "primary":
         return {
           backgroundColor: "var(--button-primary-hover)",
-          borderColor: "var(--button-primary-hover)",
         };
       case "secondary":
         return {
@@ -159,7 +165,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     "inline-flex items-center justify-center font-medium cursor-pointer transition-all duration-150 select-none",
 
     // Conditional classes
-    icon ? "rounded-full flex-shrink-0" : "gap-2 rounded-md",
+    icon ? "rounded-full flex-shrink-0" : "gap-2",
     fullWidth ? "w-full" : "",
     disabled || loading ? "opacity-60 cursor-not-allowed" : "",
     variant === "link" ? "hover:underline p-0 bg-transparent border-none" : "",
@@ -204,7 +210,11 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     <button
       type={type}
       className={`${baseClasses} ${className}`.trim()}
-      style={{ ...getVariantStyles(), ...style }}
+      style={{
+        ...getVariantStyles(),
+        ...(!icon && { borderRadius: "var(--border-radius)" }),
+        ...style
+      }}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

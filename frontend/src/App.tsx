@@ -283,15 +283,18 @@ const AppContent: React.FC = () => {
 };
 
 import { Toaster } from "react-hot-toast";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 const App: React.FC = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <AppContent />
-        <Toaster position="bottom-right" />
-      </Router>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <Router>
+          <AppContent />
+          <Toaster position="bottom-right" />
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   );
 };
 

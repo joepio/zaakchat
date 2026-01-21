@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({
     lg: "p-5 sm:p-6 lg:p-8 xl:p-10",
   };
 
-  const baseClasses = `${paddingClasses[padding]} rounded-md border border-opacity-10`;
+  const baseClasses = `${paddingClasses[padding]} border border-opacity-10`;
 
   return (
     <div
@@ -28,6 +28,7 @@ const Card: React.FC<CardProps> = ({
       style={{
         backgroundColor: "var(--bg-secondary)",
         borderColor: "var(--border-primary)",
+        borderRadius: "var(--border-radius)",
       }}
     >
       {children}
@@ -40,11 +41,13 @@ export const CardHeader: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => (
   <div
-    className={`p-4 sm:p-5 lg:p-6 xl:p-8 rounded-t-md ${className}`.trim()}
+    className={`p-4 sm:p-5 lg:p-6 xl:p-8 ${className}`.trim()}
     style={{
       backgroundColor: "var(--bg-secondary)",
       color: "var(--text-primary)",
       borderColor: "var(--border-primary)",
+      borderTopLeftRadius: "var(--border-radius)",
+      borderTopRightRadius: "var(--border-radius)",
     }}
   >
     {children}

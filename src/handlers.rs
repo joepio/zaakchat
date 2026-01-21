@@ -456,7 +456,15 @@ async fn send_notifications_for_event(
     let mut subject = String::new();
     let mut content_prefix = String::new();
 
+    let mut issue_title = String::new();
+
     if is_issue {
+        issue_title = resource
+            .get("title")
+            .and_then(|v| v.as_str())
+            .unwrap_or("Naamloos")
+            .to_string();
+
         // Get current involved
         let new_involved: Vec<String> = resource
             .get("involved")
@@ -491,24 +499,12 @@ async fn send_notifications_for_event(
                 return; // No new users added, no notification needed for issue update
             }
 
-            subject = format!(
-                "Je bent toegevoegd aan Zaak: {}",
-                resource
-                    .get("title")
-                    .and_then(|v| v.as_str())
-                    .unwrap_or("Naamloos")
-            );
+            subject = format!("Je bent toegevoegd aan Zaak: {}", issue_title);
             content_prefix = "Je bent toegevoegd aan deze zaak.".to_string();
         } else {
             // New Issue: Notify all involved
             recipients = new_involved;
-            subject = format!(
-                "Nieuwe Zaak: {}",
-                resource
-                    .get("title")
-                    .and_then(|v| v.as_str())
-                    .unwrap_or("Naamloos")
-            );
+            subject = format!("Nieuwe Zaak: {}", issue_title);
         }
     } else if is_comment {
         // Only notify for NEW comments (old_resource is None)
@@ -517,11 +513,17 @@ async fn send_notifications_for_event(
         }
 
         // For comments, the thread_id IS the event subject (which is the issue ID)
-        // We trust the frontend/event creator to set this correctly.
         thread_id = event.subject.clone();
 
-        // Fetch the parent issue to get involved users
+        // Fetch the parent issue to get involved users and title
         if let Ok(Some(parent)) = state.storage.get_resource(&thread_id).await {
+            let title = parent
+                .get("title")
+                .and_then(|v| v.as_str())
+                .unwrap_or("Naamloos");
+            issue_title = title.to_string();
+            subject = format!("Re: [ZaakChat] {}", title);
+
             if let Some(involved) = parent.get("involved").and_then(|v| v.as_array()) {
                 for user in involved {
                     if let Some(u) = user.as_str() {
@@ -529,8 +531,9 @@ async fn send_notifications_for_event(
                     }
                 }
             }
+        } else {
+            subject = format!("Nieuwe Reactie op {}", thread_id);
         }
-        subject = format!("Nieuwe Reactie op {}", thread_id);
     }
 
     // 3. Determine author (to exclude from notifications)
@@ -566,11 +569,21 @@ async fn send_notifications_for_event(
                 .unwrap_or("")
         };
 
-        let full_content = if !content_prefix.is_empty() {
-            format!("{}\n\n{}", content_prefix, content)
+        let author_name = if author.contains('@') {
+            author.split('@').next().unwrap_or(author)
         } else {
-            content.to_string()
+            author
         };
+
+        let header = if is_comment {
+            format!("{} schreef over {}:", author_name, issue_title)
+        } else if !content_prefix.is_empty() {
+            content_prefix.clone()
+        } else {
+            format!("{} opende een nieuwe zaak:", author_name)
+        };
+
+        let full_content = format!("{}\n\n{}", header, content);
 
         // Generate magic link token
         let magic_link = match crate::auth::create_jwt(&recipient) {
@@ -1009,12 +1022,9 @@ pub async fn inbound_email_handler(
     let comment_id = uuid::Uuid::new_v4().to_string();
     let timestamp = chrono::Utc::now().to_rfc3339();
 
+    // The Comment resource itself only needs content according to the schema
     let comment_data = serde_json::json!({
-        "id": comment_id,
-        "parent_id": issue_id,
         "content": content,
-        "author": sender_email,
-        "created_at": timestamp,
     });
 
     let event = CloudEvent {
@@ -1034,6 +1044,7 @@ pub async fn inbound_email_handler(
         data: Some(serde_json::json!({
             "resource_id": comment_id,
             "schema": "https://zaakchat.nl/schemas/Comment.json",
+            "actor": sender_email,
             "timestamp": timestamp,
             "resource_data": comment_data
         })),

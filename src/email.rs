@@ -34,7 +34,11 @@ struct PostmarkEmail {
 
 #[async_trait]
 pub trait EmailTransport: Send + Sync {
-    async fn send_magic_link(&self, email: &str, token: &str) -> Result<(), Box<dyn std::error::Error + Send + Sync>>;
+    async fn send_magic_link(
+        &self,
+        email: &str,
+        token: &str,
+    ) -> Result<(), Box<dyn std::error::Error + Send + Sync>>;
     async fn send_notification(
         &self,
         to: &str,
@@ -55,7 +59,11 @@ impl EmailService {
         Self { transport }
     }
 
-    pub async fn send_magic_link(&self, email: &str, token: &str) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    pub async fn send_magic_link(
+        &self,
+        email: &str,
+        token: &str,
+    ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         self.transport.send_magic_link(email, token).await
     }
 
@@ -94,7 +102,11 @@ impl PostmarkTransport {
 
 #[async_trait]
 impl EmailTransport for PostmarkTransport {
-    async fn send_magic_link(&self, email: &str, token: &str) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    async fn send_magic_link(
+        &self,
+        email: &str,
+        token: &str,
+    ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         let magic_link = format!("{}/verify-login?token={}", self.base_url, token);
 
         let html_body = format!(
@@ -115,7 +127,7 @@ impl EmailTransport for PostmarkTransport {
         );
 
         let email_payload = PostmarkEmail {
-            from: self.sender.clone(),
+            from: format!("ZaakChat <{}>", self.sender),
             to: email.to_string(),
             subject: "Log in to ZaakChat".to_string(),
             html_body,
@@ -125,7 +137,8 @@ impl EmailTransport for PostmarkTransport {
             headers: vec![],
         };
 
-        let res = self.client
+        let res = self
+            .client
             .post("https://api.postmarkapp.com/email")
             .header("X-Postmark-Server-Token", &self.api_token)
             .json(&email_payload)
@@ -166,7 +179,7 @@ impl EmailTransport for PostmarkTransport {
         }
 
         let email_payload = PostmarkEmail {
-            from: self.sender.clone(),
+            from: format!("ZaakChat <{}>", self.sender),
             to: to.to_string(),
             subject: subject.to_string(),
             html_body: html_body.to_string(),
@@ -176,7 +189,8 @@ impl EmailTransport for PostmarkTransport {
             headers,
         };
 
-        let res = self.client
+        let res = self
+            .client
             .post("https://api.postmarkapp.com/email")
             .header("X-Postmark-Server-Token", &self.api_token)
             .json(&email_payload)
@@ -205,7 +219,11 @@ impl MockTransport {
 
 #[async_trait]
 impl EmailTransport for MockTransport {
-    async fn send_magic_link(&self, email: &str, token: &str) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    async fn send_magic_link(
+        &self,
+        email: &str,
+        token: &str,
+    ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         let magic_link = format!("{}/verify-login?token={}", self.base_url, token);
         let mock_path = std::path::Path::new("test_email.json");
         let mock_data = json!({
@@ -214,7 +232,10 @@ impl EmailTransport for MockTransport {
             "magic_link": magic_link,
         });
         std::fs::write(mock_path, serde_json::to_string_pretty(&mock_data)?)?;
-        println!("[email] Mock mode: wrote magic link to {}", mock_path.display());
+        println!(
+            "[email] Mock mode: wrote magic link to {}",
+            mock_path.display()
+        );
         println!("[email] Magic Link: {}", magic_link);
         Ok(())
     }
@@ -238,7 +259,10 @@ impl EmailTransport for MockTransport {
             "thread_id": thread_id,
         });
         std::fs::write(mock_path, serde_json::to_string_pretty(&mock_data)?)?;
-        println!("[email] Mock mode: wrote notification to {}", mock_path.display());
+        println!(
+            "[email] Mock mode: wrote notification to {}",
+            mock_path.display()
+        );
         Ok(())
     }
 }

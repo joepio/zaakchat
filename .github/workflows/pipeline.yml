@@ -1,0 +1,180 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+  workflow_dispatch:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      tests-passed: ${{ steps.set-output.outputs.tests_passed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@v2
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install JS deps
+        run: pnpm install
+
+      - name: Generate types and front-end build
+        run: pnpm generate-all && pnpm build
+
+      - name: Build backend (release)
+        run: cargo build --release
+
+      - name: Install Playwright
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Start backend server
+        run: |
+          ./target/release/zaakchat &
+          echo $! > backend.pid
+        env:
+          RUST_LOG: info
+          MOCK_EMAIL: "true"
+
+      - name: Wait for backend to be ready
+        run: |
+          timeout 300 bash -c 'until curl -f http://localhost:8000/schemas > /dev/null 2>&1; do sleep 2; done'
+
+      - name: Run Playwright E2E tests
+        id: run-tests
+        run: pnpm run test:e2e
+        env:
+          CI: true
+        continue-on-error: true
+
+      - name: Set output based on test result
+        id: set-output
+        run: |
+          if [ "${{ steps.run-tests.outcome }}" = "success" ]; then
+            echo "tests_passed=true" >> $GITHUB_OUTPUT
+          else
+            echo "tests_passed=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: test-results/
+          retention-days: 30
+
+      - name: Stop servers
+        if: always()
+        run: |
+          if [ -f backend.pid ]; then
+            kill $(cat backend.pid) || true
+            rm backend.pid
+          fi
+
+  build-and-push:
+    name: Build and push Docker image
+    needs: build-test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Determine image tags
+        id: tags
+        run: |
+          IMAGE=joepmeneer/zaakchat
+          SHORT_SHA=${GITHUB_SHA::7}
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            REF_TAG=${GITHUB_REF#refs/tags/}
+            echo "tags=${IMAGE}:latest,${IMAGE}:${REF_TAG},${IMAGE}:${SHORT_SHA}" >> $GITHUB_OUTPUT
+          else
+            echo "tags=${IMAGE}:latest,${IMAGE}:${SHORT_SHA}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build and push Docker image (multi-arch)
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ steps.tags.outputs.tags }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    name: Deploy to Production
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Copy deploy script via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "deploy.sh,docker-compose.yml,Caddyfile"
+          target: "./"
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        env:
+          POSTMARK_API_TOKEN: ${{ secrets.POSTMARK_API_TOKEN }}
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          envs: POSTMARK_API_TOKEN
+          script: |
+            chmod +x deploy.sh
+            ./deploy.sh

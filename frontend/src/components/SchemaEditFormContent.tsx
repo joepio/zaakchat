@@ -203,7 +203,7 @@ const SchemaEditFormContent: React.FC<SchemaEditFormContentProps> = ({
 
       {submitError && (
         <div
-          className="p-3 rounded-md text-sm mb-4"
+          className="p-3 rounded-theme text-sm mb-4"
           style={{
             backgroundColor: "var(--bg-error-subtle)",
             color: "var(--text-error)",

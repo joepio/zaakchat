@@ -59,6 +59,7 @@ const Modal: React.FC<ModalProps> = ({
           backgroundColor: "var(--bg-secondary)",
           boxShadow: "var(--shadow-lg)",
           border: "1px solid var(--border-primary)",
+          borderRadius: "var(--border-radius)",
         }}
       >
         <div

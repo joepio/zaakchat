@@ -70,9 +70,10 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       case "primary":
         return {
           backgroundColor: "var(--button-primary-bg)",
-          color: "var(--text-primary)",
+          color: "var(--text-inverse)",
           borderColor: "var(--button-primary-bg)",
-          border: "1px solid",
+          borderWidth: "var(--button-border-width)",
+          borderStyle: "solid",
           borderRadius: !icon ? "var(--border-radius)" : "9999px",
         };
       case "secondary":
@@ -80,15 +81,17 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           backgroundColor: "var(--button-secondary-bg)",
           color: "var(--text-primary)",
           borderColor: "var(--border-primary)",
-          border: "1px solid",
+          borderWidth: "var(--button-border-width)",
+          borderStyle: "solid",
           borderRadius: !icon ? "var(--border-radius)" : "9999px",
         };
       case "danger":
         return {
           backgroundColor: "var(--button-danger-bg)",
-          color: "var(--text-primary)",
+          color: "var(--text-inverse)",
           borderColor: "var(--button-danger-bg)",
-          border: "1px solid",
+          borderWidth: "var(--button-border-width)",
+          borderStyle: "solid",
           borderRadius: !icon ? "var(--border-radius)" : "9999px",
         };
       case "ghost":
@@ -118,21 +121,26 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           backgroundColor: "var(--button-secondary-bg)",
           color: "var(--text-primary)",
           borderColor: "var(--border-primary)",
-          border: "1px solid",
+          borderWidth: "var(--button-border-width)",
+          borderStyle: "solid",
           borderRadius: !icon ? "var(--border-radius)" : "9999px",
         };
     }
   };
 
   const getHoverStyles = () => {
+    if (disabled || loading) return {};
+
     switch (variant) {
       case "primary":
         return {
           backgroundColor: "var(--button-primary-hover)",
+          borderColor: "var(--button-primary-hover)",
         };
       case "secondary":
         return {
           backgroundColor: "var(--button-secondary-hover)",
+          borderColor: "var(--border-hover)",
         };
       case "danger":
         return {
@@ -142,21 +150,18 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       case "ghost":
         return {
           backgroundColor: "var(--bg-hover)",
-          color: "var(--text-primary)",
         };
       case "link":
         return {
+          color: "var(--link-hover)",
           textDecoration: "underline",
         };
       case "icon":
         return {
           backgroundColor: "var(--bg-hover)",
-          color: "var(--text-primary)",
         };
       default:
-        return {
-          backgroundColor: "var(--button-secondary-hover)",
-        };
+        return {};
     }
   };
 

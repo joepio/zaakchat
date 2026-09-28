@@ -21,6 +21,8 @@ const themes: Record<ThemeId, Theme> = {
       '--color-secondary': '#42145f',
       '--color-secondary-dark': '#42145f',
       '--border-radius': '5px',
+      '--button-border-width': '0px',
+      '--input-border-width': '1px',
     },
   },
   utrecht: {
@@ -34,6 +36,8 @@ const themes: Record<ThemeId, Theme> = {
       '--color-secondary': '#24578f',
       '--color-secondary-dark': '#24578f',
       '--border-radius': '0px',
+      '--button-border-width': '1px',
+      '--input-border-width': '1px',
     },
   },
 };

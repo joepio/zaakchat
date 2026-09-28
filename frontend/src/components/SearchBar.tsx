@@ -183,7 +183,7 @@ const SearchBar: React.FC = () => {
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
           placeholder="Zoeken..."
-          className="w-full px-3 sm:px-4 py-1.5 sm:py-2 pl-8 sm:pl-10 pr-3 sm:pr-4 rounded-md border text-xs sm:text-sm focus:outline-none focus:ring-2"
+          className="w-full form-input text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 pl-8 sm:pl-10 pr-3 sm:pr-4 focus:outline-none focus:ring-2"
           style={{
             backgroundColor: "var(--bg-secondary)",
             borderColor: "var(--border-primary)",

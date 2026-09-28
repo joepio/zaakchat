@@ -49,7 +49,7 @@ const CreateIssueForm: React.FC<CreateIssueFormProps> = ({ onCreateIssue, onCanc
     <div>
       {error && (
         <div
-          className="mb-4 p-3 rounded-md text-sm"
+          className="mb-4 p-3 rounded-theme text-sm"
           style={{
             backgroundColor: "var(--error-bg)",
             color: "var(--error-text)",

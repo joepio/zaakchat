@@ -58,6 +58,8 @@
 
   /* Border radius */
   --border-radius: 0;
+  --button-border-width: 0px;
+  --input-border-width: 1px;
 }
 
 /* Rijksoverheid Colors */
@@ -172,6 +174,9 @@
     --border-hover: #444444;
     --border-focus: var(--ro-lichtblauw);
 
+    --button-border-width: 0px;
+    --input-border-width: 1px;
+
     --link-primary: var(--color-primary);
     --link-hover: var(--color-primary-dark);
     --link-visited: var(--ro-roze);
@@ -225,6 +230,9 @@
   --border-secondary: #2a2a2a;
   --border-hover: #444444;
   --border-focus: var(--ro-lichtblauw);
+
+  --button-border-width: 0px;
+  --input-border-width: 1px;
 
   --link-primary: var(--color-primary);
   --link-hover: var(--color-primary-dark);
@@ -381,6 +389,8 @@
     color: var(--text-primary);
     border-color: var(--border-primary);
     border-radius: var(--border-radius);
+    border-width: var(--input-border-width);
+    border-style: solid;
   }
 
   .form-input:focus,

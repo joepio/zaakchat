@@ -1,0 +1,1368 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/06",
+  "version": "1.9",
+  "title": "Handhavingsverzoek behandelen",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "6",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Handhavingsverzoek behandelen",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Handhaven",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Een beschikking vaststellen op een verzoek van een burger, bedrijf of overheid om een sanctie op een vermeende overtreding toe te passen.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "Een burger, bedrijf of overheid heeft expliciet een verzoek tot handhaving ingediend.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "Aanleiding is de indiening van een expliciet verzoek tot handhaving cq. verzoek tot toepassen van een sanctie. Aanleiding is dus niet een klacht, incident- of overlastmelding (zie het zaaktype ‘Incidentmelding behandelen’).\nDe behandeling van het handhavingsverzoek kan leiden tot een handhavingstraject. Dit vindt plaats door een vervolgzaak van het type ‘Handhavingsbesluit nemen’ te starten. \nVerlening is mogelijke met redelijke termijn, bijv. indien de gelegenheid wordt gegeven zienswijzen kenbaar te maken bij het voornemen tot afwijzing van het handhavingsverzoek en in bijzondere omstandigheden (aanvullend onderzoek nodig).",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Extern",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Indienen",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Handhavingsverzoek",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Behandelen",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "DOORLOOPTIJD BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "56",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 12
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 13
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "8",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 14
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "handhavingsverzoek",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 21
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-12-18",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [
+        "Handhavingsverzoek"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Bepaald is via welk kanaal / welke kanalen met de aanvrager gecommuniceerd wordt / moet worden. Er is - al dan niet geautomatiseerd - een ontvangstbevestiging verzonden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": true,
+      "required_documents": [
+        "Ontvangstbevestiging"
+      ],
+      "required_objects": [],
+      "required_properties": [
+        "Omschrijving verzoek",
+        "Soort verzoek"
+      ],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 5,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd.\nAllereerst is beoordeeld of de zaakbehandelende organisatie het bevoegde gezag is (of door het bevoegd gezag is gemandateerd voor behandeling). Zo niet, dan is het verzoek overgedragen aan het juiste bevoegd gezag, worden de statussen 3 en 4 pro forma doorlopen, en wordt de zaak afgerond met bericht aan de verzoeker dat het verzoek is doorgezonden naar het juiste bevoegd gezag.\nEr is beoordeeld of het ontvangen verzoek inderdaad een beschikking vereist (lees: niet 'slechts' een melding van overlast betreft zonder dat expliciet verzocht wordt handhavend op te treden). Zo ja, dan is de zaak toegewezen aan de behandelend medewerker of het behandelend organisatieonderdeel.\nAls het verzoek geen beschikking vereist worden de statussen 3 en 4 pro forma doorlopen. Indien de zaak op basis van een ander zaaktype moet worden behandeld, is na afronding van onderhavige zaak een zaak van het type ‘Incidentmelding behandelen’ gestart.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_verzoek_inhoudelijk_behandeld",
+      "sequence": 3,
+      "title": "Verzoek inhoudelijk behandeld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 35,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het verzoek is beoordeeld - zonodig in samenspraak met in- en externe adviseurs - op aanvaardbaarheid en volledigheid van de ontvangen informatie. Als de in het verzoek verstrekte informatie niet voldoende is bevonden of als is gebleken dat de verzoeker niet gemachtigd of belanghebbende is, is de verzoeker verzocht, binnen een redelijke termijn aanvullende informatie te verstrekken en is de procedure gedurende die termijn opgeschort. Als na het verstrijken van genoemde termijn de aanvaardbaarheid en volledigheid onvoldoende is gebleven, is de aanvraag niet-ontvankelijk verklaard en buiten behandeling gesteld. \nVrijwel altijd is het desbetreffende handhavingsobject of de locatie gecontroleerd door middel van het uitvoeren van een zaak van het zaaktype 'Controle uitvoeren'. De uitkomst daarvan is overgenomen: het al dan niet overgaan tot handhaving. Bij een (voornemen tot) afwijzing is de verzoeker om een zienswijze gevraagd, bij een (voornemen tot) inwilliging kan de vermeende overtreder om een zienswijze gevraagd zijn. Een zienswijze is behandeld in een gerelateerde zaak van het zaaktype 'Zienswijze behandelen'. Op grond van de uitkomst daarvan is een concept-beschikking (op het verzoek tot handhaving) op- en vastgesteld. De zienswijze is daarin verwerkt.\nIndien het verzoek wordt ingewilligd is, parallel aan deze zaak, een handhavingstraject gestart met een (vervolg)zaak van het type ‘Handhavingsbesluit nemen’. In de concept-beschikking op het verzoek tot handhaving is vermeld welke handhavingssanctie het bevoegd gezag voornemens is op te leggen (conform het voornemen dat is / wordt kenbaar gemaakt aan de vermeende overtreder in de zaak van het zaaktype 'Handhavingsbesluit nemen').",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_beschikking_vastgesteld",
+      "sequence": 4,
+      "title": "Beschikking vastgesteld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 14,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het concept van de beschikking kan zijn getoetst door een collega en is goedgekeurd op basis van de geldende mandaatafspraken.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "5_zaak_afgerond",
+      "sequence": 5,
+      "title": "Zaak afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De beschikking is verzonden naar de indiener van het handhavingsverzoek en andere belanghebbenden en het zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_verzoek_inhoudelijk_behandeld",
+      "from": "2_intake_afgerond",
+      "to": "3_verzoek_inhoudelijk_behandeld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_verzoek_inhoudelijk_behandeld"
+        }
+      ]
+    },
+    {
+      "id": "3_verzoek_inhoudelijk_behandeld__to__4_beschikking_vastgesteld",
+      "from": "3_verzoek_inhoudelijk_behandeld",
+      "to": "4_beschikking_vastgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_verzoek_inhoudelijk_behandeld"
+      },
+      "effects": [
+        {
+          "status.transition": "4_beschikking_vastgesteld"
+        }
+      ]
+    },
+    {
+      "id": "4_beschikking_vastgesteld__to__5_zaak_afgerond",
+      "from": "4_beschikking_vastgesteld",
+      "to": "5_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_beschikking_vastgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "5_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is de aanvraag geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Direct na ontvangst van het verzoek wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype - het blijkt in de praktijk soms lastig onderscheid te maken tussen een overlastmelding en een handhavingsverzoek - bepaald en zijn alle voor een zaak van dat zaaktype relevant gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_communicatie",
+      "title": "2 - Communicatie",
+      "question": "Is bepaald en vastgelegd op welke wijze communicatie met de aanvrager plaatsvindt?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Communicatie over een zaak verloopt in steeds meer gevallen niet meer - uitsluitend - via fysieke post, maar via meerdere - analoge en digitale - kanalen. Soms is het gebruik van bepaalde digitale kanalen zelfs verplicht. Indien de aanvrager bijvoorbeeld kwalificeert als dienstverrichter (art. 1 Dienstenwet) en heeft aangegeven via het centraal loket - Berichtenbox voor bedrijven - voldoende bereikbaar te zijn, wordt alle in de zaak gevoerde correspondentie - tevens - verzonden via genoemd centraal loket (art. 14, lid 1 onder b Dienstenwet, juncto art. 16.54, lid 3 Omgevingswet).",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "1_zaak_gestart__3_ontvangstbevestiging",
+      "title": "3 - Ontvangstbevestiging",
+      "question": "Is een ontvangstbevestiging verzonden?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Hoewel de Algemene wet bestuursrecht alleen een ontvangstbevesting verplicht stelt (art 4:3a Algemene wet bestuursrecht) als het handhavingsverzoek elektronisch is ingediend, wordt geadviseerd de ontvangst van een handhavingsverzoek te allen tijde te bevestigen.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_bevoegd_gezag",
+      "title": "1 - Bevoegd gezag",
+      "question": "Is de zaakbehandelende organisatie bevoegd de zaak te behandelen?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "Beoordeeld wordt of de zaakbehandelende organisatie de zaak kan behandelen, hetzij omdat de zaakbehandelende organisatie bevoegd gezag is, dan wel omdat het bevoegd gezag de zaakbehandelende organisatie heeft gemandateerd de beschikking voor te bereiden (beperkt mandaat) of volledig af te handelen (volledig mandaat). Indien de zaakbehandelende organisatie niet bevoegd of onvoldoende gemandateerd is, wordt de aanvraag direct doorgezonden naar het juiste bevoegd gezag en wordt de aanvrager hierover geïnformeerd.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_behandelaar",
+      "title": "3 - Behandelaar",
+      "question": "Is het behandelend team of medewerker bepaald?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "De behandelend medewerker of het behandelend organisatieonderdeel is bepaald en de zaak is volledig geregistreerd.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "2_intake_afgerond__4_beschikking_vereist",
+      "title": "4 - Beschikking vereist",
+      "question": "Vereist het verzoek een beschikking?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "Beoordeeld wordt of het ingediende verzoek een beschikking vereist. Daartoe zal in het verzoek ten minste expliciet moeten zijn verzocht om handhaving (art. 4:2, lid 1, onder c Algemene wet bestuursrecht) ten aanzien van een - vermeende - overtreding. Indien géén beschikking is vereist, maar het verzoek wel kan worden geïnterpreteerd als een klacht over of melding van overlast, dan wordt onderhavige zaak afgerond en is een vervolgzaak gestart van het zaaktype 'Melding overlast behandelen'.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_verzoek_inhoudelijk_behandeld__1_volledig",
+      "title": "1 - Volledig",
+      "question": "Is het verzoek initieel aanvaardbaar en volledig ingediend?",
+      "status": "3_verzoek_inhoudelijk_behandeld",
+      "required": true,
+      "description": "Beoordeeld wordt - samen met eventuele adviseurs - of het initieel ingediende verzoek aanvaardbaar en volledig is (ontvankelijkheidstoets). Is dit niet het geval, dan is de indiener in de gelegenheid gesteld het verzoek binnen een door de zaakbehandelende organisatie gestelde termijn aan te vullen (art. 4:5 Algemene wet bestuursrecht). De behandeling van de zaak (de beslistermijn) wordt in dat geval opgeschort tot de dag waarop de aanvraag is aangevuld of de daarvoor gestelde termijn ongebruikt is verstreken (art. 4:15, lid 1 Algemene wet bestuursrecht).\nAls na het beëindigen van de opschorting de aanvraag niet ontvankelijk is gebleven, is binnen 4 weken na hervatting van de behandeling aan de aanvrager bekendgemaakt dat de aanvraag niet wordt behandeld (middels de Beschikking buiten behandeling laten).",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "3_verzoek_inhoudelijk_behandeld__2_aanhouding",
+      "title": "2 - Aanhouding",
+      "question": "Is er een grond de besluitvorming over de aanvraag aan te houden?",
+      "status": "3_verzoek_inhoudelijk_behandeld",
+      "required": false,
+      "description": "Beoordeeld wordt of er redenen zijn de besluitvorming over het verzoek aan te houden. Dit kan bijvoorbeeld het geval zijn als er een voor het verzoek relevant voorbereidingsbesluit is genomen (zie art. 3.3 Wet algemene bepalingen omgevingsrecht, resp. art. 16.58 Omgevingswet) of de voor het verzoek relevant exploitatieplan resp. exploitatieregels (art. 3.5 Wet algemene bepalingen omgevingsrecht, resp. art. 16.59 Omgevingswet) nog niet onherroepelijk is/zijn.\nAls de besluitvorming niet van rechtswege wordt aangehouden, wordt een Aanhoudingsbeschikking genomen. Aanhouding van de besluitvorming wordt aan de indiener bekendgemaakt. Als besluitvorming over het verzoek wordt aangehouden, geldt de datum waarop de aanhouding eindigt als startdatum voor de beslistermijn.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "3_verzoek_inhoudelijk_behandeld__3_verlenging",
+      "title": "3 - Verlenging",
+      "question": "Is er aanleiding de beslistermijn te verlengen?",
+      "status": "3_verzoek_inhoudelijk_behandeld",
+      "required": false,
+      "description": "Beoordeeld wordt of er aanleiding is de beslistermijn te verlengen met een redelijke termijn, zie art. 4:14 Algemene wet bestuursrecht. Dit kan het geval zijn als het onderzoek naar de vermeende overtreding een substantiële doorlooptijd vergt, bijvoorbeeld omdat de vermeende overtreding alleen onder specifieke omstandigheden optreedt (bijv. geluidhinder, stankoverlast) of intensief onderzoek behoeft (denk aan laboratoriumonderzoek).\nEen beschikking tot verlenging van de beslistermijn dient binnen 8 weken na ontvangst van de aanvraag te worden genomen en wordt bekendgemaakt aan de indiener van het handhavingsverzoek.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "3_verzoek_inhoudelijk_behandeld__4_controle",
+      "title": "4 - Controle",
+      "question": "Is voor de beschikking op het verzoek controle nodig?",
+      "status": "3_verzoek_inhoudelijk_behandeld",
+      "required": true,
+      "description": "In veel gevallen zal de beschikking op een verzoek tot handhaving één of meer controles behoeven waarin wordt onderzocht of de vermeende overtreding inderdaad kan worden geconstateerd. Deze controles vinden plaats in (bijdrage)zaken van het zaaktype 'Controle uitvoeren'.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "3_verzoek_inhoudelijk_behandeld__5_adviezen_gevraagd",
+      "title": "5 - Adviezen gevraagd",
+      "question": "Zijn de voor de beoordeling relevante adviezen gevraagd?",
+      "status": "3_verzoek_inhoudelijk_behandeld",
+      "required": false,
+      "description": "Voor het toetsen van het verzoek aan regelgeving en het zorgvuldig afwegen van belangen, kunnen adviezen noodzakelijk zijn, bijvoorbeeld omdat aspecten van het verzoek een specialistische beoordeling vergen.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "3_verzoek_inhoudelijk_behandeld__6_voornemen_bekendgemaakt",
+      "title": "6 - Voornemen bekendgemaakt",
+      "question": "Moet(en) de indiener en/of belanghebbende(n) om een zienswijze worden gevraagd over de voorgenomen beschikking?",
+      "status": "3_verzoek_inhoudelijk_behandeld",
+      "required": false,
+      "description": "Beoordeeld wordt of de gegevens op grond waarvan de zaakbehandelende organisatie voornemens is het verzoek geheel of gedeeltelijk af te wijzen, afwijken van de gegevens die de indiener zelf heeft verstrekt. Indien dat het geval is, wordt de indiener in de gelegenheid gesteld zijn zienswijze op de voorgenomen afwijzing naar voren te brengen (art. 4:7 Algemene wet bestuursrecht).\nIndien verwacht wordt dat een belanghebbende - niet zijnde de indiener - bedenkingen zal hebben tegen een voorgenomen beschikking en voor het komen tot die beschikking zijn gegevens gebruikt die niet door de belanghebbende zijn verstrekt, wordt de belanghebbende in de gelegenheid gesteld zijn zienswijze naar voren te brengen (art. 4:8 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "3_verzoek_inhoudelijk_behandeld__7_handhaving",
+      "title": "7 - Handhaving",
+      "question": "Is een zaak gestart voor de handhaving?",
+      "status": "3_verzoek_inhoudelijk_behandeld",
+      "required": false,
+      "description": "Indien de vermeende overtreding is geconstateerd (in de (bijdrage)zaak van het zaaktype 'Controle uitvoeren'), is - parallel aan onderhavige zaak - een zaak gestart van het type 'Handhavingsbesluit nemen'. De voorgenomen sanctie op de overtreding wordt overgenomen in het concept van de beschikking op het handhavingsverzoek.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "4_beschikking_vastgesteld__1_concept_getoetst",
+      "title": "1 - Concept getoetst",
+      "question": "Is de beschikking (collegiaal) getoetst?",
+      "status": "4_beschikking_vastgesteld",
+      "required": false,
+      "description": "Afhankelijk van de aard van de aanvraag en de afspraken binnen de zaakbehandelende organisatie, kan de beschikking collegiaal moeten worden getoetst.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "4_beschikking_vastgesteld__2_beschikking_vastgesteld",
+      "title": "2 - Beschikking vastgesteld",
+      "question": "Is de beschikking vastgesteld?",
+      "status": "4_beschikking_vastgesteld",
+      "required": false,
+      "description": "Afhankelijk van de aard van het verzoek en in- en externe afspraken over mandatering, kan het nodig zijn het concept van de beschikking te laten fiatteren / vaststellen op basis van de mandaatafspraken. Deze fiattering / vaststelling kan zowel intern (door bijvoorbeeld een afdelingshoofd van de zaakbehandelende organisatie) en/of extern (door het bevoegd gezag) zijn vereist.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__1_toezending",
+      "title": "1 - Toezending",
+      "question": "Is de beschikking door toezending bekendgemaakt aan direct belanghebbenden?",
+      "status": "5_zaak_afgerond",
+      "required": false,
+      "description": "Een beschikking treedt pas in werking zodra deze is bekendgemaakt (art. 3:40 Algemene wet bestuursrecht). De beschikking wordt daartoe toegezonden (of uitgereikt) aan:\nde belanghebbenden, waaronder de indiener, waartot de beschikking zich richt (art. 3:41, lid 1 Algemene wet bestuursrecht);\ndegenen die bij de voorbereiding van de beschikking een zienswijze naar voren hebben gebracht (art. 3:43, lid 1 Algemene wet bestuursrecht); \nadviseurs die betrokken waren bij de voorbereiding van de beschikking (in afwijking van art. 3:43, lid 1 Algemene wet bestuursrecht wordt niet slechts van de beschikking mededeling gedaan indien van het advies wordt afgeweken - de beschikking wordt te allen tijde aan elke adviseur toegezonden).",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__2_archivering",
+      "title": "2 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__3_registraties",
+      "title": "3 - Registraties",
+      "question": "Zijn de voor de beschikking relevante registraties bijgewerkt?",
+      "status": "5_zaak_afgerond",
+      "required": false,
+      "description": "Een beschikking zal in veel gevallen leiden tot een mutatie in één of meer (basis)registraties. Denk aan het verlenen van toestemming voor het slopen van een pand (moet leiden tot verwijdering van dat pand in de BAG), het oprichten van een bouwwerk (moet leiden tot creatie van dat bouwwerk in de BAG), het toestaan van een milieubelastende activiteit (kan leiden tot opname van die activiteit op de 'risicokaart') of het nemen van een handhavingsbesluit t.a.v. een overtreding (kan leiden tot registratie van een beperking in de landelijke voorziening voor de WKPB).\nDit zijn slechts enkele voorbeelden; alle relevante (basis)registraties dienen te worden bijgewerkt op basis van de beschikking.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 21
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__4_vervolgzaak",
+      "title": "4 - Vervolgzaak",
+      "question": "Zijn de voor deze zaak relevante vervolgzaken gepland?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Een zaak waarin wordt beschikt over een verzoek, vereist een vervolg als de vermeende overtreding inderdaad is geconstateerd: handhavend optreden (dat start met zaak van het zaaktype 'Handhavingsbesluit nemen'). Als de vermeende overtreding niet is geconstateerd, kan de zaakbehandelende organisatie ervoor kiezen 'een oogje in het zeil te houden' door het plannen van een zaak van het zaaktype 'Controle uitvoeren'.",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 22
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "5_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "andere_organisatie",
+      "title": "Andere organisatie",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Niet-natuurlijk persoon",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "indiener",
+      "title": "Indiener",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging van niet-natuurlijk persoon",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "vermeende_overtreder",
+      "title": "Vermeende overtreder",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging van niet-natuurlijk persoon",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zaakbehandelaar",
+      "title": "Zaakbehandelaar",
+      "may_set_statuses": [
+        "2_intake_afgerond",
+        "3_verzoek_inhoudelijk_behandeld"
+      ],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Behandelaar",
+      "actor_type": "Jurist",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [
+        "4_beschikking_vastgesteld"
+      ],
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "handhavingsverzoek",
+      "sequence": 1,
+      "title": "Handhavingsverzoek",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 2,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "bericht_ander_bevoegd_gezag",
+      "sequence": 3,
+      "title": "Bericht ander bevoegd gezag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "melding_overgang_bevoegdheid",
+      "sequence": 4,
+      "title": "Melding overgang bevoegdheid",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 5,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 5,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 6,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 6,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "verzoek_om_aanvullende_informatie",
+      "sequence": 7,
+      "title": "Verzoek om aanvullende informatie",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "aanvullende_informatie",
+      "sequence": 8,
+      "title": "Aanvullende informatie",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "beschikking_buiten_behandeling_laten",
+      "sequence": 9,
+      "title": "Beschikking buiten behandeling laten",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "beschikking_verlenging_beslistermijn",
+      "sequence": 10,
+      "title": "Beschikking verlenging beslistermijn",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "controlerapport",
+      "sequence": 11,
+      "title": "Controlerapport",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "uitnodiging_tot_geven_zienswijze",
+      "sequence": 12,
+      "title": "Uitnodiging tot geven zienswijze",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "zienswijze",
+      "sequence": 13,
+      "title": "Zienswijze",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "handhavingsvoornemen",
+      "sequence": 14,
+      "title": "Handhavingsvoornemen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    },
+    {
+      "id": "beschikking_op_handhavingsverzoek",
+      "sequence": 15,
+      "title": "Beschikking op handhavingsverzoek",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 19
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 98,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 20
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 99,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 21
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 16,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 22
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "beschikking_buiten_behandeling_laten",
+      "title": "Beschikking buiten behandeling laten",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 3
+      },
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "beschikking_op_handhavingsverzoek",
+      "title": "Beschikking op handhavingsverzoek",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 4
+      },
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "beschikking_verlenging_beslistermijn",
+      "title": "Beschikking verlenging beslistermijn",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 5
+      },
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "6.3",
+      "archive_nomination": "Vernietigen",
+      "description": "Het handhavingsverzoek is afgebroken. Deze is foutief ingeboekt, overgedragen aan een ander gezag of door de indiener ingetrokken",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "afgewezen",
+      "title": "Afgewezen",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Afgewezen",
+      "selectielijst_class": "6.2",
+      "archive_nomination": "Vernietigen",
+      "leads_to_decision_type": "Beschikking op handhavingsverzoek",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "buiten_behandeling",
+      "title": "Buiten behandeling",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Buiten behandeling",
+      "selectielijst_class": "6.2",
+      "archive_nomination": "Vernietigen",
+      "leads_to_decision_type": "Beschikking buiten behandeling laten",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ingewilligd",
+      "title": "Ingewilligd",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Ingewilligd",
+      "title_2_2": "Ingewilligd",
+      "selectielijst_class": "6.1.8",
+      "archive_nomination": "Vernietigen",
+      "description": "Vernietigingstermijn gekoppeld aan de bestaans- of geldigheidsduur van het procesobject",
+      "leads_to_decision_type": "Beschikking op handhavingsverzoek",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgewezen_p",
+      "title": "Afgewezen (P)",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "prov",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Afgewezen",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Uitvoeren van de bestuursrechtelijke handhaving van bepalingen uit de Wet bodembescherming",
+      "leads_to_decision_type": "Beschikking op handhavingsverzoek",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "afgewezen_p",
+      "title": "Afgewezen (P)",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "prov",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Afgewezen",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Coördineren en uitvoeren van de bestuursrechtelijke handhaving op de naleving van de bepalingen uit milieuwet- en -regelgeving",
+      "leads_to_decision_type": "Beschikking op handhavingsverzoek",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "afgewezen_p",
+      "title": "Afgewezen (P)",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "prov",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Afgewezen",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Zorgdragen voor de uitvoering van bestuursrechtelijke handhaving van bepalingen uit de Waterwet",
+      "leads_to_decision_type": "Beschikking op handhavingsverzoek",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "afgewezen_p",
+      "title": "Afgewezen (P)",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "prov",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Afgewezen",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Coördineren en uitvoeren van de handhaving van provinciale vergunningen en ontheffingen, verleend op grond van provinciale regelgeving",
+      "leads_to_decision_type": "Beschikking op handhavingsverzoek",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "ingewilligd_p",
+      "title": "Ingewilligd (P)",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "prov",
+      "generic_title": "Toegekend",
+      "title_2_2": "Ingewilligd",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Zorgdragen voor de uitvoering van bestuursrechtelijke handhaving van bepalingen uit de Waterwet",
+      "leads_to_decision_type": "Beschikking op handhavingsverzoek",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "ingewilligd_p",
+      "title": "Ingewilligd (P)",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "prov",
+      "generic_title": "Toegekend",
+      "title_2_2": "Ingewilligd",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Coördineren en uitvoeren van de bestuursrechtelijke handhaving op de naleving van de bepalingen uit milieuwet- en -regelgeving",
+      "leads_to_decision_type": "Beschikking op handhavingsverzoek",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "ingewilligd_p",
+      "title": "Ingewilligd (P)",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "prov",
+      "generic_title": "Toegekend",
+      "title_2_2": "Ingewilligd",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Uitvoeren van de bestuursrechtelijke handhaving van bepalingen uit de Wet bodembescherming",
+      "leads_to_decision_type": "Beschikking op handhavingsverzoek",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "ingewilligd_p",
+      "title": "Ingewilligd (P)",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "prov",
+      "generic_title": "Toegekend",
+      "title_2_2": "Ingewilligd",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Coördineren en uitvoeren van de handhaving van provinciale vergunningen en ontheffingen, verleend op grond van provinciale regelgeving",
+      "leads_to_decision_type": "Beschikking op handhavingsverzoek",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "Het handhavingsverzoek is afgebroken. Deze is foutief ingeboekt, overgedragen aan een ander gezag of door de indiener ingetrokken",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "geweigerd",
+      "title": "Geweigerd",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "ws",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "toegekend",
+      "title": "Toegekend",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "ws",
+      "generic_title": "Toegekend",
+      "title_2_2": "Toegekend",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "buiten_behandeling_gelaten",
+      "title": "Buiten behandeling gelaten",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 18
+      },
+      "authority": "ws",
+      "generic_title": "Buiten behandeling gelaten",
+      "title_2_2": "Buiten behandeling gelaten",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 19
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/01",
+        "title": "Advies verstrekken",
+        "raw": "1 - Advies verstrekken"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "Voor het toetsen van het verzoek aan regelgeving en het zorgvuldig afwegen van belangen, kunnen adviezen noodzakelijk zijn, bijvoorbeeld omdat aspecten van het verzoek een specialistische beoordeling vergen."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/12",
+        "title": "Zienswijze behandelen",
+        "raw": "12 - Zienswijze behandelen"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "Naar aanleiding van het voornemen de beslistermijn te verlengen (art. 3:18, lid 2 Algemene wet bestuursrecht), een voorgenomen geheel of gedeeltelijke afwijzing van het verzoek (art. 4:7 lid 1 Algemene wet bestuursrecht, juncto art. 4:11 lid 1 Algemene wet bestuursrecht en art. 4:12, lid 1 Algemene wet bestuursrecht), verwachte bedenkingen van een belanghebbende (art. 4:8, lid 1 Algemene wet bestuursrecht, juncto art. 4:11 lid 1 Algemene wet bestuursrecht en art. 4:12, lid 1 Algemene wet bestuursrecht) kunnen door belanghebbenden en/of aanvrager zienswijzen naar voren worden gebracht. Behandeling van een zienswijze kan plaatsvinden in een zaak van het zaaktype 'Zienswijze behandelen' bij binnenkomst van de zienswijze."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin de vermeende overtreding waarop het handhavingsverzoek is gericht, wordt onderzocht."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/07",
+        "title": "Incidentmelding behandelen",
+        "raw": "7 - Incidentmelding behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Melding overlast behandelen' waarin eerder melding is gemaakt van de overlast die door de vermeende overtreding - waarop het handhavingsverzoek in onderhavige zaak zich richt - werd veroorzaakt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarmee de zaakbehandelende organisatie verifieert of de vermeende overtreding, die niet is geconstateerd tijdens de behandeling van het handhavingsverzoek, alsnog kan worden geconstateerd."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen' die wordt gestart als de zaakbehandelende organisatie het handhavingsverzoek inwilligt, of als - ondanks afwijzing of buiten behandeling stelling van het handhavingsverzoek - geconstateerd is dat er wél sprake is van een overtreding."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/14",
+        "title": "Voorlopige voorziening behandelen",
+        "raw": "14 - Voorlopige voorziening behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "De zaak van het zaaktype 'Voorlopige voorziening behandelen', waarin de partij die het besluit bestrijdt een verzoek om voorlopige voorziening indient bij de voorzieningenrechter van een rechtsprekende instantie, in afwachting van de behandeling van het bezwaar, beroep of hoger beroep tegen dat besluit."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/16",
+        "title": "Bezwaar behandelen",
+        "raw": "16 - Bezwaar behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 10
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen' waarin een bezwaar, dat is ingediend naar aanleiding van het bekendmaken van het besluit op een handhavingsverzoek in onderhavige zaak, is behandeld"
+    },
+    {
+      "target": {
+        "id": "omgevingswet/20",
+        "title": "Bezwaar behandelen zonder bezwaarcommissie",
+        "raw": "20 - Bezwaar behandelen zonder bezwaarcommissie"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 11
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen zonder bezwaarcommissie' waarin een bezwaar, dat is ingediend naar aanleiding van het bekendmaken van het besluit op een handhavingsverzoek in onderhavige zaak, is behandeld"
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

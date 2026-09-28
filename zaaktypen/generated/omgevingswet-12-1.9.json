@@ -1,0 +1,907 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/12",
+  "version": "1.9",
+  "title": "Zienswijze behandelen",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "12",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Zienswijze behandelen",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Juridisch",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Bepalen of een naar voren gebrachte zienswijze aanleiding geeft om een voorgenomen besluit gemotiveerd te heroverwegen.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "Het naar voren brengen van een zienswijze over een voorgenomen besluit van het bevoegd gezag, nadat het bevoegd gezag hiertoe gelegenheid heeft geboden.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "Een zienswijze kan naar voren worden gebracht nadat de zaakbehandelende organisatie hiertoe de gelegenheid heeft geboden. Veelal worden specifieke personen (belanghebbenden) in de gelegenheid gesteld hun zienswijze te geven (zie bijvoorbeeld art. 4:7 en art. 4:8 Algemene wet bestuursrecht), maar bij wettelijk voorschrift of door het bevoegd gezag kan ook zijn bepaald dat anderen een zienswijze naar voren kunnen brengen (zie bijvoorbeeld art. 3:15 lid 2 Algemene wet bestuursrecht voor het naar voren brengen van zienswijzen over het ontwerp van het besluit in de uniforme openbare voorbereidingsprocedure). In dat laatste geval wordt kennisgegeven van - de zakelijke inhoud van - het voorgenomen besluit en wordt in die kennisgeving tevens vermeld wie, op welke wijze, in de gelegenheid worden gesteld zienswijzen naar voren te brengen (art. 3:12 Algemene wet bestuursrecht).\nHet behandelen van zienswijzen kan plaatsvinden in zaken van onderhavig zaaktype 'Zienswijze behandelen': elke ingediende zienswijze over een voorgenomen besluit wordt dan behandeld in separate zaak die een bijdrage levert aan de zaak waarin het besluit waarop de zienswijze betrekking heeft, wordt voorbereid. Voor deze mogelijkheid is gekozen, omdat:\nelke naar voren gebrachte zienswijze een antwoord behoeft;\nin sommige situaties (bijvoorbeeld bij de behandeling van een zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen') veel zienswijzen kunnen worden ingediend die elk een eigen antwoord behoeven;\naan het naar voren brengen van een zienswijze rechtsmiddelen zijn verbonden (bezwaar, beroep) die moeten kunnen worden gerelateerd aan de naar voren gebrachte zienswijze;\neen naar voren gebrachte zienswijze - op onderdelen - een specialistische beoordeling kan vergen van een adviseur van het bevoegd gezag.\nIndien geen van deze overwegingen aan de orde is bij het behandelen van (een) zienswijze in relatie tot een voorgenomen besluit, kan ervoor worden gekozen de behandeling van een zienswijze onderdeel te maken van de behandeling van de zaak waarin het besluit wordt genomen waarop de zienswijze betrekking heeft.\nVerlenging van de doorlooptijd is o.a. mogelijk bij een extern advies.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Extern",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Indienen",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Zienswijze",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Behandelen",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "56",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 15
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "8",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-07-11",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 44
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [
+        "Zienswijze"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Bepaald is via welk kanaal / welke kanalen met de aanvrager gecommuniceerd wordt / moet worden. Er is - al dan niet geautomatiseerd - een bewijs van ontvangst verzonden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": true,
+      "required_documents": [
+        "Ontvangstbevestiging"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd en gerelateerd aan de zaak waarin het besluit wordt voorbereid waarop de zienswijze betrekking heeft. De behandelend medewerker of het behandelend organisatieonderdeel is bepaald.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_inhoudelijk_beoordeeld",
+      "sequence": 3,
+      "title": "Inhoudelijk beoordeeld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 52,
+        "unit": "kalenderdagen"
+      },
+      "description": "Er is beoordeeld of de zienswijze (eventueel samen met andere ontvangen zienswijzen) aanleiding geeft om de voorgenomen beslissing (op onderdelen) te herzien. Het advies is opgeleverd (waarmee de gerelateerde zaak waarop de zienswijze betrekking heeft, kan worden voortgezet).",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_zaak_afgerond",
+      "sequence": 4,
+      "title": "Zaak afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De indiener van de zienswijze is op de hoogte gesteld van de uitkomst van de behandeling van de zienswijze (veelal door toezending van een afschrift van het besluit waarop de zienswijze was gericht en waarin of waarbij reactie op de zienswijze is gegeven) en het zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_inhoudelijk_beoordeeld",
+      "from": "2_intake_afgerond",
+      "to": "3_inhoudelijk_beoordeeld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_inhoudelijk_beoordeeld"
+        }
+      ]
+    },
+    {
+      "id": "3_inhoudelijk_beoordeeld__to__4_zaak_afgerond",
+      "from": "3_inhoudelijk_beoordeeld",
+      "to": "4_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_inhoudelijk_beoordeeld"
+      },
+      "effects": [
+        {
+          "status.transition": "4_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is de zienswijze geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Direct na ontvangst van de zienswijze wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevant gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_communicatie",
+      "title": "2 - Communicatie",
+      "question": "Is bepaald en vastgelegd op welke wijze communicatie met de indiener plaatsvindt?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Communicatie over een zaak verloopt in steeds meer gevallen niet meer - uitsluitend - via fysieke post, maar via meerdere - analoge en digitale - kanalen. Soms is het gebruik van bepaalde digitale kanalen zelfs verplicht. Indien de aanvrager bijvoorbeeld kwalificeert als dienstverrichter (art. 1 Dienstenwet) en heeft aangegeven via het centraal loket - Berichtenbox voor bedrijven - voldoende bereikbaar te zijn, wordt alle in de zaak gevoerde correspondentie - tevens - verzonden via genoemd centraal loket (art. 14, lid 1 onder b Dienstenwet, juncto art. 16.54, lid 3 Omgevingswet).",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "1_zaak_gestart__3_bewijs_van_ontvangst",
+      "title": "3 - Bewijs van ontvangst",
+      "question": "Is een bewijs van ontvangst verzonden?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Na ontvangst van een schriftelijk ingediende zienswijze wordt een bewijs van ontvangst verzonden, waarin de dag van ontvangst van de zienswijze is vermeld.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_behandelaar",
+      "title": "1 - Behandelaar",
+      "question": "Is het behandelend team of medewerker bepaald?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "De zaak is gerelateerd aan de zaak waarin het besluit wordt voorbereid waarop de zienswijze betrekking heeft. De behandelend medewerker of het behandelend organisatieonderdeel is bepaald en de zaak is volledig geregistreerd.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_tijdigheid",
+      "title": "3 - Tijdigheid",
+      "question": "Is de zienswijze tijdig ingediend?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Een zienswijze op een voorgenomen besluit moet tijdig naar voren worden gebracht. Soms geldt een wettelijke termijn voor het naar voren brengen van een zienswijze (bijv. 6 weken voor het naar voren brengen van een zienswijze die betrekking heeft op een ontwerpbesluit in een uniforme openbare voorbereidingsprocedure, art. 3:16, lid 1 Algemene wet bestuursrecht), in andere gevallen wordt door het bevoegd gezag een redelijke termijn gesteld waarbinnen een zienswijze naar voren kan worden gebracht.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "3_inhoudelijk_beoordeeld__1_adviezen_gevraagd",
+      "title": "1 - Adviezen gevraagd",
+      "question": "Zijn de voor de beoordeling relevante adviezen gevraagd?",
+      "status": "3_inhoudelijk_beoordeeld",
+      "required": true,
+      "description": "Een naar voren gebrachte, schriftelijke, zienswijze of (een) mondeling naar voren te brengen zienswijze kan/kunnen betrekking hebben op aspecten waarover in- of externe adviseurs advies hebben uitgebracht. In dat geval worden deze adviseurs betrokken bij de belangenafweging die plaatsvindt naar aanleiding van de naar voren gebrachte zienswijze.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_inhoudelijk_beoordeeld__2_mondeling",
+      "title": "2 - Mondeling",
+      "question": "Is de zienswijze mondeling gegeven?",
+      "status": "3_inhoudelijk_beoordeeld",
+      "required": true,
+      "description": "Belanghebbenden kunnen hun zienswijze naar keuze schriftelijk of mondeling naar voren brengen (art. 3:15, lid 1 Algemene wet bestuursrecht). Het mondeling horen van (een) naar voren gebrachte zienswijze kan zowel individueel (bijvoorbeeld als de naar voren gebrachte zienswijze betrekking heeft op een voorgenomen handhavingsbesluit) als groepsgewijs (bijvoorbeeld als het bevoegd gezag belanghebbenden en eventueel anderen uitnodigt hun zienswijze naar voren te brengen tijdens een door het bevoegd gezag georganiseerde hoorzitting) plaatsvinden. Van (een) mondeling naar voren gebrachte zienswijze wordt een verslag gemaakt (art. 3:17 Algemene wet bestuursrecht); dit kan zowel een schriftelijk als een audioverslag zijn.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "3_inhoudelijk_beoordeeld__3_gerechtigd",
+      "title": "3 - Gerechtigd",
+      "question": "Is de indiener van de zienswijze gerechtigd een zienswijze naar voren te brengen?",
+      "status": "3_inhoudelijk_beoordeeld",
+      "required": true,
+      "description": "Een zienswijze over het ontwerp of voornemen van een besluit kan naar voren worden gebracht door een belanghebbende (art. 3:15, lid 1 Algemene wet bestuursrecht). Bij wettelijk voorschrift of door het bestuursorgaan kan worden bepaald dat ook aan anderen de gelegenheid moet worden geboden hun zienswijze naar voren te brengen (art. 3:15, lid 2 Algemene wet bestuursrecht). Als de voorbereiding van het besluit plaatsvindt in de uniforme openbare voorbereidingsprocedure (Afdeling 3.4 Algemene wet bestuursrecht) kan een ieder een zienswijze naar voren brengen (art. 3.12, lid 5 Wet algemene bepalingen omgevingsrecht, art. 16.23, lid 1 Omgevingswet), tenzij het ontwerpbesluit een gedoogplichtbeschikking betreft (art.16.23, lid 2 Omgevingswet). Als de indiener van de zienswijze niet gerechtigd is deze in te dienen, wordt de zienswijze niet betrokken in de belangenafweging.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "3_inhoudelijk_beoordeeld__4_onderbouwing",
+      "title": "4 - Onderbouwing",
+      "question": "Is de zienswijze onderbouwd?",
+      "status": "3_inhoudelijk_beoordeeld",
+      "required": false,
+      "description": "Als in een tijdig naar voren gebrachte zienswijze uitsluitend is aangegeven dat er bedenkingen zijn tegen een ontwerpbesluit (voorbereid met de uniforme openbare voorbereidingsprocedure, Afdeling 3.4 Algemene wet bestuursrecht), zonder deze te onderbouwen, wordt de indiener onverwijld in de gelegenheid gesteld om deze binnen twee weken van gronden te voorzien (ECLI:NL:RVS:2008:BD9953).",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "3_inhoudelijk_beoordeeld__5_advies",
+      "title": "5 - Advies",
+      "question": "Is het advies over de verwerking van de zienswijze opgesteld?",
+      "status": "3_inhoudelijk_beoordeeld",
+      "required": false,
+      "description": "Een naar voren gebrachte zienswijze kan leiden tot een heroverweging van het ontwerp- of voorgenomen besluit, gelet op de naar voren gebrachte zienswijze. Per zienswijze wordt geadviseerd over de aanpassing van het ontwerp- of voorgenomen besluit, alsmede over de motivering van het definitieve besluit, in het licht van de naar voren gebrachte zienswijze.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__1_toezending",
+      "title": "1 - Toezending",
+      "question": "Is de beschikking door toezending bekendgemaakt aan direct belanghebbenden?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "Een beschikking treedt pas in werking zodra deze is bekendgemaakt (art. 3:40 Algemene wet bestuursrecht). De beschikking wordt daartoe toegezonden (of uitgereikt) aan degenen die bij de voorbereiding van de beschikking een zienswijze naar voren hebben gebracht (art. 3:43, lid 1 Algemene wet bestuursrecht). In (of in een bijlage bij) de beschikking wordt gemotiveerd op welke wijze de zienswijze is betrokken in de belangenafweging die heeft plaatsgevonden bij het nemen van de beschikking.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__2_archivering",
+      "title": "2 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "4_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "4_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "actor_type": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zienswijzebehandelaar",
+      "title": "Zienswijzebehandelaar",
+      "may_set_statuses": [
+        "2_intake_afgerond",
+        "3_inhoudelijk_beoordeeld"
+      ],
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zienswijze_indiener",
+      "title": "Zienswijze-indiener",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "zienswijze",
+      "sequence": 1,
+      "title": "Zienswijze",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 2,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 3,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 3,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 4,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 4,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "verzoek_om_aanvullende_informatie",
+      "sequence": 5,
+      "title": "Verzoek om aanvullende informatie",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "aanvullende_informatie",
+      "sequence": 6,
+      "title": "Aanvullende informatie",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "uitnodiging_horen",
+      "sequence": 7,
+      "title": "Uitnodiging horen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "verslag_horen",
+      "sequence": 8,
+      "title": "Verslag horen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "zienswijzeadvies",
+      "sequence": 9,
+      "title": "Zienswijzeadvies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "mededeling_besluit",
+      "sequence": 10,
+      "title": "Mededeling besluit",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 98,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 99,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 11,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    }
+  ],
+  "decisions": [],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "13.2",
+      "archive_nomination": "Vernietigen",
+      "description": "De zienswijze is afgebroken. Deze is foutief ingeboekt of door de indiener ingetrokken.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "verwerkt_bewaren",
+      "title": "Verwerkt - bewaren",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Verwerkt",
+      "selectielijst_class": "13.1.3",
+      "archive_nomination": "Bewaren",
+      "description": "De archivering van onderhavige zaak volgt de archivering van de (hoofd)zaak waaraan de zienswijzebehandeling in onderhavige zaak een bijdrage levert."
+    },
+    {
+      "id": "niet_ontvankelijk",
+      "title": "Niet ontvankelijk",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Niet ontvankelijk",
+      "selectielijst_class": "13.1.4",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "niet_verwerkt",
+      "title": "Niet verwerkt",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Niet verwerkt",
+      "selectielijst_class": "13.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "verwerkt_fin",
+      "title": "Verwerkt - fin",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Verwerkt",
+      "selectielijst_class": "13.1.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "verwerkt",
+      "title": "Verwerkt",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Verwerkt",
+      "selectielijst_class": "13.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "verwerkt",
+      "title": "Verwerkt",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "ws",
+      "generic_title": "Verwerkt",
+      "title_2_2": "Verwerkt",
+      "selectielijst_class": "2.2.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen' waarin gelegenheid is geboden tot het naar voren brengen van de zienswijze die in onderhavige zaak wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin gelegenheid is geboden tot het naar voren brengen van de zienswijze die in onderhavige zaak wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/13",
+        "title": "Beroep behandelen",
+        "raw": "13 - Beroep behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "De zaak van het zaaktype 'Beroep behandelen' waarin het beroep wordt behandeld dat door de indiener van een zienswijze kan zijn ingesteld als de naar voren gebrachte zienswijze - naar zijn mening - onvoldoende is betrokken in het besluit waarop de zienswijze betrekking heeft."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' waarin gelegenheid is geboden tot het naar voren brengen van de zienswijze die in onderhavige zaak wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/06",
+        "title": "Handhavingsverzoek behandelen",
+        "raw": "6 - Handhavingsverzoek behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsverzoek behandelen' waarin gelegenheid is geboden tot het naar voren brengen van de zienswijze die in onderhavige zaak wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/17",
+        "title": "Ambtelijk beschikken",
+        "raw": "17 - Ambtelijk beschikken"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "12_-_Zienswijze_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "De zaak van het zaaktype 'Ambtelijk beschikken' waarin gelegenheid is geboden tot het naar voren brengen van de zienswijze die in onderhavige zaak wordt behandeld."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

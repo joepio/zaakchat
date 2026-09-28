@@ -1,0 +1,1541 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/09",
+  "version": "1.9",
+  "title": "Melding activiteit behandelen",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "9",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Melding activiteit behandelen",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Vergunningverlening",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Het verwerken van een melding van het voornemen tot de uitvoering van meldingsplichtige activiteiten.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "De zaakbehandelende organisatie heeft een melding ontvangen van het voornemen tot de uitvoering van activiteiten (‘melding algemene regels’).",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "Op grond van geldende wet- en regelgeving geldt voor een initiatief geen vergunningplicht, maar moet het initiatief wel worden gemeld. Zo heeft de zaakbehandelende organisatie kennis van het initiatief, kan de zaakbehandelende organisatie anderen attenderen op de voorgenomen activiteit en heeft de zaakbehandelende organisatie eventueel de mogelijkheid om preventief te toetsen en/of om toezicht te houden. Als het nodig is, kunnen maatwerkvoorschriften worden opgelegd aan de initiatiefnemer. NB. Een melding is enkelvoudig als het gaat om de activiteit die wordt gemeld. Er zijn echter wel situaties dat moet worden overlegd met ketenpartners, bijvoorbeeld als de activiteit in een monumentaal pand plaatsvindt of in een beschermd stadsgezicht.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Extern",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Indienen",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Melding activiteit",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Behandelen",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "DOORLOOPTIJD BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "28",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 12
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "4",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "28",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 15
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "activiteit, melding",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 21
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "- NAAM": {
+      "value": "Behandelen melding of informatie",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 30
+      }
+    },
+    "- LINK": {
+      "value": "https://www.gemmaonline.nl/wiki?title=Uitwerking_bedrijfsproces&proces=Omgevingswet/id-ec3e309d-1a85-4788-bd36-14df42c33e73",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 31
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-12-18",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [
+        "Ontvangstbevestiging",
+        "Melding activiteit"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Er is - al dan niet geautomatiseerd - een bevestiging van ontvangst verzonden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Er is gecontroleerd of de gemeente het bevoegd gezag is om de ontvangen melding in behandeling te nemen. Als de gemeente niet het bevoegd gezag is, is de melding direct doorgestuurd naar het juiste bevoegd gezag en is de behandeling afgebroken. De melding is toegewezen aan een zaakbehandelaar (medewerker of organisatieonderdeel).",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_getoetst_en_verwerkt",
+      "sequence": 3,
+      "title": "Getoetst en verwerkt",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 24,
+        "unit": "kalenderdagen"
+      },
+      "description": "Er is gecontroleerd of de ontvangen melding gerelateerd is aan andere verzoeken. Er is beoordeeld of de ontvangen melding meldingplichtig is. Er is (zonodig in samenspraak met in- en externe adviseurs) gecontroleerd of de melding aan de indieningsvereisten voldoet. De melding is inhoudelijk beoordeeld.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_zaak_afgerond",
+      "sequence": 4,
+      "title": "Zaak afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het resultaat van de behandeling van de melding is eventueel verzonden (bijvoorbeeld dat de melding niet is gedaan omdat niet aan de indieningsvereisten is voldaan). Er is eventueel een kennisgeving gedaan van de ontvangen melding. Relevante registraties zijn eventueel bijgewerkt. Indien daartoe aanleiding is geweest, is het proces voor maatwerkvoorschriften gestart. Er is eventueel een proces Toezichthouden gestart n.a.v. de ontvangen melding. De zaak is afgerond.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_getoetst_en_verwerkt",
+      "from": "2_intake_afgerond",
+      "to": "3_getoetst_en_verwerkt",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_getoetst_en_verwerkt"
+        }
+      ]
+    },
+    {
+      "id": "3_getoetst_en_verwerkt__to__4_zaak_afgerond",
+      "from": "3_getoetst_en_verwerkt",
+      "to": "4_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_getoetst_en_verwerkt"
+      },
+      "effects": [
+        {
+          "status.transition": "4_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is de aanvraag geregistreerd?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Bij meldingen die via het Omgevingsloket worden ingediend ontvangt de gemeente geautomatiseerd een signaal vanuit het DSO; in dat geval kan het VTH-/zaak-systeem de melding automatisch registreren. Bij meldingen die op papier rechtstreeks bij de gemeente ingediend worden, is handmatige registratie nodig in het VTH-/zaaksysteem.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_ontvangstbevestiging",
+      "title": "2 - Ontvangstbevestiging",
+      "question": "Is een bevestiging van ontvangst verzonden?",
+      "status": "1_zaak_gestart",
+      "required": true,
+      "description": "Er wordt onverwijld (bij voorkeur automatisch) een bevestiging van ontvangst van de melding verzonden aan de indiener. In de bevestiging wordt de dag van ontvangst van de melding vermeld. Als er geen elektronisch adres bekend is, wordt bepaald op welke wijze communicatie met de indiener plaatsvindt.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_bevoegd_gezag",
+      "title": "1 - Bevoegd gezag",
+      "question": "Is de zaakbehandelende organisatie bevoegd de zaak te behandelen?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "Vaak is de gemeente (waar de activiteit of activiteiten geheel of in hoofdzaak zullen worden verricht) bevoegd gezag, maar er zijn uitzonderingen. Als de gemeente niet het bevoegd gezag is, stuurt de gemeente de melding direct door naar het juiste bevoegd gezag en breekt de behandeling af.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_toewijzen",
+      "title": "2 - Toewijzen",
+      "question": "Is de zaak aan een behandelaar toegekend?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "De melding wordt toegewezen aan een hoofdbehandelaar, die als taak heeft het zorgdragen dat de melding correct en tijdig behandeld wordt en zorgt voor een integrale afstemming.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "3_getoetst_en_verwerkt__1_gerelateerde_verzoeken",
+      "title": "1 - Gerelateerde verzoeken",
+      "question": "Is gecontroleerd of er gerelateerde verzoeken zijn?",
+      "status": "3_getoetst_en_verwerkt",
+      "required": true,
+      "description": "Er wordt gecontroleerd of er gerelateerde verzoeken zijn, die op dezelfde locatie in het DSO zijn ingediend. Ten eerste om te bepalen of er verzoeken aan elkaar gekoppeld moeten worden en ten tweede om te bepalen of er afstemming nodig is met ketenpartners/behandeldiensten.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "3_getoetst_en_verwerkt__2_controleren_meldingsplicht",
+      "title": "2 - Controleren meldingsplicht",
+      "question": "Geldt voor het ingediende verzoek een meldingsplicht?",
+      "status": "3_getoetst_en_verwerkt",
+      "required": true,
+      "description": "Gecontroleerd wordt of voor de activiteit of gebeurtenis een meldingsplicht geldt. Als de activiteit of gebeurtenis niet onder de voorgenoemde plicht valt, wordt de melding niet behandeld.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "3_getoetst_en_verwerkt__3_indieningsvereisten",
+      "title": "3 - Indieningsvereisten",
+      "question": "Voldoet de melding aan de indieningsvereisten?",
+      "status": "3_getoetst_en_verwerkt",
+      "required": true,
+      "description": "Gecontroleerd wordt of de ingediende melding voldoet aan de gestelde indieningsvereisten.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_getoetst_en_verwerkt__3_inhoudelijk_behandelen",
+      "title": "3 - Inhoudelijk behandelen",
+      "question": "Is de melding inhoudelijk behandeld?",
+      "status": "3_getoetst_en_verwerkt",
+      "required": true,
+      "description": "Inhoudelijke behandeling van de melding.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__1_verzenden_resultaat",
+      "title": "1 - Verzenden resultaat",
+      "question": "Is het resultaat van de toetsing verzonden?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "Het resultaat van de controle/behandeling van de melding wordt verzonden aan de initiatiefnemer. Alleen als aan alle indieningsvereisten is voldaan, is de melding gedaan. Het resultaat van de controle/behandeling van de melding wordt verzonden aan de initiatiefnemer. Ook als de melding is overgedragen aan een ander bevoegd gezag wordt dit kenbaar gemaakt aan de initiatiefnemer.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__2_kennisgeven_melding",
+      "title": "2 - Kennisgeven melding",
+      "question": "Is van de melding een kennisgeving gedaan?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "In een aantal gevallen is voor een melding kennisgeving verplicht. In andere gevallen kan de gemeente ervoor kiezen wel of niet een kennisgeving te doen.\nDit wordt gedaan in het elektronisch gemeenteblad.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__3_registraties",
+      "title": "3 - Registraties",
+      "question": "Zijn de registraties bijgewerkt?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "In specifieke gevallen moeten de consequenties van de melding in een of meer lokale of landelijke registers verwerkt worden.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__4_maatwerkvoorschrift",
+      "title": "4 - Maatwerkvoorschrift",
+      "question": "Is het proces Behandelen aanvraag t.b.v. Maatwerkvoorschrift geïnitieerd?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "De melding kan aanleiding zijn om het proces voor het opstellen van maatwerkvoorschriften te starten.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__5_toezicht",
+      "title": "5 - Toezicht",
+      "question": "Is het proces Toezichthouden geïnitieerd?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "Toezicht wordt aangestuurd. Daarbij worden eventuele inzichten uit de beoordelingsfase van de melding als aandachtspunten aan de toezichthouders meegegeven.",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "2_intake_afgerond",
+        "4_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "andere_organisatie",
+      "title": "Andere organisatie",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Niet-natuurlijk persoon",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "gemachtigde",
+      "title": "Gemachtigde",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "initiatiefnemer",
+      "title": "Initiatiefnemer",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zaakbehandelaar",
+      "title": "Zaakbehandelaar",
+      "may_set_statuses": [
+        "3_getoetst_en_verwerkt"
+      ],
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "melding_activiteit",
+      "sequence": 1,
+      "title": "Melding activiteit",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 2,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "bericht_ander_bevoegd_gezag",
+      "sequence": 3,
+      "title": "Bericht ander bevoegd gezag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "melding_overgang_bevoegdheid",
+      "sequence": 4,
+      "title": "Melding overgang bevoegdheid",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 5,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 5,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 6,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 6,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "kennisgeving_melding",
+      "sequence": 7,
+      "title": "Kennisgeving melding",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "aanvullende_informatie",
+      "sequence": 9,
+      "title": "Aanvullende informatie",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "bericht_niet_meldingplichtig",
+      "sequence": 10,
+      "title": "Bericht niet-meldingplichtig",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "bericht_afhandeling_melding",
+      "sequence": 11,
+      "title": "Bericht afhandeling melding",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 98,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 99,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 12,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "legesbeschikking",
+      "sequence": 13,
+      "title": "Legesbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "legesbeschikking",
+      "title": "Legesbeschikking",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 3
+      },
+      "valid_from": "2019-01-01"
+    }
+  ],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "11.4",
+      "archive_nomination": "Vernietigen",
+      "description": "De melding is afgebroken. Deze is foutief ingeboekt, overgedragen aan een ander gezag of door de indiener ingetrokken.”",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "geaccepteerd",
+      "title": "Geaccepteerd",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "11.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De melding is geaccepteerd en geen van de specifieke geaccepteerd-resultaten is van toepassing.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "geaccepteerd_kort",
+      "title": "Geaccepteerd-kort",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "11.1.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De melding is geaccepteerd en betreft toestemming voor een kortdurende activiteit of gebeurtenis.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "geaccepteerd_periode",
+      "title": "Geaccepteerd-periode",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "11.1.2",
+      "archive_nomination": "Vernietigen",
+      "description": "De melding is geaccepteerd en betreft toestemming voor een afgebakende periode.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "geaccepteerd_actbesl",
+      "title": "Geaccepteerd-actbesl",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "11.1.3",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De melding is geaccepteerd betreffende activiteitenbesluit of 8.40 Wet milieubeheer, sloopmelding"
+    },
+    {
+      "id": "geaccepteerd_afvwbra",
+      "title": "Geaccepteerd-afvwbra",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "11.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De melding is geaccepteerd en betreft een lozing afvalwater buiten inrichting of brandveilig gebruik.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "geaccepteerd_bag",
+      "title": "Geaccepteerd-BAG",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "11.1.5",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De melding is geaccepteerd en bevat brondocumenten BAG."
+    },
+    {
+      "id": "geaccepteerd_bodenrg",
+      "title": "Geaccepteerd-bodenrg",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "11.1.17",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De melding is geaccepteerd voor een milieuactiviteit ivm gesloten bodemenergiesysteem"
+    },
+    {
+      "id": "geaccepteerd_bwst",
+      "title": "Geaccepteerd-bwst",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "11.1.4",
+      "archive_nomination": "Vernietigen",
+      "description": "De melding is geaccepteerd betreffende bouwstoffenbesluit",
+      "archive_action_term_months": 600
+    },
+    {
+      "id": "geaccepteerd_herplan",
+      "title": "Geaccepteerd-herplan",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "11.1.12",
+      "archive_nomination": "Vernietigen",
+      "description": "De melding is geaccepteerd en betreft vellen houtopstand met herplantplicht.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "geaccepteerd_tnk",
+      "title": "Geaccepteerd-tnk",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "11.1.16",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De melding is geaccepteerd betreffende sanering tank"
+    },
+    {
+      "id": "niet_geaccepteerd",
+      "title": "Niet geaccepteerd",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "gem",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "11.2",
+      "archive_nomination": "Vernietigen",
+      "description": "De melding is niet geaccepteerd omdat deze niet aan de indieningsvereisten voldoet.",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "niet_geaccepteerd_bag",
+      "title": "Niet geaccepteerd-BAG",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "gem",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "11.2.1",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De melding is niet geaccepteerd omdat deze niet aan de indieningsvereisten voldoet maar bevat Brondocumenten BAG"
+    },
+    {
+      "id": "niet_meldingplichtig",
+      "title": "Niet meldingplichtig",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "gem",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet meldingplichtig",
+      "selectielijst_class": "11.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Voor de activiteit waarvoor de melding is gedaan, is geen melding benodigd of moet een vergunning aangevraagd of informatie ingediend worden.",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "De melding is afgebroken. Deze is foutief ingeboekt, overgedragen aan een ander gezag of door de indiener ingetrokken.”",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 18
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "25",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van meldingen van het voornemen te ontgronden."
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 19
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van meldingen in het kader van uniforme bodemsaneringen."
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 20
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van meldingen van verontreiniging of aantasting van de bodem door handelingen alsmede het geven van aanwijzingen voor de te nemen maatregelen."
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 21
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van meldingen waarvoor in het kader van de Wet natuurbescherming in bepaalde gevallen verboden buiten toepassing zijn verklaard.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 22
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "22",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van meldingen voor het tot ontbranding brengen van vuurwerk.",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 23
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "22",
+      "archive_nomination": "Vernietigen",
+      "description": "Verlenen van toestemming voor het organiseren van evenementen in, aan of boven provinciale vaarwegen alsmede het behandelen van meldingen daarover.",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 24
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van meldingen tot het oprichten, wijzigen of uitbreiden van badinrichtingen alsmede het doen van mededeling hiervan aan het betrokken college van Burgemeester en Wethouders.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 25
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van meldingen voor het saneren van de (water)bodem of het verminderen of verplaatsen van verontreiniging in de (water)bodem alsmede het beoordelen van de hierbij horende saneringsonderzoeken, -plannen en -verslagen en het vaststellen of sprake is van ernstige verontreiniging."
+    },
+    {
+      "id": "ingetrokken_p",
+      "title": "Ingetrokken (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 26
+      },
+      "authority": "prov",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Verlenen van toestemming voor het organiseren van evenementen in, aan of boven provinciale vaarwegen alsmede het behandelen van meldingen daarover.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 27
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "22",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van meldingen voor het tot ontbranding brengen van vuurwerk.",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 28
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van meldingen voor het saneren van de (water)bodem of het verminderen of verplaatsen van verontreiniging in de (water)bodem alsmede het beoordelen van de hierbij horende saneringsonderzoeken, -plannen en -verslagen en het vaststellen of sprake is van ernstige verontreiniging."
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 29
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Verlenen van toestemming voor het organiseren van evenementen in, aan of boven provinciale vaarwegen alsmede het behandelen van meldingen daarover.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 30
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van meldingen waarvoor in het kader van de Wet natuurbescherming in bepaalde gevallen verboden buiten toepassing zijn verklaard.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 31
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "25",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van meldingen van het voornemen te ontgronden."
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 32
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van meldingen van verontreiniging of aantasting van de bodem door handelingen alsmede het geven van aanwijzingen voor de te nemen maatregelen."
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 33
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van meldingen in het kader van uniforme bodemsaneringen."
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 34
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van meldingen over het vellen van houtopstanden.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 35
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van meldingen tot het oprichten, wijzigen of uitbreiden van badinrichtingen alsmede het doen van mededeling hiervan aan het betrokken college van Burgemeester en Wethouders.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "overgedragen_p",
+      "title": "Overgedragen (P)",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 36
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Overgedragen",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "Doorzenden van post, ongeacht de vorm, waarvan de inhoud zich niet richt op de eigen organisatie.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "aanvaarde_lozing_met_consequenties_voor_milieu",
+      "title": "Aanvaarde lozing met consequenties voor milieu",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 37
+      },
+      "authority": "ws",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "verleend",
+      "title": "Verleend",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 38
+      },
+      "authority": "ws",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "aanvaarde_lozing_zonder_consequenties_voor_milieu",
+      "title": "Aanvaarde lozing zonder consequenties voor milieu",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 39
+      },
+      "authority": "ws",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "geweigerd",
+      "title": "Geweigerd",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 40
+      },
+      "authority": "ws",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "niet_ontvankelijk",
+      "title": "Niet ontvankelijk",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 41
+      },
+      "authority": "ws",
+      "generic_title": "Niet ontvankelijk",
+      "title_2_2": "Niet ontvankelijk",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "buiten_behandeling_gelaten",
+      "title": "Buiten behandeling gelaten",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 42
+      },
+      "authority": "ws",
+      "generic_title": "Buiten behandeling gelaten",
+      "title_2_2": "Buiten behandeling gelaten",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 43
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "niet_meldingplichtig",
+      "title": "Niet meldingplichtig",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 44
+      },
+      "authority": "ws",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet meldingplichtig",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen' waarin het bevoegd gezag heeft besloten een sanctie op te leggen, omdat aanvrager handelt in strijd met regelgeving (bijvoorbeeld de uitvoering van een activiteit zonder deze te melden). Naar aanleiding van dit besluit heeft aanvrager een melding ingediend, die wordt behandeld in onderhavige zaak van het zaaktype 'Melding activiteit behandelen'."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin is geconstateerd dat aanvrager handelt in strijd met regelgeving (bijvoorbeeld de uitvoering van een activiteit zonder deze te melden). Naar aanleiding van deze constatering heeft aanvrager een melding ingediend, die wordt behandeld in onderhavige zaak van het zaaktype 'Melding activiteit behandelen'."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "In sommige situaties moet gelijktijdig met het indienen van een aanvraag voor een Omgevingsvergunning tevens een melding worden gedaan (art. 8.41a Wet milieubeheer). In die gevallen wordt de zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' waarin de aanvraag voor de Omgevingsvergunning wordt behandeld, gerelateerd aan onderhavige zaak van het zaaktype 'Melding activiteit behandelen'."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/01",
+        "title": "Advies verstrekken",
+        "raw": "1 - Advies verstrekken"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Advies verstrekken' waarin een adviseur een bijdrage levert aan de beoordeling van de melding."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "In sommige situaties moet gelijktijdig met het indienen van een aanvraag voor een Omgevingsvergunning tevens een melding worden gedaan (art. 8.41a Wet milieubeheer). In die gevallen wordt de zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin de aanvraag voor de Omgevingsvergunning wordt behandeld, gerelateerd aan onderhavige zaak van het zaaktype 'Melding activiteit behandelen'."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "Het Activiteitenbesluit milieu (o.a. art. 2.1 lid 4 Activiteitenbesluit milieu) en de Omgevingswet (art. 4.5 Omgevingswet) bieden het bevoegd gezag de mogelijkheid maatwerkvoorschriften te verbinden aan (aspecten van) activiteiten. Indien de zaakbehandelende organisatie van deze mogelijkheid gebruik wenst te maken en de reguliere procedure volgt voor het opstellen daarvan, wordt daartoe een gerelateerde vervolgzaak van het zaaktype 'Aanvraag beschikking regulier behandelen' gestart."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin toezicht wordt gehouden op de gemelde activiteit en eventuele andere activiteiten die uit de melding kunnen worden afgeleid."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 10
+      },
+      "description": "Het Activiteitenbesluit milieu (o.a. art. 2.1 lid 4 Activiteitenbesluit milieu) en de Omgevingswet (art. 4.5 Omgevingswet) bieden het bevoegd gezag de mogelijkheid maatwerkvoorschriften te verbinden aan (aspecten van) activiteiten. Indien de zaakbehandelende organisatie van deze mogelijkheid gebruik wenst te maken en de uitgebreide procedure volgt voor het opstellen daarvan, wordt daartoe een gerelateerde vervolgzaak van het zaaktype 'Aanvraag beschikking regulier behandelen' gestart."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

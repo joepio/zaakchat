@@ -1,0 +1,1453 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/04",
+  "version": "1.9",
+  "title": "Controle uitvoeren",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "4",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Controle uitvoeren",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Toezicht houden",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Vanuit bestuursrechtelijke bevoegdheid beoordelen of een situatie in overeenstemming is met geldende wet- en regelgeving, verstrekte vergunningen en meldingen van activiteiten.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "Een afgehandelde vergunningaanvraag (zowel voor begeleiding van de realisatie van de vergunning als voor toezicht bij een afgewezen aanvraag), een gerealiseerde vergunning, een verwerkte melding (van een activiteit), een eerder uitgevoerde controle, een melding van overlast of ongewoon voorval, een verzoek (door een belanghebbende), een ‘toevallige’ waarneming, een handhavingstraject, een project dan wel het gepland zijn van toezicht.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "Het betreft het controleren van / toezicht houden op de verleende vergunningen, de verwerkte meldingen en het zich houden aan vigerende wet- en regelgeving.\nElke controlezaak betreft één controle met daaruit voortvloeiende bevindingen. Een hercontrole is een nieuwe toezichtzaak.\nBeschreven is het meest voorkomende toezichtproces, waarvan een controlebezoek deel uit maakt. In het meest eenvoudige geval betreft de controle het inzien van het dossier en het daaruit bijvoorbeeld constateren dat niet voldaan is aan de plicht tot het indienen van een rapportage (administratieve controle). In complexe gevallen, bijvoorbeeld het controleren van activiteiten die betrekking hebben op het Besluit risico's zware ongevallen 2015, kan een controle meerdere dagen in beslag nemen.\nDe in het zaaktype vastgelegde termijnen (doorlooptijd behandeling, servicenorm behandeling, doorlooptijden statussen) zijn 'redelijke termijnen' voor de uitvoering van veelvoorkomende controles. De afspraken over deze termijnen dienen vooral ter beheersing van individuele zaken én zaken waaraan zaken van dit zaaktype een bijdrage leveren (zoals de behandeling van een handhavingsverzoek, het nemen van een handhavingsbesluit en de lasten onder bestuursdwang en dwangsom). Uitsluitend voor inspecties van inrichtingen waarop het Besluit risico's zware ongevallen 2015 van toepassing is, is een wettelijke termijn voorgeschreven: voor deze inspecties geldt dat de conclusies van de inspectie binnen vier maanden aan de exploitant van de inrichting moeten worden medegedeeld (art. 13, lid 13 Besluit risico's zware ongevallen 2015). \nAls het gevoerde toezicht aanleiding geeft tot handhaving, dan vindt die plaats in een gerelateerde (vervolg)zaak van het zaaktype ‘Handhavingsbesluit nemen’.\nAls de voorbereiding niet aansluit op het controlebezoek, kan de behandeling tussentijds worden opgeschort. Ook als metingen en andere onderzoeken als adviezen in deze zaak moeten worden meegenomen kan de behandeling worden opgeschort.\nVerlenging kan bijvoorbeeld plaatsvinden vanwege het afwachten van de resultaten van onderzoek.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Intern",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Aanvraag",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Controle",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Uitvoeren",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "DOORLOOPTIJD BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "28",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 12
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "2",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "14",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 15
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "controle, inspectie, toezicht",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 21
+      }
+    },
+    "VERTROUWELIJKHEIDHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "- NAAM": {
+      "value": "Toezicht houden",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 30
+      }
+    },
+    "- LINK": {
+      "value": "https://www.gemmaonline.nl/wiki/Bedrijfsprocessen_omgevingswet",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 31
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-07-11",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "Eén van de mogelijke aanleidingen (zoals een melding activiteit, melding overlast, verleende vergunning, opgelegde sanctie, een eerder uitgevoerde controle, een toezichtprogramma, etc.) heeft geleid tot het starten van de toezichtzaak. Als het een verzoek van een externe partij betrof, is een ontvangstbevestiging verstuurd. Er is gecontroleerd of alle (administratieve) gegevens compleet zijn. Als dat niet het geval was, zijn de ontbrekende gegevens alsnog opgevraagd en/of ambtelijk toegevoegd.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_controle_voorbereid",
+      "sequence": 2,
+      "title": "Controle voorbereid",
+      "inform_citizen": false,
+      "required_documents": [
+        "Controlelijst"
+      ],
+      "required_objects": [],
+      "required_properties": [
+        "Type controle"
+      ],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Op basis van de beschikbare gegevens is de aanpak bepaald voor de controle die (ter plaatse) zal worden uitgevoerd. Dit kan variëren van een eenvoudige en inhoudelijk enkelvoudige zaak tot complexe en inhoudelijk meervoudige zaken. Afhankelijk van de aard van de te controleren aspecten zijn in- en externe deskundigen betrokken bij het voorbereiden van het toezicht. Als er nog inhoudelijke gegevens ontbraken, is in bepaalde gevallen die informatie alsnog opgevraagd bij de belanghebbende die de te controleren activiteit(en) uitvoert.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_controle_bezoek_uitgevoerd",
+      "sequence": 3,
+      "title": "Controle(bezoek) uitgevoerd",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 1,
+        "unit": "kalenderdagen"
+      },
+      "description": "De te controleren activiteit is (in de regel: ter plaatse, maar de controle kan ook 'administratief' zijn) geïnspecteerd comform de aanpak die is bepaald voor de controle. Bij de uitvoering van de controle zijn - afhankelijk van de aard van de te controleren aspecten - ketenpartners betrokken als adviseur. Eventuele metingen en/of onderzoeken zijn uitgevoerd of geïnitieerd. Van alle geïnspecteerde elementen/aspecten is vastgelegd of deze voldoen aan de vigerende regelgeving (conformiteit1 én non-conformiteit).\nDe constateringen kunnen zijn vastgelegd in een bezoeknotitie.\n^ Vastleggen van conformiteit (het handelen overeenkomstig vigerende regelgeving) is net zo belangrijk als het vastleggen van non-conformiteit (het handelen in strijd met vigerende regelgeving). Tezamen documenteren zij het naleefgedrag van belanghebbende, hetgeen een belangrijke bouwsteen is bij het bepalen en motiveren van een 'passende interventie' - op basis van de (landelijke) handhavingsstrategie - ten aanzien van overtredingen.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_bevindingen_opgesteld",
+      "sequence": 4,
+      "title": "Bevindingen opgesteld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Controlerapport"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Geconstateerde strijdigheden zijn getoetst aan de handhavingsstrategie. Op basis van die toetsing worden - bij afronding van onderhavige zaak - de bijbehorende vervolgacties in gang gezet1. Het controlerapport en - indien van toepassing - de kennisgeving van de toezichtbevindingen zijn in concept opgesteld. \n^ Deze 'bijbehorende vervolgacties' zijn enerzijds afhankelijk van de ernst van de strijdigheid/strijdigheden en het - eerdere - gedrag van de overtreder. De handhavingsstrategie schrijft voor deze combinatie de passende sanctiemaatregelen voor. Anderzijds worden de 'bijbehorende vervolgacties' begrensd door de bevoegdheden van de toezichthouder die onderhavige zaak uitvoert. Deze kunnen zijn beperkt tot het uitbrengen van een advies aan het bevoegd gezag over die vervolgacties, maar ook zover reiken dat onmiddellijk tot toepassing van een handhavingssanctie (bijvoorbeeld bestuursdwang) kan worden overgegaan.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "5_bevindingen_vastgesteld",
+      "sequence": 5,
+      "title": "Bevindingen vastgesteld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 7,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het controlerapport en - indien van toepassing - de kennisgeving van de toezichtbevindingen kunnen zijn getoetst door een collega en zijn goedgekeurd op basis van de geldende mandaatafspraken.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "6_zaak_afgerond",
+      "sequence": 6,
+      "title": "Zaak afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 8
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Alle betrokkenen (belanghebbende bij de gecontroleerde activiteit, bevoegd gezag, ketenpartners) zijn conform de daarover gemaakte afspraken geïnformeerd over de resultaten van de uitgevoerde controle.\nDe bij de bevindingen passende gerelateerde (vervolg)zaken - bijvoorbeeld een nieuwe zaak van het zaaktype 'Controle uitvoeren' (hercontrole) of een zaak van het zaaktype 'Handhavingsbesluit nemen' - zijn geïnitieerd.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_controle_voorbereid",
+      "from": "1_zaak_gestart",
+      "to": "2_controle_voorbereid",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_controle_voorbereid"
+        }
+      ]
+    },
+    {
+      "id": "2_controle_voorbereid__to__3_controle_bezoek_uitgevoerd",
+      "from": "2_controle_voorbereid",
+      "to": "3_controle_bezoek_uitgevoerd",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_controle_voorbereid"
+      },
+      "effects": [
+        {
+          "status.transition": "3_controle_bezoek_uitgevoerd"
+        }
+      ]
+    },
+    {
+      "id": "3_controle_bezoek_uitgevoerd__to__4_bevindingen_opgesteld",
+      "from": "3_controle_bezoek_uitgevoerd",
+      "to": "4_bevindingen_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_controle_bezoek_uitgevoerd"
+      },
+      "effects": [
+        {
+          "status.transition": "4_bevindingen_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "4_bevindingen_opgesteld__to__5_bevindingen_vastgesteld",
+      "from": "4_bevindingen_opgesteld",
+      "to": "5_bevindingen_vastgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_bevindingen_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "5_bevindingen_vastgesteld"
+        }
+      ]
+    },
+    {
+      "id": "5_bevindingen_vastgesteld__to__6_zaak_afgerond",
+      "from": "5_bevindingen_vastgesteld",
+      "to": "6_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "5_bevindingen_vastgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "6_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is er een aanleiding voor een nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Direct nadat er een aanleiding is om toezicht te houden wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevant gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_ontvangstbevestiging",
+      "title": "2 - Ontvangstbevestiging",
+      "question": "Is een ontvangstbevestiging verzonden?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Als het een verzoek van een externe partij betrof, is een ontvangstbevestiging verstuurd, waarin de dag van ontvangst van het verzoek is vermeld.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_controle_voorbereid__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_controle_voorbereid",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_controle_voorbereid__2_aanpak",
+      "title": "2 - Aanpak",
+      "question": "Is de aanpak van de controle bepaald?",
+      "status": "2_controle_voorbereid",
+      "required": true,
+      "description": "De aanleiding voor het starten van onderhavige controlezaak, vigerend beleid (handhavingsbeleid, handhavingsstrategie), de aard en omvang van de te controleren activiteit(en) en de historie van zaken1 die betrekking hebben op de te controleren activiteit(en) en de belanghebbende die deze uitvoert, bepalen de aard, inhoud en diepgang van de controle. Tijdens de voorbereiding van de controle stelt de toezichthouder zich op de hoogte van deze aspecten en bepaalt aan de hand daarvan het plan voor / de aanpak van de controle.\n1. ^ De toezichthouder slaat ook acht op secundaire aspecten die zijn vastgelegd bij eerdere zaken, zoals 'de loslopende waakhond op het erf / terrein', onheuse of agressieve bejegening door de belanghebbende of diens medewerkers tijdens eerdere zaken, et cetera.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_controle_voorbereid__3_adviseurs",
+      "title": "3 - Adviseurs",
+      "question": "Zijn de relevante adviseurs betrokken?",
+      "status": "2_controle_voorbereid",
+      "required": true,
+      "description": "Zowel op grond van de - aard en complexiteit van de - te controleren activiteit(en) als afspraken tussen de zaakbehandelende organisatie en bevoegde gezagen / (keten)toezichtpartners kan het nodig zijn specialisten en/of toezichthouders van de zaakbehandelende of andere organisaties te informeren over of te laten participeren in onderhavige controlezaak. De toezichthouder die onderhavige zaak van het zaaktype 'Controle uitvoeren' uitvoert, voert de regie over deze controlezaak en betrekt eventuele specialisten en ketenpartners als adviseur bij de voorbereiding en uitvoering.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "2_controle_voorbereid__4_controlelijst",
+      "title": "4 - Controlelijst",
+      "question": "Is de controlelijst voor de controle opgesteld?",
+      "status": "2_controle_voorbereid",
+      "required": true,
+      "description": "Op basis van de te controleren - aspecten van - activiteit(en) wordt door de toezichthouder een controlelijst opgesteld / gegenereerd waarop de te controleren apecten zijn vermeld.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "2_controle_voorbereid__5_informeren",
+      "title": "5 - Informeren",
+      "question": "Is de belanghebbende geïnformeerd over de uit te voeren controle?",
+      "status": "2_controle_voorbereid",
+      "required": true,
+      "description": "Afhankelijk van het doel dat met de controle wordt nagestreefd, kan de belanghebbende die de te controleren activiteit uitvoert worden geïnformeerd over het moment waarop de controle zal worden uitgevoerd.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "2_controle_voorbereid__6_machtiging_binnentreden",
+      "title": "6 - Machtiging binnentreden",
+      "question": "Is een machtiging tot binnentreden (mogelijk) nodig?",
+      "status": "2_controle_voorbereid",
+      "required": false,
+      "description": "Een toezichthouder is bevoegd elke plaats te betreden, met uitzondering van een woning zonder toestemming van de bewoner (art. 5:15, lid 1 Algemene wet bestuursrecht). Indien een toezichthouder op grond van specifieke wetgeving (bijvoorbeeld op grond van art. 5.13 Wet algemene bepalingen omgevingsrecht, art. 18.7 Omgevingswet) een woning mag binnentreden zònder toestemming van de bewoner, kan hij daartoe slechts overgaan indien hij beschikt over een machtiging tot binnentreden (art. 3 lid 2 Algemene wet op het binnentreden), doorgaans af te geven door de burgemeester van de gemeente waarin de woning die wordt binnengetreden, is gelegen. De machtiging blijft ten hoogste van kracht tot en met de derde dag na die waarop zij is afgegeven (art. 6, lid 2 Algemene wet op het binnentreden).",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "3_controle_bezoek_uitgevoerd__1_adviezen_gevraagd",
+      "title": "1 - Adviezen gevraagd",
+      "question": "Zijn de voor de controle relevante adviezen gevraagd?",
+      "status": "3_controle_bezoek_uitgevoerd",
+      "required": false,
+      "description": "Aan de specialisten en toezichthouders van (keten)toezichtpartners die betrokken zijn bij de controle, is gevraagd hun bevindingen in de vorm van een advies aan de zaakbehandelende organisatie te zenden.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "3_controle_bezoek_uitgevoerd__2_controlelijst",
+      "title": "2 - Controlelijst",
+      "question": "Is de controlelijst volledig ingevuld?",
+      "status": "3_controle_bezoek_uitgevoerd",
+      "required": true,
+      "description": "Alle bevindingen (conformiteit en non-conformiteit) tijdens de controle zijn vastgelegd in het (digitale) formulier waarop de te controleren aspecten staan die relevant zijn voor de te controleren activteit(en).",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "3_controle_bezoek_uitgevoerd__3_bewijsmateriaal",
+      "title": "3 - Bewijsmateriaal",
+      "question": "Is bewijsmateriaal ter ondersteuning van de bevindingen verzameld / gecreëerd?",
+      "status": "3_controle_bezoek_uitgevoerd",
+      "required": false,
+      "description": "Een controle moet leiden tot een deugdelijke en controleerbare vaststelling van relevante feiten en omstandigheden1, waarop gerelateerde zaken - bijvoorbeeld ten behoeve van handhaving - kunnen worden gestoeld. Daartoe wordt tijdens de controle bewijsmateriaal verzameld of gecreëerd waarmee de bevindingen van de controle wordt ondersteund.\n1. ^ Zie onder andere deze uitspraak van de Raad van State.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "3_controle_bezoek_uitgevoerd__4_verslag_binnentreden",
+      "title": "4 - Verslag binnentreden",
+      "question": "Is een (concept-)verslag gemaakt van het betreden van een woning zonder toestemming van de bewoner?",
+      "status": "3_controle_bezoek_uitgevoerd",
+      "required": false,
+      "description": "Indien een woning wordt binnengetreden zonder toestemming van de bewoner, moet daarvan een verslag worden gemaakt (art. 10 Algemene wet op het binnentreden). Dit verslag dient uiterlijk op de vierde dag na de dag waarop is binnengetreden te worden toegezonden aan degene die de machtiging heeft gegeven, met een afschrift aan de bewoner van de woning die is betreden (art. 11 Algemene wet op het binnentreden).",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "4_bevindingen_opgesteld__1_adviezen_ontvangen",
+      "title": "1 - Adviezen ontvangen",
+      "question": "Zijn de gevraagde adviezen ontvangen?",
+      "status": "4_bevindingen_opgesteld",
+      "required": false,
+      "description": "Gecontroleerd wordt of de gevraagde adviezen van specialisten en (keten)toezichtpartners die nodig zijn voor het opstellen van het controlerapport, zijn ontvangen.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "4_bevindingen_opgesteld__2_controlerapport",
+      "title": "2 - Controlerapport",
+      "question": "Is het concept van het controlerapport opgesteld?",
+      "status": "4_bevindingen_opgesteld",
+      "required": true,
+      "description": "De eigen bevindingen en eventuele ontvangen adviezen, worden verwerkt tot een concept van het controlerapport.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "4_bevindingen_opgesteld__3_handhaving",
+      "title": "3 - Handhaving",
+      "question": "Is handhaving middels het opleggen van een sanctie aan de orde?",
+      "status": "4_bevindingen_opgesteld",
+      "required": true,
+      "description": "De toezichthouder bepaalt - op basis van vigerend handhavingsbeleid en de (landelijke) handhavingsstrategie - of de toezichtsbevindingen aanleiding geven tot het opleggen van een bestuurlijke sanctie. Is dat het geval, dan neemt hij een aanbeveling van die strekking op in het concept van het controlerapport.\nIndien er - nog - geen aanleiding is tot het opleggen van een bestuurlijke sanctie, stelt de toezichthouder het concept van de Kennisgeving toezichtbevindingen op.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "5_bevindingen_vastgesteld__1_concept_controlerapport_getoetst",
+      "title": "1 - Concept controlerapport getoetst",
+      "question": "Is het controlerapport (collegiaal) getoetst?",
+      "status": "5_bevindingen_vastgesteld",
+      "required": false,
+      "description": "Afhankelijk van de aard van de controle en de afspraken binnen de zaakbehandelende organisatie, kan het controlerapport collegiaal moeten worden getoetst.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "5_bevindingen_vastgesteld__2_concept_kennisgeving_toezichtbevindingen_getoetst",
+      "title": "2 - Concept kennisgeving toezichtbevindingen getoetst",
+      "question": "Is het concept van de kennisgeving toezichtbevindingen (collegiaal) getoetst?",
+      "status": "5_bevindingen_vastgesteld",
+      "required": false,
+      "description": "Afhankelijk van de aard van de controle en de afspraken binnen de zaakbehandelende organisatie, kan het concept van de kennisgeving van de toezichtbevindingen collegiaal moeten worden getoetst.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "5_bevindingen_vastgesteld__3_controlerapport_vastgesteld",
+      "title": "3 - Controlerapport vastgesteld",
+      "question": "Is het controlerapport vastgesteld?",
+      "status": "5_bevindingen_vastgesteld",
+      "required": false,
+      "description": "Afhankelijk van de aard van de controle en in- en externe afspraken over mandatering, kan het nodig zijn het concept van het controlerapport te laten fiatteren / vaststellen op basis van de mandaatafspraken. Deze fiattering / vaststelling kan zowel intern (door bijvoorbeeld een afdelingshoofd van de zaakbehandelende organisatie) en/of extern (door het bevoegd gezag) zijn vereist.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    },
+    {
+      "id": "5_bevindingen_vastgesteld__4_kennisgeving_toezichtbevindingen_vastgesteld",
+      "title": "4 - Kennisgeving toezichtbevindingen vastgesteld",
+      "question": "Is de kennisgeving van de toezichtbevindingen vastgesteld?",
+      "status": "5_bevindingen_vastgesteld",
+      "required": false,
+      "description": "Afhankelijk van de aard van de controle en in- en externe afspraken over mandatering, kan het nodig zijn het concept van de kennisgeving van de toezichtbevindingen te laten fiatteren / vaststellen op basis van de mandaatafspraken. Deze fiattering / vaststelling kan zowel intern (door bijvoorbeeld een afdelingshoofd van de zaakbehandelende organisatie) en/of extern (door het bevoegd gezag) zijn vereist.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 21
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__1_verzending_controlerapport",
+      "title": "1 - Verzending controlerapport",
+      "question": "Is het controlerapport verzonden aan adviseurs en het bevoegd gezag?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "De zaakbehandelende organisatie verzendt het controlerapport aan bij de controle betrokken adviseurs en - indien de zaakbehandelende organisatie de controle heeft uitgevoerd in mandaat van een bevoegd gezag - het bevoegd gezag.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 22
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__2_kennisgeving_toezichtbevindingen",
+      "title": "2 - Kennisgeving toezichtbevindingen",
+      "question": "Is de kennisgeving toezichtbevindingen verzonden aan adviseurs en bevoegd gezag?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "De zaakbehandelende organisatie verzendt de kennisgeving van de toezichtbevindingen aan de belanghebbende die (normadressaat van) de activiteit uitvoert, met afschrift aan de bij de controle betrokken adviseurs en - indien de zaakbehandelende organisatie de controle heeft uitgevoerd in mandaat van een bevoegd gezag - het bevoegd gezag.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 23
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__3_archivering",
+      "title": "3 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 24
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__4_registraties",
+      "title": "4 - Registraties",
+      "question": "Zijn naar aanleiding van de controle alle relevante registraties bijgewerkt?",
+      "status": "6_zaak_afgerond",
+      "required": false,
+      "description": "Een controle, zeker als die ter plaatse wordt uitgevoerd, kan in veel gevallen leiden tot een mutatie in één of meer (basis)registraties, omdat feiten en omstandigheden worden waargenomen die afwijkend zijn van de administratieve werkelijkheid in (basis)registraties. Op basis van die waarnemingen dienen (basis)registraties te worden bijgewerkt1 op basis van die waarnemingen.\n1. ^ Waar nodig in combinatie met terugmelding van 'gerede twijfel over de juistheid van (een) gegeven(s)' aan de bronhouder van de (basis)registratie.",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 25
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__5_vervolgzaak",
+      "title": "5 - Vervolgzaak",
+      "question": "Zijn de voor deze zaak relevante vervolgzaken gepland?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "Een controlezaak waarin overtredingen zijn geconstateerd, vereist doorgaans een vervolg: een hercontrole (een nieuwe zaak van het zaaktype 'Controle uitvoeren') of het opleggen van een sanctie (die wordt bepaald in een zaak van het zaaktype 'Handhavingsbesluit nemen').",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 26
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "6_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "actor_type": "In- of externe deskundige die adviseert over - aspecten van - onderhavige zaak",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "belanghebbende",
+      "title": "Belanghebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging van niet-natuurlijk persoon die de te controleren activiteit uitvoert",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "ketenpartner",
+      "title": "Ketenpartner",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Adviseur",
+      "actor_type": "Ketenpartner, Bevoegd gezag",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "toezichthouder",
+      "title": "Toezichthouder",
+      "may_set_statuses": [
+        "2_controle_voorbereid",
+        "3_controle_bezoek_uitgevoerd",
+        "4_bevindingen_opgesteld"
+      ],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "toezichtinitiator",
+      "title": "Toezichtinitiator",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Initiator",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [
+        "5_bevindingen_vastgesteld"
+      ],
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Beslisser",
+      "actor_type": "Gemandateerde",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "verzoek_om_controle",
+      "sequence": 1,
+      "title": "Verzoek om controle",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 2,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 3,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 3,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 4,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 4,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "controlelijst",
+      "sequence": 5,
+      "title": "Controlelijst",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "aankondiging_controle",
+      "sequence": 6,
+      "title": "Aankondiging controle",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "machtiging_tot_binnentreden",
+      "sequence": 7,
+      "title": "Machtiging tot binnentreden",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "verslag_omtrent_het_binnentreden",
+      "sequence": 8,
+      "title": "Verslag omtrent het binnentreden",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "verslag_omtrent_het_binnentreden",
+      "sequence": 8,
+      "title": "Verslag omtrent het binnentreden",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "bewijsstuk",
+      "sequence": 9,
+      "title": "Bewijsstuk",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "bewijsmateriaal",
+      "sequence": 10,
+      "title": "Bewijsmateriaal",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "bezoeknotitie",
+      "sequence": 11,
+      "title": "Bezoeknotitie",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "controlerapport",
+      "sequence": 12,
+      "title": "Controlerapport",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "kennisgeving_toezichtbevindingen",
+      "sequence": 13,
+      "title": "Kennisgeving toezichtbevindingen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 14,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 19
+      }
+    }
+  ],
+  "decisions": [],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "12.3",
+      "archive_nomination": "Vernietigen",
+      "description": "Controle uitvoeren is afgebroken. Deze is foutief ingeboekt, geplande controle is niet uitgevoerd",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "uitgevoerd",
+      "title": "Uitgevoerd",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "uitgevoerd_bag",
+      "title": "Uitgevoerd - BAG",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.1.10",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Betreft een controle van realisatie van een omvergunningsvergunning met brondocumenten BAG"
+    },
+    {
+      "id": "uitgevoerd_milieu",
+      "title": "Uitgevoerd - milieu",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.1.11",
+      "archive_nomination": "Vernietigen",
+      "description": "Het vanuit een bevoegdheid, afspraak of overeenkomst inspecteren, controleren en toezien met als doel te controleren of personen of partijen voldoen aan geldende afspraken, wet- of regelgeving en het wanneer nodig corrigerend ingrijpen of opleggen van een sanctie.",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "uitgevoerd_grondw",
+      "title": "Uitgevoerd - grondw",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.1.13",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Betreft een controle grondwaterstanden en -monitoring"
+    },
+    {
+      "id": "uitgevoerd_milscha",
+      "title": "Uitgevoerd - milscha",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.1.13",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Betreft een controle activiteit die schadelijk is voor het milieu. (graven in de bodem met kwaliteit onder of gelijk aan interventiewaarde bodemkwaliteit)"
+    },
+    {
+      "id": "toezicht_uitgevoerd_p",
+      "title": "Toezicht uitgevoerd (P)",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "prov",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Toezicht uitgevoerd",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Houden van toezicht op de veiligheid van boorgaten, tunnels, schachten en dergelijke bij mijnbouw (kalksteen)",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "toezicht_uitgevoerd_p",
+      "title": "Toezicht uitgevoerd (P)",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "prov",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Toezicht uitgevoerd",
+      "selectielijst_class": "35",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Uitvoeren van oriënterende onderzoeken, nadere onderzoeken en saneringsonderzoeken naar en saneren van ernstige verontreinigingen"
+    },
+    {
+      "id": "toezicht_uitgevoerd_p",
+      "title": "Toezicht uitgevoerd (P)",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "prov",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Toezicht uitgevoerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Uitvoeren van metingen van de luchtkwaliteit"
+    },
+    {
+      "id": "toezicht_uitgevoerd_p",
+      "title": "Toezicht uitgevoerd (P)",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "prov",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Toezicht uitgevoerd",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Coördineren en uitvoeren van de bestuursrechtelijke handhaving op de naleving van de bepalingen uit milieuwet- en -regelgeving",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "toezicht_uitgevoerd_p",
+      "title": "Toezicht uitgevoerd (P)",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "prov",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Toezicht uitgevoerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van PRTR-verslagen van industriële bedrijven met gegevens over hun afval, energie- en watergebruik en emissies naar lucht, water en bodem"
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "Controle uitvoeren is afgebroken. Deze is foutief ingeboekt, geplande controle is niet uitgevoerd",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "overtreding_opgeheven",
+      "title": "Overtreding opgeheven",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "ws",
+      "generic_title": "Overtreding opgeheven",
+      "title_2_2": "Overtreding opgeheven",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "overtreding_gedoogd",
+      "title": "Overtreding gedoogd",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "ws",
+      "generic_title": "Overtreding gedoogd",
+      "title_2_2": "Overtreding gedoogd",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "afgehandeld",
+      "title": "Afgehandeld",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "ws",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Afgehandeld",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 18
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/01",
+        "title": "Advies verstrekken",
+        "raw": "1 - Advies verstrekken"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Advies verstrekken' waarin een in- of externe specialist advies uitbrengt ten behoeve het opstellen van de bevindingen in onderhavige zaak."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' waarin onderhavige (vervolg)zaak van het zaaktype 'Controle uitvoeren' is gepland voor het houden van toezicht op de actviteit waarop de aanvraag en/of beschikking ziet."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin onderhavige (vervolg)zaak van het zaaktype 'Controle uitvoeren' is gepland voor het houden van toezicht op de actviteit waarop de aanvraag en/of beschikking ziet."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/13",
+        "title": "Beroep behandelen",
+        "raw": "13 - Beroep behandelen"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Beroep behandelen' waaraan onderhavige zaak een bijdrage levert door te verifiëren of de argumenten die naar voren zijn gebracht op feiten berusten."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/03",
+        "title": "Last onder bestuursdwang ten uitvoer leggen",
+        "raw": "3 - Last onder bestuursdwang ten uitvoer leggen"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Last onder bestuursdwang ten uitvoer leggen' waaraan onderhavige zaak een bijdrage levert door te verifiëren of de overtreding waarop de last ziet, voortduurt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin, naar aanleiding van een geconstateerde overtreding, onderhavige (vervolg)zaak van het zaaktype 'Controle uitvoeren' (hercontrole, of administratieve controle) is gepland om te verifiëren of de eerder geconstateerde overtreding is beëindigd."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' die wordt gepland naar aanleiding van een in onderhavige zaak geconstateerde overtreding. Doorgaans betreft de vervolgzaak een 'hercontrole' op locatie, maar indien de geconstateerde overtreding (alleen) kan worden beëindigd door het indienen van een melding of het aanvragen van een (omgevings)vergunning, wordt een 'administratieve controle' gepland om te verifiëren of de vereiste melding of aanvraag ook daadwerkelijk is ingediend."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 10
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen' waaraan onderhavige zaak een bijdrage levert door te verifiëren of de overtreding waarop het (voorgenomen) handhavingsbesluit ziet, voortduurt. Een dergelijke controle kan bijvoorbeeld nodig zijn als tijdens de behandeling van de zaak van het zaaktype 'Handhavingsbesluit nemen' een zienswijze wordt ingediend waarin wordt gesteld dat de overtreding niet (meer) bestaat."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 11
+      },
+      "description": "De (vervolg)zaak van het zaaktype 'Handhavingsbesluit nemen' die wordt gepland naar aanleiding van een in onderhavige zaak geconstateerde overtreding waartegen handhavend moet worden opgetreden."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/06",
+        "title": "Handhavingsverzoek behandelen",
+        "raw": "6 - Handhavingsverzoek behandelen"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 12
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsverzoek behandelen' waaraan onderhavige zaak een bijdrage levert door te verifiëren of de vermeende overtreding waarvan in het handhavingsverzoek melding wordt gemaakt, kan worden geconstateerd."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/07",
+        "title": "Incidentmelding behandelen",
+        "raw": "7 - Incidentmelding behandelen"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 13
+      },
+      "description": "De zaak van het zaaktype 'Melding overlast behandelen' waaraan onderhavige zaak een bijdrage levert door te onderzoeken of de ervaren overlast wordt veroorzaakt door overtreding van regelgeving."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/08",
+        "title": "Last onder dwangsom ten uitvoer leggen",
+        "raw": "8 - Last onder dwangsom ten uitvoer leggen"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 14
+      },
+      "description": "De zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' waaraan onderhavige zaak een bijdrage levert door te verifiëren of de overtreding waarop de last ziet, voortduurt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/08",
+        "title": "Last onder dwangsom ten uitvoer leggen",
+        "raw": "8 - Last onder dwangsom ten uitvoer leggen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 15
+      },
+      "description": "De zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' die wordt gepland omdat voor de in onderhavige zaak geconstateerde overtreding reeds een last onder dwangsom was opgelegd en deze last niet is ingetrokken of opgeheven."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/09",
+        "title": "Melding activiteit behandelen",
+        "raw": "9 - Melding activiteit behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "04_-_Controle_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 16
+      },
+      "description": "De zaak van het zaaktype 'Melding activiteit behandelen' waarin onderhavige (vervolg)zaak van het zaaktype 'Controle uitvoeren' is gepland voor het houden van toezicht op de gemelde actviteit."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

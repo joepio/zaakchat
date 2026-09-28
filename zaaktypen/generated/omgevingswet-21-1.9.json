@@ -1,0 +1,1438 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/21",
+  "version": "1.9",
+  "title": "Verkennen en begeleiden initiatief",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "21",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Verkennen en begeleiden initiatief",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "CATEGORIE": {
+      "value": "Adviseren",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "DOEL": {
+      "value": "Samen mogelijk maken en te komen van initiatief tot een ontwerp waar zover mogelijk ieders belang is gehoord om de vergunningsaanvraag voor te bereiden. Dit om de kans van slagen te vergroten. Het heeft dus een ander karakter als adviseren, en gaat meer over de afstemming tussen bevoegd gezag, initiatiefnemer, ketenpartners en niet te vergeten belanghebbenden over mogelijkheden en beperkingen met betrekking tot een concreet initiatief. Overleggen in de vorm van een centraal overleg (bv. omgevingstafel) komt hier aanbod. Het bestaande zaaktype \"Advies verstrekken (informeel)\" wordt bij ketenpartners geïnitieerd. Dit zaaktype is niet bedoeld voor conceptverzoeken, of vooradviezen zoals Welstandsadvies worden afgehandels in het zaaktype \"Advies verstrekken (informeel)\" .",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "AANLEIDING": {
+      "value": "De gemeente of provincie als bevoegd gezag heeft als taak te verbinden zodat het initiatief realiseerbaar wordt.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "TOELICHTING": {
+      "value": "Het initiatief wordt getoetst op haalbaarheid en wenselijkheid bij alle betrokkenen. Het geheel wordt uitgewerkt tot een ontwerp, welke daarna wordt voorbereid voor een aanvraag. Het kan voorkomen uit de haalbaarheid en wenselijkheidsstudie dat er een wijziging omgevingsplan noodzakelijk is of niet haalbaar of wenselijk is. Maar ook wordt hier bepaald of er een Anterieure overeenkomst moet worden opgesteld.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Zowel intern als extern",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Verzoeken",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "ONDERWERP": {
+      "value": "Verkennen en begeleiden",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Begeleiden",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 12
+      }
+    },
+    "DOORLOOPTIJD BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "168",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 13
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "168",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 20
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Beperkt openbaar",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 23
+      }
+    },
+    "VERANTWOORDELIJKE": {
+      "value": "Afdelingshoofd of teammanager",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 25
+      }
+    },
+    "PRODUCT / DIENST:": {
+      "value": "Advies voorbereiding initiatief fysieke leefomgeving",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 27
+      }
+    },
+    "- NAAM": {
+      "value": "bedrijfsproces \"Verkennen en begeleiden initiatief\"",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 31
+      }
+    },
+    "- LINK": {
+      "value": "https://www.gemmaonline.nl/index.php?title=Uitwerking_bedrijfsproces&proces=Omgevingswet/1.5/id-cd59b363-d51f-411f-9f92-e4e06023fb43",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 32
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-12-18",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2022-02-15",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 44
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond",
+      "sequence": 3,
+      "title": "Verkennen initiatief afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 75,
+        "unit": "kalenderdagen"
+      },
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond",
+      "sequence": 4,
+      "title": "Begeleiden initiatief afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 75,
+        "unit": "kalenderdagen"
+      },
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "5_afstemmen_initiatief_afgerond",
+      "sequence": 5,
+      "title": "Afstemmen initiatief afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 14,
+        "unit": "kalenderdagen"
+      },
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "6_zaak_afgerond",
+      "sequence": 6,
+      "title": "Zaak afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 8
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "valid_from": "2022-02-15"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_verkennen_initiatief_afgerond",
+      "from": "2_intake_afgerond",
+      "to": "3_verkennen_initiatief_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_verkennen_initiatief_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond__to__4_begeleiden_initiatief_afgerond",
+      "from": "3_verkennen_initiatief_afgerond",
+      "to": "4_begeleiden_initiatief_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_verkennen_initiatief_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "4_begeleiden_initiatief_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__to__5_afstemmen_initiatief_afgerond",
+      "from": "4_begeleiden_initiatief_afgerond",
+      "to": "5_afstemmen_initiatief_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_begeleiden_initiatief_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "5_afstemmen_initiatief_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "5_afstemmen_initiatief_afgerond__to__6_zaak_afgerond",
+      "from": "5_afstemmen_initiatief_afgerond",
+      "to": "6_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "5_afstemmen_initiatief_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "6_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is de aanvraag geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_ontvangstbevestiging",
+      "title": "2 - Ontvangstbevestiging",
+      "question": "Is een ontvangstbevestiging verzonden?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Indien niet via een digitaal loket ontvangen wordt een ontvangstbevestiging gestuurd. In de ontvangstbevestiging is de dag van ontvangst vermeld.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_juiste_zaakbehandelende_organisatie",
+      "title": "1 - Juiste zaakbehandelende organisatie",
+      "question": "Is de zaakbehandelende organisatie bevoegd de zaak te behandelen?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "Als het initiatief ook aan regelgeving van waterschap, provincie of Rijk raakt, wordt bepaald welk van deze bestuursorganen het beste als regievoerder kan optreden. Dit kan bijvoorbeeld afhankelijk zijn van andere initiatieven c.q. vergunningen die reeds verleend zijn voor de desbetreffende locatie.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_behandelaar",
+      "title": "3 - Behandelaar",
+      "question": "Is het behandelend team of medewerker bepaald?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Controle van de basis gegevens of deze correct zijn geregistreerd.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "2_intake_afgerond__4_oordeel",
+      "title": "4 - Oordeel",
+      "question": "Initiatiefnemer informeren om zijn initiatief via een andere procedure voor te leggen?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "Bij initiatieven die via een conceptverzoek afgehandeld kunnen worden wordt de initiatiefnemer geadviseerd die route te kiezen. Het verzoek wordt dan behandeld in een apart zaaktype \"advies verstrekken informeel\". Het gaat dan om een concreet toetsbaar plan. Deze zaak wordt dan afgebroken.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "2_intake_afgerond__5_teamvorming",
+      "title": "5 - Teamvorming",
+      "question": "Is het verkenningsteam samengesteld?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "De initiatiefmanager betrekt juiste deskundigen uit de interne organisatie, en zet een uitnodiging bij ketenpartners en uitvoeringspartners uit.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond__1_adviezen_gevraagd",
+      "title": "1 - Adviezen gevraagd",
+      "question": "Zijn de voor de beoordeling relevante adviezen gevraagd?",
+      "status": "3_verkennen_initiatief_afgerond",
+      "required": false,
+      "description": "Zo nodig worden aanvullende adviezen gevraagd naar aanleiding van de eisen en wensen.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond__2_adviezen_ontvangen",
+      "title": "2 - Adviezen ontvangen",
+      "question": "Zijn de aangevraagde adviezen ontvangen en verwerkt in de wenselijkheidsbeoordeling?",
+      "status": "3_verkennen_initiatief_afgerond",
+      "required": false,
+      "description": "",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond__3_agenderen",
+      "title": "3 - Agenderen",
+      "question": "Is het initiatief geagendeerd voor een centraal overleg?",
+      "status": "3_verkennen_initiatief_afgerond",
+      "required": false,
+      "description": "In het centrale overleg wordt het initiatief besproken, met betrekking tot de omgevingswet refereert het centrale overleg naar de \"de omgevingstafel\". Eisen en wensen worden in kaart gebracht.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond__4_oordeel",
+      "title": "4 - Oordeel",
+      "question": "Is het initiatief wenselijk?",
+      "status": "3_verkennen_initiatief_afgerond",
+      "required": true,
+      "description": "Indien uit de beoordeling blijkt dat het niet wenselijk is wordt de zaak beëindigd.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond__4_oordeel",
+      "title": "4 - Oordeel",
+      "question": "Moet er participatie plaatsvinden?",
+      "status": "3_verkennen_initiatief_afgerond",
+      "required": false,
+      "description": "Indien uit beoordeling blijkt dat er mogelijk negatieve impact is voor de fysieke leefomgeving kan participatie van belanghebbenden nodig zijn. De initiatiefnemer is verantwoordelijk voor het organiseren van participatie bij door gemeente aangewezen gevallen in een participatieadvies. De gemeente neemt er (slechts) aan deel maar kan afhankelijk van de situatie een neutrale of actieve rol innemen. Dit wordt aan de initiatiefnemer kenbaar gemaakt in een participatieadvies.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond__5_verslag",
+      "title": "5 - Verslag",
+      "question": "Is het participatiesadvies verzonden?",
+      "status": "3_verkennen_initiatief_afgerond",
+      "required": false,
+      "description": "",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond__4_oordeel",
+      "title": "4 - Oordeel",
+      "question": "Is de aanpak en rol bepaald van de gemeente tijdens het begeleiden van het initiatief",
+      "status": "3_verkennen_initiatief_afgerond",
+      "required": false,
+      "description": "De gemeente geeft aan welk toetsingskader van toepassing is, welke harde grenswaarden er zijn en waar nog bandbreedtes zijn om het plan te optimaliseren. Dit wordt aan de initiatiefnemer kenbaar gemaakt met een verkenningsadvies.\nDaarnaast moet de gemeente bepalen welke rol zij inneemt tijdens het verder begeleiden van het initiatief. Dit is afhankelijk of het initiatief als kans of bedreiging wordt gezien.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond__5_verslag",
+      "title": "5 - Verslag",
+      "question": "Is het verkenningsadvies verzonden?",
+      "status": "3_verkennen_initiatief_afgerond",
+      "required": true,
+      "description": "Tussen verkenningsadvies en het aanbieden globaal concept zit enige tijd tussen. Daarom wordt bij het verzenden van het verkenningsadvies een opschortingstermijn meegegeven.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "3_verkennen_initiatief_afgerond__6_overeenkomst",
+      "title": "6 - Overeenkomst",
+      "question": "Is een Anterieure overeenkomst afgesloten?",
+      "status": "3_verkennen_initiatief_afgerond",
+      "required": false,
+      "description": "Wanneer de gemeente besluit aan het initiatief te willen meewerken, zal tijd en geld geïnvesteerd moeten worden in de begeleiding van het initiatief en eventueel in de aanpassing van het\nomgevingsplan en/of in het aanleggen van bepaalde voorzieningen ter plaatse. In veel gevallen zal de gemeente een anterieure overeenkomst willen afsluiten met de initiatiefnemer over wie welke\nkosten draagt. In bepaalde gevallen wordt deze stap overgeslagen. De overeenkomst wordt opgesteld in het generieke zaaktype \"Overeenkomst aangaan\".",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__1_oordeel",
+      "title": "1 - Oordeel",
+      "question": "Heeft participatie plaatsgevonden zoals dit in het participatieadvies is omschreven?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "De initiatiefnemer is verantwoordelijk voor het organiseren van participatie, de gemeente neemt er (slechts) aan deel.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__2_adviezen_gevraagd",
+      "title": "2 - Adviezen gevraagd",
+      "question": "Zijn de voor de beoordeling relevante adviezen gevraagd?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "Zo nodig worden aanvullende adviezen gevraagd naar aanleiding van de eisen en wensen.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__3_adviezen_ontvangen",
+      "title": "3 - Adviezen ontvangen",
+      "question": "Zijn de aangevraagde adviezen ontvangen en verwerkt in de beoordeling globaal concept?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 21
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__4_oordeel",
+      "title": "4 - Oordeel",
+      "question": "Is het globale concept getoetst aan eisen en wensen?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "Naar aanleiding van eisen en wensen vanuit de gemeente, ketenpartners en belanghebbenden moet getoetst worden in hoeverre de initiatiefnemer dit heeft meegenomen in de verdere uitwerking van het globale concept",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 22
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__5_agenderen",
+      "title": "5 - Agenderen",
+      "question": "Is het globaal concept voorgelegd aan het centraal overleg?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "In het centrale overleg wordt het globaal concept besproken, met betrekking tot de omgevingswet refereert het centrale overleg naar de \"de omgevingstafel\". De beoordeling van het globale concept wordt hier op elkaar afgestemd.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 23
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__6_oordeel",
+      "title": "6 - Oordeel",
+      "question": "Is een wijziging van omgevingsplan nodig?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "Uit de toetsing van het globale concept kan zijn dan dit niet haalbaar is of dat een wijziging van omgevingsplan noodzakelijk is. Dit wordt in het generieke zaaktype \"Plannen opstellen\" vorm gegeven.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 24
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__7_verslag",
+      "title": "7 - Verslag",
+      "question": "Is het verslag van de beoordeling globaal concept verstuurd?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": true,
+      "description": "Tussen globaal concept en het aanbieden het concept zit enige tijd tussen. Daarom wordt bij het verzenden van het beoordeling globaal concept een opschortingstermijn meegegeven.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 25
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__8_oordeel",
+      "title": "8 - Oordeel",
+      "question": "Is het concept getoetst aan de gemaakte afspraken?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "Naar aanleiding van de gemaakte afspraken met gemeente, ketenpartners en belanghebbenden moet getoetst worden in hoeverre de initiatiefnemer deze eisen en wensen heeft meegenomen in de verdere uitwerking van het concept.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 26
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__9_adviezen_gevraagd",
+      "title": "9 - Adviezen gevraagd",
+      "question": "Zijn de voor de beoordeling relevante adviezen gevraagd?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "Zo nodig worden aanvullende adviezen gevraagd naar aanleiding van de eisen en wensen.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 27
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__10_adviezen_ontvangen",
+      "title": "10 - Adviezen ontvangen",
+      "question": "Zijn de aangevraagde adviezen ontvangen en verwerkt in de Integraal advies?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "In het integrale advies worden het verkenningsadvies, participatieadvies en andere relevante opgevraagde adviezen verwerkt tot een integraal advies dat met initiatiefnemer, belanghebbenden, ketenpartners en intern wordt gedeeld. Hierin zijn ingebrachte visies, belangen, voorwaarden, geschilpunten vastgelegd met bijbehorende concrete en toetsbare afspraken.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 28
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__11_agenderen",
+      "title": "11 - Agenderen",
+      "question": "Is het concept voorgelegd in het centrale overleg?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "In het centrale overleg wordt het globaal concept besproken, met betrekking tot de omgevingswet refereert het centrale overleg naar de \"de omgevingstafel\". De beoordeling van het concept wordt hier op elkaar afgestemd.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 29
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__12_accorderen",
+      "title": "12 - Accorderen",
+      "question": "Is het integrale advies geaccordeerd door raad en/of college?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": false,
+      "description": "Afhankelijk van de complexiteit en bestuursgevoeligheid van het dossier is accordering van het integraal advies op bestuursniveau gewenst. Zonodig informeert het College de Gemeenteraad",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 30
+      }
+    },
+    {
+      "id": "4_begeleiden_initiatief_afgerond__13_verslag",
+      "title": "13 - Verslag",
+      "question": "Is het integrale advies verstuurd?",
+      "status": "4_begeleiden_initiatief_afgerond",
+      "required": true,
+      "description": "",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 31
+      }
+    },
+    {
+      "id": "5_afstemmen_initiatief_afgerond__1_adviezen_gevraagd",
+      "title": "1 - Adviezen gevraagd",
+      "question": "Zijn de voor beoordeling relevante adviezen gevraagd?",
+      "status": "5_afstemmen_initiatief_afgerond",
+      "required": false,
+      "description": "Hierbij wordt tevens advies gevraagd aan andere betrokken ketenpartners.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 32
+      }
+    },
+    {
+      "id": "5_afstemmen_initiatief_afgerond__2_adviezen_ontvangen",
+      "title": "2 - Adviezen ontvangen",
+      "question": "Zijn de aangevraagde adviezen ontvangen en verwerkt in een indieningsadvies?",
+      "status": "5_afstemmen_initiatief_afgerond",
+      "required": false,
+      "description": "Het indieningsadvies geeft een compleet beeld van alle informatie plichten, meldingen en vergunning aanvragen die nodig zijn voor het initiatief. Hierbij kan de gemeente ook adviseren om dit gebundeld of separaat in te dienen en eventuele volgordelijkheid van het indienen.\nBuiten dat een compleet beeld wordt geven van alle benodigde informatie plichten, meldingen en vergunningen wordt ook aangegeven of bijvoorbeeld het woningen blok van 4 woningen dat gevoelig ligt van de te bouwen 300 woningen in een losse activiteit moet worden aangevraagd. Zo kan op dat woningblok binnen de vergunningaanvraag los op worden besloten. Tevens is aandacht voor volgorde van de aan te vragen toestemmingen, kritische toestemming eerst en in logische chronologische volgorde.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 33
+      }
+    },
+    {
+      "id": "5_afstemmen_initiatief_afgerond__3_verslag",
+      "title": "3 - Verslag",
+      "question": "Is het indieningsadvies verstuurd?",
+      "status": "5_afstemmen_initiatief_afgerond",
+      "required": true,
+      "description": "",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 34
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__1_archivering",
+      "title": "1 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 35
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__2_leges",
+      "title": "2 - Leges",
+      "question": "Is de legesbeschikking opgesteld?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 36
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__3_verslag",
+      "title": "3 - Verslag",
+      "question": "De afrondingsbrief verzonden?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 37
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "initiatiefnemer",
+      "title": "Initiatiefnemer",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "6_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "andere_organisatie",
+      "title": "Andere organisatie",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Niet-natuurlijk persoon",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "derde_belanghebbende",
+      "title": "Derde belanghebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, niet-natuurlijk persoon",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "gemachtigde",
+      "title": "Gemachtigde",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "zaakbehandelaar",
+      "title": "Zaakbehandelaar",
+      "may_set_statuses": [
+        "2_intake_afgerond",
+        "3_verkennen_initiatief_afgerond",
+        "4_begeleiden_initiatief_afgerond",
+        "5_afstemmen_initiatief_afgerond"
+      ],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 10
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2022-02-15"
+    }
+  ],
+  "documents": [
+    {
+      "id": "verzoek_verkennen_begeleiden_initiatief",
+      "sequence": 1,
+      "title": "Verzoek verkennen begeleiden initiatief",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 2,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "uitnodiging_deelname_omgevingstafel",
+      "sequence": 3,
+      "title": "Uitnodiging deelname omgevingstafel",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "verkenningsadvies",
+      "sequence": 4,
+      "title": "Verkenningsadvies",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "programma_van_eisen_en_wensen",
+      "sequence": 5,
+      "title": "Programma van eisen en wensen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "anterieure_overeenkomst",
+      "sequence": 6,
+      "title": "Anterieure overeenkomst",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "participatie_advies",
+      "sequence": 7,
+      "title": "Participatie-advies",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "uitnodiging_tot_participatie",
+      "sequence": 8,
+      "title": "Uitnodiging tot participatie",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "participatieverslag",
+      "sequence": 9,
+      "title": "Participatieverslag",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "globaal_ontwerp_concept",
+      "sequence": 10,
+      "title": "Globaal ontwerp/concept",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "beoordeling_globaal_ontwerp_concept",
+      "sequence": 11,
+      "title": "Beoordeling globaal ontwerp/concept",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "ontwerp_concept",
+      "sequence": 12,
+      "title": "Ontwerp/concept",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "integraal_advies",
+      "sequence": 13,
+      "title": "Integraal advies",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "indieningsadvies",
+      "sequence": 14,
+      "title": "Indieningsadvies",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "afrondingsbrief",
+      "sequence": 15,
+      "title": "Afrondingsbrief",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 16,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 17,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 19
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 18,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 20
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 19,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 21
+      }
+    },
+    {
+      "id": "verzoek_om_aanvullende_informatie",
+      "sequence": 20,
+      "title": "Verzoek om aanvullende informatie",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 22
+      }
+    },
+    {
+      "id": "aanvullende_informatie",
+      "sequence": 21,
+      "title": "Aanvullende informatie",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 23
+      }
+    },
+    {
+      "id": "verzoek_om_aanpassing_initiatief",
+      "sequence": 22,
+      "title": "Verzoek om aanpassing initiatief",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 24
+      }
+    },
+    {
+      "id": "instemming_met_opschorting",
+      "sequence": 23,
+      "title": "Instemming met opschorting",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 25
+      }
+    },
+    {
+      "id": "legesbeschikking",
+      "sequence": 24,
+      "title": "Legesbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 26
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 98,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 27
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 99,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 28
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 25,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 29
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "legesbeschikking",
+      "title": "Legesbeschikking",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 3
+      },
+      "valid_from": "2022-02-15"
+    }
+  ],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "21.3",
+      "archive_nomination": "Vernietigen",
+      "description": "Het initiatief is afgebroken. Deze is foutief ingeboekt of door de indiener ingetrokken",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "verstrekt",
+      "title": "Verstrekt",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Verstrekt",
+      "title_2_2": "Verstrekt",
+      "selectielijst_class": "21.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "verstrekt_omg_act",
+      "title": "Verstrekt - omg. act.",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Verstrekt",
+      "title_2_2": "Verstrekt",
+      "selectielijst_class": "21.1.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Indien het van toepassing is op een activiteit in de fysieke leefomgeving.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_verstrekt",
+      "title": "Niet verstrekt",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Niet verstrekt",
+      "title_2_2": "Niet verstrekt",
+      "selectielijst_class": "21.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "buiten_behandeling",
+      "title": "Buiten behandeling",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Niet verstrekt",
+      "title_2_2": "Buiten behandeling",
+      "selectielijst_class": "21.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' waarin de behandeling van onderhavige aanvraag initieel plaatsvond. Voornoemde zaak is voortijdig afgehandeld, omdat tijdens de behandeling is gebleken dat de aanvraag in een uitgebreide procedure behandeld dient te worden. Daartoe is onderhavige zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' gestart."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/01",
+        "title": "Advies verstrekken",
+        "raw": "1 - Advies verstrekken"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "Het kan echter ook nodig zijn advies in te winnen bij in- of externe adviseurs zonder dat daartoe een directe wettelijke verplichting bestaat, bijvoorbeeld omdat aspecten van de aanvraag een specialistische beoordeling vergen. De adviesaanvraag van de zaakbehandelende organisatie wordt door de adviseur behandeld in een zaak van het zaaktype 'Advies verstrekken'."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/09",
+        "title": "Melding activiteit behandelen",
+        "raw": "9 - Melding activiteit behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "In sommige situaties moet gelijktijdig met het indienen van een aanvraag voor een Omgevingsvergunning tevens een melding worden gedaan (art. 8.41a Wet milieubeheer). In die gevallen wordt onderhavige zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin de aanvraag voor de Omgevingsvergunning wordt behandeld, gerelateerd aan de zaak van het zaaktype 'Melding activiteit behandelen' waarin de gelijktijdige melding wordt beoordeeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin, ten behoeve van hetzelfde project, voor één of enkele activiteiten eerder een beschikking is gevraagd (gefaseerde behandeling aanvraag omgevingsvergunning, art. 2.5 Wet algemene bepalingen omgevingsrecht)."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/02",
+        "title": "Advies verstrekken informeel",
+        "raw": "02 - Advies verstrekken informeel"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "Indien de snelservice formule van toepassing kan zijn."
+    },
+    {
+      "target": {
+        "raw": "Overeenkomst aangaan"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "Niet uitgewerkt omdat deze valt buiten de huidige catalogus."
+    },
+    {
+      "target": {
+        "raw": "Plannen opstellen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "Niet uitgewerkt omdat deze valt buiten de huidige catalogus."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

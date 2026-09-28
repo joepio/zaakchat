@@ -1,0 +1,255 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zaakchat.nl/schemas/ZaakTypeDefinition",
+  "title": "ZaakTypeDefinition",
+  "type": "object",
+  "required": ["kind", "id", "version", "title", "source", "statuses"],
+  "properties": {
+    "kind": {
+      "const": "ZaakTypeDefinition"
+    },
+    "id": {
+      "type": "string",
+      "description": "Stable zaaktype id, for example omgevingswet/10."
+    },
+    "version": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "required": ["kind", "file"],
+      "properties": {
+        "kind": { "type": "string" },
+        "file": { "type": "string" },
+        "catalog_file": { "type": "string" },
+        "imported_at": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": true
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "statuses": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/status" }
+    },
+    "transitions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/transition" }
+    },
+    "task_templates": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/taskTemplate" }
+    },
+    "roles": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/role" }
+    },
+    "documents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/document" }
+    },
+    "decisions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/decision" }
+    },
+    "results": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/result" }
+    },
+    "relations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/relation" }
+    },
+    "automation": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/automationRule" }
+    },
+    "import_warnings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/importWarning" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sourceRef": {
+      "type": "object",
+      "required": ["file", "sheet", "row"],
+      "properties": {
+        "file": { "type": "string" },
+        "sheet": { "type": "string" },
+        "row": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "object",
+      "required": ["id", "sequence", "title", "source_ref"],
+      "properties": {
+        "id": { "type": "string" },
+        "sequence": { "type": "integer" },
+        "title": { "type": "string" },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "value": { "type": "integer" },
+            "unit": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "inform_citizen": { "type": "boolean" },
+        "status_text": { "type": "string" },
+        "description": { "type": "string" },
+        "required_documents": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "required_objects": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "required_properties": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "valid_from": { "type": "string", "format": "date" },
+        "source_ref": { "$ref": "#/$defs/sourceRef" }
+      },
+      "additionalProperties": false
+    },
+    "transition": {
+      "type": "object",
+      "required": ["id", "from", "to", "source"],
+      "properties": {
+        "id": { "type": "string" },
+        "from": { "type": "string" },
+        "to": { "type": "string" },
+        "source": { "type": "string" },
+        "mode": { "type": "string" },
+        "when": { "type": "object", "additionalProperties": true },
+        "effects": { "type": "array", "items": { "type": "object" } }
+      },
+      "additionalProperties": false
+    },
+    "taskTemplate": {
+      "type": "object",
+      "required": ["id", "title", "question", "status", "source_ref"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "question": { "type": "string" },
+        "status": { "type": "string" },
+        "required": { "type": "boolean" },
+        "description": { "type": "string" },
+        "source_ref": { "$ref": "#/$defs/sourceRef" }
+      },
+      "additionalProperties": false
+    },
+    "role": {
+      "type": "object",
+      "required": ["id", "title", "source_ref"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "generic_title": { "type": "string" },
+        "actor_type": { "type": "string" },
+        "may_set_statuses": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "valid_from": { "type": "string", "format": "date" },
+        "source_ref": { "$ref": "#/$defs/sourceRef" }
+      },
+      "additionalProperties": false
+    },
+    "document": {
+      "type": "object",
+      "required": ["id", "title", "direction", "source_ref"],
+      "properties": {
+        "id": { "type": "string" },
+        "sequence": { "type": "integer" },
+        "title": { "type": "string" },
+        "direction": { "type": "string" },
+        "source_ref": { "$ref": "#/$defs/sourceRef" }
+      },
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "object",
+      "required": ["id", "title", "source_ref"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "valid_from": { "type": "string", "format": "date" },
+        "source_ref": { "$ref": "#/$defs/sourceRef" }
+      },
+      "additionalProperties": false
+    },
+    "result": {
+      "type": "object",
+      "required": ["id", "title", "source_ref"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "generic_title": { "type": "string" },
+        "title_2_2": { "type": "string" },
+        "authority": { "type": "string" },
+        "selectielijst_class": { "type": "string" },
+        "archive_nomination": { "type": "string" },
+        "archive_action_term_months": { "type": "integer" },
+        "description": { "type": "string" },
+        "leads_to_decision_type": { "type": "string" },
+        "source_ref": { "$ref": "#/$defs/sourceRef" }
+      },
+      "additionalProperties": false
+    },
+    "relation": {
+      "type": "object",
+      "required": ["target", "relation_type", "source_ref"],
+      "properties": {
+        "target": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "title": { "type": "string" },
+            "raw": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "relation_type": { "type": "string" },
+        "description": { "type": "string" },
+        "source_ref": { "$ref": "#/$defs/sourceRef" }
+      },
+      "additionalProperties": false
+    },
+    "automationRule": {
+      "type": "object",
+      "required": ["id", "mode", "trigger", "effects"],
+      "properties": {
+        "id": { "type": "string" },
+        "mode": { "enum": ["automatic", "suggested", "manual", "external"] },
+        "trigger": { "type": "object", "additionalProperties": true },
+        "when": { "type": "object", "additionalProperties": true },
+        "effects": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        }
+      },
+      "additionalProperties": false
+    },
+    "importWarning": {
+      "type": "object",
+      "required": ["severity", "message"],
+      "properties": {
+        "severity": { "enum": ["info", "warning", "error"] },
+        "message": { "type": "string" },
+        "source_ref": { "$ref": "#/$defs/sourceRef" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

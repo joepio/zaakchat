@@ -48,7 +48,7 @@ const ArrayFieldInput: React.FC<{
           {arrayValue.map((item: string, index: number) => (
             <div
               key={index}
-              className="flex items-center gap-2 px-2 py-1 rounded-md border text-sm"
+              className="flex items-center gap-2 px-2 py-1 rounded-theme border text-sm"
               style={{
                 backgroundColor: "var(--bg-secondary)",
                 borderColor: "var(--border-primary)",
@@ -80,7 +80,7 @@ const ArrayFieldInput: React.FC<{
               ? "Bijv. naam@gemeente.nl"
               : "Nieuw item toevoegen..."
           }
-          className="flex-1 px-3 py-2 border rounded-md text-sm"
+          className="flex-1 form-input text-sm px-3 py-2"
           style={{
             backgroundColor: "var(--bg-primary)",
             borderColor: "var(--border-primary)",
@@ -122,6 +122,10 @@ const SchemaField: React.FC<SchemaFieldProps> = ({
     description: "Beschrijving",
     title: "Titel",
     resolution: "Besluit",
+    zaaktype: "Zaaktype",
+    current_status_id: "Zaaktype status",
+    properties: "Zaaktype eigenschappen",
+    result: "Resultaat",
     status: "Status",
     url: "URL",
     size: "Grootte",
@@ -157,7 +161,7 @@ const SchemaField: React.FC<SchemaFieldProps> = ({
             value={value}
             onChange={(e) => onChange(fieldName, e.target.value)}
             required={isRequired}
-            className="w-full px-3 py-2 border rounded-md text-sm"
+            className="w-full form-select text-sm px-3 py-2"
             style={{
               backgroundColor: "var(--bg-primary)",
               borderColor: "var(--border-primary)",
@@ -206,7 +210,7 @@ const SchemaField: React.FC<SchemaFieldProps> = ({
           {moments.map((moment: any, index: number) => (
             <div
               key={index}
-              className="border rounded-md p-3 space-y-2"
+              className="border rounded-theme p-3 space-y-2"
               style={{ borderColor: "var(--border-primary)" }}
             >
               <div className="flex justify-between items-center">
@@ -347,7 +351,7 @@ const SchemaField: React.FC<SchemaFieldProps> = ({
           }
           required={isRequired}
           placeholder={fieldDescription || ""}
-          className="w-full px-3 py-2 border rounded-md text-sm"
+          className="w-full form-input text-sm px-3 py-2"
           style={{
             backgroundColor: "var(--bg-primary)",
             borderColor: "var(--border-primary)",
@@ -389,7 +393,7 @@ const SchemaField: React.FC<SchemaFieldProps> = ({
           required={isRequired}
           rows={4}
           placeholder={getPlaceholder()}
-          className="w-full px-3 py-2 border rounded-md text-sm resize-vertical"
+          className="w-full form-textarea text-sm px-3 py-2 resize-vertical"
           style={{
             backgroundColor: "var(--bg-primary)",
             borderColor: "var(--border-primary)",
@@ -408,7 +412,7 @@ const SchemaField: React.FC<SchemaFieldProps> = ({
           value={value}
           onChange={(e) => onChange(fieldName, e.target.value)}
           required={isRequired}
-          className="w-full px-3 py-2 border rounded-md text-sm"
+          className="w-full form-input text-sm px-3 py-2"
           style={{
             backgroundColor: "var(--bg-primary)",
             borderColor: "var(--border-primary)",
@@ -514,7 +518,7 @@ const SchemaField: React.FC<SchemaFieldProps> = ({
         onChange={(e) => onChange(fieldName, e.target.value)}
         required={isRequired}
         placeholder={getPlaceholder()}
-        className="w-full px-3 py-2 border rounded-md text-sm"
+        className="w-full form-input text-sm px-3 py-2"
         style={{
           backgroundColor: "var(--bg-primary)",
           borderColor: "var(--border-primary)",

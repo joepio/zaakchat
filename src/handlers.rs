@@ -774,6 +774,17 @@ pub async fn process_event(
 
         // Trigger Notifications
         send_notifications_for_event(state, event, &new_resource, old_resource.as_ref()).await;
+
+        if resource_type == "Issue" {
+            if let Err(err) =
+                apply_zaaktype_logic_for_issue(state, &commit, &new_resource).await
+            {
+                eprintln!(
+                    "[zaaktypen] failed applying zaaktype logic for issue {}: {}",
+                    commit.resource_id, err
+                );
+            }
+        }
     } else {
         // For other event types, we'll just store them as-is
         let resource_type = extract_resource_type_from_subject(&event.subject);
@@ -800,6 +811,93 @@ pub async fn process_event(
         }
     }
 
+    Ok(())
+}
+
+async fn apply_zaaktype_logic_for_issue(
+    state: &AppState,
+    commit: &JSONCommit,
+    issue: &Value,
+) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    let derived_events =
+        crate::zaaktypen::derive_events_for_issue(&commit.resource_id, issue, &commit.actor)?;
+
+    for derived in derived_events {
+        if derived.resource_type == "Task"
+            && state
+                .storage
+                .get_resource(&derived.resource_id)
+                .await?
+                .is_some()
+        {
+            continue;
+        }
+
+        persist_derived_zaak_event(state, derived).await?;
+    }
+
+    Ok(())
+}
+
+async fn persist_derived_zaak_event(
+    state: &AppState,
+    mut derived: crate::zaaktypen::DerivedZaakEvent,
+) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    let seq_key = state.storage.store_event(&derived.event).await?;
+    derived.event.sequence = Some(seq_key);
+
+    let event_payload = serde_json::to_string(&derived.event).unwrap_or_default();
+    state
+        .search
+        .add_event_payload(&derived.event.id, "Event", "", &event_payload, None)
+        .await?;
+
+    let commit: JSONCommit = serde_json::from_value(
+        derived
+            .event
+            .data
+            .clone()
+            .ok_or("derived zaaktype event is missing JSONCommit data")?,
+    )?;
+
+    let resource = if let Some(patch) = commit.patch {
+        let mut existing = state
+            .storage
+            .get_resource(&commit.resource_id)
+            .await?
+            .unwrap_or_else(|| serde_json::json!({}));
+        apply_json_merge_patch(&mut existing, &patch);
+        existing
+    } else {
+        commit
+            .resource_data
+            .unwrap_or_else(|| derived.resource.clone())
+    };
+
+    state
+        .storage
+        .store_resource(&commit.resource_id, derived.resource_type, &resource)
+        .await?;
+
+    let resource_payload = serde_json::to_string(&resource).unwrap_or_default();
+    let timestamp_opt = commit
+        .timestamp
+        .as_ref()
+        .and_then(|s| chrono::DateTime::parse_from_rfc3339(s).ok())
+        .map(|dt| dt.with_timezone(&chrono::Utc));
+
+    state
+        .search
+        .add_resource_payload(
+            &commit.resource_id,
+            derived.resource_type,
+            "",
+            &resource_payload,
+            timestamp_opt,
+        )
+        .await?;
+
+    let _ = state.tx.send(derived.event);
     Ok(())
 }
 

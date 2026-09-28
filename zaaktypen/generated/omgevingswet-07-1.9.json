@@ -1,0 +1,1101 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/07",
+  "version": "1.9",
+  "title": "Incidentmelding behandelen",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "7",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Incidentmelding behandelen",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Behandelen klachten en meldingen",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Het identificeren van oorzaak en veroorzaker van een gemeld incident, het bepalen van de daaruit voortvloeiende gevolgen voor de fysieke leefomgeving, het zonodig treffen van maatregelen om die gevolgen te beperken en herhaling te voorkomen en het informeren van melder en andere betrokkenen over deze bevindingen en maatregelen.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "Door een burger, bedrijf, andere overheid of andere organisatie dan wel vanuit de eigen organisatie is een (milieu)klacht, melding van overlast, ingediend die (vermoedelijk) is gerelateerd aan (een) activiteit(en) waarop de zaakbehandelende organisatie toezicht houdt.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "Het gaat hier om een klacht, een overlast- of een incidentmelding die vermoedelijk betrekking heeft op / gerelateerd is aan (een) activiteit(en) waarop de zaakbehandelende organisatie toezicht houdt.\nHet gaat niet om een expliciet verzoek tot handhaving cq. verzoek tot opleggen van een sanctie (zie daarvoor het zaaktype ‘Handhavingsverzoek behandelen’). Evenmin gaat het over klachten over het functioneren van de organisatie of een specifieke medewerker (zoals bedoeld in Hoofdstuk 9 Algemene wet bestuursrecht).\nDe melding kan via verschillende kanalen worden ingediend: tele­foon, e-mail, website, post, et cetera.\nDe voornaamste functie van een zaak van onderhavig zaaktype is het bepalen van de oorzaak en veroorzaker van een incident, een oplossing voor het probleem te vinden en de melder en andere betrokkenen daarover te informeren. Of het gemelde probleem gedurende de uitvoering van onderhavige zaak wordt opgelost, hangt af van de urgentie, complexiteit en doorlooptijd van de probleemoplossing. Zo niet, dan vindt dat plaats in een gerelateerde (vervolg)zaak (van een ander zaaktype).\nHet kan voorkomen dat een melding gedaan wordt waarvoor de zaakbehandelende organisatie niet tot behandeling bevoegd is. In dat geval wordt de zaak wel geregistreerd, maar niet inhoudelijk behandeld; de melding wordt overgedragen aan het desbetreffende bevoegde gezag.\nEventuele verlenging van de doorlooptijd is afhankelijk van soort incident.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Extern",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Melden",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Incident",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Behandelen",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "14",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 15
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "2",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING DOORLOOPTIJD MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "klacht, melding, incident",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 21
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "- NAAM": {
+      "value": "G01 - Klachtbehandeling (TZ03 - Klachtbehandeling)\nMBZK01 - Klachtbehandeling (TZ03 - Klachtbehandeling)\nMD01 - Klachtbehandeling (TZ03 - Klachtbehandeling)\nME01 - Klachtbehandeling (TZ03 - Klachtbehandeling)\nMI01 - Klachtbehandeling (TZ03 - Klachtbehandeling)\nMLNV01 - Klachtbehandeling (TZ03 - Klachtbehandeling)\nMO01 - Klachtbehandeling (TZ03 - Klachtbehandeling)\nP01 - Klachtbehandeling (TZ03 - Klachtbehandeling)\nVHR01 - Klachtbehandeling (TZ03 - Klachtbehandeling)\nVVR01 - Klachtbehandeling (TZ03 - Klachtbehandeling)\nW01 - Klachtbehandeling (TZ03 - Klachtbehandeling)",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 27
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-07-11",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [
+        "Incidentmelding"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Er is - al dan niet geautomatiseerd - een bewijs van ontvangst verzonden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [
+        "Indicatie anoniem",
+        "Indicatie informeren",
+        "Omschrijving klacht / melding",
+        "Tijdstip melding"
+      ],
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 3,
+        "unit": "kalenderdagen"
+      },
+      "description": "Beoordeeld is of het daadwerkelijk een melding van een incident betreft (en niet een handhavingsverzoek) en of de zaakbehandelende organisatie bevoegd is deze melding te behandelen. Zo ja, dan is de zaak toegewezen aan de behandelend medewerker of het behandelend organisatieonderdeel.\nAllereerst is bepaald met welke urgentie de melding moet worden behandeld. Zonodig is contact opgenomen met de persoon of organisatie die de melding gedaan heeft om aanvullende informatie te verkrijgen over de waarneming. Tevens is bepaald of het gemelde incident al bekend is; in dat geval is onderhavige zaak gerelateerd aan de zaak waarin het incident als eerste is gemeld (de zaak waarin het feitelijke onderzoek naar het incident plaatsvindt). Indien de melding met spoed lijkt te moeten worden behandeld, is onmiddellijk gestart met het onderzoek. De zaak is geregistreerd (met onder andere de locatie waarop de melding betrekking heeft, eventuele foto’s, tekeningen, et cetera).\nAls de zaak niet kan worden behandeld door de zaakbehandelende organisatie, dan wordt status 3 pro forma doorlopen, wordt de melding overgedragen aan het juiste bevoegd gezag en wordt de zaak afgerond.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd",
+      "sequence": 3,
+      "title": "Onderzoek uitgevoerd",
+      "inform_citizen": false,
+      "required_documents": [
+        "Controlerapport"
+      ],
+      "required_objects": [],
+      "required_properties": [
+        "Soort melding"
+      ],
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 7,
+        "unit": "kalenderdagen"
+      },
+      "description": "Indien het de eerste melding van een incident betreft, is - door middel van een zaak van het zaaktype 'Controle uitvoeren' - een onderzoek naar de melding ingesteld waarin:\ngetracht is het gemelde incident te verifiëren (door eigen waarneming of de waarneming van derden);\nde (mogelijke) schade en/of overlast ten gevolge het incident in kaart is gebracht;\nbetrokkenen (andere overheidsorganisaties, belanghebbenden die schade of hinder kunnen ondervinden van het incident) zijn geïnformeerd over en/of betrokken bij de behandeling van het incident;\nde oorzaak en veroorzaker van het gemelde incident is geïdentificeerd;\nzo mogelijk/zonodig maatregelen zijn getroffen om de gevolgen van het incident te beperken en/of herhaling te voorkomen.\nDe resultaten van dit onderzoek zijn administratief geregistreerd. Indien mogelijk binnen de doorlooptijd van de zaak van onderhavig zaaktype, is het incident beëindigd en zijn maatregelen getroffen om de schade en/of overlast te beperken.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_zaak_afgerond",
+      "sequence": 4,
+      "title": "Zaak afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De bij de bevindingen van het onderzoek passende gerelateerde (vervolg)zaken - bijvoorbeeld een zaak van het zaaktype 'Controle uitvoeren' of een zaak van het zaaktype 'Handhavingsbesluit nemen' - zijn geïniteerd.\nDe melder en andere betrokkenen zijn geïnformeerd over de bevindingen van het onderzoek en eventuele vervolgacties.\nHet zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_onderzoek_uitgevoerd",
+      "from": "2_intake_afgerond",
+      "to": "3_onderzoek_uitgevoerd",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_onderzoek_uitgevoerd"
+        }
+      ]
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__to__4_zaak_afgerond",
+      "from": "3_onderzoek_uitgevoerd",
+      "to": "4_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_onderzoek_uitgevoerd"
+      },
+      "effects": [
+        {
+          "status.transition": "4_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is de melding geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": true,
+      "description": "Direct na ontvangst van de melding wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevant gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_ontvangstbevestiging",
+      "title": "2 - Ontvangstbevestiging",
+      "question": "Is een ontvangstbevestiging verzonden?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Na ontvangst van een melding wordt een ontvangstbevestiging verzonden, waarin de dag en het tijdstip van ontvangst van de melding is vermeld.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_bevoegd_gezag",
+      "title": "1 - Bevoegd gezag",
+      "question": "Is de zaakbehandelende organisatie bevoegd de zaak te behandelen?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Beoordeeld wordt of de zaakbehandelende organisatie de zaak kan behandelen, hetzij omdat de zaakbehandelende organisatie bevoegd gezag is voor de activiteit waarop de melding (vermoedelijk) betrekking heeft, dan wel omdat het bevoegd gezag de zaakbehandelende organisatie (bijvoorbeeld een omgevingsdienst of veiligheidsregio) heeft gemandateerd meldingen van deze aard te behandelen. Indien de zaakbehandelende organisatie niet bevoegd of onvoldoende gemandateerd is, wordt status 3 pro forma doorlopen, wordt de melding aan het juiste bevoegd gezag overgedragen en wordt de zaak afgerond.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_melding_incident",
+      "title": "3 - Melding incident",
+      "question": "Betreft het daadwerkelijk een melding van een incident?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Een melding van een incident en een handhavingsverzoek kunnen grote overeenkomsten vertonen, waardoor niet altijd meteen duidelijk is of de indiener de zaakbehandelende organisatie slechts wil attenderen (melding) op een incident, of excpliciet wenst dat de zaakbehandelende organisatie een einde maakt (handhavingsverzoek) aan overlast die wordt ervaren. Indien onverhoopt blijkt dat sprake is van een handhavingsverzoek, dan wordt status 3 pro forma doorlopen, wordt een gerelateerde (vervolg)zaak gestart van het zaaktype 'Handhavingsverzoek behandelen' en wordt onderhavige zaak afgerond.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "2_intake_afgerond__4_incident_bekend",
+      "title": "4 - Incident bekend",
+      "question": "Heeft de melding (waarschijnlijk) betrekking op een incident dat al eerder is gemeld?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "In veel gevallen wordt een incident (bijvoorbeeld als daar overlast uit voortvloeit) door meerdere personen waargenomen, die separaat een melding indienen. Elke melding leidt tot een nieuwe zaak van onderhavig zaaktype. Als een (sterk) vermoeden bestaat dat de meldingen worden veroorzaakt door/betrekking hebben op hetzelfde incident, wordt elke zaak die wordt gestart gerelateerd (via een onderwerprelatie) aan de zaak van onderhavig zaaktype waarin de eerste melding van het incident wordt behandeld.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "2_intake_afgerond__5_urgent",
+      "title": "5 - Urgent",
+      "question": "Vereist de ernst of aard van het incident onmiddellijke actie?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Voor een adequate reactie op een melding van een incident, is het allereerst van belang een beeld te krijgen van de ernst van het incident (hoe schadelijk is het incident voor de fysieke leefomgeving?). Daarnaast kan de aard van het incident (bijvoorbeeld: 'geluidhinder van een popconcert') - mede - bepalend zijn voor het spoedeisende karakter van het in te stellen onderzoek naar het incident. Op basis van deze aspecten wordt bepaald of onmiddellijke actie, bijvoorbeeld de inzet van een toezichthouder met piketdienst, noodzakelijk is.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__1_verificatie",
+      "title": "1 - Verificatie",
+      "question": "Is het mogelijk de melding te verifiëren?",
+      "status": "3_onderzoek_uitgevoerd",
+      "required": true,
+      "description": "Beoordeeld wordt of de melding kan worden geverifieerd, door eigen waarneming (in de regel via een gerelateerde (bijdrage)zaak van het zaaktype 'Controle uitvoeren') en/of door waarnemingen van derden (die bijvoorbeeld in gerelateerde zaken van het zaaktype 'Incidentmelding behandelen' zijn geregistreerd).",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__2_adviezen_gevraagd",
+      "title": "2 - Adviezen gevraagd",
+      "question": "Zijn de voor het onderzoek relevante adviezen gevraagd?",
+      "status": "3_onderzoek_uitgevoerd",
+      "required": true,
+      "description": "Voor het in kaart brengen van de oorzaak en/of gevolgen van het incident, te treffen maatregelen en/of te initiëren vervolgstappen, kunnen adviezen nodig zijn van (specialisten van) de eigen of andere overheidsorganisatie(s).",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__3_gevolgen",
+      "title": "3 - Gevolgen",
+      "question": "Is geïnventariseerd welke gevolgen voortvloeien uit het incident?",
+      "status": "3_onderzoek_uitgevoerd",
+      "required": true,
+      "description": "Beoordeeld wordt welke gevolgen - bijvoorbeeld: schade aan het milieu, overlast voor omwonenden - uit het incident voortvloeien. Enerzijds bepaalt dit de urgentie van het treffen van maatregelen (om verdere schade of overlast te voorkomen) en anderzijds is een goed beeld - inclusief bewijsmateriaal - van die gevolgen van belang voor het onderbouwen van vervolgacties, zoals het nemen van een handhavingsbesluit en/of het verhalen van kosten van getroffen maatregelen.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__4_overheden",
+      "title": "4 - Overheden",
+      "question": "Zijn andere overheidsorganisaties geïnformeerd over het incident?",
+      "status": "3_onderzoek_uitgevoerd",
+      "required": true,
+      "description": "Beoordeeld wordt of de aanleiding voor de melding en/of de aard en gevolgen van het incident reden zijn andere overheidsorganisaties te informeren over (de behandeling van) het incident.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__5_oorzaak",
+      "title": "5 - Oorzaak",
+      "question": "Is de oorzaak en veroorzaker van het incident bepaald?",
+      "status": "3_onderzoek_uitgevoerd",
+      "required": true,
+      "description": "Voor het nemen van maatregelen en het in gang zetten van vervolgacties is het van belang de oorzaak en veroorzaker van het incident te identificeren.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__6_maatregelen",
+      "title": "6 - Maatregelen",
+      "question": "Moeten maatregelen worden getroffen voor het beperken van de gevolgen van het incident?",
+      "status": "3_onderzoek_uitgevoerd",
+      "required": true,
+      "description": "Voor incidenten kan het bevoegd gezag de veroorzaker verplichten alle passende maatregelen te treffen middels (een last onder) bestuursdwang (Afdeling 5.3.1 Algemene wet bestuursrecht). In spoedeisende gevallen kan het bevoegd gezag bestuursdwang toepassen zonder voorafgaande last (art. 5:31, lid 1 Algemene wet bestuursrecht) eventueel zonder een besluit af te wachten (art. 5:31, lid 2 Algemene wet bestuursrecht).\nHoewel de wettelijke grondslag voor het verplicht stellen van het treffen van maatregelen kan verschillen, kwalificeert een dergelijke beslissing van het bevoegd gezag als beschikking.\nIndien deze beslissing - bijvoorbeeld vanwege het spoedeisende karakter van de te treffen maatregelen - tijdens de uitvoering van onderhavige zaak wordt genomen, kan hiervoor een gerelateerde (bijdrage)zaak van het zaaktype 'Handhavingsbesluit nemen' worden gestart. Als het bevoegd gezag de maatregelen zelf uitvoert of laat uitvoeren kan aansluitend een zaak van het zaaktype 'Last onder bestuursdwang ten uitvoer leggen' zijn gestart.\nIndien de beslissing tot het verplichten van te treffen maatregelen door de veroorzaker van het incident na afronding van de zaak van onderhavig zaaktype zal worden genomen, wordt daartoe een gerelateerde (vervolg)zaak van het zaaktype 'Handhavingsbesluit nemen' gestart tijdens het afronden van de zaak van onderhavig zaaktype.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__1_informeren",
+      "title": "1 - Informeren",
+      "question": "Zijn de melder en andere betrokkenen geïnformeerd over de uitkomst van de zaak?",
+      "status": "4_zaak_afgerond",
+      "required": true,
+      "description": "De melder en andere betrokkenen worden geïnformeerd over de bevindingen van het onderzoek, eventuele getroffen maatregelen en de vervolgacties die naar aanleiding van het incident in gang zullen worden gezet.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__2_archivering",
+      "title": "2 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "4_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__3_vervolgzaak",
+      "title": "3 - Vervolgzaak",
+      "question": "Zijn de voor deze melding relevante vervolgzaken gepland?",
+      "status": "4_zaak_afgerond",
+      "required": true,
+      "description": "In veel gevallen zal een zaak van onderhavig zaaktype worden afgerond zodra bekend is welke vervolgstappen nodig zijn om het incident verder te behandelen. Het primaire doel is immers de melder te informeren over het ingestelde onderzoek en het vervolg dat de melding zal krijgen.\nDit vervolg vindt plaats in separate (vervolg)zaken - van bijvoorbeeld het zaaktype 'Controle uitvoeren' of 'Handhavingsbesluit nemen' - die worden geïniteerd bij afronding van onderhavige zaak.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "4_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "andere_organisatie",
+      "title": "Andere organisatie",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "melder",
+      "title": "Melder",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "meldingbehandelaar",
+      "title": "Meldingbehandelaar",
+      "may_set_statuses": [
+        "2_intake_afgerond",
+        "3_onderzoek_uitgevoerd"
+      ],
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "meldingbehandelaar",
+      "title": "Meldingbehandelaar",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "incidentmelding",
+      "sequence": 1,
+      "title": "Incidentmelding",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 2,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "melding_overgang_bevoegdheid",
+      "sequence": 3,
+      "title": "Melding overgang bevoegdheid",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "bericht_ander_bevoegd_gezag",
+      "sequence": 4,
+      "title": "Bericht ander bevoegd gezag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 5,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 5,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "controlerapport",
+      "sequence": 6,
+      "title": "Controlerapport",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "meldingbevindingen",
+      "sequence": 7,
+      "title": "Meldingbevindingen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "statusmelding",
+      "sequence": 8,
+      "title": "Statusmelding",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 98,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 99,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 9,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    }
+  ],
+  "decisions": [],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "6.3",
+      "archive_nomination": "Vernietigen",
+      "description": "De incidentmelding is afgebroken. Deze is foutief ingeboekt, overgedragen aan een ander gezag of door de indiener ingetrokken",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "gegrond_bag",
+      "title": "Gegrond BAG",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Ingewilligd",
+      "title_2_2": "Gegrond",
+      "selectielijst_class": "6.1.4",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De incidentmelding betreft de realisatie van een omvergunningsvergunning met brondocumenten BAG"
+    },
+    {
+      "id": "gegrond",
+      "title": "Gegrond",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Ingewilligd",
+      "title_2_2": "Gegrond",
+      "selectielijst_class": "6.1.8",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "gegrond_financien",
+      "title": "Gegrond - Financiën",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Ingewilligd",
+      "title_2_2": "Gegrond",
+      "selectielijst_class": "6.1.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De incidentmelding is gegrond en heeft financiële consequenties",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "ongegrond_onverif",
+      "title": "Ongegrond - onverif.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Ongegrond",
+      "selectielijst_class": "6.2",
+      "archive_nomination": "Vernietigen",
+      "description": "De incidentmelding is ongegrond en niet verifieerbaar",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ongegrond_verif",
+      "title": "Ongegrond - verif.",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Ongegrond",
+      "selectielijst_class": "6.2",
+      "archive_nomination": "Vernietigen",
+      "description": "De incidentmelding is ongegrond en verifieerbaar",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "verwerkt",
+      "title": "Verwerkt",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "gem",
+      "generic_title": "Ingewilligd",
+      "title_2_2": "Verwerkt",
+      "selectielijst_class": "6.1.8",
+      "archive_nomination": "Vernietigen",
+      "description": "De incidentmelding kan niet als klacht worden afgehandeld.",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "informeel_afgehandeld",
+      "title": "Informeel afgehandeld",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "gem",
+      "generic_title": "Ingewilligd",
+      "title_2_2": "Informeel afgehandeld",
+      "selectielijst_class": "6.1.8",
+      "archive_nomination": "Vernietigen",
+      "description": "De incidentmelding is informeel afgehandeld.",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "toezicht_uitgevoerd_p",
+      "title": "Toezicht uitgevoerd (P)",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "prov",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Toezicht uitgevoerd",
+      "selectielijst_class": "46",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van milieuklachten al of niet via de mileuklachtencentrale",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "toezicht_uitgevoerd_p",
+      "title": "Toezicht uitgevoerd (P)",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "prov",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Toezicht uitgevoerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van meldingen van verontreiniging of aantasting van de bodem door handelingen alsmede het geven van aanwijzingen voor de te nemen maatregelen"
+    },
+    {
+      "id": "toezicht_uitgevoerd_p",
+      "title": "Toezicht uitgevoerd (P)",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "prov",
+      "generic_title": "Toezicht uitgevoerd",
+      "title_2_2": "Toezicht uitgevoerd",
+      "selectielijst_class": "46",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van milieuklachten al of niet via de mileuklachtencentrale. Klachten die leiden tot wijziging van de beleidslijn zijn blijvend te bewaren."
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "De incidentmelding is afgebroken. Deze is foutief ingeboekt, overgedragen aan een ander gezagof door de indiener ingetrokken",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "opgelost",
+      "title": "Opgelost",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "ws",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Afgehandeld",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "vervolgactie",
+      "title": "Vervolgactie",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "ws",
+      "generic_title": "Vervolgactie",
+      "title_2_2": "Vervolgactie",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "geen_actie_nodig",
+      "title": "Geen actie nodig",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "ws",
+      "generic_title": "Geen actie nodig",
+      "title_2_2": "Geen actie nodig",
+      "selectielijst_class": "2.5.1.",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "geen_constatering",
+      "title": "Geen constatering",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 18
+      },
+      "authority": "ws",
+      "generic_title": "Geen constatering",
+      "title_2_2": "Geen constatering",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "doorgestuurd_naar_bevoegd_gezag",
+      "title": "Doorgestuurd naar bevoegd gezag",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 19
+      },
+      "authority": "ws",
+      "generic_title": "Doorgestuurd naar bevoegd gezag",
+      "title_2_2": "Doorgestuurd naar bevoegd gezag",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 20
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "Met de uitvoering van een controlezaak wordt ter plekke, op de locatie van het incident, beoordeeld wat er aan de hand is en welke maatregelen eventueel nodig zijn. De controlezaak kan leiden tot een zaak van het type ‘Handhavingssanctie opleggen’."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/07",
+        "title": "Incidentmelding behandelen",
+        "raw": "7 - Incidentmelding behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De meldingzaak waarin hetzelfde incident als eerste gemeld is."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "Een controle-zaak wordt gepland om te verifiëren of verdere incidenten achterwege blijven."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "Als het incident betrekking blijkt te hebben op een overtreding, kan een handhavingszaak gestart worden om een sanctie op te leggen."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/06",
+        "title": "Handhavingsverzoek behandelen",
+        "raw": "6 - Handhavingsverzoek behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "07_-_Incidentmelding_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      }
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

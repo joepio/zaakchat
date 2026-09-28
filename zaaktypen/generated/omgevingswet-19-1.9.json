@@ -1,0 +1,942 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/19",
+  "version": "1.9",
+  "title": "Bibob-onderzoek uitvoeren",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "19",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Bibob-onderzoek uitvoeren",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "CATEGORIE": {
+      "value": "Evaluatie uitvoeren",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "DOEL": {
+      "value": "Het vaststellen van de integriteit van de aanvrager van een vergunning.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "AANLEIDING": {
+      "value": "Deze zaak wordt intern getriggerd naar aanleiding van een aanvraag voor de in de Wet Bibob genoemde vergunningsoort, waarbij het nodig is om onderzoek te doen naar de integriteit van de aanvrager.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "TOELICHTING": {
+      "value": "Dit zaaktype betreft het uitvoeren van een Bibob-onderzoek. Wanneer de gemeente een aanvraag heeft ontvangen voor de in de Wet Bibob genoemde vergunningsoort kan zij een onderzoek doen naar de integriteit van de aanvrager of de inschrijver. De gemeente kan hiervoor gebruik maken van de diensten van het Bureau Bibob. Deze zaak vormt een deelzaak van de vergunningsprocedure. Het resultaat van het onderzoek is herbruikbaar voor een periode van vijf jaar.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "INITIATIE EXTERN / INTERN": {
+      "value": "Intern",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Aanvraag",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "ONDERWERP": {
+      "value": "Bibob-onderzoek",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Uitvoeren",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 12
+      }
+    },
+    "DOORLOOPTIJD BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "84",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 13
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "Week",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "4",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "28",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 20
+      }
+    },
+    "VERLENGINGSTERMIJN": {
+      "value": "28",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 21
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "Bibob, onderzoek, controle",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Zaakvertrouwelijk",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 23
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 25
+      }
+    },
+    "- BRON": {
+      "value": "Basisarchiefcode",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 35
+      }
+    },
+    "- CODE (2.1)": {
+      "value": "-1.87",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 36
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-12-18",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2021-11-30",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 44
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "unknown"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Bepaald is via welk kanaal / welke kanalen met de aanvrager gecommuniceerd wordt / moet worden.",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "unknown"
+      },
+      "description": "De zaak is geregistreerd en gerelateerd aan de zaak waarin gerelateerde aanvraag wordt behandeld.\nDe behandelend medewerker of het behandelend organisatieonderdeel is bepaald.",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd",
+      "sequence": 3,
+      "title": "Onderzoek uitgevoerd",
+      "inform_citizen": false,
+      "required_documents": [
+        "Formulier bevindingen eigen onderzoek",
+        "Verzoek advies bureau Bibob",
+        "Advies"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 66,
+        "unit": "unknown"
+      },
+      "description": "Het eigen onderzoek en het onderzoek van het Landelijk Bureau Bibob is uitgevoerd. Het advies van het Landelijk Bureau Bibob is ontvangen.",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "4_adviesrapport_opgesteld",
+      "sequence": 4,
+      "title": "Adviesrapport opgesteld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Adviesrapport (intern)"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 15,
+        "unit": "unknown"
+      },
+      "description": "Het adviesrapport naar aanleiding van het Bibob onderzoek is opgesteld.",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "5_zaak_afgerond",
+      "sequence": 5,
+      "title": "Zaak afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 1,
+        "unit": "unknown"
+      },
+      "description": "Het advies is verstrekt aan de behandelaar van de vergunningaanvraag. \nIndien nodig zijn vervolgacties in gang gezet (d.m.v. het plannen van andere zaken). Het zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2021-11-30"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_onderzoek_uitgevoerd",
+      "from": "2_intake_afgerond",
+      "to": "3_onderzoek_uitgevoerd",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_onderzoek_uitgevoerd"
+        }
+      ]
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__to__4_adviesrapport_opgesteld",
+      "from": "3_onderzoek_uitgevoerd",
+      "to": "4_adviesrapport_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_onderzoek_uitgevoerd"
+      },
+      "effects": [
+        {
+          "status.transition": "4_adviesrapport_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "4_adviesrapport_opgesteld__to__5_zaak_afgerond",
+      "from": "4_adviesrapport_opgesteld",
+      "to": "5_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_adviesrapport_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "5_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "1_zaak_gestart",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_controle_verzoek",
+      "title": "1 - Controle verzoek",
+      "question": "Voldoet het verzoek aan de indieningsvereisten?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Controleer of het verzoek voldoet aan de indieningsvereisten.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_verzoek_aanvullende_gegevens",
+      "title": "2 - Verzoek aanvullende gegevens",
+      "question": "Zijn er aanvullende gegevens nodig?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "Verzoek om aanvullende gegevens als het verzoek nog niet voldoet aan de indieningsvereisten.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__1_verzenden_vragenformulier",
+      "title": "1 - Verzenden vragenformulier",
+      "question": "Is het vragenformulier verzonden?",
+      "status": "3_onderzoek_uitgevoerd",
+      "required": true,
+      "description": "Verzend het vragenformulier",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__2_openbare_bronnen_raadplegen",
+      "title": "2 - Openbare bronnen raadplegen",
+      "question": "Zijn de openbare bronnen geraadpleegd?",
+      "status": "3_onderzoek_uitgevoerd",
+      "required": true,
+      "description": "Raadpleeg beschikbare openbare bronnen zoals de basisregistraties, kadaster e.d. om de aangeleverde informatie te controleren",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__3_extern_advies_vragen",
+      "title": "3 - Extern advies vragen",
+      "question": "Is er extern advies aangevraagd?",
+      "status": "3_onderzoek_uitgevoerd",
+      "required": true,
+      "description": "Genereer en verzend het verzoekformulier artikel 11a aan het Landelijk Bureau Bibob en vraag hiermee extern advies aan.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "3_onderzoek_uitgevoerd__4_extern_advies_ontvangen",
+      "title": "4 - Extern advies ontvangen",
+      "question": "Is het externe advies ontvangen?",
+      "status": "3_onderzoek_uitgevoerd",
+      "required": true,
+      "description": "Controleer of het externe advies van het Landelijk Bureau Bibob is ontvangen. Dit kan 8 tot 12 weken duren",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "4_adviesrapport_opgesteld__1_bevindingen_eigen_onderzoek",
+      "title": "1 - Bevindingen eigen onderzoek",
+      "question": "Is het formulier bevindingen eigen onderzoek ingevuld?",
+      "status": "4_adviesrapport_opgesteld",
+      "required": true,
+      "description": "Vul het formulier bevindingen eigen onderzoek in.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "4_adviesrapport_opgesteld__2_adviesrapport_opstellen",
+      "title": "2 - Adviesrapport opstellen",
+      "question": "Is het concept adviesrapport opgesteld?",
+      "status": "4_adviesrapport_opgesteld",
+      "required": true,
+      "description": "Stel het concept adviesrapport op en verwerk hierin de bevindingen en conclusies van het Landelijk Bureau Bibob en de bevindingen uit het eigen onderzoek. \nEen BIBOB-advies kan drie uitkomsten hebben:\n\n- er is geen gevaar dat de gewenste beschikking wordt misbruikt voor criminele activiteiten, zodat de beschikking kan worden afgegeven;\n- er bestaat een mindere mate van gevaar dat de beschikking zal worden misbruikt voor criminele activiteiten, zodat extra voorwaarden kunnen worden gesteld bij de beschikking;\n- er bestaat een ernstig gevaar van misbruik van de beschikking, zodat het bestuursorgaan negatief kan beschikken.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "4_adviesrapport_opgesteld__3_collegiaal_toetsen",
+      "title": "3 - Collegiaal toetsen",
+      "question": "Is het nodig om het concept adviesrapport collegiaal te laten toetsen?",
+      "status": "4_adviesrapport_opgesteld",
+      "required": true,
+      "description": "Laat het concept adviesrapport collegiaal toetsen indien nodig.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "4_adviesrapport_opgesteld__4_vaststellen_adviesrapport",
+      "title": "4 - Vaststellen adviesrapport",
+      "question": "Is het adviesrapport vastgesteld?",
+      "status": "4_adviesrapport_opgesteld",
+      "required": true,
+      "description": "Laat het adviesrapport accorderen door gemachtigde.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__1_advies_leveren",
+      "title": "1 - Advies leveren",
+      "question": "Is het advies geleverd aan de aanvrager?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Lever het advies aan de aanvrager, zodat deze verder kan met de aanvraag die is ontvangen.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__2_archivering",
+      "title": "2 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__3_vervolgzaak",
+      "title": "3 - Vervolgzaak",
+      "question": "Zijn de voor deze zaak relevante vervolgzaken gepland?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Een zaak van onderhavig zaaktype kan een vervolgzaak vereisen, bijvoorbeeld het uitvoeren van een (extra) controle (een zaak van het zaaktype 'Controle uitvoeren') om te verifiëren dat de overtreding niet opnieuw optreedt.\nDe feitelijke invordering van de met de bestuursdwang gemoeide kosten - zoals vastgelegd in de beschikking voor het kostenverhaal - wordt beschouwd als een financieel administratief proces en is geen onderdeel van onderhavig zaaktype.",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "medewerker_bibob",
+      "title": "Medewerker Bibob",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "2_intake_afgerond",
+        "3_onderzoek_uitgevoerd",
+        "4_adviesrapport_opgesteld",
+        "5_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "actor_type": "Medewerker",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "actor_type": "Medewerker",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "belanghebbende",
+      "title": "Belanghebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "bevoegd_gezag",
+      "title": "Bevoegd gezag",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Bevoegd gezag dat het bestreden besluit heeft genomen",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Beslisser",
+      "actor_type": "Medewerker",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "medewerker_bibob",
+      "title": "Medewerker Bibob",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Medewerker",
+      "valid_from": "2021-11-30"
+    }
+  ],
+  "documents": [
+    {
+      "id": "advies",
+      "sequence": 1,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "adviesrapport",
+      "sequence": 2,
+      "title": "Adviesrapport",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "formulier_bevindingen_eigen_onderzoek",
+      "sequence": 3,
+      "title": "Formulier bevindingen eigen onderzoek",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "indicatorenlijst_milieubranche",
+      "sequence": 4,
+      "title": "Indicatorenlijst milieubranche",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "indicatorenlijst_openbare_inrichtingen",
+      "sequence": 5,
+      "title": "Indicatorenlijst openbare inrichtingen",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "indicatorenlijst_subsidies",
+      "sequence": 6,
+      "title": "Indicatorenlijst subsidies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "indicatorenlijst_vastgoedtransacties",
+      "sequence": 7,
+      "title": "Indicatorenlijst vastgoedtransacties",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "verzoek_om_aanvullende_informatie",
+      "sequence": 8,
+      "title": "Verzoek om aanvullende informatie",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "vragenformulier_overheidsopdrachten",
+      "sequence": 9,
+      "title": "Vragenformulier overheidsopdrachten",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "vragenformulier_overige_beschikkingen",
+      "sequence": 10,
+      "title": "Vragenformulier overige beschikkingen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "vragenformulier_subsidiebeschikkingen",
+      "sequence": 11,
+      "title": "Vragenformulier subsidiebeschikkingen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "vragenformulier_vastgoedtransacties",
+      "sequence": 12,
+      "title": "Vragenformulier vastgoedtransacties",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "vragenformulier_vergunningen",
+      "sequence": 13,
+      "title": "Vragenformulier vergunningen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "bibob_adviesaanvraag",
+      "sequence": 14,
+      "title": "Bibob-adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "herinnering_aanleveren_gegevens_bibob",
+      "sequence": 15,
+      "title": "Herinnering aanleveren gegevens BIBOB",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "kennisgeving_bibob_advies_aan_derden",
+      "sequence": 16,
+      "title": "Kennisgeving Bibob-advies aan derden",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    },
+    {
+      "id": "kennisgeving_onderzoek_bibob_aan_betrokkene",
+      "sequence": 17,
+      "title": "Kennisgeving onderzoek Bibob aan betrokkene",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 19
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 18,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 20
+      }
+    }
+  ],
+  "decisions": [],
+  "results": [
+    {
+      "id": "uitgevoerd",
+      "title": "Uitgevoerd",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "4.1.12",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "4.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Het onderzoek is afgebroken. Deze is foutief ingeboekt",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "afgehandeld",
+      "title": "Afgehandeld",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "ws",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Afgehandeld",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Deelzaak",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "Een zaak van het zaaktype (19) wordt uitgevoerd wanneer er twijfel is over de integriteit van de aanvrager van de beschikking."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Deelzaak",
+      "source_ref": {
+        "file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "Een zaak van het zaaktype (19) wordt uitgevoerd wanneer er twijfel is over de integriteit van de aanvrager van de beschikking."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

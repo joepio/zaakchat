@@ -1,0 +1,1624 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/13",
+  "version": "1.9",
+  "title": "Beroep behandelen",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "13",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Beroep behandelen",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Juridisch",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Het bij de rechtsprekende instantie verdedigen van een genomen besluit.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "Van de rechtsprekende instantie is een beroepschrift (of de mededeling dat een beroepschrift is ingediend) ontvangen tegen een genomen besluit.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "Onderhavig zaaktype wordt gebruikt voor het verdedigen van een besluit in beroep, in hoger beroep en in zaken waarin eiser zich verzet tegen de uitspraak na vereenvoudigde behandeling.\nHet beroepschrift is door de partij die het besluit bestrijdt gericht aan de rechtsprekende instantie en ter verweer doorgestuurd naar de zaakbehandelende organisatie.\nAlle in dit zaaktype genoemde termijnen zijn louter indicatief. In elke zaak van dit zaaktype zal de rechtsprekende instantie de termijnen stellen die de zaakbehandelende organisatie dient te volgen.\nAls een ander bevoegd gezag de verweerder is in de beroepzaak en aan de zaakbehandelende organisatie vraagt om een bijdrage aan het verweer, dan is sprake van een zaak van het zaaktype ‘Advies verstrekken’. \nOpschorting is mogelijk op initiatief van de rechtsprekende instantie.\nVerlenging van de doorlooptijd is mogelijlk op initiatief van, en met een termijn bepaald door, de rechtsprekende instantie.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Extern",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Indienen",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Beroepschrift",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Behandelen",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-07-11",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [
+        "Beroepschrift"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Er is - al dan niet geautomatiseerd - een ontvangstbevestiging verzonden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": false,
+      "required_documents": [
+        "Bestreden besluit"
+      ],
+      "required_objects": [
+        "BESLUIT"
+      ],
+      "required_properties": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, de behandelend medewerker of het behandelend organisatieonderdeel is bepaald en de planning van de zaak is afgestemd op de specifieke rechtszaak.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_stukken_toegezonden",
+      "sequence": 3,
+      "title": "Stukken toegezonden",
+      "inform_citizen": false,
+      "required_documents": [
+        "Aanvullend stuk"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 7,
+        "unit": "kalenderdagen"
+      },
+      "description": "Op verzoek van de rechtsprekende instantie zijn relevante stukken verzameld en toegezonden (art. 8:42, lid 1 Algemene wet bestuursrecht) aan de rechtsprekende instantie. Het zaakdossier bevat alle relevante stukken.\nEventuele voor het verweer benodigde adviezen zijn aangevraagd. Indien verwacht wordt dat de wettelijk termijn voor het indienen van het verweerschrift te kort is, is aan de rechtsprekende instantie gevraagd deze termijn te verlengen.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_verweerschrift_ingediend",
+      "sequence": 4,
+      "title": "Verweerschrift ingediend",
+      "inform_citizen": false,
+      "required_documents": [
+        "Verweerschrift"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 18,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het verweerschrift is opgesteld, eventueel gebruik makend van adviezen van specialisten en/of de resultaten van een uitgevoerde controle. Het verweerschrift is met eventuele aanvullende stukken ingediend bij de rechtsprekende instantie.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "5_gereageerd_op_aanvullende_informatie",
+      "sequence": 5,
+      "title": "Gereageerd op aanvullende informatie",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 28,
+        "unit": "kalenderdagen"
+      },
+      "description": "De eiser kan, nadat hij daartoe in de gelegenheid is gesteld door de rechtsprekende instantie, hebben gereageerd op het ingediende verweerschrift (repliek).\nDaarnaast kan de rechtsprekende instantie hebben verzocht om aanvullende inlichtingen (van partijen en anderen), advies hebben gevraagd of een onderzoek door een deskundige hebben ingesteld. Ook kan de rechtsprekende instantie aan de zaakbehandelende organisatie gelegenheid hebben geboden een gebrek in het bestreden besluit te herstellen (bestuurlijke lus).\nDe zaakbehandelende organisatie heeft - indien gewenst - gedupliceerd, een gebrek in het bestreden besluit hersteld en/of (een) schriftelijke zienswijze op- en vastgesteld en aan de rechtsprekende instantie gezonden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "6_zitting_bijgewoond",
+      "sequence": 6,
+      "title": "Zitting bijgewoond",
+      "inform_citizen": false,
+      "required_documents": [
+        "Uitnodiging zitting"
+      ],
+      "required_objects": [],
+      "required_properties": [
+        "Zittingsdatum"
+      ],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 8
+      },
+      "duration": {
+        "value": 21,
+        "unit": "kalenderdagen"
+      },
+      "description": "Van de rechtsprekende instantie is een uitnodiging ontvangen voor het bijwonen van de zitting. Ter voorbereiding op het pleidooi kan een pleitnota zijn opgesteld.\nVervolgens is de zitting (of zijn de zittingen) van de rechtsprekende instantie bijgewoond. Tijdens de zitting is het beroepschrift behandeld en het pleidooi gehouden.\nEr kan gezocht zijn naar een alternatieve oplossing voor het geschil (schikking, mediation) indien de rechter hierom verzocht heeft.\nHet besluit is herzien indien de rechter daarom verzocht heeft en het bevoegd gezag daarmee instemt (bestuurlijke lus).",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "7_zaak_afgerond",
+      "sequence": 7,
+      "title": "Zaak afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [
+        "Uitkomst"
+      ],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 9
+      },
+      "duration": {
+        "value": 5,
+        "unit": "kalenderdagen"
+      },
+      "description": "De uitspraak van de rechtsprekende instantie is ontvangen.\nEventueel is een gerelateerde (vervolg)zaak gepland voor het instellen van hoger beroep (door de zaakbehandelende organisatie) of het nemen van een nieuw besluit (in een zaak van het zaaktype waarin het bestreden besluit is genomen).\nHet zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_stukken_toegezonden",
+      "from": "2_intake_afgerond",
+      "to": "3_stukken_toegezonden",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_stukken_toegezonden"
+        }
+      ]
+    },
+    {
+      "id": "3_stukken_toegezonden__to__4_verweerschrift_ingediend",
+      "from": "3_stukken_toegezonden",
+      "to": "4_verweerschrift_ingediend",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_stukken_toegezonden"
+      },
+      "effects": [
+        {
+          "status.transition": "4_verweerschrift_ingediend"
+        }
+      ]
+    },
+    {
+      "id": "4_verweerschrift_ingediend__to__5_gereageerd_op_aanvullende_informatie",
+      "from": "4_verweerschrift_ingediend",
+      "to": "5_gereageerd_op_aanvullende_informatie",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_verweerschrift_ingediend"
+      },
+      "effects": [
+        {
+          "status.transition": "5_gereageerd_op_aanvullende_informatie"
+        }
+      ]
+    },
+    {
+      "id": "5_gereageerd_op_aanvullende_informatie__to__6_zitting_bijgewoond",
+      "from": "5_gereageerd_op_aanvullende_informatie",
+      "to": "6_zitting_bijgewoond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "5_gereageerd_op_aanvullende_informatie"
+      },
+      "effects": [
+        {
+          "status.transition": "6_zitting_bijgewoond"
+        }
+      ]
+    },
+    {
+      "id": "6_zitting_bijgewoond__to__7_zaak_afgerond",
+      "from": "6_zitting_bijgewoond",
+      "to": "7_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "6_zitting_bijgewoond"
+      },
+      "effects": [
+        {
+          "status.transition": "7_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is het beroep geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": true,
+      "description": "Direct na ontvangst van het beroepschrift wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevante gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_ontvangstbevestiging",
+      "title": "2 - Ontvangstbevestiging",
+      "question": "Is een ontvangstbevestiging verzonden?",
+      "status": "1_zaak_gestart",
+      "required": true,
+      "description": "Aan de rechtsprekende instantie wordt een ontvangstbevestiging verzonden.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_bevoegd",
+      "title": "1 - Bevoegd",
+      "question": "Is de zaakbehandelende organisatie bevoegd de zaak te behandelen?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Beoordeeld wordt of de zaakbehandelende organisatie de zaak kan behandelen, hetzij omdat de zaakbehandelende organisatie bevoegd gezag is, dan wel omdat het bevoegd gezag de zaakbehandelende organisatie heeft gemandateerd tot vertegenwoordiging (volledig mandaat). Indien de zaakbehandelende organisatie niet bevoegd of onvoldoende gemandateerd is, wordt het beroepschrift direct doorgezonden naar het juiste bevoegd gezag en wordt de indiener hierover geïnformeerd (art. 6:15 lid 1 en lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_behandelaar",
+      "title": "3 - Behandelaar",
+      "question": "Is het behandelend team of medewerker bepaald?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "De zaak is gerelateerd aan de zaak waarin het bestreden besluit is behandeld. De behandelend medewerker of het behandelend organisatieonderdeel is bepaald en de zaak is volledig geregistreerd.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "3_stukken_toegezonden__1_compleet",
+      "title": "1 - Compleet",
+      "question": "Zijn alle voor het beroep relevante stukken beschikbaar?",
+      "status": "3_stukken_toegezonden",
+      "required": true,
+      "description": "Beoordeeld wordt of alle voor het beroep relevante stukken beschikbaar zijn in de zaak (via aan onderhavige zaak gerelateerde zaken, waaronder de zaak waarin het bestreden besluit is genomen en/of door de relevante stukken op te nemen in het zaakdossier).",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "3_stukken_toegezonden__2_adviezen_gevraagd",
+      "title": "2 - Adviezen gevraagd",
+      "question": "Zijn de voor het verweer relevante adviezen gevraagd?",
+      "status": "3_stukken_toegezonden",
+      "required": true,
+      "description": "Voor het toetsen van het beroepschrift aan regelgeving en het opstellen van het verweerschrift, kunnen adviezen noodzakelijk zijn. \nIn een aantal gevallen is wettelijk voorgeschreven dat advies moet worden gevraagd aan een persoon die of college dat niet werkzaam is onder de verantwoordelijkheid van de zaakbehandelende organisatie (wettelijke adviseurs, Afdeling 3.3 Algemene wet bestuursrecht, § 2.5 Wet algemene bepalingen omgevingsrecht, art. 16.15 en art. 16.16 Omgevingswet). Het kan echter ook nodig zijn advies in te winnen bij in- of externe adviseurs zonder dat daartoe een directe wettelijke verplichting bestaat, bijvoorbeeld omdat aspecten van de aanvraag een specialistische beoordeling vergen.\nHet ligt in de rede adviseurs die betrokken zijn geweest bij de voorbereiding van het bestreden besluit, te informeren over - en zonodig te betrekken bij de beoordeling van - het ontvangen beroepschrift.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_stukken_toegezonden__3_verlenging",
+      "title": "3 - Verlenging",
+      "question": "Vereist het opstellen van het verweerschrift een langere doorlooptijd dan de wettelijke termijn?",
+      "status": "3_stukken_toegezonden",
+      "required": false,
+      "description": "Het verweerschrift moet binnen vier weken na de dag van verzending aan het bevoegd gezag dat het bestreden besluit heeft genomen, bij de rechtsprekende instantie zijn ingediend (art 8:42, lid 1 Algemene wet bestuursrecht). Indien verwacht wordt dat het opstellen van het verweerschrift een langere doorlooptijd vergt - bijvoorbeeld omdat adviezen zijn gevraagd aan specialisten - wordt de rechtsprekende instantie gevraagd de termijn voor het opstellen van het verweerschrift te verlengen (art. 8:42, lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "3_stukken_toegezonden__4_toezending",
+      "title": "4 - Toezending",
+      "question": "Zijn de relevante stukken aan de rechtsprekende instantie toegezonden?",
+      "status": "3_stukken_toegezonden",
+      "required": true,
+      "description": "De rechtsprekende instantie zal hebben verzocht om aanvullende stukken. Deze aanvullende stukken zijn verzameld en aan de rechtsprekende instantie toegezonden. Eventuele aanvullende stukken die door de indiener van het beroepschrift zijn aangeleverd, zijn opgenomen in het zaakdossier.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "4_verweerschrift_ingediend__1_controle",
+      "title": "1 - Controle",
+      "question": "Is een controle(bezoek) uitgevoerd om inzicht te krijgen in de actuele situatie (indien nodig)?",
+      "status": "4_verweerschrift_ingediend",
+      "required": true,
+      "description": "Uit het beroepschrift of aanvullende stukken kan blijken dat het wenselijk is de activiteiten / situatie waarop het bestreden besluit betrekking heeft, te controleren. Indien dit het geval is, wordt deze uitgevoerd in een gerelateerde (bijdrage)zaak van het zaaktype 'Controle uitvoeren'.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "4_verweerschrift_ingediend__2_adviezen_ontvangen",
+      "title": "2 - Adviezen ontvangen",
+      "question": "Zijn de aangevraagde adviezen ontvangen?",
+      "status": "4_verweerschrift_ingediend",
+      "required": true,
+      "description": "Indien voor het opstellen van het verweerschrift adviezen van specialisten noodzakelijk zijn, wordt geverifieerd of deze zijn ontvangen.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "4_verweerschrift_ingediend__3_verweerschrift_opgesteld",
+      "title": "3 - Verweerschrift opgesteld",
+      "question": "Is het verweerschrift opgesteld en ingediend bij de rechtsprekende instantie?",
+      "status": "4_verweerschrift_ingediend",
+      "required": true,
+      "description": "Het verweerschrift is, eventueel met gebruikmaking van de ontvangen adviezen en de bevindingen uit een uitgevoerde controle, opgesteld ter verdediging van het bestreden besluit.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "5_gereageerd_op_aanvullende_informatie__1_dupliek",
+      "title": "1 - Dupliek",
+      "question": "Is aanpassing van / aanvulling op het verweerschrift nodig?",
+      "status": "5_gereageerd_op_aanvullende_informatie",
+      "required": true,
+      "description": "De rechtsprekende instantie kan de indiener van het beroepschrift in de gelegenheid hebben gesteld te reageren (repliek) op het verweerschrift van de zaakbehandelende organisatie. De zaakbehandelende organisatie kan, naar aanleiding van de reactie van eiser op het verweerschrift, reageren (dupliek) middels een aanvulling op / aanpassing van het verweerschrift (art. 8:43, lid 1 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "5_gereageerd_op_aanvullende_informatie__2_aanvulling",
+      "title": "2 - Aanvulling",
+      "question": "Is de zaakbehandelende organisatie gevraagd aanvullende inlichtingen te verstrekken?",
+      "status": "5_gereageerd_op_aanvullende_informatie",
+      "required": false,
+      "description": "De rechtsprekende instantie kan de zaakbehandelende organisatie verzoeken om, binnen een door de rechtsprekende instantie bepaalde termijn, aanvullende inlichtingen te verstrekken (art. 8:45, lid 1 Algemene wet bestuursrecht). De zaakbehandelende organisatie verstrekt deze inlichtingen door het toezenden van aanvullende stuk(ken) aan de rechtsprekende instantie.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "5_gereageerd_op_aanvullende_informatie__3_zienswijze",
+      "title": "3 - Zienswijze",
+      "question": "Is het wenselijk een zienswijze in te dienen naar aanleiding van ontvangen aanvullende informatie?",
+      "status": "5_gereageerd_op_aanvullende_informatie",
+      "required": true,
+      "description": "Naar aanleiding van ontvangen aanvullende inlichtingen (art. 8:45, lid 1 Algemene wet bestuursrecht) of het ontvangen verslag van het onderzoek van een deskundige (art. 8:47, lid 1 Algemene wet bestuursrecht) kan het wenselijk zijn (een) zienswijze naar voren te brengen (art. 8:45, lid 6 Algemene wet bestuursrecht resp. art. 8:47, lid 5 Algemene wet bestuursrecht). De schriftelijke zienswijze wordt op- en vastgesteld en binnen 4 weken aan de rechtsprekende instantie toegezonden.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "5_gereageerd_op_aanvullende_informatie__4_herstelmogelijkheid",
+      "title": "4 - Herstelmogelijkheid",
+      "question": "Heeft de rechtsprekende instantie de zaakbehandelende organisatie in de gelegenheid gesteld een gebrek in het besluit te herstellen?",
+      "status": "5_gereageerd_op_aanvullende_informatie",
+      "required": false,
+      "description": "Bij tussenuitspraak (art. 8:80a, lid 1 Algemene wet bestuursrecht) kan de rechtsprekende instantie de zaakbehandelende organisatie in de gelegenheid stellen een gebrek in het besluit te (laten) herstellen (art. 8:51a, lid 1 Algemene wet bestuursrecht). De zaakbehandelende organisatie overweegt of het van de geboden gelegenheid gebruik wil maken en deelt dit zo spoedig mogelijk mede aan de rechtsprekende instantie (art. 8:51b, lid 1 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "5_gereageerd_op_aanvullende_informatie__5_hersteld_besluit",
+      "title": "5 - Hersteld besluit",
+      "question": "Is gebruik gemaakt van de mogelijkheid een gebrek in het bestreden besluit te herstellen?",
+      "status": "5_gereageerd_op_aanvullende_informatie",
+      "required": false,
+      "description": "Indien de zaakbehandelende organisatie gebruik maakt van de geboden gelegenheid een gebrek in het bestreden besluit te herstellen, wordt, rekening houdend met de aanwijzigen daarover in de tussenuitspraak (art. 8:80a, lid 2 Algemene wet bestuursrecht), een hersteld besluit genomen. Zonodig wordt hiertoe een gerelateerde (bijdrage)zaak van het zaaktype waarin het bestreden besluit aanvankelijk is genomen, (versneld) uitgevoerd.\nAan de rechtsprekende instantie is medegedeeld op welke wijze het gebrek in het bestreden besluit is hersteld (art. 8:51b, lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "5_gereageerd_op_aanvullende_informatie__6_alternatieve_geschilbeslechting",
+      "title": "6 - Alternatieve geschilbeslechting",
+      "question": "Zoeken partijen - op verzoek van de rechtsprekende instantie - naar een alternatieve beslechting van het geschil?",
+      "status": "5_gereageerd_op_aanvullende_informatie",
+      "required": false,
+      "description": "De rechtsprekende instantie kan partijen verzoeken te onderzoeken of ze samen (schikking) of onder beleiding van een bemiddelaar (mediation) kunnen komen tot een oplossing voor het geschil, zonder dat de rechtsprekende instantie uitspraak hoeft te doen. Indien partijen instemmen met het verzoek, schorst de rechtsprekende instantie het onderzoek naar het geschil om partijen de gelegenheid te geven tot een oplossing te komen.\nAls partijen overeenstemming over een oplossing bereiken, leidt dit tot intrekking van het beroep door eiser.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    },
+    {
+      "id": "6_zitting_bijgewoond__1_zittingsdatum",
+      "title": "1 - Zittingsdatum",
+      "question": "Is de datum van de zitting vastgelegd?",
+      "status": "6_zitting_bijgewoond",
+      "required": true,
+      "description": "Ten minste drie weken voor de zitting ontvangt de zaakbehandelende organisatie een uitnodiging van de rechtsprekende instantie om ter zitting te verschijnen (art. 8:56 Algemene wet bestuursrecht). De zittingsdatum wordt vastgelegd in onderhavige zaak en zonodig in de agenda('s) van de personen (medewerkers en eventuele adviseurs) die de zaakbehandelende organisatie ter zitting zullen vertegenwoordigen.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 21
+      }
+    },
+    {
+      "id": "6_zitting_bijgewoond__2_pleitnota",
+      "title": "2 - Pleitnota",
+      "question": "Is de pleitnota opgesteld?",
+      "status": "6_zitting_bijgewoond",
+      "required": true,
+      "description": "Ter ondersteuning van het verweer tijdens de zitting, kan een pleitnota zijn opgesteld.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 22
+      }
+    },
+    {
+      "id": "6_zitting_bijgewoond__3_nadere_stukken",
+      "title": "3 - Nadere stukken",
+      "question": "Zijn er nog nadere stukken in te dienen voor de zitting?",
+      "status": "6_zitting_bijgewoond",
+      "required": false,
+      "description": "Eventuele informatie die nog niet aan de rechtsprekende instantie was aangeleverd, moet uiterlijk tien dagen voor de zitting worden ingediend (art. 8:58, lid 1 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 23
+      }
+    },
+    {
+      "id": "6_zitting_bijgewoond__4_machtiging",
+      "title": "4 - Machtiging",
+      "question": "Is een machtiging voor vertegenwoordiging noodzakelijk?",
+      "status": "6_zitting_bijgewoond",
+      "required": false,
+      "description": "Indien het bevoegd gezag dat het bestreden besluit heeft genomen zich laat vertegenwoordigen door een gemachtigde, kan de rechtsprekende instantie van de gemachtigde een schriftelijke machtiging verlangen (art. 2:1, lid 2 Algemene wet bestuursrecht). Geverifieerd wordt of de vertegenwoordigers van het bevoegd gezag beschikken over een schriftelijke machtiging; is dit niet het geval, dan wordt voor een schriftelijke machtiging gezorgd.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 24
+      }
+    },
+    {
+      "id": "6_zitting_bijgewoond__5_herstelmogelijkheid",
+      "title": "5 - Herstelmogelijkheid",
+      "question": "Heeft de rechtsprekende instantie de zaakbehandelende organisatie in de gelegenheid gesteld een gebrek in het besluit te herstellen?",
+      "status": "6_zitting_bijgewoond",
+      "required": false,
+      "description": "Bij tussenuitspraak (art. 8:80a, lid 1 Algemene wet bestuursrecht) kan de rechtsprekende instantie de zaakbehandelende organisatie in de gelegenheid stellen een gebrek in het besluit te (laten) herstellen (art. 8:51a, lid 1 Algemene wet bestuursrecht). De zaakbehandelende organisatie overweegt of het van de geboden gelegenheid gebruik wil maken en deelt dit zo spoedig mogelijk mede aan de rechtsprekende instantie (art. 8:51b, lid 1 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 25
+      }
+    },
+    {
+      "id": "6_zitting_bijgewoond__6_hersteld_besluit",
+      "title": "6 - Hersteld besluit",
+      "question": "Is gebruik gemaakt van de mogelijkheid een gebrek in het bestreden besluit te herstellen?",
+      "status": "6_zitting_bijgewoond",
+      "required": false,
+      "description": "Indien de zaakbehandelende organisatie gebruik maakt van de geboden gelegenheid een gebrek in het bestreden besluit te herstellen, wordt, rekening houdend met de aanwijzigen daarover in de tussenuitspraak (art. 8:80a, lid 2 Algemene wet bestuursrecht), een hersteld besluit genomen. Zonodig wordt hiertoe een gerelateerde (bijdrage)zaak van het zaaktype waarin het bestreden besluit aanvankelijk is genomen, (versneld) uitgevoerd.\nAan de rechtsprekende instantie is medegedeeld op welke wijze het gebrek in het bestreden besluit is hersteld (art. 8:51b, lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 26
+      }
+    },
+    {
+      "id": "6_zitting_bijgewoond__7_alternatieve_geschilbeslechting",
+      "title": "7 - Alternatieve geschilbeslechting",
+      "question": "Zoeken partijen - op verzoek van de rechtsprekende instantie - naar een alternatieve beslechting van het geschil?",
+      "status": "6_zitting_bijgewoond",
+      "required": false,
+      "description": "De rechtsprekende instantie kan partijen verzoeken te onderzoeken of ze samen (schikking) of onder beleiding van een bemiddelaar (mediation) kunnen komen tot een oplossing voor het geschil, zonder dat de rechtsprekende instantie uitspraak hoeft te doen. Indien partijen instemmen met het verzoek, schorst de rechtsprekende instantie het onderzoek naar het geschil om partijen de gelegenheid te geven tot een oplossing te komen.\nAls partijen overeenstemming over een oplossing bereiken, leidt dit tot intrekking van het beroep door eiser.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 27
+      }
+    },
+    {
+      "id": "7_zaak_afgerond__1_uitspraak",
+      "title": "1 - Uitspraak",
+      "question": "Is de uitspraak van de rechtsprekende instantie ontvangen?",
+      "status": "7_zaak_afgerond",
+      "required": true,
+      "description": "Binnen 6 weken - in bijzondere omstandigheden te verlengen met 6 weken - na de (laatste) zitting doet de rechtsprekende instantie uitspraak (art. 8:66 Algemene wet bestuursrecht). De uitspraak wordt vastgelegd in onderhavige zaak.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 28
+      }
+    },
+    {
+      "id": "7_zaak_afgerond__2_archivering",
+      "title": "2 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "7_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 29
+      }
+    },
+    {
+      "id": "7_zaak_afgerond__3_registraties",
+      "title": "3 - Registraties",
+      "question": "Zijn de voor de zaak relevante registraties bijgewerkt?",
+      "status": "7_zaak_afgerond",
+      "required": false,
+      "description": "De uitkomst van de zaak kan leiden tot een mutatie in één of meer (basis)registraties. Denk aan het verlenen van toestemming voor het slopen van een pand (moet leiden tot verwijdering van dat pand in de BAG), het oprichten van een bouwwerk (moet leiden tot creatie van dat bouwwerk in de BAG), het toestaan van een milieubelastende activiteit (kan leiden tot opname van die activiteit op de 'risicokaart') of het nemen van een handhavingsbesluit t.a.v. een overtreding (kan leiden tot registratie van een beperking in de landelijke voorziening voor de WKPB).\nDit zijn slechts enkele voorbeelden; alle relevante (basis)registraties dienen te worden bijgewerkt op basis van de uitkomst van onderhavige zaak.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 30
+      }
+    },
+    {
+      "id": "7_zaak_afgerond__4_vervolgzaak",
+      "title": "4 - Vervolgzaak",
+      "question": "Zijn de voor deze zaak relevante vervolgzaken gepland?",
+      "status": "7_zaak_afgerond",
+      "required": true,
+      "description": "Indien de uitkomst van onderhavige zaak aanleiding geeft tot het nemen van een nieuw besluit, dan wordt een gerelateerde (vervolg)zaak van het betreffende zaaktype (bijv. 'Bezwaar behandelen' of 'Aanvraag beschikking uitgebreid behandelen') gestart. Indien de zaakbehandelende organisatie de uitspraak in beroep van de rechtsprekende instantie betwist, wordt een zaak van het zaaktype 'Beroep instellen' ((nog) niet uitgewerkt) gestart.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 31
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "7_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "bevoegd_gezag",
+      "title": "Bevoegd gezag",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Bevoegd gezag dat het bestreden besluit heeft genomen",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "derde_belanghebbende",
+      "title": "Derde belanghebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "indiener_beroepschrift",
+      "title": "Indiener beroepschrift",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "rechtsprekende_instantie",
+      "title": "Rechtsprekende instantie",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Rechtbank of Raad van State",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "verweerder",
+      "title": "Verweerder",
+      "may_set_statuses": [
+        "2_intake_afgerond",
+        "3_stukken_toegezonden",
+        "4_verweerschrift_ingediend",
+        "5_gereageerd_op_aanvullende_informatie",
+        "6_zitting_bijgewoond"
+      ],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 10
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "beroepschrift",
+      "sequence": 1,
+      "title": "Beroepschrift",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "verzoek_aanvullende_stukken",
+      "sequence": 2,
+      "title": "Verzoek aanvullende stukken",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 3,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "bericht_ander_bevoegd_gezag",
+      "sequence": 4,
+      "title": "Bericht ander bevoegd gezag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "melding_overgang_bevoegdheid",
+      "sequence": 5,
+      "title": "Melding overgang bevoegdheid",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "bestreden_besluit",
+      "sequence": 6,
+      "title": "Bestreden besluit",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "aanvullend_stuk",
+      "sequence": 7,
+      "title": "Aanvullend stuk",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "aanvullend_stuk",
+      "sequence": 8,
+      "title": "Aanvullend stuk",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 9,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 9,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "verzoek_verlenging_termijn_opstellen_verweerschrift",
+      "sequence": 10,
+      "title": "Verzoek verlenging termijn opstellen verweerschrift",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "verlenging_termijn_opstellen_verweerschrift",
+      "sequence": 11,
+      "title": "Verlenging termijn opstellen verweerschrift",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 12,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 12,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "controlerapport",
+      "sequence": 13,
+      "title": "Controlerapport",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "verweerschrift",
+      "sequence": 14,
+      "title": "Verweerschrift",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    },
+    {
+      "id": "reactie_op_verweerschrift_repliek",
+      "sequence": 15,
+      "title": "Reactie op verweerschrift (repliek)",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 19
+      }
+    },
+    {
+      "id": "aanvulling_verweerschrift_dupliek",
+      "sequence": 16,
+      "title": "Aanvulling verweerschrift (dupliek)",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 20
+      }
+    },
+    {
+      "id": "voornemen_benoemen_deskundige",
+      "sequence": 17,
+      "title": "Voornemen benoemen deskundige",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 21
+      }
+    },
+    {
+      "id": "wensen_onderzoek",
+      "sequence": 18,
+      "title": "Wensen onderzoek",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 22
+      }
+    },
+    {
+      "id": "verslag_onderzoek",
+      "sequence": 19,
+      "title": "Verslag onderzoek",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 23
+      }
+    },
+    {
+      "id": "tussenuitspraak",
+      "sequence": 20,
+      "title": "Tussenuitspraak",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 24
+      }
+    },
+    {
+      "id": "mededeling_benutting_herstelmogelijkheid",
+      "sequence": 21,
+      "title": "Mededeling benutting herstelmogelijkheid",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 25
+      }
+    },
+    {
+      "id": "mededeling_hersteld_besluit",
+      "sequence": 22,
+      "title": "Mededeling hersteld besluit",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 26
+      }
+    },
+    {
+      "id": "zienswijze",
+      "sequence": 23,
+      "title": "Zienswijze",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 27
+      }
+    },
+    {
+      "id": "zienswijze",
+      "sequence": 24,
+      "title": "Zienswijze",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 28
+      }
+    },
+    {
+      "id": "uitnodiging_zitting",
+      "sequence": 25,
+      "title": "Uitnodiging zitting",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 29
+      }
+    },
+    {
+      "id": "pleitnota",
+      "sequence": 26,
+      "title": "Pleitnota",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 30
+      }
+    },
+    {
+      "id": "machtiging_voor_vertegenwoordiging",
+      "sequence": 27,
+      "title": "Machtiging voor vertegenwoordiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 31
+      }
+    },
+    {
+      "id": "uitspraak_op_beroep",
+      "sequence": 28,
+      "title": "Uitspraak op beroep",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 32
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 98,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 33
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 99,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 34
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 29,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 35
+      }
+    }
+  ],
+  "decisions": [],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "13.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Het beroep is afgebroken. Deze is foutief ingeboekt of de rechtsprekende instantie is onbevoegd.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "gegrond_bewaren",
+      "title": "Gegrond - bewaren",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Gegrond",
+      "selectielijst_class": "13.1.3",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak of partijen hebben een oplossing gevonden voor het geschil (schikking). Het beroep heeft betrekking op een besluit dat is genomen in een te bewaren zaak."
+    },
+    {
+      "id": "gegrond",
+      "title": "Gegrond",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Gegrond",
+      "selectielijst_class": "13.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak of partijen hebben een oplossing gevonden voor het geschil (schikking).",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "gegrond_financien",
+      "title": "Gegrond - financien",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Gegrond",
+      "selectielijst_class": "13.1.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak of partijen hebben een oplossing gevonden voor het geschil (schikking). Het beroep heeft financiële consequenties.",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "niet_ontvankelijk",
+      "title": "Niet ontvankelijk",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Niet ontvankelijk",
+      "selectielijst_class": "13.1.4",
+      "archive_nomination": "Vernietigen",
+      "description": "De rechtsprekende instantie heeft het beroep niet ontvankelijk verklaard.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ingetrokken",
+      "title": "Ingetrokken",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "13.2",
+      "archive_nomination": "Vernietigen",
+      "description": "De indiener heeft het beroepschrift ingetrokken.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ongegrond_bewaren",
+      "title": "Ongegrond - bewaren",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Ongegrond",
+      "selectielijst_class": "13.1.3",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak of partijen hebben een oplossing gevonden voor het geschil (schikking). Het beroep heeft betrekking op een besluit dat is genomen in een te bewaren zaak."
+    },
+    {
+      "id": "ongegrond",
+      "title": "Ongegrond",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Ongegrond",
+      "selectielijst_class": "13.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak of partijen hebben een oplossing gevonden voor het geschil (schikking).",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "ongegrond_financ",
+      "title": "Ongegrond - financ.",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Ongegrond",
+      "selectielijst_class": "13.1.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak of partijen hebben een oplossing gevonden voor het geschil (schikking). Het beroep heeft financiële consequenties.",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "gegrond_met_precedentwerking",
+      "title": "Gegrond met precedentwerking",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "ws",
+      "generic_title": "Toegekend",
+      "title_2_2": "Toegekend",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "ongegrond_met_precedentwerking",
+      "title": "Ongegrond met precedentwerking",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "ws",
+      "generic_title": "Niet toegekend",
+      "title_2_2": "Niet toegekend",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "gegrond",
+      "title": "Gegrond",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "ws",
+      "generic_title": "Toegekend",
+      "title_2_2": "Toegekend",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "ongegrond",
+      "title": "Ongegrond",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "ws",
+      "generic_title": "Niet toegekend",
+      "title_2_2": "Niet toegekend",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "niet_ontvankelijk",
+      "title": "Niet ontvankelijk",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "ws",
+      "generic_title": "Niet ontvankelijk",
+      "title_2_2": "Niet ontvankelijk",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/12",
+        "title": "Zienswijze behandelen",
+        "raw": "12 - Zienswijze behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Zienswijze behandelen' waarin door de indiener van het beroepschrift een zienswijze naar voren is gebracht met betrekking tot het bestreden besluit. Een belanghebbende kan geen beroep instellen als hem redelijkerwijs kan worden verweten dat hij geen zienswijze naar voren heeft gebracht (art. 6:13 Algemene wet bestuursrecht)."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin wordt beoordeeld of argumenten die naar voren zijn gebracht in het beroepschrift of aanvullende stukken, op feiten berusten."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin het bestreden besluit is genomen waartegen het beroep is ingesteld dat in onderhavige zaak wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/13",
+        "title": "Beroep behandelen",
+        "raw": "13 - Beroep behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Beroep behandelen' waarin de uitspraak is gedaan waartegen het hoger beroep is ingesteld dat in onderhavige zaak wordt behandeld.\nDe zaak van het zaaktype 'Beroep behandelen' waarin de rechtsprekende instantie gekozen heeft voor Vereenvoudigde behandeling (Afdeling 8.2.4 Algemene wet bestuursrecht) waartegen in verzet is gegaan. Het verzet wordt in onderhavige zaak behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/16",
+        "title": "Bezwaar behandelen",
+        "raw": "16 - Bezwaar behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen' waarin het bestreden besluit is genomen waartegen het beroep is ingesteld dat in onderhavige zaak wordt behandeld. Een belanghebbende kan geen beroep instellen als hem redelijkerwijs kan worden verweten dat hij geen bezwaar heeft gemaakt (art. 6:13 Algemene wet bestuursrecht)."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/16",
+        "title": "Bezwaar behandelen",
+        "raw": "16 - Bezwaar behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen' waarin een nieuw besluit moet worden genomen, omdat de rechtsprekende instantie de eerder genomen beslissing op bezwaar (het bestreden besluit) in onderhavige zaak (gedeeltelijk) heeft vernietigd."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin een nieuw besluit moet worden genomen, omdat de rechtsprekende instantie het eerder in een zaak van voornoemd zaaktype genomen besluit (het bestreden besluit) in onderhavige zaak (gedeeltelijk) heeft vernietigd."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/14",
+        "title": "Voorlopige voorziening behandelen",
+        "raw": "14 - Voorlopige voorziening behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 10
+      },
+      "description": "De zaak van het zaaktype 'Voorlopige voorziening behandelen', waarin de partij die het besluit bestrijdt een verzoek om voorlopige voorziening indient bij de voorzieningenrechter van een rechtsprekende instantie, in afwachting van de behandeling van het bezwaar, beroep of hoger beroep tegen dat besluit."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/20",
+        "title": "Bezwaar behandelen zonder bezwaarcommissie",
+        "raw": "20 - Bezwaar behandelen zonder bezwaarcommissie"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 11
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen zonder bezwaarcommissie' waarin het bestreden besluit is genomen waartegen het beroep is ingesteld dat in onderhavige zaak wordt behandeld. Een belanghebbende kan geen beroep instellen als hem redelijkerwijs kan worden verweten dat hij geen bezwaar heeft gemaakt (art. 6:13 Algemene wet bestuursrecht)."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/20",
+        "title": "Bezwaar behandelen zonder bezwaarcommissie",
+        "raw": "20 - Bezwaar behandelen zonder bezwaarcommissie"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "13_-_Beroep_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 12
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen zonder bezwaarcommissie' waarin een nieuw besluit moet worden genomen, omdat de rechtsprekende instantie de eerder genomen beslissing op bezwaar (het bestreden besluit) in onderhavige zaak (gedeeltelijk) heeft vernietigd."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

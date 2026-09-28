@@ -1,0 +1,1815 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/17",
+  "version": "1.9",
+  "title": "Ambtshalve beschikken",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "17",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Ambtshalve beschikken",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "CATEGORIE": {
+      "value": "Vergunningverlening",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "DOEL": {
+      "value": "Een bestaand besluit wordt op initatief van bevoegd gezag ingetrokken of geactualiseerd. Het nieuwe besluit komt tot stand middels dezelfde procedure waarmee het bestaande tot stand is gekomen.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "AANLEIDING": {
+      "value": "De zaakbehandelende organisatie start zelf ambtshalve een traject voor het wijzigen of intrekken van een beschikking, waarop een reguliere procedure (Titel 4.1 Algemene wet bestuursrecht) van toepassing is.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "TOELICHTING": {
+      "value": "Het zaaktype heeft gelijkenis met de zaaktypen voor het behandelen van een aanvraag, alleen ligt het initiatief hier bij het bevoegd gezag.\nEen zaak van dit zaaktype wordt altijd afgesloten zodra de beschikking bekendgemaakt is. Indien bezwaar - al dan niet in combinatie met een verzoek om een voorlopige voorziening - tegen de beschikking wordt ingesteld, wordt dat bezwaar behandeld in een separate gerelateerde zaak van het zaaktype 'Bezwaar behandelen' en eventueel een zaak van het zaaktype 'Voorlopige voorziening behandelen'.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Intern",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Ambtelijk voornemen tot intrekken, wijzigen",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "ONDERWERP": {
+      "value": "Vergunning reguliere procedure",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "DOORLOOPTIJD BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "56",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 13
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "8",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "56",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 20
+      }
+    },
+    "VERLENGINGSTERMIJN": {
+      "value": "42",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 21
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "Ambshalve beschikken",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 23
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 25
+      }
+    },
+    "PUBLICATIETEKST": {
+      "value": "zie KOOP richtlijnen",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 26
+      }
+    },
+    "- NAAM": {
+      "value": "omgevingsvergunning",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 28
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-12-18",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2021-11-30",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 44
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar er is nog geen sprake van een afgeronde registratie. Bepaald is via welk kanaal / welke kanalen met de vergunninghouder gecommuniceerd wordt / moet worden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_voornemen_verstuurd",
+      "sequence": 2,
+      "title": "Voornemen verstuurd",
+      "inform_citizen": true,
+      "required_documents": [
+        "Medeling voornemen"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het voornemen is kenbaar gemaakt aan de vergunninghouder.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_getoetst_aan_regelgeving",
+      "sequence": 3,
+      "title": "Getoetst aan regelgeving",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 38,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het voornemen is beoordeeld - zonodig in samenspraak met in- en externe adviseurs - op aanvaardbaarheid en volledigheid van de ontvangen informatie. \n\nHet voornemen is getoetst aan de relevante regelgeving. Waar nodig zijn in- en/of externe adviseurs gevraagd te adviseren over specifieke aspecten vanhet voornemen.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_beschikking_vastgesteld",
+      "sequence": 4,
+      "title": "Beschikking vastgesteld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 14,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het concept van de beschikking kan zijn getoetst door een collega en is goedgekeurd op basis van de geldende mandaatafspraken.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "5_zaak_afgerond",
+      "sequence": 5,
+      "title": "Zaak afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De beschikking (of de reactie) is verzonden en gepubliceerd. De relevante registraties (BAG, BRK, Wkpb, Risicokaart, et cetera) zijn bijgewerkt. Indien nodig is een vervolgzaak geïnitieerd (voor bijvoorbeeld toezicht) en het zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_voornemen_verstuurd",
+      "from": "1_zaak_gestart",
+      "to": "2_voornemen_verstuurd",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_voornemen_verstuurd"
+        }
+      ]
+    },
+    {
+      "id": "2_voornemen_verstuurd__to__3_getoetst_aan_regelgeving",
+      "from": "2_voornemen_verstuurd",
+      "to": "3_getoetst_aan_regelgeving",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_voornemen_verstuurd"
+      },
+      "effects": [
+        {
+          "status.transition": "3_getoetst_aan_regelgeving"
+        }
+      ]
+    },
+    {
+      "id": "3_getoetst_aan_regelgeving__to__4_beschikking_vastgesteld",
+      "from": "3_getoetst_aan_regelgeving",
+      "to": "4_beschikking_vastgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_getoetst_aan_regelgeving"
+      },
+      "effects": [
+        {
+          "status.transition": "4_beschikking_vastgesteld"
+        }
+      ]
+    },
+    {
+      "id": "4_beschikking_vastgesteld__to__5_zaak_afgerond",
+      "from": "4_beschikking_vastgesteld",
+      "to": "5_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_beschikking_vastgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "5_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_communicatie",
+      "title": "1 - Communicatie",
+      "question": "Is bepaald en vastgelegd op welke wijze communicatie met de verguninghouder plaatsvindt?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Communicatie over een zaak verloopt in steeds meer gevallen niet meer - uitsluitend - via fysieke post, maar via meerdere - analoge en digitale - kanalen. Soms is het gebruik van bepaalde digitale kanalen zelfs verplicht. Indien de vergunninghouder bijvoorbeeld kwalificeert als dienstverrichter (art. 1 Dienstenwet) en heeft aangegeven via het centraal loket - Berichtenbox voor bedrijven - voldoende bereikbaar te zijn, wordt alle in de zaak gevoerde correspondentie - tevens - verzonden via genoemd centraal loket (art. 14, lid 1 onder b Dienstenwet, juncto art. 16.54, lid 3 Omgevingswet).",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "2_voornemen_verstuurd__1_procedure",
+      "title": "1 - Procedure",
+      "question": "Is het oorspronkelijk besluit op basis van de reguliere procedure?",
+      "status": "2_voornemen_verstuurd",
+      "required": true,
+      "description": "De procedure die de ambtelijke beschikking volgt wordt bepaald door de procedure waarmee het in te trekken of te wijzigen besluit tot stand is gekomen.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_voornemen_verstuurd__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Is de zaak volledig geregistreerd en is het voornemen verzonden?",
+      "status": "2_voornemen_verstuurd",
+      "required": true,
+      "description": "Het bevoegd gezag maakt zijn voornemen kenbaar aan de vergunninghouder.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "3_getoetst_aan_regelgeving__1_reactie_ontvangen",
+      "title": "1 - Reactie ontvangen",
+      "question": "Heeft de vergunninghouder een reactie op het voornemen ingediend?",
+      "status": "3_getoetst_aan_regelgeving",
+      "required": false,
+      "description": "Voor het opstellen van de beschikking kan de vergunninghouder een reactie geven.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "3_getoetst_aan_regelgeving__2_volledig",
+      "title": "2 - Volledig",
+      "question": "Zijn aanvullende gegevens noodzakelijk voor behandeling van het voornemen?",
+      "status": "3_getoetst_aan_regelgeving",
+      "required": true,
+      "description": "",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "3_getoetst_aan_regelgeving__3_coordinatie",
+      "title": "3 - Coördinatie",
+      "question": "Is de coördinatieregeling van nodig om te komen tot een samenhangend besluit?",
+      "status": "3_getoetst_aan_regelgeving",
+      "required": false,
+      "description": "Beoordeeld wordt of op het te nemen besluit coördinatieregeling - Afdeling 3.5 van de Algemene wet bestuursrecht - van toepassing is (1).\nAls uit de beoordeling blijkt dat een andere organisatie de behandeling van het voornemen moet overnemen, is dit gemeld aan die organisatie, is de aanvrager daarover geïnformeerd, wordt de status 4 pro forma uitgevoerd en is onderhavige zaak afgerond. Als de zaakbehandelende organisatie het coördinerend orgaan is, wordt advies / instemming gevraagd aan de andere bestuursorganen die over de aanvraag moeten beschikken.\n1) Let op: als de coördinatieregeling van toepassing is, vindt behandeling doorgaans plaats in de uitgebreide procedure (afdeling 3.4 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "3_getoetst_aan_regelgeving__4_aanhouding",
+      "title": "4 - Aanhouding",
+      "question": "Is er een grond de besluitvorming over het voornemen aan te houden?",
+      "status": "3_getoetst_aan_regelgeving",
+      "required": false,
+      "description": "Beoordeeld wordt of er redenen zijn de besluitvorming over het voornemen aan te houden. Als de besluitvorming niet van rechtswege wordt aangehouden, wordt een aanhoudingsbeschikking genomen. Aanhouding van de besluitvorming wordt aan de vergunninghouder bekendgemaakt en gepubliceerd. Als besluitvorming wordt aangehouden, geldt de datum waarop de aanhouding eindigt als startdatum voor de beslistermijn.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_getoetst_aan_regelgeving__5_verlenging",
+      "title": "5 - Verlenging",
+      "question": "Is er aanleiding de beslistermijn te verlengen?",
+      "status": "3_getoetst_aan_regelgeving",
+      "required": false,
+      "description": "Beoordeeld wordt of er aanleiding is de beslistermijn te verlengen met een redelijke termijn, zie art. 4:14 Algemene wet bestuursrecht. Voor beschikkingen die betrekking hebben op de fysieke leefomgeving, is eerdergenoemde redelijke termijn wettelijk beperkt tot maximaal 6 weken (zie art. 3.9, lid 2 Wet algemene bepalingen omgevingsrecht, resp. art. 16.64, lid 2 Omgevingswet).\nEen beschikking tot verlenging van de beslistermijn dient binnen 8 weken na ontvangst van de aanvraag te worden genomen en wordt bekendgemaakt aan de vergunninghouder en gepubliceerd.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "3_getoetst_aan_regelgeving__6_adviezen_gevraagd",
+      "title": "6 - Adviezen gevraagd",
+      "question": "Zijn de voor de beoordeling relevante adviezen en/of instemmingen gevraagd?",
+      "status": "3_getoetst_aan_regelgeving",
+      "required": true,
+      "description": "Voor het toetsen van het voornemen aan regelgeving en het zorgvuldig afwegen van belangen, kunnen adviezen en/of instemmingen (1) noodzakelijk zijn. In een aantal gevallen is wettelijk voorgeschreven dat advies/instemming moet worden gevraagd aan een persoon die of college dat niet werkzaam is onder de verantwoordelijkheid van de zaakbehandelende organisatie (wettelijke adviseurs, Afdeling 3.3 Algemene wet bestuursrecht, § 2.5 Wet algemene bepalingen omgevingsrecht, art. 16.15 en art. 16.16 Omgevingswet). Het kan echter ook nodig zijn advies in te winnen bij in- of externe adviseurs zonder dat daartoe een directe wettelijke verplichting bestaat, bijvoorbeeld omdat aspecten van het voornemeneen specialistische beoordeling vergen.\n1) Let op: Indien de voorgenomen beslissing op de aanvraag instemming (als bedoeld in art. 16.16 Omgevingswet) behoeft, dient de beslissing binnen 12 weken (in plaats van 8 weken) (art. 16.64 Omgevingswet) te worden genomen.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "3_getoetst_aan_regelgeving__7_aanvulling_aanpassing",
+      "title": "7 - Aanvulling / Aanpassing",
+      "question": "Is aanvulling en/of aanpassing van van het voornemen gewenst?",
+      "status": "3_getoetst_aan_regelgeving",
+      "required": false,
+      "description": "Gedurende de inhoudelijke behandeling van de aanvraag kan blijken dat het voornemen moet worden afgewezen, tenzij de vergunninghouder op onderdelen aanvult of aanpast. De zaakbehandelende organisatie kan de vergunninghouder hiertoe in de gelegenheid stellen.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "3_getoetst_aan_regelgeving__8_zienswijze_belanghebbende",
+      "title": "8- Zienswijze belanghebbende",
+      "question": "Moet(en) de vergunninghouder en/of belanghebbende(n) om een zienswijze worden gevraagd over de voorgenomen beschikking?",
+      "status": "3_getoetst_aan_regelgeving",
+      "required": false,
+      "description": "Beoordeeld wordt of de gegevens op grond waarvan de zaakbehandelende organisatie voornemens is de aanvraag geheel of gedeeltelijk af te wijzen, afwijken van de gegevens die de aanvrager zelf heeft verstrekt. Indien dat het geval is, wordt de aanvrager in de gelegenheid gesteld zijn zienswijze op de voorgenomen afwijzing naar voren te brengen (art. 4:7 Algemene wet bestuursrecht).\nIndien verwacht wordt dat een belanghebbende - niet zijnde de aanvrager - bedenkingen zal hebben tegen een voorgenomen beschikking en voor het komen tot die beschikking zijn gegevens gebruikt die niet door de belanghebbende zijn verstrekt, wordt de belanghebbende in de gelegenheid gesteld zijn zienswijze naar voren te brengen (art. 4:8 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "4_beschikking_vastgesteld__1_concept_getoetst",
+      "title": "1 - Concept getoetst",
+      "question": "Is de beschikking (collegiaal) getoetst?",
+      "status": "4_beschikking_vastgesteld",
+      "required": true,
+      "description": "Afhankelijk van de aard van de aanvraag en de afspraken binnen de zaakbehandelende organisatie, kan de beschikking collegiaal moeten worden getoetst.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "4_beschikking_vastgesteld__2_beschikking_vastgesteld",
+      "title": "2 - Beschikking vastgesteld",
+      "question": "Is de beschikking vastgesteld?",
+      "status": "4_beschikking_vastgesteld",
+      "required": true,
+      "description": "Afhankelijk van de aard van de aanvraag en in- en externe afspraken over mandatering, kan het nodig zijn het concept van de beschikking te laten fiatteren / vaststellen op basis van de mandaatafspraken. Deze fiattering / vaststelling kan zowel intern (door bijvoorbeeld een afdelingshoofd van de zaakbehandelende organisatie) en/of extern (door het bevoegd gezag) zijn vereist.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__1_toezending",
+      "title": "1 - Toezending",
+      "question": "Is de beschikking door toezending bekendgemaakt aan direct belanghebbenden?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Een beschikking treedt pas in werking zodra deze is bekendgemaakt (art. 3:40 Algemene wet bestuursrecht). De beschikking wordt daartoe toegezonden (of uitgereikt) aan:\n- de belanghebbenden, waaronder de aanvrager, waartot de beschikking zich richt (art. 3:41, lid 1 Algemene wet bestuursrecht);\n- degenen die bij de voorbereiding van de beschikking een zienswijze naar voren hebben gebracht (art. 3:43, lid 1 Algemene wet bestuursrecht). Indien de zienswijze is behandeld in een gerelateerde (bijdrage)zaak van het zaaktype 'Zienswijze behandelen' wordt de beschikking (inclusief reactie op de naar voren gebrachte zienswijze) via genoemde (bijdrage)zaak aan de indiener van de zienswijze toegezonden; \n- adviseurs die betrokken waren bij de voorbereiding van de beschikking (in afwijking van art. 3:43, lid 1 Algemene wet bestuursrecht wordt niet slechts van de beschikking mededeling gedaan indien van het advies wordt afgeweken - de beschikking wordt te allen tijde aan elke adviseur toegezonden).",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__2_kennisgeving",
+      "title": "2 - Kennisgeving",
+      "question": "Is de kennisgeving van (terinzagelegging van) de beschikking gepubliceerd?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Bekendmaking van de beschikking vindt plaats door kennisgeving daarvan (zie art. 3:42 Algemene wet bestuursrecht). Indien alleen van de zakelijke inhoud van de beschikking wordt kennisgegeven, wordt de beschikking gelijktijdig ter inzage gelegd en wordt in de kennisgeving vermeld waar en wanneer de beschikking ter inzage ligt (art. 3:42, lid 3 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__3_terinzagelegging",
+      "title": "3 - Terinzagelegging",
+      "question": "Is de beschikking ter inzage gelegd?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Indien alleen van de zakelijke inhoud van de beschikking is kennisgegeven, wordt de beschikking ter inzage gelegd zoals is omschreven in de kennisgeving. Steeds vaker wordt ervoor gekozen deze terinzagelegging zowel fysiek (op één of meer in de kennisgeving genoemde locaties) als digitaal (publicatie via een website) te laten plaatsvinden.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__4_archivering",
+      "title": "4 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__5_registraties",
+      "title": "5 - Registraties",
+      "question": "Zijn de voor de beschikking relevante registraties bijgewerkt?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Een beschikking zal in veel gevallen leiden tot een mutatie in één of meer (basis)registraties. Denk aan het verlenen van toestemming voor het slopen van een pand (moet leiden tot verwijdering van dat pand in de BAG), het oprichten van een bouwwerk (moet leiden tot creatie van dat bouwwerk in de BAG), het toestaan van een milieubelastende activiteit (kan leiden tot opname van die activiteit op de 'risicokaart' of het verbuiken van gebruiksruimte, bijvoorbeeld t.a.v. geluid) of het nemen van een handhavingsbesluit t.a.v. een overtreding (kan leiden tot registratie van een beperking in de landelijke voorziening voor de WKPB).\nDit zijn slechts enkele voorbeelden; alle relevante (basis)registraties dienen te worden bijgewerkt op basis van de beschikking.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__6_vervolgzaak",
+      "title": "6 - Vervolgzaak",
+      "question": "Zijn de voor deze zaak relevante vervolgzaken gepland?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Een zaak waarin wordt beschikt over een voornemen, vereist veelal een vervolg: het toezien op naleving van de beschikking (een zaak van het zaaktype 'Controle uitvoeren').\nOok procedurewijzigingen (behandeling van de aanvraag in een uitgebreide procedure, behandeling van de aanvraag als melding) kunnen aanleiding zijn voor het starten van een zaak van een ander zaaktype.",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 21
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "bevoegdgezag",
+      "title": "Bevoegdgezag",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Initiator",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "vergunninghouder",
+      "title": "Vergunninghouder",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "5_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "andere_organisatie",
+      "title": "Andere organisatie",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Niet-natuurlijk persoon",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "derde_belanghebbende",
+      "title": "Derde belanghebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, niet-natuurlijk persoon",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "zaakbehandelaar",
+      "title": "Zaakbehandelaar",
+      "may_set_statuses": [
+        "2_voornemen_verstuurd",
+        "3_getoetst_aan_regelgeving"
+      ],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [
+        "4_beschikking_vastgesteld"
+      ],
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 10
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2021-11-30"
+    }
+  ],
+  "documents": [
+    {
+      "id": "voornemen_ambtshalve_beschikken",
+      "sequence": 1,
+      "title": "Voornemen ambtshalve beschikken",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "reactie_op_voornemen",
+      "sequence": 2,
+      "title": "Reactie op voornemen",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "procedurebevestiging",
+      "sequence": 3,
+      "title": "Procedurebevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 4,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 5,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 6,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 7,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "verzoek_om_aanvullende_informatie",
+      "sequence": 8,
+      "title": "Verzoek om aanvullende informatie",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "aanvullende_informatie",
+      "sequence": 9,
+      "title": "Aanvullende informatie",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "beschikking_buiten_behandeling_laten",
+      "sequence": 10,
+      "title": "Beschikking buiten behandeling laten",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "beschikking_verlenging_beslistermijn",
+      "sequence": 11,
+      "title": "Beschikking verlenging beslistermijn",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "beschikking_aanhouding_beslissing",
+      "sequence": 12,
+      "title": "Beschikking aanhouding beslissing",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "mededeling_van_aanhouding",
+      "sequence": 13,
+      "title": "Mededeling van aanhouding",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "instemming_met_opschorting",
+      "sequence": 14,
+      "title": "Instemming met opschorting",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "uitnodiging_tot_geven_zienswijze",
+      "sequence": 15,
+      "title": "Uitnodiging tot geven zienswijze",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "begeleidende_brief_bij_besluit",
+      "sequence": 16,
+      "title": "Begeleidende brief bij besluit",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    },
+    {
+      "id": "beschikking_ambtshalve",
+      "sequence": 17,
+      "title": "Beschikking ambtshalve",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 19
+      }
+    },
+    {
+      "id": "mededeling_besluit",
+      "sequence": 18,
+      "title": "Mededeling besluit",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 20
+      }
+    },
+    {
+      "id": "legesbeschikking",
+      "sequence": 19,
+      "title": "Legesbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 21
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 98,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 22
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 99,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 23
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 20,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 24
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "beschikking_aanhouding_beslissing",
+      "title": "Beschikking aanhouding beslissing",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 3
+      },
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "beschikking_ambtshalve",
+      "title": "Beschikking ambtshalve",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 4
+      },
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "beschikking_verlenging_beslistermijn",
+      "title": "Beschikking verlenging beslistermijn",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 5
+      },
+      "valid_from": "2021-11-30"
+    }
+  ],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "11.4",
+      "archive_nomination": "Vernietigen",
+      "description": "De procedure is afgebroken. Deze is foutief ingeboekt of de ambtshalve procedure is niet doorgezet",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "geactualiseerd",
+      "title": "Geactualiseerd",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geactualiseerd",
+      "selectielijst_class": "11.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "geactual_omg_act",
+      "title": "Geactual. - omg.act",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geactualiseerd",
+      "selectielijst_class": "11.1.6",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Beschikking voor activiteit milieu, bouw, sloop, monument, strijdig gebruik en/of aanleg etc."
+    },
+    {
+      "id": "geactual_bag",
+      "title": "Geactual. - BAG",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geactualiseerd",
+      "selectielijst_class": "11.1.5",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Beschikking met brondocumenten BAG"
+    },
+    {
+      "id": "geactual_kappen",
+      "title": "Geactual. - kappen",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Geactualiseerd",
+      "selectielijst_class": "11.1.12",
+      "archive_nomination": "Vernietigen",
+      "description": "Beschikking betreft kappen met herplantplicht",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ingetrokken_bag",
+      "title": "Ingetrokken - BAG",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "11.3.1",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Beschikking (gedeeltelijke) intrekking eerder verleende toestemming met brondocumenten BAG."
+    },
+    {
+      "id": "ingetrokken",
+      "title": "Ingetrokken",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "gem",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "11.3",
+      "archive_nomination": "Vernietigen",
+      "description": "Beschikking (gedeeltelijke) intrekking eerder verleende toestemming.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ingetrokken_milieu",
+      "title": "Ingetrokken - Milieu",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "gem",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "11.3.2",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Beschikking (gedeeltelijke) intrekking eerder verleende toestemming activiteit milieu",
+      "leads_to_decision_type": "Beschikking op aanvraag"
+    },
+    {
+      "id": "niet_doorgevoerd",
+      "title": "Niet doorgevoerd",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "gem",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet doorgevoerd",
+      "selectielijst_class": "11.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "geactualiseerd_besluit_p",
+      "title": "Geactualiseerd besluit (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "geactualiseerd_besluit_p",
+      "title": "Geactualiseerd besluit (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "geactualiseerd_besluit_p",
+      "title": "Geactualiseerd besluit (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "geactualiseerd_besluit_p",
+      "title": "Geactualiseerd besluit (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "geactualiseerd_besluit_p",
+      "title": "Geactualiseerd besluit (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "22",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "geactualiseerd_besluit_p",
+      "title": "Geactualiseerd besluit (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "25",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "geactualiseerd_besluit_p",
+      "title": "Geactualiseerd besluit (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 18
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "22",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "geactualiseerd_besluit_p",
+      "title": "Geactualiseerd besluit (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 19
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "geactualiseerd_besluit_p",
+      "title": "Geactualiseerd besluit(P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 20
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "ingetrokken_p",
+      "title": "Ingetrokken (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 21
+      },
+      "authority": "prov",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "ingetrokken_p",
+      "title": "Ingetrokken (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 22
+      },
+      "authority": "prov",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "ingetrokken_p",
+      "title": "Ingetrokken (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 23
+      },
+      "authority": "prov",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "ingetrokken_p",
+      "title": "Ingetrokken (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 24
+      },
+      "authority": "prov",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "ingetrokken_p",
+      "title": "Ingetrokken (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 25
+      },
+      "authority": "prov",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "ingetrokken_p",
+      "title": "Ingetrokken (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 26
+      },
+      "authority": "prov",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "ingetrokken_p",
+      "title": "Ingetrokken (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 27
+      },
+      "authority": "prov",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "ingetrokken_p",
+      "title": "Ingetrokken (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 28
+      },
+      "authority": "prov",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_doorgevoerd_p",
+      "title": "Niet doorgevoerd (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 29
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_doorgevoerd_p",
+      "title": "Niet doorgevoerd (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 30
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_doorgevoerd_p",
+      "title": "Niet doorgevoerd (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 31
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_doorgevoerd_p",
+      "title": "Niet doorgevoerd (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 32
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_doorgevoerd_p",
+      "title": "Niet doorgevoerd (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 33
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_doorgevoerd_p",
+      "title": "Niet doorgevoerd (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 34
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "22",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "niet_doorgevoerd_p",
+      "title": "Niet doorgevoerd (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 35
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_doorgevoerd_p",
+      "title": "Niet doorgevoerd (P)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 36
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 37
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "De procedure is afgebroken. Deze is foutief ingeboekt of de ambtshalve procedure is niet doorgezet",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "aanvaarde_lozing_zonder_consequenties_voor_milieu",
+      "title": "Aanvaarde lozing zonder consequenties voor milieu",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 38
+      },
+      "authority": "ws",
+      "generic_title": "Verleend",
+      "title_2_2": "Verleend",
+      "selectielijst_class": "2.4.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "geweigerd",
+      "title": "Geweigerd",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 39
+      },
+      "authority": "ws",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "niet_ontvankelijk",
+      "title": "Niet ontvankelijk",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 40
+      },
+      "authority": "ws",
+      "generic_title": "Niet ontvankelijk",
+      "title_2_2": "Niet ontvankelijk",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "niet_vergunningplichtige_activiteit",
+      "title": "Niet vergunningplichtige activiteit",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 41
+      },
+      "authority": "ws",
+      "generic_title": "Niet vergunningplichtige activiteit",
+      "title_2_2": "Niet vergunningplichtige activiteit",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "doorgestuurd_naar_bevoegd_gezag",
+      "title": "Doorgestuurd naar bevoegd gezag",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 42
+      },
+      "authority": "ws",
+      "generic_title": "Doorgestuurd naar bevoegd gezag",
+      "title_2_2": "Doorgestuurd naar bevoegd gezag",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ingetrokken_aanvraag",
+      "title": "Ingetrokken (aanvraag)",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 43
+      },
+      "authority": "ws",
+      "generic_title": "Ingetrokken (aanvraag)",
+      "title_2_2": "Ingetrokken (aanvraag)",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "buiten_behandeling_gelaten",
+      "title": "Buiten behandeling gelaten",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 44
+      },
+      "authority": "ws",
+      "generic_title": "Buiten behandeling gelaten",
+      "title_2_2": "Buiten behandeling gelaten",
+      "selectielijst_class": "2.4.1.",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 45
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin is geconstateerd dat aanvrager in strijd met vigerende regelgeving handelt. Aanvrager heeft, daartoe in de gelegenheid gesteld door het bevoegd gezag, ten behoeve van legalisatie een aanvraag ingediend die in onderhavige zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin is geconstateerd dat aanvrager in strijd met vigerende regelgeving handelt. Aanvrager heeft, daartoe in de gelegenheid gesteld door het bevoegd gezag, ten behoeve van legalisatie een aanvraag ingediend die in onderhavige zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/01",
+        "title": "Advies verstrekken",
+        "raw": "1 - Advies verstrekken"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "In een aantal gevallen is wettelijk voorgeschreven dat advies/instemming moet worden gevraagd aan een persoon die of college dat niet werkzaam is onder de verantwoordelijkheid van de zaakbehandelende organisatie (wettelijke adviseurs, Afdeling 3.3 Algemene wet bestuursrecht, § 2.5 Wet algemene bepalingen omgevingsrecht, art. 16.15 en art. 16.16 Omgevingswet). Het kan echter ook nodig zijn advies in te winnen bij in- of externe adviseurs zonder dat daartoe een directe wettelijke verplichting bestaat, bijvoorbeeld omdat aspecten van de aanvraag een specialistische beoordeling vergen. De adviesaanvraag van de zaakbehandelende organisatie wordt door de adviseur behandeld in een zaak van het zaaktype 'Advies verstrekken'."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/12",
+        "title": "Zienswijze behandelen",
+        "raw": "12 - Zienswijze behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "Naar aanleiding van het voornemen de beslistermijn te verlengen (art. 3:18, lid 2 Algemene wet bestuursrecht), een voorgenomen geheel of gedeeltelijke afwijzing van de aanvraag (art. 4:7 lid 1 Algemene wet bestuursrecht, juncto art. 4:11 lid 1 Algemene wet bestuursrecht en art. 4:12, lid 1 Algemene wet bestuursrecht), verwachte bedenkingen van een belanghebbende (art. 4:8, lid 1 Algemene wet bestuursrecht, juncto art. 4:11 lid 1 Algemene wet bestuursrecht en art. 4:12, lid 1 Algemene wet bestuursrecht) kunnen door belanghebbenden en/of aanvrager zienswijzen naar voren worden gebracht. Behandeling van een zienswijze kan plaatsvinden in een zaak van het zaaktype 'Zienswijze behandelen' bij binnenkomst van de zienswijze."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen' waarin het bevoegd gezag heeft besloten een sanctie op te leggen, omdat aanvrager handelt in strijd met regelgeving (bijvoorbeeld de uitvoering van een activiteit zonder te beschikken over de daarvoor vereiste vergunning). Naar aanleiding van dit besluit heeft aanvrager een aanvraag ingediend, die wordt behandeld in onderhavige zaak van het zaaktype 'Aanvraag beschikking regulier behandelen'."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen' waarin het bevoegd gezag heeft besloten dat een eerdere beschikking wordt gewijzigd of ingetrokken, omdat is geconsteerd dat de onder toezicht staande in strijd met vigerende regelgeving handelt of heeft gehandeld. Deze ambtshalve wijziging of intrekking wordt in onderhavige zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' waarin, ten behoeve van hetzelfde project, voor één of enkele activiteiten eerder een beschikking is gevraagd (gefaseerde behandeling aanvraag omgevingsvergunning, art. 2.5 Wet algemene bepalingen omgevingsrecht)."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 10
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin de behandeling van onderhavige aanvraag initieel plaatsvond. Voornoemde zaak is voortijdig afgehandeld, omdat tijdens de behandeling is gebleken dat de aanvraag in een reguliere procedure behandeld dient te worden. Daartoe is onderhavige zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' gestart."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 11
+      },
+      "description": "Indien blijkt dat de aanvraag die in onderhavige zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' wordt behandeld, in de uitgebreide procedure behandeld dient te worden, wordt onderhavige zaak voortijdig afgehandeld en wordt een zaak gestart van het zaaktype 'Aanvraag beschikking uitgebreid behandelen'."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 12
+      },
+      "description": "In veel gevallen wordt na het nemen van een beschikking een zaak van het zaaktype 'Controle uitvoeren' gepland, teneinde erop toe te zien dat de beschikking wordt nageleefd."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/16",
+        "title": "Bezwaar behandelen",
+        "raw": "16 - Bezwaar behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 13
+      },
+      "description": "Zaaktype behandeld een ontvangen bezwaarschrift tegen een door het in deze zaak genomen besluit (niet zijnde een besluit met betrekking tot personeelszaken, belastingen en schadevorde­rin­gen)."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/20",
+        "title": "Bezwaar behandelen zonder bezwaarcommissie",
+        "raw": "20 - Bezwaar behandelen zonder bezwaarcommissie"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "17_-_Ambtshalve_beschikken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 14
+      },
+      "description": "Zaaktype behandeld een ontvangen bezwaarschrift tegen een door het in deze zaak genomen besluit (niet zijnde een besluit met betrekking tot personeelszaken, belastingen en schadevorde­rin­gen)."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

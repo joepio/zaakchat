@@ -1,0 +1,1529 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/05",
+  "version": "1.9",
+  "title": "Handhavingsbesluit nemen",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "5",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Handhavingsbesluit nemen",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Handhaven",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Het nemen van een besluit over het opleggen, wijzigen of intrekken van een passende bestuursrechtelijke sanctie naar aanleiding van een geconstateerde of klaarblijkelijk dreigende (art. 5:7 Algemene wet bestuursrecht) overtreding.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "Mogelijke aanleidingen:\ntijdens het houden van toezicht (een zaak van het zaaktype 'Controle uitvoeren') is een (klaarblijkelijk dreigende) overtreding geconstateerd waartegen handhavend kan worden opgetreden;\nde overtreder heeft verzocht om wijziging of intrekking van een eerder opgelegde bestuursrechtelijke sanctie (bijvoorbeeld op grond van art. 5:34 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "Het handhavingstraject dat volgt op een geconstateerde of klaarblijkelijk dreigende overtreding bestaat uit een reeks van separate zaken, die volgt op de toezichtzaak waarin de overtreding is geconstateerd. Onderhavige zaak van het zaaktype ‘Handhavingsbesluit nemen’ is daarin de eerste van het bestuurlijk handhavingstraject. Deze kan leiden tot het opleggen van een sanctie maar ook tot het verder afzien van handhaving. Indien daadwerkelijk tot het opleggen van een sanctie is besloten, volgt daarna een (vervolg)zaak waarin de opgelegde sanctie ten uitvoer wordt gelegd, zoals ‘Last onder Bestuursdwang ten uitvoer leggen’ of ‘Last onder dwangsom ten uitvoer leggen’. Het geheel of gedeeltelijk intrekken van een begunstigende beschikking (art. 5.19, lid 1 en lid 2 Wet algemene bepalingen omgevingsrecht, art. 18.10 lid 1 en lid 2 Omgevingswet) of het tijdelijk gedogen (bijvoorbeeld op grond van art. 5.19 lid 3 Wet algemene bepalingen omgevingsrecht, art. 18.10 lid 3 Omgevingswet) zijn tevens mogelijk uitkomsten en dan opgenomen in de hand­havings­beschikking. Eventueel is de inhoud van de gedoogverklaring in een parallelle zaak (van type ‘Aanvraag beschikking regulier behandelen’) tot stand gekomen. \nDe vermelde statussen betreffen de normale gang van zaken. In spoedeisende gevallen kunnen statussen sneller, pro-forma, of pas achteraf doorlopen worden (art. 5:31 Algemene wet bestuursrecht).\nV.w.b. verlenging, het nemen van een handhavingsbesluit is niet aan een wettelijke termijn gebonden, tenzij aan het handhavingsbesluit een verzoek (handhavingsverzoek) of aanvraag (gedoogbeschikking) ten grondslag ligt.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Intern",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Initiëren",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Handhavingssanctie",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Opleggen",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "DOORLOOPTIJD BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "56",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 12
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "8",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "56",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 15
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING DOORLOOPTIJD MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "VERLENGINGSTERMIJN": {
+      "value": "42",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 20
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "handhaven, handhavingssanctie, sanctie",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 21
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "- NAAM": {
+      "value": "G01 - Handhavingsbesluit (HH01 - Handhavingsbesluit)\nMBZK01 - Handhavingsbesluit (HH01 - Handhavingsbesluit)\nMD01 - Handhavingsbesluit (HH01 - Handhavingsbesluit)\nME01 - Handhavingsbesluit (HH01 - Handhavingsbesluit)\nMI01 - Handhavingsbesluit (HH01 - Handhavingsbesluit)\nMLNV01 - Handhavingsbesluit (HH01 - Handhavingsbesluit)\nMO01 - Handhavingsbesluit (HH01 - Handhavingsbesluit)\nP01 - Handhavingsbesluit (HH01 - Handhavingsbesluit)\nW01 - Handhavingsbesluit (HH01 - Handhavingsbesluit)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 27
+      }
+    },
+    "- BRON": {
+      "value": "Basisarchiefcode",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 34
+      }
+    },
+    "- CODE (2.1)": {
+      "value": "-2.07.818",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 35
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-07-11",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "unknown"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie en het eventueel sturen van een ontvangstbevestiging.",
+      "valid_from": "2024-12-06"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [
+        "0"
+      ],
+      "required_properties": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 23,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het beoordelen van het verzoek en het toewijzen aan het team dat het verzoek zal behandelen; en het zo nodig opvragen van aanvullende informatie. \nOnderzocht is of de overtreding kan worden opgeheven door legalisatie en of sprake is van bijzondere omstandigheden die nopen af te zien van handhaving. \nIndien er sprake was van spoedeisende of acute bestuursdwang dan wordt status 2 pro forma doorlopen waarna verdere afhandeling vanaf status 3 plaatsvind.",
+      "valid_from": "2022-03-02"
+    },
+    {
+      "id": "3_handhavingsvoornemen_opgesteld",
+      "sequence": 3,
+      "title": "Handhavingsvoornemen opgesteld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Handhavingsvoornemen"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 23,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het voornemen tot handhaving is verzonden aan de overtreder en eventuele andere belanghebbenden. Daarbij zijn zij in de gelegenheid gesteld binnen een door de zaakbehandelende organisatie gestelde termijn (doorgaans 2 weken) hun zienswijze te geven.\nIndien geen handhavingsbeschikking wordt genomen, worden de statussen 3 en 4 pro forma doorlopen en wordt de zaak afgerond.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_handhavingsbesluit_opgesteld",
+      "sequence": 4,
+      "title": "Handhavingsbesluit opgesteld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Handhavingsbeschikking"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 17,
+        "unit": "kalenderdagen"
+      },
+      "description": "Eventueel ingediende zienswijzen kunnen in separate zaken van het zaaktype 'Zienswijze behandelen' zijn behandeld. Er kan een hercontrole - een (bijdrage)zaak van het zaaktype 'Controle uitvoeren' - zijn uitgevoerd om te verifiëren of de overtreding voortduurt.\nIndien de overtreding is beëindigd - en er geen aanleiding is te veronderstellen dat de overtreding opnieuw zal optreden - wordt geen handhavingsbesluit genomen en wordt de zaak afgerond met een daartoe strekkende mededeling aan de overtreder.\nIndien de overtreding voortduurt wordt de op te leggen sanctie bepaald en gemotiveerd vastgelegd in (het concept van) de handhavingsbeschikking. Indien de overtreding voortduurt, maar toch besloten wordt - gedurende een bepaalde tijdspanne en eventueel onder voorwaarden - géén bestuurlijke sanctie op te leggen, wordt dit tevens gemotiveerd vastgelegd in (het concept van) de handhavingsbeschikking; de handhavingsbeschikking kwalificeert in dat geval als gedoogverklaring. Indien de sanctie financiële consequenties heeft, kan conservatoir beslag zijn gelegd.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "5_handhavingsbesluit_vastgesteld",
+      "sequence": 5,
+      "title": "Handhavingsbesluit vastgesteld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 14,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het concept van de beschikking kan zijn getoetst door een collega en is goedgekeurd op basis van de geldende mandaatafspraken.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "6_zaak_afgerond",
+      "sequence": 6,
+      "title": "Zaak afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 8
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De mededeling dat wordt afgezien van handhaving of de handhavingsbeschikking is aan overtreder en eventuele andere belanghebbenden bekendgemaakt (art. 3:41 Algemene wet bestuursrecht).\nIndien van toepassing wordt de last ingeschreven in het WKPB-register.\nDe bij de sanctie behorende vervolgzaak (bijvoorbeeld een zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' of 'Last onder bestuursdwang ten uitvoer leggen') is gestart of gepland.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_handhavingsvoornemen_opgesteld",
+      "from": "2_intake_afgerond",
+      "to": "3_handhavingsvoornemen_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_handhavingsvoornemen_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "3_handhavingsvoornemen_opgesteld__to__4_handhavingsbesluit_opgesteld",
+      "from": "3_handhavingsvoornemen_opgesteld",
+      "to": "4_handhavingsbesluit_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_handhavingsvoornemen_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "4_handhavingsbesluit_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "4_handhavingsbesluit_opgesteld__to__5_handhavingsbesluit_vastgesteld",
+      "from": "4_handhavingsbesluit_opgesteld",
+      "to": "5_handhavingsbesluit_vastgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_handhavingsbesluit_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "5_handhavingsbesluit_vastgesteld"
+        }
+      ]
+    },
+    {
+      "id": "5_handhavingsbesluit_vastgesteld__to__6_zaak_afgerond",
+      "from": "5_handhavingsbesluit_vastgesteld",
+      "to": "6_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "5_handhavingsbesluit_vastgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "6_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is er een aanleiding voor een nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Direct nadat er een aanleiding is om handhavend op te treden wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevant gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_ontvangstbevestiging",
+      "title": "2 - Ontvangstbevestiging",
+      "question": "Is een ontvangstbevestiging verzonden?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Als het een verzoek van een externe partij betrof, is een ontvangstbevestiging verstuurd, waarin de dag van ontvangst van het verzoek is vermeld.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_adviseurs",
+      "title": "1 - Adviseurs",
+      "question": "Zijn de relevante adviseurs / handhavingspartners betrokken?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "Voor het toetsen van de beschikking aan regelgeving en het zorgvuldig afwegen van belangen, kunnen adviezen noodzakelijk zijn, bijvoorbeeld omdat aspecten van de beschikking een specialistische beoordeling vergen.\nOok is het mogelijk dat de zaakbehandelende organisatie - bijvoorbeeld een omgevingsdienst - in onderhavige zaak de regie voert op de handhaving door meerdere bevoegde gezagen, bijvoorbeeld omdat tijdens een controle meerdere overtredingen zijn geconstateerd, waarvoor verschillende gezagen bevoegd zijn tot handhaving. In dat geval wordt elk van de tot handhaving bevoegde gezagen betrokken in onderhavige zaak als belanghebbende en coördineert de zaakbehandelende organisatie de samenhangende besluitvorming. In zo'n situatie worden wel meerdere voornemens tot handhaving / handhavingsbeschikkingen - ten minste één per bevoegd gezag - op- en vastgesteld.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_legalisatie",
+      "title": "2 - Legalisatie",
+      "question": "Is er concreet zicht op legalisatie?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Alvorens een handhavingsbeschikking te nemen waarin een bestuurlijke sanctie wordt opgelegd, moet - tenzij de sanctie een bouwstop betreft - worden onderzocht of er 'concreet zicht bestaat op legalisatie' van de strijdige activiteit. Dit kan bijvoorbeeld1 het geval zijn als er een (ontvankelijke / toereikende) aanvraag is ingediend voor een vergunning voor de strijdige activiteit en er - als tevens sprake is van een afwijkactiviteit - een ontwerp van een ruimtelijk plan ter inzage is gelegd waarin de strijdige activiteit wordt gelegaliseerd.\n1. ^ Zie de beschouwing van recente jurisprudentie ten aanzien van '(voldoende) concreet zicht op legalisering' door de Stichting Advisering Bestuursrechtspraak voor Milieu en Ruimtelijke Ordening (StAB)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_overmacht",
+      "title": "3 - Overmacht",
+      "question": "Is sprake van een overmachtsituatie?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "In bijzondere situaties kan het strikt handhaven van wettelijke regels ongewenste (milieu)gevolgen hebben1. In dergelijke situaties kan het bevoegd gezag een overtreding juist - tijdelijk - toestaan om die ongewenste gevolgen te beperken.\n1. ^ Voorbeeld van InfoMil: Denk bijvoorbeeld aan een storing bij een afvalverwerkingsbedrijf, waardoor de toeleveranciers meer (of langer) afval moeten opslaan dan eigenlijk mag.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "2_intake_afgerond__4_onevenredig",
+      "title": "4 - Onevenredig",
+      "question": "Is het opleggen van een sanctie onevenredig in verhouding tot de daarmee te dienen belangen?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "In bijzondere gevallen - bijvoorbeeld bij (te) kleine overtredingen, overtredingen met een (te) incidenteel karakter of overtredingen met (te) weinig impact op de belangen van derden - kan worden afgezien van het opleggen van een sanctie.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "2_intake_afgerond__5_sanctie_bepaald",
+      "title": "5 - Sanctie bepaald",
+      "question": "Is de bij de overtreding passende sanctie bepaald?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Op basis van door het bevoegd gezag vastgesteld handhavingsbeleid en de (landelijke) handhavingsstrategie wordt bepaald welke sanctie passend is voor de geconstateerde overtreding.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_handhavingsvoornemen_opgesteld__1_voornemen_bekendgemaakt",
+      "title": "1 - Voornemen bekendgemaakt",
+      "question": "Is het voornemen tot handhaving bekendgemaakt aan overtreder / rechthebbenden?",
+      "status": "3_handhavingsvoornemen_opgesteld",
+      "required": true,
+      "description": "Aangezien het handhavingsbesluit veelal zal steunen op gegevens over feiten en omstandigheden die niet door de overtreder zijn verstrekt, maar wel zijn belangen betreffen én de overtreder naar verwachting bedenkingen zal hebben tegen de voorgenomen oplegging van een bestuurlijke sanctie, stelt het bevoegd gezag de overtreder in de gelegenheid zijn zienswijze naar voren te brengen (art. 4:8 Algemene wet bestuursrecht). Indien de voorgenomen sanctie een last onder bestuursdwang betreft, worden ook de rechthebbenden op het gebruik van de zaak waarop de last betrekking heeft (art. 4:8 Algemene wet bestuursrecht, juncto art. 5:24 lid 3 Algemene wet bestuursrecht) in de gelegenheid gesteld hun zienswijze naar voren te brengen middels bekendmaking van het voorgenomen besluit.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "4_handhavingsbesluit_opgesteld__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "4_handhavingsbesluit_opgesteld",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "4_handhavingsbesluit_opgesteld__2_zienswijzen_behandeld",
+      "title": "2 - Zienswijzen behandeld",
+      "question": "Zijn de zienswijzen behandeld en verwerkt in het (concept van) de handhavingsbeschikking?",
+      "status": "4_handhavingsbesluit_opgesteld",
+      "required": false,
+      "description": "Elke ontvangen zienswijze kan worden behandeld in een separate zaak van het zaaktype 'Zienswijze behandelen'. Het resultaat van deze behandeling is verwerkt in de motivatie van (het concept van) de handhavingsbeschikking.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "4_handhavingsbesluit_opgesteld__3_controle",
+      "title": "3 - Controle",
+      "question": "Moet een controle worden uitgevoerd?",
+      "status": "4_handhavingsbesluit_opgesteld",
+      "required": false,
+      "description": "Zowel een ingediende zienswijze als een ander feit of omstandigheid kan aanleiding geven tot het uitvoeren van een hercontrole (een (bijdrage)zaak van het zaaktype 'Controle uitvoeren') waarin wordt geverifieerd of de overtreding voortduurt. De bevindingen uit de controle worden verwerkt in (het concept van) de handhavingsbeschikking of leiden - als de overtreding is beëindigd - tot het opstellen van (het concept van) de mededeling dat wordt afgezien van handhaving.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "4_handhavingsbesluit_opgesteld__4_beslag",
+      "title": "4 - Beslag",
+      "question": "Is er aanleiding conservatoir beslag te leggen?",
+      "status": "4_handhavingsbesluit_opgesteld",
+      "required": false,
+      "description": "Indien de op te leggen sanctie significante financiële consequenties (bijvoorbeeld het kostenverhaal van een op te leggen last onder bestuursdwang of een toekomstige dwangsomvordering op grond van een last onder dwangsom) heeft, kan het wenselijk zijn conservatoir beslag te leggen op lightbulbroerende zaken van de overtreder.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "5_handhavingsbesluit_vastgesteld__1_concept_getoetst",
+      "title": "1 - Concept getoetst",
+      "question": "Is de beschikking (collegiaal) getoetst?",
+      "status": "5_handhavingsbesluit_vastgesteld",
+      "required": true,
+      "description": "Afhankelijk van de aard van de overtreding, de op te leggen sanctie en de afspraken binnen de zaakbehandelende organisatie, kan de handhavingsbeschikking of de mededeling dat wordt afgezien van handhaving collegiaal moeten worden getoetst.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "5_handhavingsbesluit_vastgesteld__2_beschikking_vastgesteld",
+      "title": "2 - Beschikking vastgesteld",
+      "question": "Is de beschikking vastgesteld?",
+      "status": "5_handhavingsbesluit_vastgesteld",
+      "required": true,
+      "description": "Afhankelijk van de aard van de overtreding, de op te leggen sanctie en in- en externe afspraken over mandatering, kan het nodig zijn het concept van de handhavingsbeschikking of de mededeling dat wordt afgezien van handhaving te laten fiatteren / vaststellen op basis van de mandaatafspraken. Deze fiattering / vaststelling kan zowel intern (door bijvoorbeeld een afdelingshoofd van de zaakbehandelende organisatie) en/of extern (door het bevoegd gezag) zijn vereist.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__1_toezending",
+      "title": "1 - Toezending",
+      "question": "Is de beschikking door toezending bekendgemaakt aan direct belanghebbenden?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "Een beschikking treedt pas in werking zodra deze is bekendgemaakt (art. 3:40 Algemene wet bestuursrecht, in geval van een opgelegde last onder bestuursdwang: juncto art. 5:24 lid 3 Algemene wet bestuursrecht). De beschikking wordt daartoe toegezonden (of uitgereikt) aan:\nde belanghebbenden (overtreder, rechthebbenden op het gebruik van de zaak waarop de last betrekking heeft (art. 5:24 lid 3 Algemene wet bestuursrecht)), waaronder de aanvrager, waartot de beschikking zich richt (art. 3:41, lid 1 Algemene wet bestuursrecht);\ndegenen die over het ontwerp van de beschikking een zienswijze naar voren hebben gebracht (art. 3:44, lid 1, onder b. Algemene wet bestuursrecht); \nadviseurs die betrokken waren bij de voorbereiding van de beschikking (in afwijking van art. 3:43, lid 1 Algemene wet bestuursrecht wordt niet slechts van de beschikking mededeling gedaan indien van het advies wordt afgeweken - de beschikking wordt te allen tijde aan elke adviseur toegezonden).",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__2_archivering",
+      "title": "2 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__3_registraties",
+      "title": "3 - Registraties",
+      "question": "Zijn de voor de beschikking relevante registraties bijgewerkt?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "Een beschikking zal in veel gevallen leiden tot een mutatie in één of meer (basis)registraties. Denk aan het verlenen van toestemming voor het slopen van een pand (moet leiden tot verwijdering van dat pand in de BAG), het oprichten van een bouwwerk (moet leiden tot creatie van dat bouwwerk in de BAG), het toestaan van een milieubelastende activiteit (kan leiden tot opname van die activiteit op de 'risicokaart') of het nemen van een handhavingsbesluit t.a.v. een overtreding (kan leiden tot registratie van een beperking in de landelijke voorziening voor de WKPB).\nDit zijn slechts enkele voorbeelden; alle relevante (basis)registraties dienen te worden bijgewerkt op basis van de beschikking.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__4_vervolgzaak",
+      "title": "4 - Vervolgzaak",
+      "question": "Zijn de voor deze zaak relevante vervolgzaken gepland?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "Een zaak waarin is besloten tot het opleggen van een bestuurlijke sanctie vereist een vervolg: het ten uitvoer leggen van de opgelegde sanctie (een zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' of een zaak van het zaaktype 'Last onder bestuursdwang ten uitvoer leggen').\nOok als geen sanctie is opgelegd kan het wenselijk zijn een (vervolg)zaak van het zaaktype 'Controle uitvoeren' te plannen:\nals de geconstateerde overtreding was beëindigd voordat de sanctie kon worden opgelegd: om te verifiëren dat de overtreding niet opnieuw optreedt;\nals een overtreding voor bepaalde tijd en eventueel onder voorwaarden wordt gedoogd: om te verifiëren dat de motivatie voor het gedogen nog steeds valide is en/of de voorwaarden die aan het gedogen van de overtreding zijn verbonden, worden nageleefd.",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "4_handhavingsbesluit_opgesteld"
+      ],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "actor_type": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "ander_bevoegd_gezag",
+      "title": "Ander bevoegd gezag",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Andere overheidsorganisatie",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "derde_belanghebbende",
+      "title": "Derde belanghebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Derde belanghebbende",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "jurist",
+      "title": "Jurist",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "2_intake_afgerond"
+      ],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "toezichthouder",
+      "title": "Toezichthouder",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Toezichthouder",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "vermeend_overtreder",
+      "title": "(Vermeend) overtreder",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Belanghebbende",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [
+        "3_handhavingsvoornemen_opgesteld"
+      ],
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 10
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "adviesaanvraag",
+      "sequence": 1,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 1,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 2,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 2,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "handhavingsvoornemen",
+      "sequence": 3,
+      "title": "Handhavingsvoornemen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "zienswijze",
+      "sequence": 4,
+      "title": "Zienswijze",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "controlerapport",
+      "sequence": 5,
+      "title": "Controlerapport",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "mededeling_afzien_van_handhaving",
+      "sequence": 6,
+      "title": "Mededeling afzien van handhaving",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "handhavingsbeschikking",
+      "sequence": 7,
+      "title": "Handhavingsbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "beschikking_wijziging_last_onder_dwangsom",
+      "sequence": 8,
+      "title": "Beschikking wijziging last onder dwangsom",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "kostenverhaalbeschikking",
+      "sequence": 9,
+      "title": "Kostenverhaalbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "beschikking_bestuurlijke_boete",
+      "sequence": 10,
+      "title": "Beschikking bestuurlijke boete",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "bestuurlijke_strafbeschikking",
+      "sequence": 11,
+      "title": "Bestuurlijke strafbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "invorderingsbeschikking",
+      "sequence": 12,
+      "title": "Invorderingsbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 13,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "handhavingsbeschikking",
+      "title": "Handhavingsbeschikking",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 3
+      },
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "results": [
+    {
+      "id": "uitgevoerd_gedoogd",
+      "title": "Uitgevoerd - gedoogd",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2.1",
+      "archive_nomination": "Vernietigen",
+      "leads_to_decision_type": "Handhavingsbeschikking",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "12.3",
+      "archive_nomination": "Vernietigen",
+      "description": "Handhavingsbesluit nemen is afgebroken. Deze is foutief ingeboekt.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "uitgevoerd_beeind",
+      "title": "Uitgevoerd - beëind",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Er is geen handhavingsbesluit genomen omdat geconstateerd is dat de overtreding inmiddels beëindigd is.",
+      "leads_to_decision_type": "Handhavingsbeschikking",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "uitgevoerd",
+      "title": "Uitgevoerd",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Het handhavingsbesluit is genomen waarbij geen sprake is van de onderscheiden specifieke afgehandeld-resultaten.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "uitgevoerd_bodem",
+      "title": "Uitgevoerd - bodem",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2.2",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Het handhavingsbesluit is genomen (dwangsom, bestuursdwang, strafbeschikking) waarin een herstelsanctie bodemsanering is opgelegd.",
+      "leads_to_decision_type": "Handhavingsbeschikking"
+    },
+    {
+      "id": "uitgevoerd_dwngsm",
+      "title": "Uitgevoerd - dwngsm",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Het handhavingsbesluit is genomen waarin een last onder dwangsom is opgelegd.",
+      "leads_to_decision_type": "Handhavingsbeschikking",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "uitgevoerd_bestdw",
+      "title": "Uitgevoerd - bestdw",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Het handhavingsbesluit is genomen waarin een last onder bestuursdwang is opgelegd.",
+      "leads_to_decision_type": "Handhavingsbeschikking",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "uitgevoerd_boete",
+      "title": "Uitgevoerd - boete",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2.5",
+      "archive_nomination": "Vernietigen",
+      "description": "Het handhavingsbesluit is genomen waarin een bestuurlijke boete is opgelegd.",
+      "leads_to_decision_type": "Handhavingsbeschikking",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "uitgevoerd_strafbs",
+      "title": "Uitgevoerd - strafbs",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Het handhavingsbesluit is genomen waarin een bestuurlijke strafbeschikking is opgelegd.",
+      "leads_to_decision_type": "Handhavingsbeschikking",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "933-1",
+      "archive_nomination": "Vernietigen",
+      "description": "Uitvoeren van de bestuursrechtelijke handhaving van bepalingen uit de Wet bodembescherming",
+      "leads_to_decision_type": "Handhavingsbeschikking",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "919-1",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Sluiten van inrichtingen, buiten werking stellen van toestellen dan wel gelasten van het staken van handelingen die zodanige luchtverontreiniging veroorzaken dat er een acuut en dreigend gevaar is voor gezondheid, onduldbare hinder of ernstige schades",
+      "leads_to_decision_type": "Handhavingsbeschikking"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "934-1",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Nemen van noodzakelijke maatregelen in geval van onverwijlde spoed en (dreigende) ernstige bodemverontreiniging na een ongewoon voorval",
+      "leads_to_decision_type": "Handhavingsbeschikking"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "926-1",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Nemen van noodzakelijke maatregelen in geval van (dreigende) ernstige bodemverontreiniging na een ongewoon voorval",
+      "leads_to_decision_type": "Handhavingsbeschikking"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "920-1",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Geven van algemene voorschriften in bijzondere omstandigheden van tijdelijke aard aan inrichtingen, toestellen, brandstoffen en verontreinigende handelingen indien dringend noodzakelijk in het belang van de openbare gezondheid",
+      "leads_to_decision_type": "Handhavingsbeschikking"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "929-1",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Bevelen bij een onderzoeksgeval een nader onderzoek uit te voeren alsmede het treffen van beveiligingsmaatregelen bij ernstige verontreiniging",
+      "leads_to_decision_type": "Handhavingsbeschikking"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 18
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "865-2",
+      "archive_nomination": "Vernietigen",
+      "description": "Uitvoeren van de handhaving van de bepalingen uit de Wet natuurbescherming door daartoe aangewezen ambtenaren",
+      "leads_to_decision_type": "Handhavingsbeschikking",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 19
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "440-2",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Opleggen van een last onder bestuursdwang, ter handhaving van de bepalingen van de Wet Natuurbescherming",
+      "leads_to_decision_type": "Handhavingsbeschikking"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 20
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "947-1",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Verzoeken aan het bevoegd gezag een beschikking te geven tot oplegging van een last onder bestuursdwang, oplegging van een last onder dwangsom of intrekking van een vergunning of ontheffing",
+      "leads_to_decision_type": "Handhavingsbeschikking"
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 21
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "Handhavingsbesluit nemen is afgebroken. Deze is foutief ingeboekt.",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "overtreding_afgehandeld_met_wijziging_vergunning",
+      "title": "Overtreding afgehandeld met wijziging vergunning",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 22
+      },
+      "authority": "ws",
+      "generic_title": "Overtreding afgehandeld met wijziging vergunning",
+      "title_2_2": "Overtreding afgehandeld met wijziging vergunning",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "handhaving_niet_doorgegaan",
+      "title": "Handhaving niet doorgegaan",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 23
+      },
+      "authority": "ws",
+      "generic_title": "Handhaving niet doorgegaan",
+      "title_2_2": "Handhaving niet doorgegaan",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgehandeld",
+      "title": "Afgehandeld",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 24
+      },
+      "authority": "ws",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Afgehandeld",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 25
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/03",
+        "title": "Last onder bestuursdwang ten uitvoer leggen",
+        "raw": "3 - Last onder bestuursdwang ten uitvoer leggen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Last onder bestuursdwang ten uitvoer leggen' die wordt gestart als in onderhavige zaak besloten is tot het opleggen van een last onder bestuursdwang."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin de overtreding is geconstateerd waartegen middels onderhavige zaak handhavend wordt opgetreden."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin - tijdens de behandeling van onderhavige zaak - wordt geverifieerd of de overtreding voortduurt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' die is gestart om:\nte verifiëren dat een beëindigde overtreding niet opnieuw optreedt, of\nadministratief te verifiëren dat een vergunningaanvraag of (activiteit)melding is ingediend naar aanleiding van het tijdelijk gedogen, omdat concreet zicht bestaat op legalisatie."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/06",
+        "title": "Handhavingsverzoek behandelen",
+        "raw": "6 - Handhavingsverzoek behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsverzoek behandelen' waarin is verzocht om handhaving naar aanleiding van een vermeende overtreding. Onderhavige zaak is het vervolg op dit verzoek."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/07",
+        "title": "Incidentmelding behandelen",
+        "raw": "7 - Incidentmelding behandelen"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "De zaak van het zaaktype 'Incidentmelding behandelen' waarin het bevoegd gezag de veroorzaker van het incident verplicht maatregelen te treffen ter voorkoming, beperking of herstel van schade als gevolg van het incident. In onderhavige (bijdrage)zaak wordt de beschikking genomen waarin de treffen maatregelen zijn beschreven."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/08",
+        "title": "Last onder dwangsom ten uitvoer leggen",
+        "raw": "8 - Last onder dwangsom ten uitvoer leggen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "De zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' waarin de laatste termijn van een last onder dwangsom is verbeurd en waarin is geconstateerd dat de overtreding voortduurt. Omdat voornoemde last onder dwangsom is 'uitgewerkt' ('volgelopen') wordt in onderhavige zaak een nieuw handhavingsbesluit genomen ten aanzien van de voortdurende overtreding."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/08",
+        "title": "Last onder dwangsom ten uitvoer leggen",
+        "raw": "8 - Last onder dwangsom ten uitvoer leggen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 10
+      },
+      "description": "De zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' die wordt gestart als in onderhavige zaak is besloten tot het opleggen van een last onder dwangsom."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/09",
+        "title": "Melding activiteit behandelen",
+        "raw": "9 - Melding activiteit behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 11
+      },
+      "description": "De zaak van het zaaktype 'Melding activiteit behandelen' waarin onderhavige (vervolg)zaak van het zaaktype 'Handhavingsbesluit nemen' is aangemaakt voor het handhaven op een geconstateerde overtreding op de gemelde activiteit."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 12
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' waarin onderhavige (vervolg)zaak van het zaaktype 'Handhavingsbesluit nemen' is aangemaakt voor het handhaven op een geconstateerde overtreding op de gemelde activiteit."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 13
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin onderhavige (vervolg)zaak van het zaaktype 'Handhavingsbesluit nemen' is aangemaakt voor het handhaven op een geconstateerde overtreding op de gemelde activiteit."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/12",
+        "title": "Zienswijze behandelen",
+        "raw": "12 - Zienswijze behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 14
+      },
+      "description": "De zaak van het zaaktype 'Zienswijze behandelen' waarin een zienswijze, die is ingediend naar aanleiding van het bekendmaken van het voornemen tot handhaving in onderhavige zaak, is behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/14",
+        "title": "Voorlopige voorziening behandelen",
+        "raw": "14 - Voorlopige voorziening behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 15
+      },
+      "description": "De zaak van het zaaktype 'Voorlopige voorziening behandelen', waarin de partij die het besluit bestrijdt een verzoek om voorlopige voorziening indient bij de voorzieningenrechter van een rechtsprekende instantie, in afwachting van de behandeling van het bezwaar, beroep of hoger beroep tegen dat besluit."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/16",
+        "title": "Bezwaar behandelen",
+        "raw": "16 - Bezwaar behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 16
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen' waarin een bezwaar, dat is ingediend naar aanleiding van het bekendmaken van het besluit tot handhaving in onderhavige zaak, is behandeld"
+    },
+    {
+      "target": {
+        "id": "omgevingswet/20",
+        "title": "Bezwaar behandelen zonder bezwaarcommissie",
+        "raw": "20 - Bezwaar behandelen zonder bezwaarcommissie"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 17
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen zonder bezwaarcommissie' waarin een bezwaar, dat is ingediend naar aanleiding van het bekendmaken van het besluit tot handhaving in onderhavige zaak, is behandeld"
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

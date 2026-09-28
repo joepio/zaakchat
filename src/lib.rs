@@ -9,3 +9,4 @@ pub mod push;
 pub mod schemas;
 pub mod search;
 pub mod storage;
+pub mod zaaktypen;

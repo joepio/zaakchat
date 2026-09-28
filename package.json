@@ -59,6 +59,8 @@
     "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "json-schema-to-typescript": "^15.0.4",
+    "@likec4/core": "^1.53.0",
+    "likec4": "^1.53.0",
     "lint-staged": "^16.2.7",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13",

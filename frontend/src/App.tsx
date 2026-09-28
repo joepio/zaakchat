@@ -97,6 +97,10 @@ const ZakenDashboard: React.FC = () => {
         >
           ZaakChat
         </h1>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold mb-4" style={{ backgroundColor: "var(--color-warning, #f59e0b22)", color: "#f59e0b", border: "1px solid #f59e0b55" }}>
+          <span>⚠</span>
+          <span>Alfa — speeltuin, geen officieel product</span>
+        </div>
         <p
           className="text-base lg:text-lg xl:text-xl max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto"
           style={{ color: "var(--text-secondary)" }}

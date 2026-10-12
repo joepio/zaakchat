@@ -402,6 +402,54 @@ describe("SSEContext", () => {
         );
       });
     });
+
+    it("should not duplicate an event whose delta arrives before the POST resolves", async () => {
+      const sent = createCommentEvent("issue-1", "comment-1", "hoi");
+      let resolvePost: (value: { ok: boolean }) => void = () => {};
+      mockFetch.mockImplementationOnce(
+        () => new Promise((resolve) => (resolvePost = resolve)),
+      );
+
+      const TestSender: React.FC = () => {
+        const { sendEvent, events } = useSSE();
+        return (
+          <>
+            <button onClick={() => sendEvent(sent)} data-testid="send-button">
+              Send
+            </button>
+            <div data-testid="events-count">{events.length}</div>
+          </>
+        );
+      };
+
+      render(
+        <SSEProvider>
+          <TestSender />
+        </SSEProvider>,
+      );
+
+      act(() => {
+        mockEventSource.connect();
+        mockEventSource.simulateSnapshot([]);
+      });
+
+      act(() => {
+        screen.getByTestId("send-button").click();
+      });
+      await waitFor(() => expect(mockFetch).toHaveBeenCalled());
+
+      // The server broadcasts the event before it answers the POST.
+      act(() => {
+        mockEventSource.simulateDelta(sent);
+      });
+      await act(async () => {
+        resolvePost({ ok: true });
+      });
+
+      await waitFor(() => {
+        expect(screen.getByTestId("events-count")).toHaveTextContent("1");
+      });
+    });
   });
 
   describe("Error Handling", () => {

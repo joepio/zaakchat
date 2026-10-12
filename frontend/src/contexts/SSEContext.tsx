@@ -250,8 +250,11 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
           throw new Error(errorMessage);
         }
 
-        // Process the event locally for immediate UI responsiveness
-        setEvents((prev) => [...prev, event]);
+        // Process the event locally for immediate UI responsiveness. The server broadcasts
+        // the event before it answers the POST, so the SSE delta may already be here.
+        setEvents((prev) =>
+          prev.some((e) => e.id === event.id) ? prev : [...prev, event],
+        );
         processCloudEvent(event);
       } catch (error) {
         console.error("Error sending event:", error);

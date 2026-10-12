@@ -80,8 +80,9 @@ COPY --from=rust_generate /workspace/asyncapi.yaml ./asyncapi.yaml
 COPY --from=rust_generate /workspace/asyncapi.json ./asyncapi.json
 COPY --from=rust_generate /workspace/asyncapi-docs ./asyncapi-docs
 
-# Ensure corepack/pnpm is enabled
-RUN corepack enable || true
+# Ensure corepack/pnpm is enabled. Pin pnpm 10 (as in CI): without a pin corepack takes the newest pnpm,
+# and pnpm 11 fails on ignored build scripts (esbuild, @tailwindcss/oxide).
+RUN corepack enable && corepack prepare pnpm@10.18.0 --activate
 
 # Non-interactive installs for CI/docker
 ENV CI=true

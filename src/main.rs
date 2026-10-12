@@ -3,23 +3,18 @@ use zaakchat::search::SearchIndex;
 use zaakchat::{handlers, schemas};
 pub mod auth;
 
-use futures_util::stream::{self, Stream};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::path::PathBuf;
 
 use axum::{
-    extract::State,
     http::StatusCode,
-    response::sse::{Event, KeepAlive, Sse},
     response::{Html, Response},
     routing::{delete, get, post},
     serve, Router,
 };
-use std::{convert::Infallible, sync::Arc};
+use std::sync::Arc;
 use tokio::sync::{broadcast, RwLock};
-use tokio_stream::wrappers::BroadcastStream;
-use tokio_stream::StreamExt;
 use tower_http::services::ServeDir;
 use tower_http::{cors::CorsLayer, services::ServeFile};
 
@@ -136,8 +131,6 @@ async fn create_app() -> Router {
 
     // API routes with new storage-backed endpoints
     let api_routes = Router::new()
-        // SSE endpoint for real-time updates (kept for backward compatibility)
-        .route("/events/stream", get(sse_handler))
         // Command + Sync endpoint: GET will stream SSE when the client requests
         // `Accept: text/event-stream`, otherwise it returns a JSON list.
         .route(
@@ -180,30 +173,6 @@ detection is handled centrally in the handlers module. Keeping duplicate helpers
 here caused unused-function warnings. If a shared helper is desired in future,
 move it to a single common module (e.g., `handlers` or `types`) and import it where needed. */
 
-/// SSE handler for streaming events
-async fn sse_handler(
-    State(state): State<handlers::AppState>,
-) -> Sse<impl Stream<Item = Result<Event, Infallible>>> {
-    let rx = state.tx.subscribe();
-
-    // Get snapshot from storage
-    let snapshot_events = state.storage.list_events(0, 1000).await.unwrap_or_default();
-
-    let snapshot = serde_json::to_string(&snapshot_events).unwrap();
-
-    let stream = stream::once(async move { Ok(Event::default().event("snapshot").data(snapshot)) })
-        .chain(
-            BroadcastStream::new(rx)
-                .map(|msg| {
-                    let delta = msg.unwrap();
-                    let json = serde_json::to_string(&delta).unwrap();
-                    Event::default().event("delta").data(json)
-                })
-                .map(Ok),
-        );
-
-    Sse::new(stream).keep_alive(KeepAlive::default())
-}
 
 /// Reset state handler
 

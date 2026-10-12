@@ -5,6 +5,37 @@ use axum::{
 use jsonwebtoken::{decode, encode, DecodingKey, EncodingKey, Header, Validation};
 use serde::{Deserialize, Serialize};
 use std::env;
+use std::sync::OnceLock;
+
+/// Secret used to sign and verify JWTs.
+///
+/// Comes from `JWT_SECRET`. When that is not set, a random secret is generated once per
+/// process: tokens then stop working after a restart, but nobody can forge them with a
+/// guessable default.
+fn jwt_secret() -> &'static [u8] {
+    static SECRET: OnceLock<Vec<u8>> = OnceLock::new();
+    SECRET.get_or_init(|| match env::var("JWT_SECRET") {
+        Ok(s) if !s.is_empty() => s.into_bytes(),
+        _ => {
+            eprintln!("[auth] JWT_SECRET is not set; using a random secret, sessions end on restart");
+            random_secret()
+        }
+    })
+}
+
+fn random_secret() -> Vec<u8> {
+    use std::io::Read;
+    let mut buf = vec![0u8; 32];
+    if let Ok(mut f) = std::fs::File::open("/dev/urandom") {
+        if f.read_exact(&mut buf).is_ok() {
+            return buf;
+        }
+    }
+    // Fallback for platforms without /dev/urandom: UUIDv7 carries 74 random bits each.
+    (0..4)
+        .flat_map(|_| uuid::Uuid::now_v7().into_bytes())
+        .collect()
+}
 
 /// Claims structure for JWT
 #[derive(Debug, Serialize, Deserialize)]
@@ -48,8 +79,7 @@ where
         let token = &auth_header[7..];
 
         // 3. Decode and validate token
-        let secret = env::var("JWT_SECRET").unwrap_or_else(|_| "secret".to_string());
-        let decoding_key = DecodingKey::from_secret(secret.as_bytes());
+        let decoding_key = DecodingKey::from_secret(jwt_secret());
         let validation = Validation::default();
 
         match decode::<Claims>(token, &decoding_key, &validation) {
@@ -68,7 +98,6 @@ pub fn create_jwt(user_id: &str) -> Result<String, jsonwebtoken::errors::Error> 
 
 /// Helper to create a JWT for a user with custom expiration
 pub fn create_jwt_with_expiry(user_id: &str, duration: chrono::Duration) -> Result<String, jsonwebtoken::errors::Error> {
-    let secret = env::var("JWT_SECRET").unwrap_or_else(|_| "secret".to_string());
     let expiration = chrono::Utc::now()
         .checked_add_signed(duration)
         .expect("valid timestamp")
@@ -83,14 +112,13 @@ pub fn create_jwt_with_expiry(user_id: &str, duration: chrono::Duration) -> Resu
     encode(
         &Header::default(),
         &claims,
-        &EncodingKey::from_secret(secret.as_bytes()),
+        &EncodingKey::from_secret(jwt_secret()),
     )
 }
 
 /// Helper to verify a JWT token
 pub fn verify_jwt(token: &str) -> Result<Claims, jsonwebtoken::errors::Error> {
-    let secret = env::var("JWT_SECRET").unwrap_or_else(|_| "secret".to_string());
-    let decoding_key = DecodingKey::from_secret(secret.as_bytes());
+    let decoding_key = DecodingKey::from_secret(jwt_secret());
     let validation = Validation::default();
 
     let token_data = decode::<Claims>(token, &decoding_key, &validation)?;
@@ -106,13 +134,8 @@ mod tests {
         let user_id = "alice@example.com";
         let token = create_jwt(user_id).expect("failed to create token");
 
-        let secret = env::var("JWT_SECRET").unwrap_or_else(|_| "secret".to_string());
-        let decoding_key = DecodingKey::from_secret(secret.as_bytes());
-        let validation = Validation::default();
+        let claims = verify_jwt(&token).expect("failed to decode token");
 
-        let token_data = decode::<Claims>(&token, &decoding_key, &validation)
-            .expect("failed to decode token");
-
-        assert_eq!(token_data.claims.sub, user_id);
+        assert_eq!(claims.sub, user_id);
     }
 }

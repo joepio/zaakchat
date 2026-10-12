@@ -54,6 +54,7 @@ jobs:
         env:
           RUST_LOG: info
           MOCK_EMAIL: "true"
+          ENABLE_TEST_ENDPOINTS: "true"
 
       - name: Wait for backend to be ready
         run: |

@@ -250,8 +250,10 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
           throw new Error(errorMessage);
         }
 
-        // Process the event locally for immediate UI responsiveness
-        setEvents((prev) => [...prev, event]);
+        // Process the event locally for immediate UI responsiveness.
+        // The SSE echo of this event can arrive before the POST resolves, so skip it if it is already there.
+        // processCloudEvent is idempotent (full resource or JSON Merge Patch), so it can run twice.
+        setEvents((prev) => (prev.some((e) => e.id === event.id) ? prev : [...prev, event]));
         processCloudEvent(event);
       } catch (error) {
         console.error("Error sending event:", error);

@@ -17,7 +17,7 @@
 # -------------------------
 # 1) Run rust generators
 # -------------------------
-FROM rust:1-bullseye AS rust_generate
+FROM rust:1-bookworm AS rust_generate
 
 # Install minimal runtime deps needed by generators (if any)
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -51,7 +51,7 @@ RUN (cargo run --release --bin export_schemas && cargo run --release --bin gener
 # -------------------------
 # 2) Node build (frontend)
 # -------------------------
-FROM node:22-bullseye-slim AS node_builder
+FROM node:22-bookworm-slim AS node_builder
 
 # Install tools needed for building the frontend and running the JS generator
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -105,7 +105,7 @@ RUN pnpm build
 # -------------------------
 # 3) Build Rust release
 # -------------------------
-FROM rust:1-bullseye AS rust_builder
+FROM rust:1-bookworm AS rust_builder
 
 # Install build dependencies required by some native crates
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -145,7 +145,7 @@ RUN cargo build --release
 # -------------------------
 # 4) Final runtime image
 # -------------------------
-FROM debian:bullseye-slim AS runtime
+FROM debian:bookworm-slim AS runtime
 
 # Create non-root user
 RUN useradd --create-home --shell /bin/bash appuser

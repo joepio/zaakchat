@@ -9,6 +9,10 @@ fn main() {
         "alice@example.com"
     };
 
+    if env::var("JWT_SECRET").map(|s| s.is_empty()).unwrap_or(true) {
+        eprintln!("Warning: JWT_SECRET is not set; a server will not accept this token.");
+    }
+
     match create_jwt(user_id) {
         Ok(token) => {
             println!("Generated JWT for user: {}", user_id);

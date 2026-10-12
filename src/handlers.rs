@@ -172,6 +172,15 @@ async fn get_authorized_topics(
 }
 
 /// Helper to check if a user has access to a resource (and thus its events)
+/// `/reset/` and `/debug/db` wipe or dump all data. They only exist for the E2E tests and
+/// stay off unless `ENABLE_TEST_ENDPOINTS=true`.
+fn test_endpoints_enabled() -> bool {
+    matches!(
+        std::env::var("ENABLE_TEST_ENDPOINTS").as_deref(),
+        Ok("true") | Ok("1")
+    )
+}
+
 async fn check_access(storage: &Storage, user_id: &str, resource_id: &str) -> bool {
     // 1. Try to fetch the resource
     let resource = match storage.get_resource(resource_id).await {
@@ -369,6 +378,7 @@ pub struct ErrorResponse {
 /// This is where resources are created, updated, and deleted
 pub async fn handle_event(
     State(state): State<AppState>,
+    _auth_user: AuthUser,
     Json(mut event): Json<CloudEvent>,
 ) -> Result<Response, StatusCode> {
     // Store the event and get the assigned server sequence key
@@ -867,9 +877,10 @@ fn apply_json_merge_patch(target: &mut Value, patch: &Value) {
 /// GET /resources - List all resources (paginated)
 pub async fn list_resources(
     State(state): State<AppState>,
+    auth_user: AuthUser,
     Query(params): Query<ListParams>,
 ) -> Result<Json<Vec<ResourceResponse>>, StatusCode> {
-    let resources = state
+    let all = state
         .storage
         .list_resources(params.offset, params.limit)
         .await
@@ -877,6 +888,14 @@ pub async fn list_resources(
             eprintln!("Failed to list resources: {}", e);
             StatusCode::INTERNAL_SERVER_ERROR
         })?;
+
+    // Only return what this user may see.
+    let mut resources = Vec::with_capacity(all.len());
+    for (id, data) in all {
+        if check_access(&state.storage, &auth_user.user_id, &id).await {
+            resources.push((id, data));
+        }
+    }
 
     let response: Vec<ResourceResponse> = resources
         .into_iter()
@@ -909,8 +928,13 @@ pub async fn list_resources(
 /// GET /resources/:id - Get a specific resource
 pub async fn get_resource(
     State(state): State<AppState>,
+    auth_user: AuthUser,
     Path(id): Path<String>,
 ) -> Result<Json<Value>, StatusCode> {
+    if !check_access(&state.storage, &auth_user.user_id, &id).await {
+        return Err(StatusCode::NOT_FOUND);
+    }
+
     let resource = state.storage.get_resource(&id).await.map_err(|e| {
         eprintln!("Failed to get resource: {}", e);
         StatusCode::INTERNAL_SERVER_ERROR
@@ -925,8 +949,13 @@ pub async fn get_resource(
 /// DELETE /resources/:id - Delete a specific resource
 pub async fn delete_resource(
     State(state): State<AppState>,
+    auth_user: AuthUser,
     Path(id): Path<String>,
 ) -> Result<StatusCode, StatusCode> {
+    if !check_access(&state.storage, &auth_user.user_id, &id).await {
+        return Err(StatusCode::NOT_FOUND);
+    }
+
     state.storage.delete_resource(&id).await.map_err(|e| {
         eprintln!("Failed to delete resource: {}", e);
         StatusCode::INTERNAL_SERVER_ERROR
@@ -963,9 +992,21 @@ pub async fn query_resources(
 /// POST /api/email/inbound - Handle incoming Postmark webhooks
 pub async fn inbound_email_handler(
     State(state): State<AppState>,
+    Query(query): Query<std::collections::HashMap<String, String>>,
     Json(payload): Json<Value>,
 ) -> Result<StatusCode, StatusCode> {
     println!("[inbound] Received webhook");
+
+    // The sender address in the payload decides who the comment is from, so only the mail
+    // provider may call this. Configure the webhook URL as `/api/email/inbound?token=...`.
+    match std::env::var("INBOUND_EMAIL_TOKEN") {
+        Ok(expected) if !expected.is_empty() => {
+            if query.get("token") != Some(&expected) {
+                return Err(StatusCode::UNAUTHORIZED);
+            }
+        }
+        _ => eprintln!("[inbound] INBOUND_EMAIL_TOKEN is not set; anyone can post comments by mail"),
+    }
 
     // 1. Extract Sender (From)
     let from = payload
@@ -1098,6 +1139,10 @@ pub async fn inbound_email_handler(
 pub async fn debug_db(
     State(state): State<AppState>,
 ) -> Result<Json<serde_json::Value>, StatusCode> {
+    if !test_endpoints_enabled() {
+        return Err(StatusCode::NOT_FOUND);
+    }
+
     // Gather a reasonably sized sample (limit to avoid heavy work)
     let sample_limit = 50usize;
 
@@ -1269,9 +1314,13 @@ mod tests {
             sequence: None,
         };
 
-        handle_event(State(state.clone()), Json(issue_event))
-            .await
-            .unwrap();
+        handle_event(
+            State(state.clone()),
+            AuthUser { user_id: "test@example.com".to_string() },
+            Json(issue_event),
+        )
+        .await
+        .unwrap();
 
         // 2. Create Comment Event (referencing Issue)
         let comment_id = "comment-int-1";
@@ -1305,9 +1354,13 @@ mod tests {
         let mut comment_event = comment_event;
         comment_event.subject = issue_id.to_string();
 
-        handle_event(State(state.clone()), Json(comment_event))
-            .await
-            .unwrap();
+        handle_event(
+            State(state.clone()),
+            AuthUser { user_id: "test@example.com".to_string() },
+            Json(comment_event),
+        )
+        .await
+        .unwrap();
 
         // Allow indexing (handle_event calls commit, but let's be safe or wait if needed)
         // handle_event calls search.commit() at the end, so it should be visible.
@@ -1444,6 +1497,10 @@ mod tests_access {
 pub async fn reset_handler(
     State(state): State<AppState>,
 ) -> Result<impl axum::response::IntoResponse, (axum::http::StatusCode, String)> {
+    if !test_endpoints_enabled() {
+        return Err((axum::http::StatusCode::NOT_FOUND, String::new()));
+    }
+
     // 1. Clear storage
     if let Err(e) = state.storage.clear().await {
         return Err((

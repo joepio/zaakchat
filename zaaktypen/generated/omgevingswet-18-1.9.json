@@ -1,0 +1,1328 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/18",
+  "version": "1.9",
+  "title": "Nadeelcompensatieverzoek behandelen",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "18",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Nadeelcompensatieverzoek behandelen",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "CATEGORIE": {
+      "value": "Algemeen Bestuur",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "DOEL": {
+      "value": "Het beoordelen van een verzoek om nadeelcompensatie",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "AANLEIDING": {
+      "value": "De zaakbehandelende organisatie heeft een verzoek om nadeelcompensatie ontvangen, of start zelf een traject om een betrokkene te compenseren.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "TOELICHTING": {
+      "value": "Het gaat hier om een verzoek tot compensatie; een (gedeeltelijke) schadevergoeding waarbij de zaakbehandelende organisatie verplicht gesteld kan worden om in bepaalde gevallen en onder bepaalde voorwaarden onevenredige schade van een rechtmatig besluit te vergoeden; schade die veroorzaakt wordt door de zaakbehandelende organisatie bij de uitvoering van haar taken. De term 'schadevergoeding bij een rechtmatige overheidsdaad' wordt ook wel gebruikt voor nadeelcompensatie. \nMet de invoering van de Omgevingswet worden alle instrumenten met betrekking tot schadeloosstelling samengevoegd. Planschadevergoeding wordt hierdoor niet meer gehanteerd. \nOntwikkelingen in de fysieke leefomgeving kunnen zorgen voor ongewenste neveneffecten. Hierbij is veelal een financiële compensatie mogelijk. Deze compensatie wordt in de Omgevingswet aangeduid als ‘nadeelcompensatie’. Dit thema gaat in op de aanleiding, verschillende vormen van schade, de hoogte van schadeloosstelling en te volgen procedure. Dit is onderdeel van de generieke procedure binnen de Awb. En niet meer apart onderdeel van de Omgevingswet en huidige WRO.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Extern",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Indienen",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "ONDERWERP": {
+      "value": "Nadeelcompensatieverzoek",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Behandelen",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 12
+      }
+    },
+    "DOORLOOPTIJD BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "56",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 13
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "Week",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "8",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "56",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 20
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "Schadevergoeding rechtmatige overheidsdaad",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Intern",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 23
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 25
+      }
+    },
+    "- BRON": {
+      "value": "Basisarchiefcode",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 35
+      }
+    },
+    "- CODE (2.1)": {
+      "value": "-2.07.31",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 36
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-12-18",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2021-11-30",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 44
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [
+        "Verzoek nadeelcompensatie",
+        "Ontvangstbevestiging"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Bepaald is via welk kanaal / welke kanalen met de aanvrager gecommuniceerd wordt / moet worden. Er is - al dan niet geautomatiseerd - een bewijs van ontvangst verzonden.",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": true,
+      "required_documents": [
+        "Bestreden besluit"
+      ],
+      "required_objects": [
+        "Besluit"
+      ],
+      "required_properties": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd en gerelateerd aan de zaak waarin het bestreden besluit is behandeld.\nAllereerst is beoordeeld of de zaakbehandelende organisatie het bevoegde gezag is (of door het bevoegd gezag is gemandateerd voor behandeling). Zo niet, dan is het verzoek nadeelcompensatie doorgezonden naar het juiste bevoegd gezag, worden de statussen 3, 4, 5, 6 en 7 pro forma doorlopen, en wordt de zaak afgerond met bericht aan de indiener dat het verzoek is doorgezonden naar het juiste bevoegd gezag.\nDe behandelend medewerker of het behandelend organisatieonderdeel is bepaald (v.w.b. de verdediging van het bestreden besluit door het bevoegd gezag).",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald",
+      "sequence": 3,
+      "title": "Ontvankelijkheid bepaald",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 5,
+        "unit": "kalenderdagen"
+      },
+      "description": "Adviseurs die betrokken waren bij de voorbereiding van het bestreden besluit, zijn geïnformeerd over het ingediende verzoek nadeelcompensatie en worden zonodig betrokken bij de behandeling ervan.\nHet verzoek nadeelcompensatie kan niet-ontvankelijk verklaard worden. In dat geval worden de statussen 4 en 5 pro forma doorlopen en wordt in status 6 een daartoe strekkend concept-besluit opgesteld.\nBij dreigende overschrijding van de behandeltermijn is een verdagingsbesluit genomen en is daarvan mededeling gedaan aan belanghebbenden.",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "4_verzoek_nadeelcompensatie_beoordeeld",
+      "sequence": 4,
+      "title": "Verzoek nadeelcompensatie beoordeeld",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 15,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het ingediende verzoek nadeelcompensatie is inhoudelijk beoordeeld met het oog op het opstellen van het verweerschrift. Zonodig is een controle uitgevoerd.\nAls de indiener zijn verzoek intrekt, worden de statussen 5, 6 en 7 pro forma uitgevoerd en wordt de zaak afgerond.",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "5_conceptbeslissing_opgesteld",
+      "sequence": 5,
+      "title": "Conceptbeslissing opgesteld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 5,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het concept van het besluit op het verzoek nadeelcompensatie is opgesteld in relatie met het bestreden besluit.",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "6_beschikking_opgesteld",
+      "sequence": 6,
+      "title": "Beschikking opgesteld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 8
+      },
+      "duration": {
+        "value": 25,
+        "unit": "kalenderdagen"
+      },
+      "description": "Na het verstrijken van de in de kennisgeving gestelde termijn voor het indienen van zienswijzen is vastgesteld of er zienswijzen zijn ontvangen. \nIs dit niet het geval, dan is daarvan een kennisgeving gepubliceerd en wordt binnen 4 weken de beschikking bekendgemaakt. \nElke ontvangen zienswijze is behandeld in een separate zaak van het zaaktype 'Zienswijze behandelen'. Waar van toepassing is de ingediende zienswijze verwerkt in het concept van de beschikking.",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "7_beschikking_vastgesteld",
+      "sequence": 7,
+      "title": "Beschikking vastgesteld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Beschikking nadeelcompensatie",
+        "Mededeling besluit"
+      ],
+      "required_objects": [],
+      "required_properties": [
+        "Uitkomst"
+      ],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 9
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het concept van de definitieve beschikking kan zijn getoetst door een collega en is goedgekeurd op basis van de geldende mandaatafspraken.",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "8_zaak_afgerond",
+      "sequence": 8,
+      "title": "Zaak afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 10
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het besluit is verzonden \nIndien nodig zijn vervolgacties in gang gezet (d.m.v. het plannen van andere zaken). Het zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2021-11-30"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_ontvankelijkheid_bepaald",
+      "from": "2_intake_afgerond",
+      "to": "3_ontvankelijkheid_bepaald",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_ontvankelijkheid_bepaald"
+        }
+      ]
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald__to__4_verzoek_nadeelcompensatie_beoordeeld",
+      "from": "3_ontvankelijkheid_bepaald",
+      "to": "4_verzoek_nadeelcompensatie_beoordeeld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_ontvankelijkheid_bepaald"
+      },
+      "effects": [
+        {
+          "status.transition": "4_verzoek_nadeelcompensatie_beoordeeld"
+        }
+      ]
+    },
+    {
+      "id": "4_verzoek_nadeelcompensatie_beoordeeld__to__5_conceptbeslissing_opgesteld",
+      "from": "4_verzoek_nadeelcompensatie_beoordeeld",
+      "to": "5_conceptbeslissing_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_verzoek_nadeelcompensatie_beoordeeld"
+      },
+      "effects": [
+        {
+          "status.transition": "5_conceptbeslissing_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "5_conceptbeslissing_opgesteld__to__6_beschikking_opgesteld",
+      "from": "5_conceptbeslissing_opgesteld",
+      "to": "6_beschikking_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "5_conceptbeslissing_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "6_beschikking_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "6_beschikking_opgesteld__to__7_beschikking_vastgesteld",
+      "from": "6_beschikking_opgesteld",
+      "to": "7_beschikking_vastgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "6_beschikking_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "7_beschikking_vastgesteld"
+        }
+      ]
+    },
+    {
+      "id": "7_beschikking_vastgesteld__to__8_zaak_afgerond",
+      "from": "7_beschikking_vastgesteld",
+      "to": "8_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "7_beschikking_vastgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "8_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is het verzoek geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Direct na ontvangst van het verzoek wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevant gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_communicatie",
+      "title": "2 - Communicatie",
+      "question": "Is bepaald en vastgelegd op welke wijze communicatie met de indiener van het verzoek nadeelcompensatie plaatsvindt?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Communicatie over een zaak verloopt in steeds meer gevallen niet meer - uitsluitend - via fysieke post, maar via meerdere - analoge en digitale - kanalen. Soms is het gebruik van bepaalde digitale kanalen zelfs verplicht. Indien de indiener van het verzoek nadeelcompensatie bijvoorbeeld kwalificeert als dienstverrichter (art. 1 Dienstenwet) en heeft aangegeven via het centraal loket - Berichtenbox voor bedrijven - voldoende bereikbaar te zijn, wordt alle in de zaak gevoerde correspondentie - tevens - verzonden via genoemd centraal loket (art. 14, lid 1 onder b Dienstenwet, juncto art. 16.54, lid 3 Omgevingswet).",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "1_zaak_gestart__3_ontvangstbevestiging",
+      "title": "3 - Ontvangstbevestiging",
+      "question": "Is een ontvangstbevestiging verzonden?",
+      "status": "1_zaak_gestart",
+      "required": true,
+      "description": "Aan de indiener van het bezwaar wordt een ontvangstbevestiging verzonden (art. 6:14 lid 1 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_bevoegd_gezag",
+      "title": "1 - Bevoegd gezag",
+      "question": "Is de zaakbehandelende organisatie bevoegd de zaak te behandelen?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Beoordeeld wordt of de zaakbehandelende organisatie de zaak kan behandelen, hetzij omdat de zaakbehandelende organisatie bevoegd gezag is, dan wel omdat het bevoegd gezag de zaakbehandelende organisatie heeft gemandateerd de beschikking voor te bereiden (beperkt mandaat) of volledig af te handelen (volledig mandaat). Indien de zaakbehandelende organisatie niet bevoegd of onvoldoende gemandateerd is, wordt het verzoek nadeelcompensatie direct doorgezonden naar het juiste bevoegd gezag en wordt de indiener hierover geïnformeerd (art. 6:15 lid 1 en lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_behandelaar",
+      "title": "3 - Behandelaar",
+      "question": "Is het behandelend team of medewerker bepaald?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "De zaak is gerelateerd aan de zaak waarin het bestreden besluit is behandeld. De behandelend medewerker of het behandelend organisatieonderdeel is bepaald en de zaak is volledig geregistreerd.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald__1_niet_ontvankelijk",
+      "title": "1 - Niet-ontvankelijk",
+      "question": "Is het verzoek nadeelcompensatie niet ontvankelijk?",
+      "status": "3_ontvankelijkheid_bepaald",
+      "required": true,
+      "description": "Indien het verzoek nadeelcompensatie niet-ontvankelijk (art. 6:6 Algemene wet bestuursrecht) wordt geacht door het bevoegd gezag, worden de statussen 4 en 5 in dat geval pro forma doorlopen en dit wordt in status 6 overgenomen in het (concept van de) beslissing op het verzoek nadeelcompensatie.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald__2_adviezen_gevraagd",
+      "title": "2 - Adviezen gevraagd",
+      "question": "Zijn de voor de beoordeling relevante adviezen gevraagd?",
+      "status": "3_ontvankelijkheid_bepaald",
+      "required": true,
+      "description": "Voor het toetsen van het verzoek nadeelcompensatie aan regelgeving en het zorgvuldig afwegen van belangen, kunnen adviezen noodzakelijk zijn. \n\nIn een aantal gevallen is wettelijk voorgeschreven dat advies moet worden gevraagd aan een persoon die of college dat niet werkzaam is onder de verantwoordelijkheid van de zaakbehandelende organisatie (wettelijke adviseurs, Afdeling 3.3 Algemene wet bestuursrecht, § 2.5 Wet algemene bepalingen omgevingsrecht, art. 16.15 en art. 16.16 Omgevingswet). \n\nHet kan echter ook nodig zijn advies in te winnen bij in- of externe adviseurs zonder dat daartoe een directe wettelijke verplichting bestaat, bijvoorbeeld omdat aspecten van de aanvraag een specialistische beoordeling vergen.\nHet ligt in de rede adviseurs die betrokken zijn geweest bij de voorbereiding van het bestreden besluit, te informeren over - en zonodig te betrekken bij de beoordeling van - het ingediende verzoek nadeelcompensatie.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "4_verzoek_nadeelcompensatie_beoordeeld__1_beoordeling",
+      "title": "1 - Beoordeling",
+      "question": "Is het verzoek nadeelcompensatie inhoudelijk beoordeeld?",
+      "status": "4_verzoek_nadeelcompensatie_beoordeeld",
+      "required": true,
+      "description": "Het verzoek nadeelcompensatie wordt beoordeeld, zowel met het oog op eventueel in te stellen onderzoek - waarvan een controle (zaak van het zaaktype 'Controle uitvoeren') deel kan uitmaken - als met het oog op het verweer.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "4_verzoek_nadeelcompensatie_beoordeeld__2_controle",
+      "title": "2 - Controle",
+      "question": "Moet een controle worden uitgevoerd?",
+      "status": "4_verzoek_nadeelcompensatie_beoordeeld",
+      "required": true,
+      "description": "Zowel het ingediende verzoek nadeelcompensatie als een ander feit of omstandigheid kan aanleiding geven tot het uitvoeren van een controle (een (bijdrage)zaak van het zaaktype 'Controle uitvoeren'). De bevindingen uit de controle kunnen bijdragen aan het op te stellen verweerschrift of de beslissing op het verzoek nadeelcompensatie.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "4_verzoek_nadeelcompensatie_beoordeeld__3_verzoek_ingewilligd",
+      "title": "3 - Verzoek ingewilligd",
+      "question": "Is er sprake van schade door een rechtmatige overheidsdaad?",
+      "status": "4_verzoek_nadeelcompensatie_beoordeeld",
+      "required": true,
+      "description": "De behandelaar kan na het bestuderen van het verzoek nadeelcompensatie tot de conclusie komen dat er sprake is van schade door een rechtmatige overheidsdaad.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "4_verzoek_nadeelcompensatie_beoordeeld__4_verzoek_afgewezen",
+      "title": "4 - Verzoek afgewezen",
+      "question": "Is er geen sprake van schade door een rechtmatige overheidsdaad?",
+      "status": "4_verzoek_nadeelcompensatie_beoordeeld",
+      "required": true,
+      "description": "De behandelaar kan na het bestuderen van het verzoek nadeelcompensatie tot de conclusie komen dat er geen sprake is van schade door een rechtmatige overheidsdaad.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "4_verzoek_nadeelcompensatie_beoordeeld__5_intrekking",
+      "title": "5 - Intrekking",
+      "question": "Is het verzoek nadeelcompensatie ingetrokken zonder gevolgen?",
+      "status": "4_verzoek_nadeelcompensatie_beoordeeld",
+      "required": false,
+      "description": "Indien de indiener van het verzoek nadeelcompensatie het verzoek intrekt zonder dat het gevolgen heeft, worden de statussen 5, 6 en 7 pro forma doorlopen en wordt de zaak afgerond. \nHet verzoek nadeelcompensatie wordt schriftelijk ingetrokken (art. 6:21, lid 1 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "5_conceptbeslissing_opgesteld__1_concept",
+      "title": "1 - Concept",
+      "question": "Is het concept van de beschikking opgesteld?",
+      "status": "5_conceptbeslissing_opgesteld",
+      "required": true,
+      "description": "Op basis van de beoordeling van het verzoek nadeelcompensatie, is het bestreden besluit beoordeeld en wordt het concept van de beslissing op het verzoek nadeelcompensatie opgesteld.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "5_conceptbeslissing_opgesteld__2_intrekking",
+      "title": "2 - Intrekking",
+      "question": "Is het verzoek nadeelcompensatie ingetrokken zonder gevolgen?",
+      "status": "5_conceptbeslissing_opgesteld",
+      "required": false,
+      "description": "Indien de indiener van het verzoek nadeelcompensatie het verzoek intrekt zonder gevolgen, wordt de status 7 pro forma doorlopen en wordt de zaak afgerond. \nHet verzoek nadeelcompensatie wordt schriftelijk ingetrokken (art. 6:21, lid 1 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "6_beschikking_opgesteld__1_zienswijze_ontvangen",
+      "title": "1 - Zienswijze ontvangen",
+      "question": "Is er een zienswijze ontvangen?",
+      "status": "6_beschikking_opgesteld",
+      "required": true,
+      "description": "Zo nee, dan is een kennisgeving gepubliceerd waarin dit kenbaar is gemaakt en is de beschikking binnen vier weken bekendgemaakt (art. 3:18, lid 4 Algemene wet bestuursrecht). De beschikking is in dit geval gelijkluidend aan de concept beschikking.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "6_beschikking_opgesteld__2_zienswijze_beoordeeld",
+      "title": "2 - Zienswijze beoordeeld",
+      "question": "Is de ontvangen zienswijze beoordeeld?",
+      "status": "6_beschikking_opgesteld",
+      "required": false,
+      "description": "Elke ontvangen zienswijze wordt behandeld in een separate zaak van het zaaktype 'Zienswijze behandelen'. Zonodig is de aanvrager in de gelegenheid gesteld te reageren op ingediende zienswijze (art. 3:15, lid 3 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "6_beschikking_opgesteld__3_concept",
+      "title": "3 - Concept",
+      "question": "Is het concept van de beschikking opgesteld?",
+      "status": "6_beschikking_opgesteld",
+      "required": true,
+      "description": "Het resultaat van de behandeling van ingediende zienswijze wordt verwerkt in het concept van de beschikking.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    },
+    {
+      "id": "7_beschikking_vastgesteld__1_concept_getoetst",
+      "title": "1 - Concept getoetst",
+      "question": "Is de beschikking (collegiaal) getoetst?",
+      "status": "7_beschikking_vastgesteld",
+      "required": false,
+      "description": "Afhankelijk van de afspraken binnen de zaakbehandelende organisatie, kan de beschikking collegiaal moeten worden getoetst.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 21
+      }
+    },
+    {
+      "id": "7_beschikking_vastgesteld__2_beschikking_vastgesteld",
+      "title": "2 - Beschikking vastgesteld",
+      "question": "Is de beschikking vastgesteld?",
+      "status": "7_beschikking_vastgesteld",
+      "required": true,
+      "description": "Afhankelijk van in- en externe afspraken over mandatering, kan het nodig zijn het concept van de beschikking te laten fiatteren / vaststellen op basis van de mandaatafspraken. Deze fiattering / vaststelling kan zowel intern (door bijvoorbeeld een afdelingshoofd van de zaakbehandelende organisatie) en/of extern (door het bevoegd gezag) zijn vereist.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 22
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__1_toezending",
+      "title": "1 - Toezending",
+      "question": "Is de beslissing bekendgemaakt door toezending/uitreiking aan degenen tot wie de beslissing is gericht?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "De beslissing op het verzoek nadeelcompensatie wordt bekendgemaakt door toezending of uitreiking aan de indiener van het verzoek nadeelcompensatie en eventuele andere direct belanghebbenden tot wie de beslissing is gericht (art. 7:12, lid 2 Algemene wet bestuursrecht). \nIndien bezwaar kan worden ingediend tegen de beslissing op het verzoek nadeelcompensatie, wordt daarvan bij de bekendmaking melding gemaakt. Daarbij wordt tevens vermeld door wie, binnen welke termijn en bij welk orgaan bezwaar kan worden ingediend (art. 6:23 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 23
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__2_kennisgeving",
+      "title": "2 - Kennisgeving",
+      "question": "Is de kennisgeving van de beslissing op het verzoek nadeelcompensatie gepubliceerd?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "Als het bestreden besluit niet tot een of meer belanghebbenden is gericht, dan wordt de beslissing op het beslissing op het verzoek nadeelcompensatie ook bekendgemaakt (gepubliceerd) op dezelfde wijze als waarop het bestreden besluit bekend gemaakt is, tenzij het bestreden besluit in stand wordt gelaten (art. 7:12, lid 2 Algemene wet bestuursrecht, juncto art. 3:42 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 24
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__3_mededeling",
+      "title": "3 - Mededeling",
+      "question": "Is de beslissing op het beslissing op het verzoek nadeelcompensatie medegedeeld aan belanghebbenden?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "Aan belanghebbenden die een zienswijze naar voren hebben gebracht in bezwaar of bij de voorbereiding van het bestreden besluit, wordt mededeling gedaan van de beslissing (art. 7:12, lid 3 Algemene wet bestuursrecht). Indien bezwaar kan worden ingediend tegen de beslissing op het beslissing op het verzoek nadeelcompensatie, wordt daarvan bij de mededeling melding gemaakt. \nDaarbij wordt tevens vermeld door wie, binnen welke termijn en bij welk orgaan bezwaar kan worden ingediend (art. 7:12, lid 4 Algemene wet bestuursrecht, juncto art. 6:23 Algemene wet bestuursrecht).\nHoewel hiertoe geen wettelijke verplichting bestaat, wordt ook aan adviseurs die betrokken zijn bij de behandeling van het beslissing op het verzoek nadeelcompensatie en/of de voorbereiding van het bestreden besluit, mededeling gedaan van de beslissing op het beslissing op het verzoek nadeelcompensatie.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 25
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__4_archivering",
+      "title": "4 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 26
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__5_registraties",
+      "title": "5 - Registraties",
+      "question": "Zijn de voor de beslissing op het beslissing op het verzoek nadeelcompensatie relevante registraties bijgewerkt?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "Een beschikking - en daarmee ook: een beslissing op beslissing op het verzoek nadeelcompensatie - zal in veel gevallen leiden tot een mutatie in één of meer (basis)registraties. Denk aan het verlenen van toestemming voor het slopen van een pand (moet leiden tot verwijdering van dat pand in de BAG), het oprichten van een bouwwerk (moet leiden tot creatie van dat bouwwerk in de BAG), het toestaan van een milieubelastende activiteit (kan leiden tot opname van die activiteit op de 'risicokaart') of het nemen van een handhavingsbesluit t.a.v. een overtreding (kan leiden tot registratie van een beperking in de landelijke voorziening voor de WKPB).\nDit zijn slechts enkele voorbeelden; alle relevante (basis)registraties dienen te worden bijgewerkt op basis van de beslissing.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 27
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__6_vervolgzaak",
+      "title": "6 - Vervolgzaak",
+      "question": "Zijn de voor deze zaak relevante vervolgzaken gepland?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "Indien de beslissing op het beslissing op het verzoek nadeelcompensatie aanleiding geeft tot het nemen van een nieuw besluit waarvoor een wettelijke procedure moet worden doorlopen (zie art. 7:10 lid 4, onder c Algemene wet bestuursrecht), dan wordt een gerelateerde (vervolg)zaak van het betreffende zaaktype (bijv. 'Aanvraag beschikking regulier behandelen' of 'Aanvraag beschikking uitgebreid behandelen') gestart.",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 28
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "2_intake_afgerond",
+        "8_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "belanghebbende",
+      "title": "Belanghebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "bevoegd_gezag",
+      "title": "Bevoegd gezag",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Bevoegd gezag dat het bestreden besluit heeft genomen",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "indiener_verzoek",
+      "title": "Indiener verzoek",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "casemanager",
+      "title": "Casemanager",
+      "may_set_statuses": [
+        "2_intake_afgerond",
+        "3_ontvankelijkheid_bepaald",
+        "4_verzoek_nadeelcompensatie_beoordeeld",
+        "5_conceptbeslissing_opgesteld",
+        "6_beschikking_opgesteld"
+      ],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2021-11-30"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [
+        "7_beschikking_vastgesteld"
+      ],
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2021-11-30"
+    }
+  ],
+  "documents": [
+    {
+      "id": "verzoek_nadeelcompensatie",
+      "sequence": 1,
+      "title": "Verzoek nadeelcompensatie",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 2,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "bericht_ander_bevoegd_gezag",
+      "sequence": 3,
+      "title": "Bericht ander bevoegd gezag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "melding_overgang_bevoegdheid",
+      "sequence": 4,
+      "title": "Melding overgang bevoegdheid",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "bestreden_besluit",
+      "sequence": 5,
+      "title": "Bestreden besluit",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 6,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 7,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 8,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 9,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "verzoek_aanvullende_stukken",
+      "sequence": 10,
+      "title": "Verzoek aanvullende stukken",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "aanvullend_stuk",
+      "sequence": 11,
+      "title": "Aanvullend stuk",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "aanvullend_stuk",
+      "sequence": 12,
+      "title": "Aanvullend stuk",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "controlerapport",
+      "sequence": 13,
+      "title": "Controlerapport",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 14,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 15,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "beschikking_nadeelcompensatie",
+      "sequence": 16,
+      "title": "Beschikking nadeelcompensatie",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    },
+    {
+      "id": "mededeling_besluit",
+      "sequence": 17,
+      "title": "Mededeling besluit",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 19
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 18,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 20
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "beschikking_nadeelcompensatie",
+      "title": "Beschikking nadeelcompensatie",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 3
+      },
+      "valid_from": "2021-11-30"
+    }
+  ],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "6.3",
+      "archive_nomination": "Vernietigen",
+      "description": "Het nadeelcompensatieverzoek is afgebroken. Deze is foutief ingeboekt of door de indiener ingetrokken",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ingewilligd",
+      "title": "Ingewilligd",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Ingewilligd",
+      "title_2_2": "Ingewilligd",
+      "selectielijst_class": "6.1.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "afgewezen",
+      "title": "Afgewezen",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Afgewezen",
+      "selectielijst_class": "6.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "buiten_behandeling",
+      "title": "Buiten behandeling",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Buiten behandeling",
+      "selectielijst_class": "6.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "toegekend",
+      "title": "Toegekend",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "ws",
+      "generic_title": "Toegekend",
+      "title_2_2": "Toegekend",
+      "selectielijst_class": "2.3.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "afgewezen",
+      "title": "Afgewezen",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "ws",
+      "generic_title": "Afgewezen",
+      "title_2_2": "Afgewezen",
+      "selectielijst_class": "2.3.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/16",
+        "title": "Bezwaar behandelen",
+        "raw": "16 - Bezwaar behandelen"
+      },
+      "relation_type": "Vervolgzaak",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "Tegen het besluit op het verzoek nadeelcompensatie kan bezwaar ingediend worden"
+    },
+    {
+      "target": {
+        "id": "omgevingswet/13",
+        "title": "Beroep behandelen",
+        "raw": "13 - Beroep behandelen"
+      },
+      "relation_type": "Vervolgzaak",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "Tegen het besluit op het verzoek nadeelcompensatie kan beroep ingediend worden"
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Vervolgzaak",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "Indien de beslissing op het beslissing op het verzoek nadeelcompensatie aanleiding geeft tot het nemen van een nieuw besluit waarvoor een wettelijke procedure moet worden doorlopen (zie art. 7:10 lid 4, onder c Algemene wet bestuursrecht), dan wordt een gerelateerde (vervolg)zaak van het betreffende zaaktype 'Aanvraag beschikking regulier behandelen' gestart.\nIn deze zaak is het bestreden besluit aanwezig."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Vervolgzaak",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "Indien de beslissing op het beslissing op het verzoek nadeelcompensatie aanleiding geeft tot het nemen van een nieuw besluit waarvoor een wettelijke procedure moet worden doorlopen (zie art. 7:10 lid 4, onder c Algemene wet bestuursrecht), dan wordt een gerelateerde (vervolg)zaak van het betreffende zaaktype 'Aanvraag beschikking uitgebreid behandelen' gestart.\nIn deze zaak is het bestreden besluit aanwezig."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/12",
+        "title": "Zienswijze behandelen",
+        "raw": "12 - Zienswijze behandelen"
+      },
+      "relation_type": "Deelzaak",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "Naar aanleiding van de terinzagelegging van het ontwerpbesluit (art. 3:12 Algemene wet bestuursrecht), het voornemen de beslistermijn te verlengen (art. 3:18, lid 2 Algemene wet bestuursrecht), een voorgenomen geheel of gedeeltelijke afwijzing van de aanvraag (art. 4:7 lid 1 Algemene wet bestuursrecht, juncto art. 4:11 lid 1 Algemene wet bestuursrecht en art. 4:12, lid 1 Algemene wet bestuursrecht), verwachte bedenkingen van een belanghebbende (art. 4:8, lid 1 Algemene wet bestuursrecht, juncto art. 4:11 lid 1 Algemene wet bestuursrecht en art. 4:12, lid 1 Algemene wet bestuursrecht) kunnen door belanghebbenden en/of aanvrager zienswijzen naar voren worden gebracht. Behandeling van een zienswijze vindt plaats in een zaak van het zaaktype 'Zienswijze behandelen' bij binnenkomst van de zienswijze of na het verstrijken van de termijn voor terinzagelegging."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/20",
+        "title": "Bezwaar behandelen zonder bezwaarcommissie",
+        "raw": "20 - Bezwaar behandelen zonder bezwaarcommissie"
+      },
+      "relation_type": "Vervolgzaak",
+      "source_ref": {
+        "file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "Tegen het besluit op het verzoek nadeelcompensatie kan bezwaar ingediend worden"
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

@@ -1,0 +1,1276 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/22",
+  "version": "1.9",
+  "title": "Informatieplicht verwerken",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "22",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Informatieplicht verwerken",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "CATEGORIE": {
+      "value": "Vergunningverlening",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "DOEL": {
+      "value": "Het administratief verwerken van aangeleverde informatie naar aanleiding van een informatieplicht.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "AANLEIDING": {
+      "value": "Het naar voren brengen van informatie naar aanleiding van een verplichting om het bevoegd gezag te informeren over een activiteit.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "TOELICHTING": {
+      "value": "De informatieplicht is een administratieve verplichting waarbij er geen verbod is om de activiteiten uit te voeren als er niet aan de informatieplicht is voldaan. Dit in tegenstelling tot de meldplicht waarbij het verboden is om de activiteit uit te voeren als deze niet is gemeld. Vanuit onder andere de omgevingswet, het BBL en het BAL, zijn er diverse activiteiten waarbij er een verplichting is om het bevoegd gezag te informeren en in sommige gevallen gegevens en bescheiden aan te leveren.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Extern",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Indienen",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "ONDERWERP": {
+      "value": "Informatieplicht",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Verwerken",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 12
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "28",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "4",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "nee",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "nee",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 20
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Intern",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 23
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 25
+      }
+    },
+    "- NAAM": {
+      "value": "Behandelen melding of informatie",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 31
+      }
+    },
+    "- LINK": {
+      "value": "https://www.gemmaonline.nl/wiki?title=Uitwerking_bedrijfsproces&proces=Omgevingswet/id-ec3e309d-1a85-4788-bd36-14df42c33e73",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 32
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-07-11",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2022-02-15",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 44
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [
+        "Ontvangstbevestiging",
+        "Informatie"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Er is - al dan niet geautomatiseerd - een bewijs van ontvangst verzonden.",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Er is gecontroleerd of de gemeente het bevoegd gezag is om de ontvangen informatie in behandeling te nemen. Als de gemeente niet het bevoegd gezag is, is de informatie direct doorgestuurd naar het juiste bevoegd gezag en is de behandeling afgebroken. De informatie is toegewezen aan een zaakbehandelaar (medewerker of organisatieonderdeel).",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "3_getoetst_en_verwerkt",
+      "sequence": 3,
+      "title": "Getoetst en verwerkt",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 24,
+        "unit": "kalenderdagen"
+      },
+      "description": "Er is gecontroleerd of de ontvangen informatie gerelateerd is aan andere verzoeken. Er is beoordeeld of de ontvangen informatie informatieplichtig is. Er is (zonodig in samenspraak met in- en externe adviseurs) gecontroleerd of de informatie aan de indieningsvereisten voldoet. De informatie is inhoudelijk beoordeeld.",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "4_zaak_afgerond",
+      "sequence": 4,
+      "title": "Zaak afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het resultaat van de behandeling van de informatie is eventueel verzonden. Er is eventueel een kennisgeving gedaan van de ontvangen informatie. Relevante registraties zijn eventueel bijgewerkt. Indien daartoe aanleiding is geweest, is het proces voor maatwerkvoorschriften gestart. Er is eventueel een proces Toezichthouden gestart n.a.v. de ontvangen informatie. De zaak is afgerond.",
+      "valid_from": "2022-02-15"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_getoetst_en_verwerkt",
+      "from": "2_intake_afgerond",
+      "to": "3_getoetst_en_verwerkt",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_getoetst_en_verwerkt"
+        }
+      ]
+    },
+    {
+      "id": "3_getoetst_en_verwerkt__to__4_zaak_afgerond",
+      "from": "3_getoetst_en_verwerkt",
+      "to": "4_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_getoetst_en_verwerkt"
+      },
+      "effects": [
+        {
+          "status.transition": "4_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is de aanlevering van informatie geregistreerd?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Bij informatie die via het Omgevingsloket worden ingediend ontvangt de gemeente geautomatiseerd een signaal vanuit het DSO; in dat geval kan het VTH-/zaak-systeem de informatie automatisch registreren. Bij informatie die op papier rechtstreeks bij de gemeente ingediend wordt, is handmatige registratie nodig in het VTH-systeem.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_ontvangstbevestiging",
+      "title": "2 - Ontvangstbevestiging",
+      "question": "Is er een bevestiging van ontvangst verzonden?",
+      "status": "1_zaak_gestart",
+      "required": true,
+      "description": "Er wordt onverwijld (bij voorkeur automatisch) een bevestiging van ontvangst van de informatie verzonden aan de indiener. In de bevestiging wordt de dag van ontvangst van de informatie vermeld. Als er geen elektronisch adres bekend is, wordt bepaald op welke wijze communicatie met de indiener plaatsvindt.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_bevoegd_gezag",
+      "title": "1 - Bevoegd gezag",
+      "question": "Is de zaakbehandelende organisatie bevoegd de informatie te behandelen?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Vaak is de gemeente (waar de activiteit of activiteiten geheel of in hoofdzaak zullen worden verricht) bevoegd gezag, maar er zijn uitzonderingen. Als de gemeente niet het bevoegd gezag is, stuurt de gemeente de informatie direct door naar het juiste bevoegd gezag en breekt de behandeling af.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_toewijzen",
+      "title": "2 - Toewijzen",
+      "question": "Is de zaak aan een behandelaar toegekend?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "De melding wordt toegewezen aan een hoofdbehandelaar, die als taak heeft het zorgdragen dat de informatie correct en tijdig behandeld wordt en zorgt voor een integrale afstemming.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "3_getoetst_en_verwerkt__1_gerelateerde_verzoeken",
+      "title": "1 - Gerelateerde verzoeken",
+      "question": "Is gecontroleerd of er gerelateerde verzoeken zijn?",
+      "status": "3_getoetst_en_verwerkt",
+      "required": true,
+      "description": "Er wordt gecontroleerd of er gerelateerde verzoeken zijn, die op dezelfde locatie in het DSO zijn ingediend. Ten eerste om te bepalen of er verzoeken aan elkaar gekoppeld moeten worden en ten tweede om te bepalen of er afstemming nodig is met ketenpartners/behandeldiensten.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "3_getoetst_en_verwerkt__2_controleren_informatieplicht",
+      "title": "2 - Controleren informatieplicht",
+      "question": "Geldt voor het ingediende verzoek een informatieplicht?",
+      "status": "3_getoetst_en_verwerkt",
+      "required": true,
+      "description": "Gecontroleerd wordt of voor de activiteit of gebeurtenis een informatieplicht geldt. Als de activiteit of gebeurtenis niet onder de voorgenoemde plicht valt, wordt de informatie niet behandeld.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "3_getoetst_en_verwerkt__3_indieningsvereisten",
+      "title": "3 - Indieningsvereisten",
+      "question": "Voldoet de melding aan de indieningsvereisten?",
+      "status": "3_getoetst_en_verwerkt",
+      "required": true,
+      "description": "Gecontroleerd wordt of de ingediende informatie voldoet aan de gestelde indieningsvereisten.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_getoetst_en_verwerkt__3_inhoudelijk_behandelen",
+      "title": "3 - Inhoudelijk behandelen",
+      "question": "Is de melding inhoudelijk behandeld?",
+      "status": "3_getoetst_en_verwerkt",
+      "required": true,
+      "description": "Inhoudelijke behandeling van de melding.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__1_verzenden_resultaat",
+      "title": "1 - Verzenden resultaat",
+      "question": "Is het resultaat van de toetsing verzonden?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "Het resultaat van de controle/behandeling van de informatie wordt verzonden aan de initiatiefnemer. Alleen als aan alle indieningsvereisten is voldaan, is de informatie gedaan. Het resultaat van de controle/behandeling van de informatie wordt verzonden aan de initiatiefnemer. Ook als de informatie is overgedragen aan een ander bevoegd gezag wordt dit kenbaar gemaakt aan de initiatiefnemer.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__2_kennisgeven_informatie",
+      "title": "2 - Kennisgeven informatie",
+      "question": "Is van de ìnformatie een kennisgeving gedaan?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "In een aantal gevallen is voor een informatie kennisgeving verplicht. In andere gevallen kan de gemeente ervoor kiezen wel of niet een kennisgeving te doen.\nDit wordt gedaan in het elektronisch gemeenteblad.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__3_registraties",
+      "title": "3 - Registraties",
+      "question": "Zijn de registraties bijgewerkt?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "In specifieke gevallen moeten de consequenties van de informatie in een of meer lokale of landelijke registers verwerkt worden.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__4_maatwerkvoorschrift",
+      "title": "4 - Maatwerkvoorschrift",
+      "question": "Is het proces Behandelen aanvraag t.b.v. Maatwerkvoorschrift geïnitieerd?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "De informatie kan aanleiding zijn om het proces voor het opstellen van maatwerkvoorschriften te starten.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__5_toezicht",
+      "title": "5 - Toezicht",
+      "question": "Is het proces Toezichthouden geïnitieerd?",
+      "status": "4_zaak_afgerond",
+      "required": false,
+      "description": "Toezicht wordt aangestuurd. Daarbij worden eventuele inzichten uit de beoordelingsfase van de informatie als aandachtspunten aan de toezichthouders meegegeven.",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "andere_organisatie",
+      "title": "Andere organisatie",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Niet-natuurlijk persoon",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "gemachtigde",
+      "title": "Gemachtigde",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "initiatiefnemer",
+      "title": "Initiatiefnemer",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "zaakbehandelaar",
+      "title": "Zaakbehandelaar",
+      "may_set_statuses": [
+        "3_getoetst_en_verwerkt"
+      ],
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2022-02-15"
+    }
+  ],
+  "documents": [
+    {
+      "id": "informatieplicht",
+      "sequence": 1,
+      "title": "Informatieplicht",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 2,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "bericht_ander_bevoegd_gezag",
+      "sequence": 3,
+      "title": "Bericht ander bevoegd gezag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 4,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 5,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 6,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 7,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "bericht_afhandelen_informatieplicht",
+      "sequence": 8,
+      "title": "Bericht afhandelen informatieplicht",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "bericht_niet_informatieplichtig",
+      "sequence": 10,
+      "title": "Bericht niet-informatieplichtig",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 98,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 99,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 11,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    }
+  ],
+  "decisions": [],
+  "results": [
+    {
+      "id": "aanvaard",
+      "title": "Aanvaard",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Aanvaard",
+      "selectielijst_class": "11.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De informatieplicht is aanvaard en geen van de specifieke aanvaard-resultaten is van toepassing.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "aanvaard_bodenrg",
+      "title": "Aanvaard-bodenrg",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Aanvaard",
+      "selectielijst_class": "11.1.17",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De informatieplicht is aanvaard voor een milieuactiviteit ivm gesloten bodemenergiesysteem"
+    },
+    {
+      "id": "aanvaard_bwst",
+      "title": "Aanvaard-bwst",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Aanvaard",
+      "selectielijst_class": "11.1.4",
+      "archive_nomination": "Vernietigen",
+      "description": "De informatieplicht is aanvaard betreffende bouwstoffenbesluit",
+      "archive_action_term_months": 600
+    },
+    {
+      "id": "aanvaard_tnk",
+      "title": "Aanvaard-tnk",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Aanvaard",
+      "selectielijst_class": "11.1.16",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De informatieplicht is aanvaard betreffende sanering tank"
+    },
+    {
+      "id": "aanvaard_actbesl",
+      "title": "Aanvaard-actbesl",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Aanvaard",
+      "selectielijst_class": "11.1.3",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De informatieplicht is aanvaard betreffende activiteitenbesluit of 8.40 Wet milieubeheer, sloopmelding"
+    },
+    {
+      "id": "aanvaard_kort",
+      "title": "Aanvaard-kort",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Aanvaard",
+      "selectielijst_class": "11.1.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De informatieplicht is aanvaard en betreft toestemming voor een kortdurende activiteit of gebeurtenis.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "aanvaard_techbw",
+      "title": "Aanvaard-techbw",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "gem",
+      "generic_title": "Verleend",
+      "title_2_2": "Aanvaard",
+      "selectielijst_class": "11.1.5",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De informatieplicht is aanvaard betreffende Omgevingswet of BBL,"
+    },
+    {
+      "id": "niet_aanvaard",
+      "title": "Niet Aanvaard",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "gem",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet Aanvaard",
+      "selectielijst_class": "11.2",
+      "archive_nomination": "Vernietigen",
+      "description": "De informatieplicht is niet aanvaard omdat deze niet aan de indieningsvereisten voldoet.",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "niet_informatieplichtig",
+      "title": "Niet informatieplichtig",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "gem",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet informatieplichtig",
+      "selectielijst_class": "11.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Voor de activiteit waarvoor de informatieplicht is gedaan, is geen informatieplicht van toepassing of moet een vergunning aangevraagd of melding ingediend worden.",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "11.4",
+      "archive_nomination": "Vernietigen",
+      "description": "De informatieplicht is afgebroken. Deze is foutief ingeboekt, overgedragen aan een ander gezag of door de indiener ingetrokken.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "25",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van een informatieplicht van het voornemen te ontgronden.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van een informatieplicht over het vellen van houtopstanden.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van een informatieplicht in het kader van uniforme bodemsaneringen."
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van een informatieplicht van verontreiniging of aantasting van de bodem door handelingen alsmede het geven van aanwijzingen voor de te nemen maatregelen."
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van een informatieplicht waarvoor in het kader van de Wet natuurbescherming in bepaalde gevallen verboden buiten toepassing zijn verklaard.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 18
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "22",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van een informatieplicht voor het tot ontbranding brengen van vuurwerk.",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 19
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "22",
+      "archive_nomination": "Vernietigen",
+      "description": "Verlenen van toestemming voor het organiseren van evenementen in, aan of boven provinciale vaarwegen alsmede het behandelen van een informatieplicht daarover.",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 20
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "23",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van een informatieplicht tot het oprichten, wijzigen of uitbreiden van badinrichtingen alsmede het doen van mededeling hiervan aan het betrokken GS.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "geaccepteerd_p",
+      "title": "Geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 21
+      },
+      "authority": "prov",
+      "generic_title": "Verleend",
+      "title_2_2": "Geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van een informatieplicht voor het saneren van de (water)bodem of het verminderen of verplaatsen van verontreiniging in de (water)bodem alsmede het beoordelen van de hierbij horende saneringsonderzoeken, -plannen en -verslagen en het vaststellen of sprake is van ernstige verontreiniging."
+    },
+    {
+      "id": "ingetrokken_p",
+      "title": "Ingetrokken (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 22
+      },
+      "authority": "prov",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Verlenen van toestemming voor het organiseren van evenementen in, aan of boven provinciale vaarwegen alsmede het behandelen van een informatieplicht daarover.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 23
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van een informatieplicht voor het tot ontbranding brengen van vuurwerk.",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 24
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van een informatieplicht voor het saneren van de (water)bodem of het verminderen of verplaatsen van verontreiniging in de (water)bodem alsmede het beoordelen van de hierbij horende saneringsonderzoeken, -plannen en -verslagen en het vaststellen of sprake is van ernstige verontreiniging."
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 25
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Verlenen van toestemming voor het organiseren van evenementen in, aan of boven provinciale vaarwegen alsmede het behandelen van een informatieplicht daarover.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 26
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van een informatieplicht waarvoor in het kader van de Wet natuurbescherming in bepaalde gevallen verboden buiten toepassing zijn verklaard.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 27
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "25",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van een informatieplicht van het voornemen te ontgronden.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 28
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van een informatieplicht van verontreiniging of aantasting van de bodem door handelingen alsmede het geven van aanwijzingen voor de te nemen maatregelen."
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 29
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Behandelen van een informatieplicht in het kader van uniforme bodemsaneringen."
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 30
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van een informatieplicht over het vellen van houtopstanden.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_geaccepteerd_p",
+      "title": "Niet geaccepteerd (P)",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 31
+      },
+      "authority": "prov",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet geaccepteerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Behandelen van een informatieplicht tot het oprichten, wijzigen of uitbreiden van badinrichtingen alsmede het doen van mededeling hiervan aan het betrokken GS.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 32
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "De informatieplicht is afgebroken. Deze is foutief ingeboekt, overgedragen aan een ander gezag of door de indiener ingetrokken.",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "niet_informatieplichtig",
+      "title": "Niet informatieplichtig",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 33
+      },
+      "authority": "ws",
+      "generic_title": "Geweigerd",
+      "title_2_2": "Niet informatieplichtig",
+      "selectielijst_class": "2.4.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin als voorwaarde een informatieplicht is opgenomen die in onderhavige zaak wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' waarin als voorwaarde een informatieplicht is opgenomen die in onderhavige zaak wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/01",
+        "title": "Advies verstrekken",
+        "raw": "1 - Advies verstrekken"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "De zaak van het zaaktype 'Advies verstrekken' waarin een in- of externe specialist advies uitbrengt ten behoeve het opstellen van de bevindingen in onderhavige zaak."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' die wordt gepland naar aanleiding van een in onderhavige zaak geconstateerde overtreding. Doorgaans betreft de vervolgzaak een 'hercontrole' op locatie, maar indien de geconstateerde overtreding (alleen) kan worden beëindigd door het indienen van een melding of het aanvragen van een (omgevings)vergunning, wordt een 'administratieve controle' gepland om te verifiëren of de vereiste melding of aanvraag ook daadwerkelijk is ingediend."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/09",
+        "title": "Melding activiteit behandelen",
+        "raw": "9 - Melding activiteit behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Melding activiteit behandelen' waarin als voorwaarde een informatieplicht is opgenomen die in onderhavige zaak wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "Het Activiteitenbesluit milieu (o.a. art. 2.1 lid 4 Activiteitenbesluit milieu) en de Omgevingswet (art. 4.5 Omgevingswet) bieden het bevoegd gezag de mogelijkheid maatwerkvoorschriften te verbinden aan (aspecten van) activiteiten. Indien de zaakbehandelende organisatie van deze mogelijkheid gebruik wenst te maken en de reguliere procedure volgt voor het opstellen daarvan, wordt daartoe een gerelateerde vervolgzaak van het zaaktype 'Aanvraag beschikking regulier behandelen' gestart."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "22_-_Informatieplicht_verwerken_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "Het Activiteitenbesluit milieu (o.a. art. 2.1 lid 4 Activiteitenbesluit milieu) en de Omgevingswet (art. 4.5 Omgevingswet) bieden het bevoegd gezag de mogelijkheid maatwerkvoorschriften te verbinden aan (aspecten van) activiteiten. Indien de zaakbehandelende organisatie van deze mogelijkheid gebruik wenst te maken en de uitgebreide procedure volgt voor het opstellen daarvan, wordt daartoe een gerelateerde vervolgzaak van het zaaktype 'Aanvraag beschikking regulier behandelen' gestart."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

@@ -1,0 +1,1690 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/20",
+  "version": "1.9",
+  "title": "Bezwaar behandelen zonder bezwaarcommissie",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "20",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Bezwaar behandelen zonder bezwaarcommissie",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Juridisch",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Het nemen van een beslissing op een ontvangen bezwaarschrift.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "Er is een bezwaarschrift ontvangen tegen een door het bevoegd gezag genomen besluit (niet zijnde een besluit met betrekking tot personeelszaken, belastingen en schadevorde¬rin¬gen). De behandelende organisatie maakt geen gebruik van een bezwaarcommissie.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "Een zaak van dit type loopt vanaf het moment dat er een bezwaarschrift binnenkomt tot en met het moment dat er door het bestuur een besluit is genomen inzake het bezwaarschrift.\nNa ontvangst van het bezwaar volgt de behandeling van het bezwaar door het bevoegd gezag waarin zij het bestreden besluit verdedigt vanuit het perspectief van de VTH-taakstelling.\nDit bezwaar-zaaktype is hier beschreven vanuit het perspectief van de VTH-taakstelling. In algemene zin is het mogelijkerwijs ook toepasbaar voor de behandeling van bezwaren op andere domeinen (personeelszaken, belastingen, schadevorde¬rin¬gen e.d.).\nOpschorting van de behandeling is wettelijk en op verzoek mogelijk.\n'Verlenging' wordt in deze context aangeduid met ‘verdaging’. Bij dreigende overschrijding wordt de behandeltermijn verlengd cq. wordt er verdaagd.\nIndien gebruik gemaakt wordt van een bezwaarcommissie in de organisatie van het bevoegd gezag, dient altijd gebruik gemaakt te worden van het zaaktypes 16 - Bezwaar behandelen.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Extern",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Indienen",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Bezwaar",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Behandelen",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "DOORLOOPTIJD BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "42",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 12
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "6",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "42",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 15
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "VERLENGINGSTERMIJN": {
+      "value": "42",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 20
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "- BRON": {
+      "value": "Basisarchiefcode",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 34
+      }
+    },
+    "- CODE (2.1)": {
+      "value": "-2.07.224",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 35
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-12-18",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2022-02-15",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [
+        "Bezwaarschrift",
+        "Ontvangstbevestiging"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Bepaald is via welk kanaal / welke kanalen met de aanvrager gecommuniceerd wordt / moet worden. Er is - al dan niet geautomatiseerd - een bewijs van ontvangst verzonden.",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": true,
+      "required_documents": [
+        "Bestreden besluit"
+      ],
+      "required_objects": [
+        "BESLUIT"
+      ],
+      "required_properties": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd en gerelateerd aan de zaak waarin het bestreden besluit is behandeld.\nAllereerst is beoordeeld of de zaakbehandelende organisatie het bevoegde gezag is (of door het bevoegd gezag is gemandateerd voor behandeling). Zo niet, dan is het bezwaarschrift doorgezonden naar het juiste bevoegd gezag, worden de statussen 3, 4, 5, 6 en 7 pro forma doorlopen, en wordt de zaak afgerond met bericht aan de indiener dat het bezwaarschrift is doorgezonden naar het juiste bevoegd gezag.\nDe behandelend medewerker of het behandelend organisatieonderdeel is bepaald.",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald",
+      "sequence": 3,
+      "title": "Ontvankelijkheid bepaald",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 5,
+        "unit": "kalenderdagen"
+      },
+      "description": "Op verzoek van de zaakbehandelaar zijn relevante stukken verstrekt. \nAdviseurs die betrokken waren bij de voorbereiding van het bestreden besluit, zijn geïnformeerd over het ingediende bezwaar en worden zonodig betrokken bij de behandeling ervan.\nIndien het bezwaar niet-ontvankelijk moet worden verklaard , worden de statussen 4 en 5 pro forma doorlopen en wordt in status 6 een daartoe strekkend conceptbesluit opgesteld.",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "4_bezwaar_beoordeeld",
+      "sequence": 4,
+      "title": "Bezwaar beoordeeld",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 15,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het ingediende bezwaar is inhoudelijk beoordeeld. Zo nodig is een controle uitgevoerd.\nIndien het verzoek van de indiener om direct in beroep te gaan is gehonoreerd, dan worden de statussen 5, 6 en 7 pro forma uitgevoerd en wordt de zaak afgerond.\nEr kan mediation hebben plaatsgevonden. Indien het bezwaar als gegrond is beoordeeld of indien mediation heeft geleid tot overeenstemming over de herziening van het bestreden besluit, wordt status 5 pro forma uitgevoerd. Als de indiener zijn bezwaar intrekt, worden de statussen 5, 6 en 7 pro forma uitgevoerd en wordt de zaak afgerond.",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "5_hoorzitting_bijgewoond",
+      "sequence": 5,
+      "title": "Hoorzitting bijgewoond",
+      "inform_citizen": false,
+      "required_documents": [
+        "Uitnodiging horen",
+        "Verslag horen"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 29,
+        "unit": "kalenderdagen"
+      },
+      "description": "Er heeft (eventueel) een hoorzitting (of er hebben hoorzittingen) plaatsgevonden waarbij gelegenheid is gegeven de bezwaren toe te lichten c.q. hierop te reageren. \nBij dreigende overschrijding van de behandeltermijn is een verdagingsbesluit genomen en is daarvan mededeling gedaan aan belanghebbenden.",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "6_conceptbeslissing_opgesteld",
+      "sequence": 6,
+      "title": "Conceptbeslissing opgesteld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 8
+      },
+      "duration": {
+        "value": 5,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het concept van het besluit op het bezwaar is op grond van een heroverweging van het bestreden besluit opgesteld.",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "7_besluit_vastgesteld",
+      "sequence": 7,
+      "title": "Besluit vastgesteld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Beslissing op bezwaar",
+        "Mededeling besluit"
+      ],
+      "required_objects": [],
+      "required_properties": [
+        "Uitkomst"
+      ],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 9
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het besluit op het bezwaar is vastgesteld, indien van toepassing zijn hierin de aanpassingen op het bestreden besluit vermeld.",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "8_zaak_afgerond",
+      "sequence": 8,
+      "title": "Zaak afgerond",
+      "inform_citizen": true,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 10
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het besluit is verzonden en het verslag van de hoorzitting (dit alles alleen indien het bezwaar niet ingetrokken is). Indien nodig zijn vervolgacties in gang gezet (d.m.v. het plannen van andere zaken). Het zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2022-02-15"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_ontvankelijkheid_bepaald",
+      "from": "2_intake_afgerond",
+      "to": "3_ontvankelijkheid_bepaald",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_ontvankelijkheid_bepaald"
+        }
+      ]
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald__to__4_bezwaar_beoordeeld",
+      "from": "3_ontvankelijkheid_bepaald",
+      "to": "4_bezwaar_beoordeeld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_ontvankelijkheid_bepaald"
+      },
+      "effects": [
+        {
+          "status.transition": "4_bezwaar_beoordeeld"
+        }
+      ]
+    },
+    {
+      "id": "4_bezwaar_beoordeeld__to__5_hoorzitting_bijgewoond",
+      "from": "4_bezwaar_beoordeeld",
+      "to": "5_hoorzitting_bijgewoond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_bezwaar_beoordeeld"
+      },
+      "effects": [
+        {
+          "status.transition": "5_hoorzitting_bijgewoond"
+        }
+      ]
+    },
+    {
+      "id": "5_hoorzitting_bijgewoond__to__6_conceptbeslissing_opgesteld",
+      "from": "5_hoorzitting_bijgewoond",
+      "to": "6_conceptbeslissing_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "5_hoorzitting_bijgewoond"
+      },
+      "effects": [
+        {
+          "status.transition": "6_conceptbeslissing_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "6_conceptbeslissing_opgesteld__to__7_besluit_vastgesteld",
+      "from": "6_conceptbeslissing_opgesteld",
+      "to": "7_besluit_vastgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "6_conceptbeslissing_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "7_besluit_vastgesteld"
+        }
+      ]
+    },
+    {
+      "id": "7_besluit_vastgesteld__to__8_zaak_afgerond",
+      "from": "7_besluit_vastgesteld",
+      "to": "8_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "7_besluit_vastgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "8_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is het bezwaar geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Direct na ontvangst van het bezwaarschrift wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevant gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_communicatie",
+      "title": "2 - Communicatie",
+      "question": "Is bepaald en vastgelegd op welke wijze communicatie met de indiener van het bezwaarschrift plaatsvindt?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Communicatie over een zaak verloopt in steeds meer gevallen niet meer - uitsluitend - via fysieke post, maar via meerdere - analoge en digitale - kanalen. Soms is het gebruik van bepaalde digitale kanalen zelfs verplicht. Indien de indiener van het bezwaar bijvoorbeeld kwalificeert als dienstverrichter (art. 1 Dienstenwet) en heeft aangegeven via het centraal loket - Berichtenbox voor bedrijven - voldoende bereikbaar te zijn, wordt alle in de zaak gevoerde correspondentie - tevens - verzonden via genoemd centraal loket (art. 14, lid 1 onder b Dienstenwet, juncto art. 16.54, lid 3 Omgevingswet).",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "1_zaak_gestart__3_ontvangstbevestiging",
+      "title": "3 - Ontvangstbevestiging",
+      "question": "Is een ontvangstbevestiging verzonden?",
+      "status": "1_zaak_gestart",
+      "required": true,
+      "description": "Aan de indiener van het bezwaar wordt een ontvangstbevestiging verzonden (art. 6:14 lid 1 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_bevoegd_gezag",
+      "title": "1 - Bevoegd gezag",
+      "question": "Is de zaakbehandelende organisatie bevoegd de zaak te behandelen?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Beoordeeld wordt of de zaakbehandelende organisatie de zaak kan behandelen, hetzij omdat de zaakbehandelende organisatie bevoegd gezag is, dan wel omdat het bevoegd gezag de zaakbehandelende organisatie heeft gemandateerd de beschikking voor te bereiden (beperkt mandaat) of volledig af te handelen (volledig mandaat). Indien de zaakbehandelende organisatie niet bevoegd of onvoldoende gemandateerd is, wordt het bezwaarschrift direct doorgezonden naar het juiste bevoegd gezag en wordt de indiener hierover geïnformeerd (art. 6:15 lid 1 en lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_registratie",
+      "title": "3 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_behandelaar",
+      "title": "3 - Behandelaar",
+      "question": "Is het behandelend team of medewerker bepaald?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "De zaak is gerelateerd aan de zaak waarin het bestreden besluit is behandeld. De behandelend medewerker of het behandelend organisatieonderdeel is bepaald en de zaak is volledig geregistreerd.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald__1_volledigheid",
+      "title": "1 - Volledigheid",
+      "question": "Zijn de relevante stukken ingediend?",
+      "status": "3_ontvankelijkheid_bepaald",
+      "required": true,
+      "description": "Er wordt getoetst of de indiener alle relevante stukken heeft ingediend.\nEventuele aanvullende stukken die door de indiener van het bezwaarschrift zijn aangeleverd, zijn opgenomen in het zaakdossier.\nIndien niet alle relevante stukken zijn ingediend, worden deze opgevraagd bij de indiener.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald__2_niet_ontvankelijk",
+      "title": "2 - Niet-ontvankelijk",
+      "question": "Is het bezwaar niet ontvankelijk?",
+      "status": "3_ontvankelijkheid_bepaald",
+      "required": true,
+      "description": "Indien het bevoegd gezag het bezwaar niet-ontvankelijk (art. 6:6 Algemene wet bestuursrecht) acht, worden de statussen 4 en 5 worden in dat geval pro forma doorlopen en dit wordt in status 6 overgenomen in het (concept van de) beslissing op bezwaar.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald__3_interne_adviezen_gevraagd",
+      "title": "3 - Interne adviezen gevraagd",
+      "question": "Zijn de voor de beoordeling relevante interne adviezen gevraagd?",
+      "status": "3_ontvankelijkheid_bepaald",
+      "required": true,
+      "description": "Voor het toetsen van het bezwaarschrift aan regelgeving en het zorgvuldig afwegen van belangen, kunnen adviezen noodzakelijk zijn. \nHet kan nodig zijn advies in te winnen bij interne adviseurs zonder dat daartoe een directe wettelijke verplichting bestaat, bijvoorbeeld omdat aspecten van de aanvraag een specialistische beoordeling vergen.\nHet ligt in de rede adviseurs die betrokken zijn geweest bij de voorbereiding van het bestreden besluit, te informeren over - en zonodig te betrekken bij de beoordeling van - het ingediende bezwaar.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald__4_externe_adviezen_gevraagd",
+      "title": "4 - Externe adviezen gevraagd",
+      "question": "Zijn de voor de beoordeling relevante externe adviezen gevraagd?",
+      "status": "3_ontvankelijkheid_bepaald",
+      "required": false,
+      "description": "Voor het toetsen van het bezwaarschrift aan regelgeving en het zorgvuldig afwegen van belangen, kunnen adviezen noodzakelijk zijn. In een aantal gevallen is wettelijk voorgeschreven dat advies moet worden gevraagd aan een persoon die of college dat niet werkzaam is onder de verantwoordelijkheid van de zaakbehandelende organisatie (wettelijke adviseurs, Afdeling 3.3 Algemene wet bestuursrecht, § 2.5 Wet algemene bepalingen omgevingsrecht, art. 16.15 en art. 16.16 Omgevingswet). Het kan echter ook nodig zijn advies in te winnen bij externe adviseurs zonder dat daartoe een directe wettelijke verplichting bestaat, bijvoorbeeld omdat aspecten van de aanvraag een specialistische beoordeling vergen.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "3_ontvankelijkheid_bepaald__5_adviezen_ontvangen",
+      "title": "5 - Adviezen ontvangen",
+      "question": "Zijn de voor de beoordeling relevante adviezen ontvangen?",
+      "status": "3_ontvankelijkheid_bepaald",
+      "required": true,
+      "description": "Voor het toetsen van het bezwaarschrift aan regelgeving en het zorgvuldig afwegen van belangen zijn alle benodigde adviezen ontvangen.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "4_bezwaar_beoordeeld__1_beoordeling",
+      "title": "1 - Beoordeling",
+      "question": "Is het bezwaarschrift inhoudelijk beoordeeld?",
+      "status": "4_bezwaar_beoordeeld",
+      "required": true,
+      "description": "Het bezwaarschrift wordt beoordeeld, zowel met het oog op eventueel in te stellen onderzoek - waarvan een controle (zaak van het zaaktype 'Controle uitvoeren') deel kan uitmaken - als met het oog op het verweer.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "4_bezwaar_beoordeeld__2_controle",
+      "title": "2 - Controle",
+      "question": "Moet een controle worden uitgevoerd?",
+      "status": "4_bezwaar_beoordeeld",
+      "required": true,
+      "description": "Zowel het ingediende bezwaarschrift als een ander feit of omstandigheid kan aanleiding geven tot het uitvoeren van een controle (een (bijdrage)zaak van het zaaktype 'Controle uitvoeren'). De bevindingen uit de controle kunnen bijdragen aan het op te stellen verweerschrift of de beslissing op bezwaar.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "4_bezwaar_beoordeeld__3_rechtstreeks_beroep",
+      "title": "3 - Rechtstreeks beroep",
+      "question": "Verzoekt de indiener van het bezwaarschrift om rechtstreeks beroep bij de bestuursrechter?",
+      "status": "4_bezwaar_beoordeeld",
+      "required": false,
+      "description": "Doorgaans zal, alvorens beroep in te stellen bij een bestuursrechter, bezwaar moeten worden gemaakt bij het bevoegd gezag dat het bestreden besluit heeft genomen (art. 7:1, lid 1 Algemene wet bestuursrecht). Echter, in het bezwaarschrift kan de indiener het bevoegd gezag verzoeken in te stemmen met rechtstreeks beroep bij de bestuursrechter (art. 7:1a, lid 1 Algemene wet bestuursrecht). Indien het bevoegd gezag met het verzoek instemt (art. 7:1a, lid 2, lid 3 en lid 4 Algemene wet bestuursrecht), wordt het bezwaarschrift direct doorgezonden aan de bevoegde rechter, worden de statussen 5, 6 en 7 pro forma doorlopen en wordt de zaak afgerond.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "4_bezwaar_beoordeeld__4_mediation",
+      "title": "4 - Mediation",
+      "question": "Is het kansrijk mediation toe te passen?",
+      "status": "4_bezwaar_beoordeeld",
+      "required": false,
+      "description": "Op basis van het bezwaarschrift, ontvangen aanvullende stukken en eventueel ingesteld onderzoek kan blijken dat het bezwaar (gedeeltelijk) ongegrond is. Overwogen wordt of mediation kan leiden tot intrekking van het bezwaarschrift door de indiener, als het bevoegd gezag:\nhet bestreden besluit herroept en in de plaats daarvan een nieuw, beter gemotiveerd, besluit neemt met dezelfde strekking;\nhet bestreden besluit herroept en in de plaats daarvan een nieuw, inhoudelijk aangepast, besluit neemt dat (gedeeltelijk) tegemoetkomt aan het bezwaar van de indiener van het bezwaarschrift, zonder de belangen van andere belanghebbenden te schaden;\nhet bestreden besluit beargumenteerd (tijdens de mediation) in stand houdt.\nIndien op grond van bovenstaande overwegingen mediation kansrijk wordt geacht, kan dit worden voorgesteld aan de indiener van het bezwaarschrift (en eventuele andere belanghebbenden). Als de indiener van het bezwaarschrift (en eventuele andere belanghebbenden) met mediation instemt (instemmen), stemt hij (stemmen zij) tevens in met opschorting van de beslistermijn zolang de mediation voortduurt (art. 7:10 lid 4 onder b Algemene wet bestuursrecht). Belanghebbenden worden over de opschorting geïnformeerd (art. 7:10, lid 5 Algemene wet bestuursrecht).\nIndien de mediation slaagt, wordt status 5 pro forma doorlopen. \nDe zaak wordt vervolgd: in status 6 als een nieuw, herzien, besluit moet worden genomen, waarna de indiener van het bezwaarschrift het bezwaar zal intrekken; in status 8 als de indiener het bezwaar intrekt en het bestreden besluit in stand gehouden wordt.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "4_bezwaar_beoordeeld__5_intrekking",
+      "title": "5 - Intrekking",
+      "question": "Is het bezwaar ingetrokken zonder dat het bestreden besluit hoeft te worden herroepen?",
+      "status": "4_bezwaar_beoordeeld",
+      "required": false,
+      "description": "Indien de indiener van het bezwaarschrift het bezwaar intrekt zonder dat het bestreden besluit hoeft te worden herroepen, worden de statussen 5, 6 en 7 pro forma doorlopen en wordt de zaak afgerond. Het bezwaar wordt schriftelijk ingetrokken (art. 6:21, lid 1 Algemene wet bestuursrecht); alleen tijdens de hoorzitting kan het bezwaar ook mondeling worden ingetrokken (art. 6:21, lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "5_hoorzitting_bijgewoond__1_uitnodiging_hoorzitting",
+      "title": "1 - Uitnodiging hoorzitting",
+      "question": "Zijn de uitnodigingen voor de hoorzitting verzonden?",
+      "status": "5_hoorzitting_bijgewoond",
+      "required": false,
+      "description": "De uitnodigingen voor de hoorzitting dienen verzonden te worden naar de (andere) partijen betrokken bij het bestreden besluit.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "5_hoorzitting_bijgewoond__2_doorzenden_stukken",
+      "title": "2 - Doorzenden stukken",
+      "question": "Zijn de nadere stukken doorgestuurd naar (andere) partijen?",
+      "status": "5_hoorzitting_bijgewoond",
+      "required": false,
+      "description": "De nadere stukken dienen doorgezonden te worden naar de (andere) partijen betrokken bij het bestreden besluit.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    },
+    {
+      "id": "5_hoorzitting_bijgewoond__3_hoorzitting",
+      "title": "3 - Hoorzitting",
+      "question": "Is het concept verslag van de hoorzitting opgesteld?",
+      "status": "5_hoorzitting_bijgewoond",
+      "required": false,
+      "description": "Het concept verslag van de hoorzitting is opgesteld en doorgezonden naar de (andere) partijen betrokken bij het bestreden besluit, met het verzoek hierop te reageren.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 21
+      }
+    },
+    {
+      "id": "5_hoorzitting_bijgewoond__4_verdaging",
+      "title": "4 - Verdaging",
+      "question": "Is het wenselijk de beslissing te verdagen (met 6 weken)?",
+      "status": "5_hoorzitting_bijgewoond",
+      "required": false,
+      "description": "De beslissing op bezwaar - te nemen binnen 6 weken zonder Adviescommissie, (art. 7:10 lid 1 Algemene wet bestuursrecht) - kan door het bevoegd gezag worden verdaagd met 6 weken (art. 7:10 lid 3 Algemene wet bestuursrecht). Indien de beslissing wordt verdaagd, wordt dit aan belanghebbenden medegedeeld (art. 7:10 lid 5 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 22
+      }
+    },
+    {
+      "id": "6_conceptbeslissing_opgesteld__1_concept",
+      "title": "1 - Concept",
+      "question": "Is het concept van de beschikking opgesteld?",
+      "status": "6_conceptbeslissing_opgesteld",
+      "required": true,
+      "description": "Op basis van de beoordeling van het bezwaarschrift is het bestreden besluit heroverwogen en wordt het concept van de beslissing op bezwaar opgesteld.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 23
+      }
+    },
+    {
+      "id": "6_conceptbeslissing_opgesteld__2_nieuw_besluit",
+      "title": "2 - Nieuw besluit",
+      "question": "Is het nodig een nieuw besluit te nemen dat in de plaats komt van het bestreden besluit?",
+      "status": "6_conceptbeslissing_opgesteld",
+      "required": true,
+      "description": "Indien het bezwaar (gedeeltelijk) gegrond is, wordt bezien of het bestreden besluit in stand kan blijven (en bijvoorbeeld via de beslissing op bezwaar beter kan worden gemotiveerd). Zo niet, dan zal het bestreden besluit moeten worden herroepen en moet er, zo nodig, een nieuw besluit worden voorbereid conform de daarvoor geldende procedure.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 24
+      }
+    },
+    {
+      "id": "6_conceptbeslissing_opgesteld__3_uitstel",
+      "title": "3 - Uitstel",
+      "question": "Moet de beslissing op bezwaar worden uitgesteld vanwege een te volgen wettelijke procedure?",
+      "status": "6_conceptbeslissing_opgesteld",
+      "required": false,
+      "description": "Indien voor het nemen van een nieuw besluit dat in de plaats komt van het bestreden besluit een wettelijk voorgeschreven procedure moet worden doorlopen - bijvoorbeeld door een zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' of 'Aanvraag beschikking uitgebreid behandelen' uit te voeren -, moet de beslissing op bezwaar worden uitgesteld met een beroep op art. 7:10 lid 4 onder c Algemene wet bestuursrecht, zodat de beslissing op bezwaar en het nieuwe besluit dat in de plaats komt van het bestreden besluit, gelijktijdig worden genomen (conform art. 7:11 Algemene wet bestuursrecht). Dit uitstel wordt aan de belanghebbenden medegedeeld (art. 7:10, lid 5 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 25
+      }
+    },
+    {
+      "id": "6_conceptbeslissing_opgesteld__4_intrekking",
+      "title": "4 - Intrekking",
+      "question": "Is het bezwaar ingetrokken zonder dat het bestreden besluit hoeft te worden herroepen?",
+      "status": "6_conceptbeslissing_opgesteld",
+      "required": false,
+      "description": "Indien de indiener van het bezwaarschrift het bezwaar intrekt zonder dat het bestreden besluit hoeft te worden herroepen, wordt de status 7 pro forma doorlopen en wordt de zaak afgerond. Het bezwaar wordt schriftelijk ingetrokken (art. 6:21, lid 1 Algemene wet bestuursrecht); alleen tijdens de hoorzitting kan het bezwaar ook mondeling worden ingetrokken (art. 6:21, lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 26
+      }
+    },
+    {
+      "id": "6_conceptbeslissing_opgesteld__5_vergoeding",
+      "title": "5 - Vergoeding",
+      "question": "Heeft de indiener van het bezwaarschrift aanspraak gemaakt op vergoeding van de proceskosten?",
+      "status": "6_conceptbeslissing_opgesteld",
+      "required": true,
+      "description": "Indien het bestreden besluit wordt herroepen door onrechtmatig handelen van het bevoegd gezag dat het bestreden besluit heeft genomen, kan de indiener van het bezwaarschrift aanspraak maken op vergoeding van de proceskosten als het verzoek tot vergoeding van de proceskosten is gedaan voordat op het bezwaar is beslist (art. 7:15, lid 2 en lid 3 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 27
+      }
+    },
+    {
+      "id": "7_besluit_vastgesteld__1_concept_getoetst",
+      "title": "1 - Concept getoetst",
+      "question": "Is de beschikking (collegiaal) getoetst?",
+      "status": "7_besluit_vastgesteld",
+      "required": false,
+      "description": "Afhankelijk van de afspraken binnen de zaakbehandelende organisatie, kan de beschikking collegiaal moeten worden getoetst.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 28
+      }
+    },
+    {
+      "id": "7_besluit_vastgesteld__2_beschikking_vastgesteld",
+      "title": "2 - Beschikking vastgesteld",
+      "question": "Is de beschikking vastgesteld?",
+      "status": "7_besluit_vastgesteld",
+      "required": true,
+      "description": "Afhankelijk van in- en externe afspraken over mandatering, kan het nodig zijn het concept van de beschikking te laten fiatteren / vaststellen op basis van de mandaatafspraken. Deze fiattering / vaststelling kan zowel intern (door bijvoorbeeld een afdelingshoofd van de zaakbehandelende organisatie) en/of extern (door het bevoegd gezag) zijn vereist.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 29
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__1_toezending",
+      "title": "1 - Toezending",
+      "question": "Is de beslissing bekendgemaakt door toezending/uitreiking aan degenen tot wie de beslissing is gericht?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "De beslissing op het bezwaar wordt bekendgemaakt door toezending of uitreiking aan de indiener van het bezwaarschrift en eventuele andere direct belanghebbenden tot wie de beslissing is gericht (art. 7:12, lid 2 Algemene wet bestuursrecht). Indien beroep kan worden ingesteld tegen de beslissing op het bezwaar, wordt daarvan bij de bekendmaking melding gemaakt. Daarbij wordt tevens vermeld door wie, binnen welke termijn en bij welk orgaan beroep kan worden ingesteld (art. 6:23 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 30
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__2_kennisgeving",
+      "title": "2 - Kennisgeving",
+      "question": "Is de kennisgeving van de beslissing op het bezwaar gepubliceerd?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "Als het bestreden besluit niet tot een of meer belanghebbenden is gericht, dan wordt de beslissing op het bezwaar ook bekendgemaakt (gepubliceerd) op dezelfde wijze als waarop het bestreden besluit bekend gemaakt is, tenzij het bestreden besluit in stand wordt gelaten (art. 7:12, lid 2 Algemene wet bestuursrecht, juncto art. 3:42 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 31
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__3_mededeling",
+      "title": "3 - Mededeling",
+      "question": "Is de beslissing op bezwaar medegedeeld aan belanghebbenden?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "Aan belanghebbenden die een zienswijze naar voren hebben gebracht in bezwaar of bij de voorbereiding van het bestreden besluit, wordt mededeling gedaan van de beslissing (art. 7:12, lid 3 Algemene wet bestuursrecht). Indien beroep kan worden ingesteld tegen de beslissing op het bezwaar, wordt daarvan bij de mededeling melding gemaakt. Daarbij wordt tevens vermeld door wie, binnen welke termijn en bij welk orgaan beroep kan worden ingesteld (art. 7:12, lid 4 Algemene wet bestuursrecht, juncto art. 6:23 Algemene wet bestuursrecht).\nHoewel hiertoe geen wettelijke verplichting bestaat, wordt ook aan adviseurs die betrokken zijn bij de behandeling van het bezwaar en/of de voorbereiding van het bestreden besluit, mededeling gedaan van de beslissing op het bezwaar.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 32
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__4_archivering",
+      "title": "4 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 33
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__5_registraties",
+      "title": "5 - Registraties",
+      "question": "Zijn de voor de beslissing op het bezwaar relevante registraties bijgewerkt?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "Een beschikking - en daarmee ook: een beslissing op bezwaar - zal in veel gevallen leiden tot een mutatie in één of meer (basis)registraties. Denk aan het verlenen van toestemming voor het slopen van een pand (moet leiden tot verwijdering van dat pand in de BAG), het oprichten van een bouwwerk (moet leiden tot creatie van dat bouwwerk in de BAG), het toestaan van een milieubelastende activiteit (kan leiden tot opname van die activiteit op de 'risicokaart') of het nemen van een handhavingsbesluit t.a.v. een overtreding (kan leiden tot registratie van een beperking in de landelijke voorziening voor de WKPB).\nDit zijn slechts enkele voorbeelden; alle relevante (basis)registraties dienen te worden bijgewerkt op basis van de beslissing.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 34
+      }
+    },
+    {
+      "id": "8_zaak_afgerond__6_vervolgzaak",
+      "title": "6 - Vervolgzaak",
+      "question": "Zijn de voor deze zaak relevante vervolgzaken gepland?",
+      "status": "8_zaak_afgerond",
+      "required": true,
+      "description": "Indien de beslissing op het bezwaar aanleiding geeft tot het nemen van een nieuw besluit waarvoor een wettelijke procedure moet worden doorlopen (zie art. 7:10 lid 4, onder c Algemene wet bestuursrecht), dan wordt een gerelateerde (vervolg)zaak van het betreffende zaaktype (bijv. 'Aanvraag beschikking regulier behandelen' of 'Aanvraag beschikking uitgebreid behandelen') gestart.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 35
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "2_intake_afgerond",
+        "8_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "belanghebbende",
+      "title": "Belanghebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "bevoegd_gezag",
+      "title": "Bevoegd gezag",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Bevoegd gezag dat het bestreden besluit heeft genomen",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "indiener_bezwaarschrift",
+      "title": "Indiener bezwaarschrift",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "verweerder",
+      "title": "Verweerder",
+      "may_set_statuses": [
+        "2_intake_afgerond",
+        "3_ontvankelijkheid_bepaald",
+        "4_bezwaar_beoordeeld",
+        "5_hoorzitting_bijgewoond",
+        "6_conceptbeslissing_opgesteld"
+      ],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [
+        "7_besluit_vastgesteld"
+      ],
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2022-02-15"
+    }
+  ],
+  "documents": [
+    {
+      "id": "bezwaarschrift",
+      "sequence": 1,
+      "title": "Bezwaarschrift",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 2,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "bericht_ander_bevoegd_gezag",
+      "sequence": 3,
+      "title": "Bericht ander bevoegd gezag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "melding_overgang_bevoegdheid",
+      "sequence": 4,
+      "title": "Melding overgang bevoegdheid",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "bestreden_besluit",
+      "sequence": 5,
+      "title": "Bestreden besluit",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "machtiging_voor_vertegenwoordiging",
+      "sequence": 6,
+      "title": "Machtiging voor vertegenwoordiging",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 7,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 7,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 8,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 8,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "verzoek_aanvullende_stukken",
+      "sequence": 9,
+      "title": "Verzoek aanvullende stukken",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "aanvullend_stuk",
+      "sequence": 10,
+      "title": "Aanvullend stuk",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "controlerapport",
+      "sequence": 11,
+      "title": "Controlerapport",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "mededeling_opschorting_verdaging_uitstel_beslissing_op_bezwaar",
+      "sequence": 12,
+      "title": "Mededeling opschorting / verdaging / uitstel beslissing op bezwaar",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "instemming_met_opschorting",
+      "sequence": 13,
+      "title": "Instemming met opschorting",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "uitnodiging_horen",
+      "sequence": 15,
+      "title": "Uitnodiging horen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    },
+    {
+      "id": "verslag_horen",
+      "sequence": 17,
+      "title": "Verslag horen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 19
+      }
+    },
+    {
+      "id": "beslissing_op_bezwaar",
+      "sequence": 19,
+      "title": "Beslissing op bezwaar",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 20
+      }
+    },
+    {
+      "id": "mededeling_besluit",
+      "sequence": 20,
+      "title": "Mededeling besluit",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 21
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 98,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 22
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 99,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 23
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 18,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 24
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "verdagingsbesluit",
+      "title": "Verdagingsbesluit",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 3
+      },
+      "valid_from": "2022-02-15"
+    },
+    {
+      "id": "beslissing_op_bezwaar",
+      "title": "Beslissing op bezwaar",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 4
+      },
+      "valid_from": "2022-02-15"
+    }
+  ],
+  "results": [
+    {
+      "id": "gegrond_bewaren",
+      "title": "Gegrond - bewaren",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Gegrond",
+      "selectielijst_class": "13.1.3",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Geschil met invloed op een te bewaren zaak.",
+      "leads_to_decision_type": "Beslissing op bezwaar"
+    },
+    {
+      "id": "gegrond",
+      "title": "Gegrond",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Gegrond",
+      "selectielijst_class": "13.1",
+      "archive_nomination": "Vernietigen",
+      "leads_to_decision_type": "Beslissing op bezwaar",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "gegrond_financien",
+      "title": "Gegrond - financien",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Gegrond",
+      "selectielijst_class": "13.1.1",
+      "archive_nomination": "Vernietigen",
+      "description": "Geschil met financiële consequenties",
+      "leads_to_decision_type": "Beslissing op bezwaar",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "ingetrokken",
+      "title": "Ingetrokken",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "13.2",
+      "archive_nomination": "Vernietigen",
+      "description": "De indiener heeft het bezwaarschrift ingetrokken.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "niet_ontvankelijk",
+      "title": "Niet ontvankelijk",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Niet ontvankelijk",
+      "selectielijst_class": "13.1.4",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ongegrond_bewaren",
+      "title": "Ongegrond - bewaren",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Ongegrond",
+      "selectielijst_class": "13.1.3",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Geschil met invloed op een te bewaren zaak.",
+      "leads_to_decision_type": "Beslissing op bezwaar"
+    },
+    {
+      "id": "ongegrond",
+      "title": "Ongegrond",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Ongegrond",
+      "selectielijst_class": "13.1",
+      "archive_nomination": "Vernietigen",
+      "leads_to_decision_type": "Beslissing op bezwaar",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "ongegrond_financ",
+      "title": "Ongegrond - financ.",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Ongegrond",
+      "selectielijst_class": "13.1.1",
+      "archive_nomination": "Vernietigen",
+      "description": "Geschil met financiële consequenties",
+      "leads_to_decision_type": "Beslissing op bezwaar",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "13.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Het bezwaarschrift is afgebroken. Deze is foutief ingeboekt of overgedragen aan een ander gezag",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "gegrond_met_precedentwerking",
+      "title": "Gegrond met precedentwerking",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "ws",
+      "generic_title": "Gegrond met precedentwerking",
+      "title_2_2": "Gegrond met precedentwerking",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "gegrond_met_invloed_op_beleid_of_precedentwerking",
+      "title": "Gegrond met invloed op beleid of precedentwerking",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "ws",
+      "generic_title": "Gegrond met invloed op beleid of precedentwerking",
+      "title_2_2": "Gegrond met invloed op beleid of precedentwerking",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "gegrond_zonder_precedentwerking",
+      "title": "Gegrond zonder precedentwerking",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "ws",
+      "generic_title": "Gegrond zonder precedentwerking",
+      "title_2_2": "Gegrond zonder precedentwerking",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "ontvankelijk_en_ongegrond",
+      "title": "Ontvankelijk en ongegrond",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "ws",
+      "generic_title": "Ontvankelijk en ongegrond",
+      "title_2_2": "Ontvankelijk en ongegrond",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "niet_ontvankelijk",
+      "title": "Niet Ontvankelijk",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "ws",
+      "generic_title": "Niet Ontvankelijk",
+      "title_2_2": "Niet Ontvankelijk",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "doorgestuurd_naar_bevoegd_gezag",
+      "title": "Doorgestuurd naar bevoegd gezag",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "ws",
+      "generic_title": "Doorgestuurd naar bevoegd gezag",
+      "title_2_2": "Doorgestuurd naar bevoegd gezag",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "buiten_behandeling_gelaten",
+      "title": "Buiten behandeling gelaten",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 18
+      },
+      "authority": "ws",
+      "generic_title": "Buiten behandeling gelaten",
+      "title_2_2": "Buiten behandeling gelaten",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ingetrokken",
+      "title": "Ingetrokken",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 19
+      },
+      "authority": "ws",
+      "generic_title": "Ingetrokken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 20
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/01",
+        "title": "Advies verstrekken",
+        "raw": "1 - Advies verstrekken"
+      },
+      "relation_type": "Bijdrage",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "In een aantal gevallen is wettelijk voorgeschreven dat advies/instemming moet worden gevraagd aan een persoon die of college dat niet werkzaam is onder de verantwoordelijkheid van de zaakbehandelende organisatie (wettelijke adviseurs, Afdeling 3.3 Algemene wet bestuursrecht, § 2.5 Wet algemene bepalingen omgevingsrecht, art. 16.15 en art. 16.16 Omgevingswet). Het kan echter ook nodig zijn advies in te winnen bij in- of externe adviseurs zonder dat daartoe een directe wettelijke verplichting bestaat, bijvoorbeeld omdat aspecten van de aanvraag een specialistische beoordeling vergen. De adviesaanvraag van de zaakbehandelende organisatie wordt door de adviseur behandeld in een zaak van het zaaktype 'Advies verstrekken'.\nAdviseurs die betrokken zijn geweest bij het voorbereiden van het bestreden besluit, kunnen op deze wijze een bijdrage leveren aan de behandeling van het ingediende bezwaar."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen' waarin het bestreden besluit is genomen waarop het bezwaar zich richt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/06",
+        "title": "Handhavingsverzoek behandelen",
+        "raw": "6 - Handhavingsverzoek behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsverzoek behandelen' waarin het bestreden besluit is genomen waarop het bezwaar zich richt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/08",
+        "title": "Last onder dwangsom ten uitvoer leggen",
+        "raw": "8 - Last onder dwangsom ten uitvoer leggen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' waarin het bestreden besluit is genomen waarop het bezwaar zich richt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' waarin het bestreden besluit is genomen waarop het bezwaar zich richt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' waarin een nieuw besluit wordt genomen dat in de plaats komt van het bestreden besluit. Een gerelateerde (vervolg)zaak van dit zaaktype wordt uitsluitend gestart als een - nieuwe - wettelijke procedure moet worden doorlopen voor het nemen van het besluit dat in de plaats komt van het bestreden besluit (art. 7:11 lid 2 Algemene wet bestuursrecht, juncto art. 7:10, lid 4, onder c Algemene wet bestuursrecht)."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin een nieuw besluit wordt genomen dat in de plaats komt van het bestreden besluit. Een gerelateerde (vervolg)zaak van dit zaaktype wordt uitsluitend gestart als een - nieuwe - wettelijke procedure moet worden doorlopen voor het nemen van het besluit dat in de plaats komt van het bestreden besluit (art. 7:11 lid 2 Algemene wet bestuursrecht, juncto art. 7:10, lid 4, onder c Algemene wet bestuursrecht)."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/13",
+        "title": "Beroep behandelen",
+        "raw": "13 - Beroep behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 10
+      },
+      "description": "De zaak van het zaaktype 'Beroep behandelen' waarin de indiener beroep heeft ingesteld tegen besluit in de zaak met hetzelfde onderwerp, welk in onderhavige zaak wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/14",
+        "title": "Voorlopige voorziening behandelen",
+        "raw": "14 - Voorlopige voorziening behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 11
+      },
+      "description": "De zaak van het zaaktype 'Voorlopige voorziening behandelen', waarin de de partij die het besluit bestrijdt een verzoek om voorlopige voorziening indient bij de voorzieningenrechter van een rechtsprekende instantie, in afwachting van de behandeling van het bezwaar, beroep of hoger beroep tegen dat besluit."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

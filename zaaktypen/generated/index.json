@@ -1,0 +1,154 @@
+{
+  "kind": "ZaakTypeDefinitionIndex",
+  "generated_at": "2026-05-06T10:11:19+00:00",
+  "schema": "../logic/zaaktype-definition.schema.json",
+  "definitions": [
+    {
+      "id": "omgevingswet/01",
+      "version": "1.9",
+      "title": "Advies verstrekken",
+      "file": "omgevingswet-01-1.9.json",
+      "source_file": "01_-_Advies_verstrekken_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/02",
+      "version": "1.9",
+      "title": "Advies verstrekken (informeel)",
+      "file": "omgevingswet-02-1.9.json",
+      "source_file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/03",
+      "version": "1.9",
+      "title": "Last onder bestuursdwang ten uitvoer leggen",
+      "file": "omgevingswet-03-1.9.json",
+      "source_file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/04",
+      "version": "1.9",
+      "title": "Controle uitvoeren",
+      "file": "omgevingswet-04-1.9.json",
+      "source_file": "04_-_Controle_uitvoeren_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/05",
+      "version": "1.9",
+      "title": "Handhavingsbesluit nemen",
+      "file": "omgevingswet-05-1.9.json",
+      "source_file": "05_-_Handhavingsbesluit_nemen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/06",
+      "version": "1.9",
+      "title": "Handhavingsverzoek behandelen",
+      "file": "omgevingswet-06-1.9.json",
+      "source_file": "06_-_Handhavingsverzoek_behandelen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/07",
+      "version": "1.9",
+      "title": "Incidentmelding behandelen",
+      "file": "omgevingswet-07-1.9.json",
+      "source_file": "07_-_Incidentmelding_behandelen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/08",
+      "version": "1.9",
+      "title": "Last onder dwangsom ten uitvoer leggen",
+      "file": "omgevingswet-08-1.9.json",
+      "source_file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/09",
+      "version": "1.9",
+      "title": "Melding activiteit behandelen",
+      "file": "omgevingswet-09-1.9.json",
+      "source_file": "09_-_Melding_activiteit_behandelen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/10",
+      "version": "1.9",
+      "title": "Aanvraag beschikking regulier behandelen",
+      "file": "omgevingswet-10-1.9.json",
+      "source_file": "10_-_Aanvraag_beschikking_regulier_behandelen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/11",
+      "version": "1.9",
+      "title": "Aanvraag beschikking uitgebreid behandelen",
+      "file": "omgevingswet-11-1.9.json",
+      "source_file": "11_-_Aanvraag_beschikking_uitgebreid_behandelen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/12",
+      "version": "1.9",
+      "title": "Zienswijze behandelen",
+      "file": "omgevingswet-12-1.9.json",
+      "source_file": "12_-_Zienswijze_behandelen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/13",
+      "version": "1.9",
+      "title": "Beroep behandelen",
+      "file": "omgevingswet-13-1.9.json",
+      "source_file": "13_-_Beroep_behandelen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/14",
+      "version": "1.9",
+      "title": "Voorlopige voorziening behandelen",
+      "file": "omgevingswet-14-1.9.json",
+      "source_file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/16",
+      "version": "1.9",
+      "title": "Bezwaar behandelen",
+      "file": "omgevingswet-16-1.9.json",
+      "source_file": "16_-_Bezwaar_behandelen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/17",
+      "version": "1.9",
+      "title": "Ambtshalve beschikken",
+      "file": "omgevingswet-17-1.9.json",
+      "source_file": "17_-_Ambtshalve_beschikken_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/18",
+      "version": "1.9",
+      "title": "Nadeelcompensatieverzoek behandelen",
+      "file": "omgevingswet-18-1.9.json",
+      "source_file": "18_-_Nadeelcompensatieverzoek_behandelen_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/19",
+      "version": "1.9",
+      "title": "Bibob-onderzoek uitvoeren",
+      "file": "omgevingswet-19-1.9.json",
+      "source_file": "19_-_Bibob-onderzoek_uitvoeren_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/20",
+      "version": "1.9",
+      "title": "Bezwaar behandelen zonder bezwaarcommissie",
+      "file": "omgevingswet-20-1.9.json",
+      "source_file": "20_-_Bezwaar_behandelen_zonder_bezwaarcommissie_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/21",
+      "version": "1.9",
+      "title": "Verkennen en begeleiden initiatief",
+      "file": "omgevingswet-21-1.9.json",
+      "source_file": "21_-_Verkennen_en_begeleiden_initiatief_V1_9.xlsx"
+    },
+    {
+      "id": "omgevingswet/22",
+      "version": "1.9",
+      "title": "Informatieplicht verwerken",
+      "file": "omgevingswet-22-1.9.json",
+      "source_file": "22_-_Informatieplicht_verwerken_V1_9.xlsx"
+    }
+  ]
+}

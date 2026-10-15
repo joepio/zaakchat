@@ -1,0 +1,923 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/02",
+  "version": "1.9",
+  "title": "Advies verstrekken (informeel)",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "2",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Advies verstrekken (informeel)",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Adviseren",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Het (vroegtijdig) inbrengen van kennis, inzicht of mogelijk toekomstige beoordeling van plannen, aanvragen e.d.. De nadruk ligt er op dat het een toetsbaar plan niveau heeft, zoals dat is bedoeld in een conceptverzoek. Dit zaaktype is niet bedoeld voor verkenning en begeleiding van een initatiefverzoek. Wel kan het hierbij een bijdrage leveren. Afhankelijk van de werkafspraken rondom ketensamenwerking, kan de keuzen van de organisatie zijn om dit zaakttype op te splitsen in 1 zaaktype voor interne advisering en ketensamenwerking en 1 zaaktype voor advisering aan burgers en bedrijven.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "Een burger, bedrijf of andere overheidsorganisatie verzoekt om de inbreng van expertise of de eigen organisatie verzoekt om de inbreng van expertise (advies op projectplan), waarbij die inbreng vanuit een zelfstandige zaak geleverd wordt.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "Een informeel advies is richtinggevend en vrijblijvend en heeft geen wettelijke basis, in tegenstelling tot een zaak van het type \"Advies verstrekken\", waarbij het advies gebaseerd is op wettelijke bevoegdheden en waarvan de uitkomsten niet vrijblijvend zijn.\nHet informeel advies kan bijvoorbeeld betreffen:\n- het conceptverzoek / vooradvies zoals dat veelal voorafgaat aan de aanvraag voor een vergunning of de indiening van een melding activiteit.\n- de beoordeling van stedenbouwkundige plannen, inrichtingsschetsen e.d. in het kader van het toetsen van (ontwerp) ruimtelijk plan.\n- een intern advies: interne advisering betreft met name de inbreng van expertise ten behoeve van beleidsontwikkeling, beheer/onderhoud en uitvoeringsprojecten.\nEventuele verlenging van de doorlooptijd is situatie-afhankelijk maar veelal n.v.t.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INITIATIE INTERN OF EXTERN": {
+      "value": "Extern",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Aanvragen",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Advies (informeel)",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Verstrekken",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "21",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 15
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "3",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "advies",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 21
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "- NAAM": {
+      "value": "ADV - Advies conform snelformule (bijvoorbeeld Welstandsadvies of Omgevingsplantoets)",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 27
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-07-11",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Er is - al dan niet geautomatiseerd - een bewijs van ontvangst verzonden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": false,
+      "required_documents": [
+        "Adviesaanvraag",
+        "Ontvangstbevestiging"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd.\nAllereerst is beoordeeld of de zaakbehandelende organisatie bevoegd en/of geëquipeerd is - op grond van wet- en regelgeving of specialistische deskundigheid - te adviseren. Zo ja, dan is de zaak toegewezen aan de behandelend medewerker of het behandelend organisatieonderdeel. Als de zaak niet kan worden behandeld door de zaakbehandelende organisatie, wordt status 3 pro forma doorlopen en bevat het adviesrapport (status 4) deze constatering.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_inhoudelijk_behandeld",
+      "sequence": 3,
+      "title": "Inhoudelijk behandeld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [
+        "Samenloop"
+      ],
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 53,
+        "unit": "kalenderdagen"
+      },
+      "description": "De van de adviesaanvraag deel uitmakende informatie is getoetst aan relevante regelgeving en (vastgesteld) beleid. Waar nodig zijn interne en/of externe specialisten en/of andere overheden betrokken bij deze toetsing. Eventuele deeladviezen zijn ontvangen. Het adviesrapport is in concept opgesteld. Van elk overleg is een verslag gemaakt. Indien van toepassing is de beoordeling op schrift gesteld (het adviesrapport).",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_zaak_afgerond",
+      "sequence": 4,
+      "title": "Zaak afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [
+        "Uitkomst advies"
+      ],
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 1,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het adviesrapport is ter beschikking gesteld aan de aanvrager en de zaak is afgesloten en gearchiveerd. Als de adviesaanvrager een andere overheidsorganisatie is, is er een gerelateerde zaak aangemaakt waarmee wordt bewaakt dat de beschikking waaraan het advies een bijdrage heeft geleverd, is ontvangen van de adviesaanvrager.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_inhoudelijk_behandeld",
+      "from": "2_intake_afgerond",
+      "to": "3_inhoudelijk_behandeld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_inhoudelijk_behandeld"
+        }
+      ]
+    },
+    {
+      "id": "3_inhoudelijk_behandeld__to__4_zaak_afgerond",
+      "from": "3_inhoudelijk_behandeld",
+      "to": "4_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_inhoudelijk_behandeld"
+      },
+      "effects": [
+        {
+          "status.transition": "4_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is de aanvraag geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Direct na ontvangst van de Adviesaanvraag wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevant gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_ontvangstbevestiging",
+      "title": "2 - Ontvangstbevestiging",
+      "question": "Is een ontvangstbevestiging verzonden?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Na ontvangst van een adviesaanvraag wordt een ontvangstbevestiging verzonden, waarin de dag van ontvangst van de adviesaanvraag is vermeld.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_juiste_zaakbehandelende_organisatie",
+      "title": "1 - Juiste zaakbehandelende organisatie",
+      "question": "Is de zaakbehandelende organisatie bevoegd de zaak te behandelen?",
+      "status": "2_intake_afgerond",
+      "required": false,
+      "description": "Beoordeeld wordt of de zaakbehandelende organisatie de zaak kan behandelen, hetzij omdat de zaakbehandelende organisatie daartoe bevoegd is (organisatie is bevoegd gezag of wettelijk adviseur, afdeling 3.3 Algemene wet bestuursrecht, § 2.5 Wet algemene bepalingen omgevingsrecht, art. 16.11, art. 16.15 en art 16.6 Omgevingswet, art. 10, lid b en lid c Wet veiligheidsregio's), dan wel omdat het bevoegd gezag de zaakbehandelende organisatie (bijvoorbeeld een omgevingsdienst of veiligheidsregio) heeft gemandateerd te adviseren over het onderwerp waarop de adviesaanvraag betrekking heeft. Indien de zaakbehandelende organisatie niet bevoegd of onvoldoende gemandateerd is, wordt status 3 pro forma doorlopen en bevat het adviesrapport deze constatering.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_behandelaar",
+      "title": "3 - Behandelaar",
+      "question": "Is het behandelend team of medewerker bepaald?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "De behandelend medewerker of het behandelend organisatieonderdeel is bepaald en de zaak is volledig geregistreerd.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "3_inhoudelijk_behandeld__1_adviezen_gevraagd",
+      "title": "1 - Adviezen gevraagd",
+      "question": "Zijn de voor de beoordeling relevante adviezen gevraagd?",
+      "status": "3_inhoudelijk_behandeld",
+      "required": false,
+      "description": "Voor het toetsen van de aanvraag aan regelgeving en het zorgvuldig afwegen van belangen, kunnen adviezen van specialisten op specifieke aspecten van de adviesaanvraag noodzakelijk zijn.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "3_inhoudelijk_behandeld__2_adviezen_ontvangen",
+      "title": "2 - Adviezen ontvangen",
+      "question": "Zijn de aangevraagde adviezen ontvangen en verwerkt in het adviesrapport?",
+      "status": "3_inhoudelijk_behandeld",
+      "required": false,
+      "description": "Gecontroleerd wordt of de gevraagde specialistische adviezen zijn ontvangen. De adviezen zijn verwerkt in het concept van het adviesrapport.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__1_archivering",
+      "title": "1 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "4_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__2_leges",
+      "title": "2 - Leges",
+      "question": "Is de legesbeschikking opgesteld?",
+      "status": "4_zaak_afgerond",
+      "required": true,
+      "description": "Overheidsorganisaties kunnen voor 'verstrekte diensten' leges in rekening brengen (art. 104 Grondwet, art. 223 Provinciewet, art. 115 Waterschapswet, art. 229 Gemeentewet). De rijksoverheid bepaalt in wetgeving voor welke diensten, welke leges (tarieven) worden geheven, decentrale overheden doen dat in eigen verordeningen.\n\nOp basis van deze regelgeving wordt bepaald of een legesbeschikking moet worden opgesteld en zo ja, welk legestarief in rekening moet worden gebracht voor de behandeling van de aanvraag.",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "4_zaak_afgerond__3_verslag",
+      "title": "3 - Verslag",
+      "question": "Is het verslag en, indien van toepassing, de beoordeling cq. de adviesbrief verzonden?",
+      "status": "4_zaak_afgerond",
+      "required": true,
+      "description": "",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "2_intake_afgerond",
+        "4_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviesaanvrager",
+      "title": "Adviesaanvrager",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "beoordelaar",
+      "title": "Beoordelaar",
+      "may_set_statuses": [
+        "3_inhoudelijk_behandeld"
+      ],
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [
+        "3_inhoudelijk_behandeld"
+      ],
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "adviesaanvraag",
+      "sequence": 1,
+      "title": "Adviesaanvraag",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 2,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "te_beoordelen_document_en",
+      "sequence": 3,
+      "title": "Te beoordelen document(en)",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "verzoek_om_aanvullende_informatie",
+      "sequence": 4,
+      "title": "Verzoek om aanvullende informatie",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "aanvullende_informatie",
+      "sequence": 5,
+      "title": "Aanvullende informatie",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "verslag_overleg",
+      "sequence": 6,
+      "title": "Verslag overleg",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 7,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "adviesbrief",
+      "sequence": 8,
+      "title": "Adviesbrief",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "legesbeschikking",
+      "sequence": 9,
+      "title": "Legesbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 10,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "bericht_ander_bevoegd_gezag",
+      "sequence": 11,
+      "title": "Bericht ander bevoegd gezag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "melding_overgang_bevoegdheid",
+      "sequence": 12,
+      "title": "Melding overgang bevoegdheid",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "brief_buiten_behandeling_stellen",
+      "sequence": 13,
+      "title": "Brief buiten behandeling stellen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "verzoek_vooroverleg",
+      "sequence": 14,
+      "title": "Verzoek vooroverleg",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 15,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "legesbeschikking",
+      "title": "Legesbeschikking",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 3
+      },
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "results": [
+    {
+      "id": "buiten_behandeling",
+      "title": "Buiten behandeling",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Niet verstrekt",
+      "title_2_2": "Buiten behandeling",
+      "selectielijst_class": "21.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Het adviesverzoek is buiten behandeling gesteld.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "21.3",
+      "archive_nomination": "Vernietigen",
+      "description": "Het adviesverzoek is afgebroken. Deze is foutief ingeboekt, overgedragen aan een ander gezag of door de indiener ingetrokken.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "niet_verstrekt",
+      "title": "Niet verstrekt",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Niet verstrekt",
+      "title_2_2": "Niet verstrekt",
+      "selectielijst_class": "21.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Er is geen advies verstrekt.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "niet_verstrekt_pop",
+      "title": "Niet verstrekt - pop",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Niet verstrekt",
+      "title_2_2": "Niet verstrekt",
+      "selectielijst_class": "21.1.3",
+      "archive_nomination": "Vernietigen",
+      "description": "Een negatieve beoordeling bij een principeverzoek.",
+      "archive_action_term_months": 240
+    },
+    {
+      "id": "verstrekt",
+      "title": "Verstrekt",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Verstrekt",
+      "title_2_2": "Verstrekt",
+      "selectielijst_class": "21.1",
+      "archive_nomination": "Vernietigen",
+      "description": "Er is een advies verstrekt.",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "verstrekt_vrovl",
+      "title": "Verstrekt - vrovl",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Verstrekt",
+      "title_2_2": "Verstrekt",
+      "selectielijst_class": "21.1.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Een verstrekt advies n.a.v. een vooroverleg omgevingsvergunning.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "buiten_behandeling",
+      "title": "Buiten behandeling",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "prov",
+      "generic_title": "Niet verstrekt",
+      "title_2_2": "Buiten behandeling",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "Adviseren aan derden, gevraagd en ongevraagd m.u.v. wettelijk voorgeschreven adviseringen.",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "Het adviesverzoek is afgebroken. Deze is foutief ingeboekt, overgedragen aan een ander gezag of door de indiener ingetrokken.",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "verstrekt",
+      "title": "Verstrekt",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "prov",
+      "generic_title": "Verstrekt",
+      "title_2_2": "Verstrekt",
+      "selectielijst_class": "36",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "niet_verstrekt",
+      "title": "Niet verstrekt",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "prov",
+      "generic_title": "Niet verstrekt",
+      "title_2_2": "Niet verstrekt",
+      "selectielijst_class": "36",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "verstrekt",
+      "title": "Verstrekt",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "ws",
+      "generic_title": "Verstrekt",
+      "title_2_2": "Verstrekt",
+      "selectielijst_class": "2.2.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "geen_waterschapstaak",
+      "title": "Geen waterschapstaak",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "ws",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Afgehandeld",
+      "selectielijst_class": "2.2.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/02",
+        "title": "Advies verstrekken (informeel)",
+        "raw": "2 - Advies verstrekken (informeel)"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "02_-_Advies_verstrekken_informeel_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Advies verstrekken (informeel)' waarin een eerdere adviesbehandeling heeft plaatsgevonden."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

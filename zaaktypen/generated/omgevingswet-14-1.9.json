@@ -1,0 +1,1198 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/14",
+  "version": "1.9",
+  "title": "Voorlopige voorziening behandelen",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "14",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Voorlopige voorziening behandelen",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Juridisch",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Het bij de voorzieningenrechter van een rechtsprekende instantie verdedigen van een genomen besluit, in afwachting van de behandeling van het bezwaar, beroep of hoger beroep tegen dat besluit.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "De zaakbehandelende organisatie heeft van de rechtsprekende instantie bericht ontvangen dat een verzoek tot het treffen van een voorlopige voorziening is ontvangen met betrekking tot een bestreden besluit, waartegen de indiener van het verzoek om voorlopige voorziening bezwaar heeft gemaakt, of beroep of hoger beroep heeft ingesteld.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "Het verzoek om voorlopige voorziening is door de partij die het besluit bestrijdt - en daartegen bezwaar heeft aangetekend of (hoger) beroep heeft ingesteld - gericht aan de rechtsprekende instantie en ter verweer doorgestuurd naar de zaakbehandelende organisatie.\nAlle in dit zaaktype genoemde termijnen zijn louter indicatief. In elke zaak van dit zaaktype zal de rechtsprekende instantie de termijnen stellen die de zaakbehandelende organisatie dient te volgen.\nAls een ander bevoegd gezag de verweerder is in de voorlopige voorziening-zaak en aan de zaakbehandelende organisatie vraagt om een bijdrage aan het verweer, dan is sprake van een zaak van het zaaktype ‘Advies verstrekken’.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Extern",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Indienen",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Verzoek om voorlopige voorziening",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Behandelen",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-12-18",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [
+        "Verzoek om voorlopige voorziening"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Er is - al dan niet geautomatiseerd - een ontvangstbevestiging verzonden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_intake_afgerond",
+      "sequence": 2,
+      "title": "Intake afgerond",
+      "inform_citizen": true,
+      "required_documents": [
+        "Bestreden besluit"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, de behandelend medewerker of het behandelend organisatieonderdeel is bepaald en de planning van de zaak is afgestemd op de specifieke rechtszaak.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_stukken_toegezonden",
+      "sequence": 3,
+      "title": "Stukken toegezonden",
+      "inform_citizen": false,
+      "required_documents": [
+        "Aanvullend stuk",
+        "Verweerschrift"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "duration": {
+        "value": 7,
+        "unit": "kalenderdagen"
+      },
+      "description": "Op verzoek van de rechtsprekende instantie zijn relevante stukken verzameld en toegezonden (art. 8:42, lid 1 Algemene wet bestuursrecht) aan de rechtsprekende instantie. Het zaakdossier bevat alle relevante stukken.\nEventuele voor het verweer benodigde adviezen zijn aangevraagd.\nHet verweerschrift is opgesteld, eventueel gebruik makend van adviezen van specialisten. Het verweerschrift is met eventuele aanvullende stukken ingediend bij de rechtsprekende instantie.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_zitting_bijgewoond",
+      "sequence": 4,
+      "title": "Zitting bijgewoond",
+      "inform_citizen": false,
+      "required_documents": [
+        "Uitnodiging zitting",
+        "Pleitnota"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 11,
+        "unit": "kalenderdagen"
+      },
+      "description": "Van de rechtsprekende instantie is een uitnodiging ontvangen voor het bijwonen van de zitting. Ter voorbereiding op het pleidooi kan een pleitnota zijn opgesteld.\nVervolgens is de zitting (of zijn de zittingen) van de rechtsprekende instantie bijgewoond. Tijdens de zitting is het verzoekschrift behandeld en het pleidooi gehouden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "5_zaak_afgerond",
+      "sequence": 5,
+      "title": "Zaak afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 14,
+        "unit": "kalenderdagen"
+      },
+      "description": "De uitspraak van de rechtsprekende instantie is ontvangen.\nEventuele consequenties van de uitspraak voor (de uitvoering van) het bestreden besluit zijn verwerkt.\nIndien de voorzieningenrechter van de rechtsprekende instantie tevens uitspraak heeft gedaan in de gerelateerde beroepzaak is ook de gerelateerde beroepzaak bijgewerkt op basis van de uitspraak.\nHet zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_intake_afgerond",
+      "from": "1_zaak_gestart",
+      "to": "2_intake_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_intake_afgerond"
+        }
+      ]
+    },
+    {
+      "id": "2_intake_afgerond__to__3_stukken_toegezonden",
+      "from": "2_intake_afgerond",
+      "to": "3_stukken_toegezonden",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_intake_afgerond"
+      },
+      "effects": [
+        {
+          "status.transition": "3_stukken_toegezonden"
+        }
+      ]
+    },
+    {
+      "id": "3_stukken_toegezonden__to__4_zitting_bijgewoond",
+      "from": "3_stukken_toegezonden",
+      "to": "4_zitting_bijgewoond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_stukken_toegezonden"
+      },
+      "effects": [
+        {
+          "status.transition": "4_zitting_bijgewoond"
+        }
+      ]
+    },
+    {
+      "id": "4_zitting_bijgewoond__to__5_zaak_afgerond",
+      "from": "4_zitting_bijgewoond",
+      "to": "5_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_zitting_bijgewoond"
+      },
+      "effects": [
+        {
+          "status.transition": "5_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is het verzoek om voorlopige voorziening geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": true,
+      "description": "Direct na ontvangst van het verzoekschrift wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevante gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "1_zaak_gestart__2_ontvangstbevestiging",
+      "title": "2 - Ontvangstbevestiging",
+      "question": "Is een ontvangstbevestiging verzonden?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Aan de rechtsprekende instantie wordt een ontvangstbevestiging verzonden.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_intake_afgerond__1_bevoegd",
+      "title": "1 - Bevoegd",
+      "question": "Is de zaakbehandelende organisatie bevoegd de zaak te behandelen?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Beoordeeld wordt of de zaakbehandelende organisatie de zaak kan behandelen, hetzij omdat de zaakbehandelende organisatie bevoegd gezag is, dan wel omdat het bevoegd gezag de zaakbehandelende organisatie heeft gemandateerd tot vertegenwoordiging (volledig mandaat). Indien de zaakbehandelende organisatie niet bevoegd of onvoldoende gemandateerd is, wordt het verzoekschrift direct doorgezonden naar het juiste bevoegd gezag en wordt de indiener hierover geïnformeerd (art. 6:15 lid 1 en lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_intake_afgerond__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_intake_afgerond__3_behandelaar",
+      "title": "3 - Behandelaar",
+      "question": "Is het behandelend team of medewerker bepaald?",
+      "status": "2_intake_afgerond",
+      "required": true,
+      "description": "De zaak is gerelateerd aan de zaak waarin het bestreden besluit is behandeld. De behandelend medewerker of het behandelend organisatieonderdeel is bepaald en de zaak is volledig geregistreerd.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "3_stukken_toegezonden__1_compleet",
+      "title": "1 - Compleet",
+      "question": "Zijn alle voor het beroep relevante stukken beschikbaar?",
+      "status": "3_stukken_toegezonden",
+      "required": true,
+      "description": "Beoordeeld wordt of alle voor de behandeling van het verzoek om voorlopige voorziening relevante stukken beschikbaar zijn in de zaak (via aan onderhavige zaak gerelateerde zaken, waaronder de zaak waarin het bestreden besluit is genomen en/of door de relevante stukken op te nemen in het zaakdossier).",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "3_stukken_toegezonden__2_adviezen_gevraagd",
+      "title": "2 - Adviezen gevraagd",
+      "question": "Zijn de voor het verweer relevante adviezen gevraagd?",
+      "status": "3_stukken_toegezonden",
+      "required": true,
+      "description": "Voor het toetsen van het verzoekschrift aan regelgeving en het opstellen van het verweerschrift, kunnen adviezen noodzakelijk zijn. \nIn een aantal gevallen is wettelijk voorgeschreven dat advies moet worden gevraagd aan een persoon die of college dat niet werkzaam is onder de verantwoordelijkheid van de zaakbehandelende organisatie (wettelijke adviseurs, Afdeling 3.3 Algemene wet bestuursrecht, § 2.5 Wet algemene bepalingen omgevingsrecht, art. 16.15 en art. 16.16 Omgevingswet). Het kan echter ook nodig zijn advies in te winnen bij in- of externe adviseurs zonder dat daartoe een directe wettelijke verplichting bestaat, bijvoorbeeld omdat aspecten van de aanvraag een specialistische beoordeling vergen.\nHet ligt in de rede adviseurs die betrokken zijn geweest bij de voorbereiding van het bestreden besluit, te informeren over - en zonodig te betrekken bij de beoordeling van - het ontvangen verzoekschrift.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "3_stukken_toegezonden__3_adviezen_ontvangen",
+      "title": "3 - Adviezen ontvangen",
+      "question": "Zijn de aangevraagde adviezen ontvangen?",
+      "status": "3_stukken_toegezonden",
+      "required": true,
+      "description": "Indien voor het opstellen van het verweerschrift adviezen van specialisten noodzakelijk zijn, wordt geverifieerd of deze zijn ontvangen.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "3_stukken_toegezonden__4_verweerschrift_opgesteld",
+      "title": "4 - Verweerschrift opgesteld",
+      "question": "Is het verweerschrift opgesteld?",
+      "status": "3_stukken_toegezonden",
+      "required": true,
+      "description": "Het verweerschrift is, eventueel met gebruikmaking van de ontvangen adviezen, opgesteld ter verdediging van het bestreden besluit.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "3_stukken_toegezonden__5_toezending",
+      "title": "5 - Toezending",
+      "question": "Zijn de relevante stukken aan de rechtsprekende instantie toegezonden?",
+      "status": "3_stukken_toegezonden",
+      "required": true,
+      "description": "De rechtsprekende instantie zal hebben verzocht om aanvullende stukken. Deze aanvullende stukken zijn verzameld en samen met het verweerschrift aan de rechtsprekende instantie toegezonden. Eventuele aanvullende stukken die door de indiener van het beroepschrift zijn aangeleverd, zijn opgenomen in het zaakdossier.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "4_zitting_bijgewoond__1_zittingsdatum",
+      "title": "1 - Zittingsdatum",
+      "question": "Is de datum van de zitting vastgelegd?",
+      "status": "4_zitting_bijgewoond",
+      "required": true,
+      "description": "De zaakbehandelende organisatie ontvangt van de voorzieningenrechter van de rechtsprekende instantie de uitnodiging voor de zitting. De zittingsdatum wordt vastgelegd in onderhavige zaak en zonodig in de agenda('s) van de personen (medewerkers en eventuele adviseurs) die de zaakbehandelende organisatie ter zitting zullen vertegenwoordigen.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "4_zitting_bijgewoond__2_pleitnota",
+      "title": "2 - Pleitnota",
+      "question": "Is de pleitnota opgesteld?",
+      "status": "4_zitting_bijgewoond",
+      "required": false,
+      "description": "Ter ondersteuning van het verweer tijdens de zitting, kan een pleitnota zijn opgesteld.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "4_zitting_bijgewoond__3_nadere_stukken",
+      "title": "3 - Nadere stukken",
+      "question": "Zijn er nog nadere stukken in te dienen voor de zitting?",
+      "status": "4_zitting_bijgewoond",
+      "required": false,
+      "description": "Eventuele informatie die nog niet aan de rechtsprekende instantie was aangeleverd, moet uiterlijk één dag voor de zitting worden ingediend (art. 8:83, lid 1 Algemene wet bestuursrecht, juncto art. 8:58, lid 1 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "4_zitting_bijgewoond__4_machtiging",
+      "title": "4 - Machtiging",
+      "question": "Is een machtiging voor vertegenwoordiging noodzakelijk?",
+      "status": "4_zitting_bijgewoond",
+      "required": false,
+      "description": "Indien het bevoegd gezag dat het bestreden besluit heeft genomen zich laat vertegenwoordigen door een gemachtigde, kan de rechtsprekende instantie van de gemachtigde een schriftelijke machtiging verlangen (art. 2:1, lid 2 Algemene wet bestuursrecht). Geverifieerd wordt of de vertegenwoordigers van het bevoegd gezag beschikken over een schriftelijke machtiging; is dit niet het geval, dan wordt voor een schriftelijke machtiging gezorgd.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__1_uitspraak",
+      "title": "1 - Uitspraak",
+      "question": "Is de uitspraak van de rechtsprekende instantie ontvangen?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Tijdens, of zo spoedig mogelijk na, de zitting doet de rechtsprekende instantie mondeling of schriftelijk uitspraak (art. 8:84, lid 1 Algemene wet bestuursrecht). De uitspraak wordt vastgelegd in onderhavige zaak.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__2_archivering",
+      "title": "2 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__3_registraties",
+      "title": "3 - Registraties",
+      "question": "Zijn de voor de zaak relevante registraties bijgewerkt?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "De uitkomst van de zaak kan leiden tot een mutatie in één of meer (basis)registraties. Denk aan het verlenen van toestemming voor het slopen van een pand (moet leiden tot verwijdering van dat pand in de BAG), het oprichten van een bouwwerk (moet leiden tot creatie van dat bouwwerk in de BAG), het toestaan van een milieubelastende activiteit (kan leiden tot opname van die activiteit op de 'risicokaart') of het nemen van een handhavingsbesluit t.a.v. een overtreding (kan leiden tot registratie van een beperking in de landelijke voorziening voor de WKPB).\nDit zijn slechts enkele voorbeelden; alle relevante (basis)registraties dienen te worden bijgewerkt op basis van de uitkomst van onderhavige zaak.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "5_zaak_afgerond__4_gerelateerde_zaak",
+      "title": "4 - Gerelateerde zaak",
+      "question": "Zijn de aan onderhavige zaak gerelateerde zaken bijgewerkt?",
+      "status": "5_zaak_afgerond",
+      "required": true,
+      "description": "De uitkomst van onderhavige zaak kan gevolgen hebben voor gerelateerde zaken:\nals de voorlopige voorziening geheel of gedeeltelijk is toegewezen, kan (de uitvoering van) het bestreden besluit moeten worden opgeschort (tot de voorlopige voorziening vervalt, zie art. 8:85, lid 2 Algemene wet bestuursrecht);\nhet kan wenselijk zijn (extra) toezicht te houden op de naleving van de uitkomst van onderhavige zaak middels een gerelateerde vervolgzaak van het zaaktype 'Controle uitvoeren';\nals de voorzieningenrechter van de rechtsprekende instantie tevens uitspraak heeft gedaan in de 'hoofdzaak' (confrom art. 8:86, lid 1 Algemene wet bestuursrecht; voor de zaakbehandelende organisatie is dit de gerelateerde zaak van het zaaktype 'Beroep behandelen' waarin het bestreden besluit inhoudelijk wordt behandeld), moet deze 'hoofdzaak' worden bijgewerkt. De eventuele consequenties van de uitspraak in de 'hoofdzaak' - denk aan het nemen van een nieuw besluit als het bestreden besluit in de uitspraak is vernietigd - worden niet in onderhavige zaak, maar in, of gerelateerd aan, de hoofdzaak (de gerelateerde zaak van het zaaktype 'Beroep behandelen') verwerkt.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "5_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "bevoegd_gezag",
+      "title": "Bevoegd gezag",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Bevoegd gezag dat het bestreden besluit heeft genomen",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "derde_belanghebbende",
+      "title": "Derde belanghebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "indiener_verzoekschrift",
+      "title": "Indiener verzoekschrift",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "rechtsprekende_instantie",
+      "title": "Rechtsprekende instantie",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Initiator",
+      "actor_type": "Rechtbank of Raad van State",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "verweerder",
+      "title": "Verweerder",
+      "may_set_statuses": [
+        "2_intake_afgerond",
+        "3_stukken_toegezonden",
+        "4_zitting_bijgewoond"
+      ],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 10
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "verzoek_om_voorlopige_voorziening",
+      "sequence": 1,
+      "title": "Verzoek om voorlopige voorziening",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "verzoek_aanvullende_stukken",
+      "sequence": 2,
+      "title": "Verzoek aanvullende stukken",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "ontvangstbevestiging",
+      "sequence": 3,
+      "title": "Ontvangstbevestiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "bericht_ander_bevoegd_gezag",
+      "sequence": 4,
+      "title": "Bericht ander bevoegd gezag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "melding_overgang_bevoegdheid",
+      "sequence": 5,
+      "title": "Melding overgang bevoegdheid",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "bestreden_besluit",
+      "sequence": 6,
+      "title": "Bestreden besluit",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "aanvullend_stuk",
+      "sequence": 7,
+      "title": "Aanvullend stuk",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "aanvullend_stuk",
+      "sequence": 8,
+      "title": "Aanvullend stuk",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 9,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 9,
+      "title": "Adviesaanvraag",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 10,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 10,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "verweerschrift",
+      "sequence": 11,
+      "title": "Verweerschrift",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "uitnodiging_zitting",
+      "sequence": 12,
+      "title": "Uitnodiging zitting",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "pleitnota",
+      "sequence": 13,
+      "title": "Pleitnota",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "pleitnota",
+      "sequence": 14,
+      "title": "Pleitnota",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    },
+    {
+      "id": "machtiging_voor_vertegenwoordiging",
+      "sequence": 15,
+      "title": "Machtiging voor vertegenwoordiging",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 19
+      }
+    },
+    {
+      "id": "beslissing_op_verzoek",
+      "sequence": 16,
+      "title": "Beslissing op verzoek",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 20
+      }
+    },
+    {
+      "id": "bericht_van_intrekking",
+      "sequence": 98,
+      "title": "Bericht van intrekking",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 21
+      }
+    },
+    {
+      "id": "bevestiging_van_intrekking",
+      "sequence": 99,
+      "title": "Bevestiging van intrekking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 22
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 17,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 23
+      }
+    }
+  ],
+  "decisions": [],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "13.2",
+      "archive_nomination": "Vernietigen",
+      "description": "De voorlopige voorziening is afgebroken. Deze is foutief ingeboekt of de voorzieningenrechter van de rechtsprekende instantie is onbevoegd.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "niet_ontvankelijk",
+      "title": "Niet ontvankelijk",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Niet ontvankelijk",
+      "selectielijst_class": "13.1.4",
+      "archive_nomination": "Vernietigen",
+      "description": "De rechtsprekende instantie heeft de voorlopige voorziening niet ontvankelijk verklaard.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "ingetrokken",
+      "title": "Ingetrokken",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Ingetrokken",
+      "selectielijst_class": "13.2",
+      "archive_nomination": "Vernietigen",
+      "description": "De indiener heeft de voorlopige voorziening ingetrokken.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "toegekend",
+      "title": "Toegekend",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Toegekend",
+      "selectielijst_class": "13.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De voorzieningenrechter van de rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak.",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "toegekend_bewaren",
+      "title": "Toegekend - bewaren",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Toegekend",
+      "selectielijst_class": "13.1.3",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "De voorzieningenrechter van de rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak. De uitspraak heeft betrekking op een besluit dat is genomen in een te bewaren zaak."
+    },
+    {
+      "id": "toegekend_financ",
+      "title": "Toegekend - financ.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Toegekend",
+      "selectielijst_class": "13.1.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De voorzieningenrechter van de rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak. \nHet afhandelen van een geschil dat door een derde aanhangig wordt gemaakt omdat deze een (vermeend) nadeel heeft ondervonden door het (niet) handelen van de instelling",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "geweigerd",
+      "title": "Geweigerd",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "13.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De voorzieningenrechter van de rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak.",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "geweigerd_financ",
+      "title": "Geweigerd - financ.",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "gem",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Geweigerd",
+      "selectielijst_class": "13.1.1",
+      "archive_nomination": "Vernietigen",
+      "description": "De voorzieningenrechter van de rechtsprekende instantie heeft uitspraak gedaan in onderhavige zaak. \nHet afhandelen van een geschil dat door een derde aanhangig wordt gemaakt omdat deze een (vermeend) nadeel heeft ondervonden door het (niet) handelen van de instelling",
+      "archive_action_term_months": 84
+    },
+    {
+      "id": "afgehandeld_met_precedentwerking",
+      "title": "Afgehandeld met precedentwerking",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "ws",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Afgehandeld",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Blijvend bewaren"
+    },
+    {
+      "id": "afgehandeld_zonder_precedentwerking",
+      "title": "Afgehandeld zonder precedentwerking",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "ws",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Afgehandeld",
+      "selectielijst_class": "3.5.2",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/10",
+        "title": "Aanvraag beschikking regulier behandelen",
+        "raw": "10 - Aanvraag beschikking regulier behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' waarin het bestreden besluit is genomen waarop het verzoek in onderhavige zaak betrekking heeft. De werking van het bestreden besluit wordt geschorst, ten minste tot de voorzieningenrechter uitspraak heeft gedaan in onderhavige zaak; afhankelijk van de uitspraak van de voorzieningenrechter kan deze schorsing voortduren tot uitspraak is gedaan in de bezwaar- of (hoger) beroepzaak waarin de inhoudelijke behandeling van het geschil plaatsvindt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/11",
+        "title": "Aanvraag beschikking uitgebreid behandelen",
+        "raw": "11 - Aanvraag beschikking uitgebreid behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Aanvraag beschikking uitgebreid behandelen' waarin het bestreden besluit is genomen waarop het verzoek in onderhavige zaak betrekking heeft. De werking van het bestreden besluit wordt geschorst, ten minste tot de voorzieningenrechter uitspraak heeft gedaan in onderhavige zaak; afhankelijk van de uitspraak van de voorzieningenrechter kan deze schorsing voortduren tot uitspraak is gedaan in de bezwaar- of (hoger) beroepzaak waarin de inhoudelijke behandeling van het geschil plaatsvindt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/08",
+        "title": "Last onder dwangsom ten uitvoer leggen",
+        "raw": "8 - Last onder dwangsom ten uitvoer leggen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "De zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' waarin het bestreden besluit is genomen waarop het verzoek in onderhavige zaak betrekking heeft. De werking van het bestreden besluit wordt geschorst, ten minste tot de voorzieningenrechter uitspraak heeft gedaan in onderhavige zaak; afhankelijk van de uitspraak van de voorzieningenrechter kan deze schorsing voortduren tot uitspraak is gedaan in de bezwaar- of (hoger) beroepzaak waarin de inhoudelijke behandeling van het geschil plaatsvindt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen' waarin het bestreden besluit is genomen waarop het verzoek in onderhavige zaak betrekking heeft. De werking van het bestreden besluit wordt geschorst, ten minste tot de voorzieningenrechter uitspraak heeft gedaan in onderhavige zaak; afhankelijk van de uitspraak van de voorzieningenrechter kan deze schorsing voortduren tot uitspraak is gedaan in de bezwaar- of (hoger) beroepzaak waarin de inhoudelijke behandeling van het geschil plaatsvindt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/16",
+        "title": "Bezwaar behandelen",
+        "raw": "16 - Bezwaar behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen' waarin het het geschil over het bestreden besluit waarop het verzoek om voorlopige voorziening ziet, inhoudelijk wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/13",
+        "title": "Beroep behandelen",
+        "raw": "13 - Beroep behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "De zaak van het zaaktype 'Beroep behandelen' (beroep òf hoger beroep) waarin het het geschil over het bestreden besluit waarop het verzoek om voorlopige voorziening ziet, inhoudelijk wordt behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/06",
+        "title": "Handhavingsverzoek behandelen",
+        "raw": "6 - Handhavingsverzoek behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsverzoek behandelen' waarin het bestreden besluit is genomen waarop het verzoek in onderhavige zaak betrekking heeft. De werking van het bestreden besluit wordt geschorst, ten minste tot de voorzieningenrechter uitspraak heeft gedaan in onderhavige zaak; afhankelijk van de uitspraak van de voorzieningenrechter kan deze schorsing voortduren tot uitspraak is gedaan in de bezwaar- of (hoger) beroepzaak waarin de inhoudelijke behandeling van het geschil plaatsvindt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/03",
+        "title": "Last onder bestuursdwang ten uitvoer leggen",
+        "raw": "3 - Last onder bestuursdwang ten uitvoer leggen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 10
+      },
+      "description": "De zaak van het zaaktype 'Last onder bestuursdwang ten uitvoer leggen' waarin het bestreden besluit is genomen waarop het verzoek in onderhavige zaak betrekking heeft. De werking van het bestreden besluit wordt geschorst, ten minste tot de voorzieningenrechter uitspraak heeft gedaan in onderhavige zaak; afhankelijk van de uitspraak van de voorzieningenrechter kan deze schorsing voortduren tot uitspraak is gedaan in de bezwaar- of (hoger) beroepzaak waarin de inhoudelijke behandeling van het geschil plaatsvindt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/20",
+        "title": "Bezwaar behandelen zonder bezwaarcommissie",
+        "raw": "20 - Bezwaar behandelen zonder bezwaarcommissie"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "14_-_Voorlopige_voorziening_behandelen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 11
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen zonder bezwaarcommissie' waarin het het geschil over het bestreden besluit waarop het verzoek om voorlopige voorziening ziet, inhoudelijk wordt behandeld."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

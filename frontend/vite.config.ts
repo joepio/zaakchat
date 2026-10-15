@@ -11,6 +11,7 @@ export default defineConfig({
     react(),
   ],
   server: {
+    port: 7432,
     proxy: {
       "/events": {
         target: serverUrl,

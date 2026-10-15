@@ -1,0 +1,1241 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/08",
+  "version": "1.9",
+  "title": "Last onder dwangsom ten uitvoer leggen",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "8",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Last onder dwangsom ten uitvoer leggen",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Handhaven",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Controleren of de overtreder de last tot geheel of gedeeltelijk herstel van de overtreding, beëindigen van de overtreding, het voorkomen van herhaling van de overtreding, dan wel het wegnemen of beperken van de gevolgen van de overtreding heeft uitgevoerd en, indien uit de controle blijkt dat de last niet is uitgevoerd, zonodig besluiten tot invordering van de verbeurde dwangsom(men).",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "Mogelijke aanleidingen:\nin een zaak van het zaaktype 'Handhavingsbesluit nemen' is aan de overtreder een last onder dwangsom opgelegd en is een gerelateerde vervolgzaak van onderhavig zaaktype gepland (na het verstrijken van de begunstigingstermijn als bedoeld in art. 5:32a, lid 2 Algemene wet bestuursrecht);\nin een zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' is geconstateerd dat overtreder de last niet heeft uitgevoerd en is - als het maximale bedrag waarboven geen dwangsom meer wordt verbeurd (art. 5:32b, lid 2 Algemene wet bestuursrecht) nog niet is bereikt - een nieuwe gerelateerde vervolgzaak van onderhavig zaaktype gepland (na het verstrijken van de tijdseenheid als bedoeld in art. 5:32b, lid 1 Algemene wet bestuursrecht);\nin een zaak van het zaaktype 'Controle uitvoeren' is een overtreding geconstateerd waarvoor eerder een last onder dwangsom is opgelegd die nog niet is ingetrokken of opgeheven (art. 5:34 Algemene wet bestuursrecht), waarna een zaak van onderhavig zaaktype is gestart;\neen belanghebbende, bijvoorbeeld de persoon die verzocht heeft om handhaving van de overtreding waarop de last betrekking heeft, heeft verzocht om invordering van de dwangsom (art. 5:37, lid 2 Algemene wet bestuursrecht), waarna een zaak van onderhavig zaaktype is gestart.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "In een zaak van het zaaktype 'Handhavingsbesluit nemen' is aan de overtreder een last onder dwangsom opgelegd. Om te controleren of de last is uitgevoerd, is een zaak van onderhavig zaaktype gepland. Zolang de last niet is uitgevoerd en het maximale bedrag waarboven geen dwangsom meer wordt verbeurd niet is bereikt, wordt steeds een nieuwe zaak van onderhavig zaaktype gepland. Als de last nog niet is uitgevoerd en het maximale bedrag waarboven geen dwangsom wordt verbeurd is bereikt, wordt een nieuw handhavingsbesluit genomen (in een zaak van het zaaktype 'Handhavingsbesluit nemen').\nOnderdeel van een zaak van dit zaaktype is het nemen van een invorderingsbeschikking. Voorafgaand aan de invorderingsbeschikking wordt de belanghebbende hier met een voornemen van op de hoogte gebracht met de mogelijkheid een zienswijze in te dienen. Dit kan in elke zaak van onderhavig zaaktype (waardoor elke verbeurde dwangsom direct kan worden ingevorderd), maar kan ook worden 'opgespaard' tot het maximale bedrag waarboven geen dwangsom meer wordt verbeurd is bereikt (invordering van alle verbeurde dwangsommen in één keer, via één invorderingsbeschikking) of tot de last is uitgevoerd. Het is aan de zaakbehandelende organisatie om te bepalen welke benadering naar verwachting het meest effectief zal zijn.\nDe feitelijke invordering van verbeurde dwangsom(men) wordt beschouwd als een financieel administratief proces en is geen onderdeel van onderhavig zaaktype.\nOpschorting is mogelijk vanwege een voorlopige voorziening n.a.v. een bezwaar- en beroepsprocedure.\nVoor verlenging zijn geen wettelijke termijnen. Wel moeten de gehanteerde termijnen redelijk zijn.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Intern",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Opleggen",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Last onder dwangsom",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Ten uitvoer leggen",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "SERVICENORM BEHANDELING (KALENDERDAGEN) (2.1)": {
+      "value": "42",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 15
+      }
+    },
+    "- DOORLOOPTIJD - PERIODE-EENHEID (2.2)": {
+      "value": "week",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 16
+      }
+    },
+    "- DOORLOOPTIJD - PERIODEDUUR (2.2)": {
+      "value": "6",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 17
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "dwangsom, handhaving",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 21
+      }
+    },
+    "VERTROUWELIJKHEID": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "- NAAM": {
+      "value": "G02 - Last onder dwangsom (HH02 - Toepassing herstelsanctie)\nMBZK02 - Last onder dwangsom (HH02 - Toepassing herstelsanctie)\nMD02 - Last onder dwangsom (HH02 - Toepassing herstelsanctie)\nME02 - Last onder dwangsom (HH02 - Toepassing herstelsanctie)\nMI02 - Last onder dwangsom (HH02 - Toepassing herstelsanctie)\nMLNV02 - Last onder dwangsom (HH02 - Toepassing herstelsanctie)\nMO02 - Last onder dwangsom (HH02 - Toepassing herstelsanctie)\nP02 - Last onder dwangsom (HH02 - Toepassing herstelsanctie)\nW02 - Last onder dwangsom (HH02 - Toepassing herstelsanctie)",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 27
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-07-11",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "kalenderdagen"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Er is - al dan niet geautomatiseerd - een bewijs van ontvangst verzonden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_inhoudelijk_beoordeeld",
+      "sequence": 2,
+      "title": "Inhoudelijk beoordeeld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Controlerapport"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "duration": {
+        "value": 7,
+        "unit": "kalenderdagen"
+      },
+      "description": "Beoordeeld is of de last is uitgevoerd middels een gerelateerde (bijdrage)zaak van het zaaktype 'Controle uitvoeren'. Als dit het geval is en er zijn geen nog in te vorderen dwangsommen, dan wordt de overtreder geïnformeerd (middels een kennisgeving, in status 3) over de constatering dat de last is uitgevoerd. \nAls de last niet is uitgevoerd, dan is geverifieerd of er bijzondere omstandigheden zijn (zoals een verzoek om wijziging van de last onder dwangsom, of een verzoek om invordering door een belanghebbende) die van belang zijn voor het opstellen van een beschikking (in status 3).",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_voornemen_opgesteld",
+      "sequence": 3,
+      "title": "Voornemen opgesteld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Voornemen invorderingsbeschikking"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "description": "Aan de overtreder is medegedeeld dat het voornemen is om de verbeurde dwangsom(men) te gaan invorderen (de overtreder kan hierop een zienswijze geven)."
+    },
+    {
+      "id": "4_beschikking_opgesteld",
+      "sequence": 4,
+      "title": "Beschikking opgesteld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "duration": {
+        "value": 12,
+        "unit": "kalenderdagen"
+      },
+      "description": "Er is een concept van de beschikking voor het invorderen opgesteld.\nEventueel is, op verzoek van de overtreder, een beschikking opgesteld die strekt tot opheffing of opschorting van de last onder dwangsom.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "5_beschikking_vastgesteld",
+      "sequence": 5,
+      "title": "Beschikking vastgesteld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Invorderingsbeschikking / Factuur?"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "duration": {
+        "value": 14,
+        "unit": "kalenderdagen"
+      },
+      "description": "Het concept van de beschikking kan zijn getoetst door een collega en is goedgekeurd op basis van de geldende mandaatafspraken.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "6_zaak_afgerond",
+      "sequence": 6,
+      "title": "Zaak afgerond",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [
+        "Indicatie vordering",
+        "Verbeurde termijnen"
+      ],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 8
+      },
+      "duration": {
+        "value": 2,
+        "unit": "kalenderdagen"
+      },
+      "description": "De beschikking (of de kennisgeving) is verzonden. De relevante registraties (BAG, BRK, Wkpb, Risicokaart, et cetera) zijn bijgewerkt. Indien nodig is een vervolgzaak geïnitieerd (bijvoorbeeld de volgende zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen') en het zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_inhoudelijk_beoordeeld",
+      "from": "1_zaak_gestart",
+      "to": "2_inhoudelijk_beoordeeld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_inhoudelijk_beoordeeld"
+        }
+      ]
+    },
+    {
+      "id": "2_inhoudelijk_beoordeeld__to__3_voornemen_opgesteld",
+      "from": "2_inhoudelijk_beoordeeld",
+      "to": "3_voornemen_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_inhoudelijk_beoordeeld"
+      },
+      "effects": [
+        {
+          "status.transition": "3_voornemen_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "3_voornemen_opgesteld__to__4_beschikking_opgesteld",
+      "from": "3_voornemen_opgesteld",
+      "to": "4_beschikking_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_voornemen_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "4_beschikking_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "4_beschikking_opgesteld__to__5_beschikking_vastgesteld",
+      "from": "4_beschikking_opgesteld",
+      "to": "5_beschikking_vastgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_beschikking_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "5_beschikking_vastgesteld"
+        }
+      ]
+    },
+    {
+      "id": "5_beschikking_vastgesteld__to__6_zaak_afgerond",
+      "from": "5_beschikking_vastgesteld",
+      "to": "6_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "5_beschikking_vastgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "6_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is de aanvraag geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Direct na het uitvoeren van een controle wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevant gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "2_inhoudelijk_beoordeeld__1_controle",
+      "title": "1 - Controle",
+      "question": "Is gecontroleerd of de opgelegde last is uitgevoerd?",
+      "status": "2_inhoudelijk_beoordeeld",
+      "required": true,
+      "description": "In een gerelateerde (bijdrage)zaak wordt gecontroleerd of de overtreder de opgelegde last heeft uitgevoerd. Het controlerapport bevat de bevindingen van de toezichthouder.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_inhoudelijk_beoordeeld__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_inhoudelijk_beoordeeld",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_inhoudelijk_beoordeeld__3_opschorting",
+      "title": "3 - Opschorting",
+      "question": "Is er aanleiding de behandeling van onderhavige zaak op te schorten?",
+      "status": "2_inhoudelijk_beoordeeld",
+      "required": true,
+      "description": "Beoordeeld wordt of er reden is de uitvoering van onderhavige zaak op te schorten, bijvoorbeeld omdat er in een aan onderhavige zaak gerelateerde zaak:\nbezwaar is gemaakt of (hoger) beroep is ingesteld (tegen het handhavingsbesluit waarin de last is opgelegd, of tegen het invorderingsbesluit in een eerdere zaak van onderhavig zaaktype);\nen/of verzocht is om een voorlopige voorziening in een aan onderhavige zaak gerelateerde zaak.\nZonodig wordt de behandeling van onderhavige zaak opgeschort tot in de gerelateerde zaak een beslissing is genomen.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_inhoudelijk_beoordeeld__4_wijziging",
+      "title": "4 - Wijziging",
+      "question": "Heeft overtreder verzocht om wijziging van de last onder dwangsom?",
+      "status": "2_inhoudelijk_beoordeeld",
+      "required": false,
+      "description": "Geverifieerd wordt of overtreder heeft verzocht om opheffing of opschorting van de last, of vermindering van de dwangsom (op grond van art. 5:34 Algemene wet bestuursrecht). Is dit het geval, dan wordt de beslissing daarover vastgelegd.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "2_inhoudelijk_beoordeeld__5_invorderingsverzoek",
+      "title": "5 - Invorderingsverzoek",
+      "question": "Heeft een belanghebbende verzocht om invordering?",
+      "status": "2_inhoudelijk_beoordeeld",
+      "required": false,
+      "description": "Beoordeeld is of een belanghebbende, bijvoorbeeld de verzoeker om handhaving (in een zaak van het zaaktype 'Handhavingsverzoek behandelen'), heeft verzocht om invordering van een verbeurde dwangsom (art. 5:37, lid 2 Algemene wet bestuursrecht). De beslissing op dat verzoek wordt verwoord in de invorderingsbeschikking (en kan dus ook een afwijzing van dat verzoek inhouden).",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "2_inhoudelijk_beoordeeld__6_uitgevoerd",
+      "title": "6 - Uitgevoerd",
+      "question": "Is de last uitgevoerd?",
+      "status": "2_inhoudelijk_beoordeeld",
+      "required": true,
+      "description": "Op basis van het controlerapport wordt beoordeeld of de opgelegde last is uitgevoerd. Als er geen nog in te vorderen verbeurde dwangsommen zijn (omdat de overtreder de dwangsommen uit eigen beweging heeft betaald (art. 5:33 Algemene wet bestuursrecht), of omdat voor eerder verbeurde dwangsommen reeds een invorderingsbeschikking is genomen), dan wordt de constatering dat de last is uitgevoerd vastgelegd in de kennisgeving toezichtbevindingen (in status 3).\nAls er nog dwangsommen in te vorderen zijn, wordt de constatering dat de last is uitgevoerd vastgelegd in de invorderingsbeschikking (in status 3) die wordt genomen voor reeds verbeurde, nog in te vorderen dwangsommen.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "2_inhoudelijk_beoordeeld__7_invorderen",
+      "title": "7 - Invorderen",
+      "question": "Is invordering van de verbeurde dwangsom wenselijk?",
+      "status": "2_inhoudelijk_beoordeeld",
+      "required": true,
+      "description": "Beoordeeld wordt of het wenselijk is om de dwangsom die is verbeurd - omdat de last niet is uitgevoerd - onmiddellijk in te vorderen (middels een te nemen invorderingsbeschikking in status 3). Overwogen wordt of onmiddellijke invordering kan bijdragen aan een snelle(re) uitvoering van de last. Is dat niet het geval, dan kan van onmiddellijke invordering worden afgezien en worden volstaan met het opstellen van de kennisgeving toezichtbevindingen (in status 3) waarin wordt geconstateerd dat de opgelegde last niet is uitgevoerd. Invordering van de verbeurde dwangsom(men) zal in dat geval plaatsvinden in een gerelateerde vervolgzaak van onderhavig zaaktype.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "3_voornemen_opgesteld__1_voornemen_bekend_gemaakt",
+      "title": "1 - Voornemen bekend gemaakt",
+      "question": "Is het voornemen tot invorderen bekendgemaakt aan overtreder / rechthebbenden?",
+      "status": "3_voornemen_opgesteld",
+      "required": true,
+      "description": "Aangezien de invorderingsbeschikking veelal zal steunen op gegevens over feiten en omstandigheden die niet door de overtreder zijn verstrekt, maar wel zijn belangen betreffen, stelt het bevoegd gezag de overtreder in de gelegenheid zijn zienswijze naar voren te brengen (art. 4:8 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "4_beschikking_opgesteld__1_zienswijzen_behandeld",
+      "title": "1 - Zienswijzen behandeld",
+      "question": "Zijn de zienswijzen behandeld en verwerkt in het (concept van) de beschikking?",
+      "status": "4_beschikking_opgesteld",
+      "required": false,
+      "description": "Elke ontvangen zienswijze kan worden behandeld in een separate zaak van het zaaktype 'Zienswijze behandelen'. Het resultaat van deze behandeling is verwerkt in de motivatie van (het concept van) de handhavingsbeschikking.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "4_beschikking_opgesteld__2_invorderingsbeschikking",
+      "title": "2 - Invorderingsbeschikking",
+      "question": "Is het concept invorderingsbeschikking opgesteld?",
+      "status": "4_beschikking_opgesteld",
+      "required": false,
+      "description": "",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "4_beschikking_opgesteld__3_wijzigingsbeschikking",
+      "title": "3 - Wijzigingsbeschikking",
+      "question": "Is wijziging van de last onder dwangsom noodzakelijk?",
+      "status": "4_beschikking_opgesteld",
+      "required": false,
+      "description": "Uit de inhoudelijke beoordeling kan volgen dat het nodig is de last onder dwangsom op te heffen of op te schorten. Hiertoe wordt (een concept van) de beschikking wijziging last onder dwangsom opgesteld.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "5_beschikking_vastgesteld__1_concept_getoetst",
+      "title": "1 - Concept getoetst",
+      "question": "Is de beschikking (collegiaal) getoetst?",
+      "status": "5_beschikking_vastgesteld",
+      "required": true,
+      "description": "Afhankelijk van de aard van de beschikking en de afspraken binnen de zaakbehandelende organisatie, kan de beschikking collegiaal moeten worden getoetst.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "5_beschikking_vastgesteld__2_beschikking_vastgesteld",
+      "title": "2 - Beschikking vastgesteld",
+      "question": "Is de beschikking vastgesteld?",
+      "status": "5_beschikking_vastgesteld",
+      "required": true,
+      "description": "Afhankelijk van de aard van de beschikking en in- en externe afspraken over mandatering, kan het nodig zijn het concept van de beschikking te laten fiatteren / vaststellen op basis van de mandaatafspraken. Deze fiattering / vaststelling kan zowel intern (door bijvoorbeeld een afdelingshoofd van de zaakbehandelende organisatie) en/of extern (door het bevoegd gezag) zijn vereist.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__1_toezending",
+      "title": "1 - Toezending",
+      "question": "Is de beschikking of kennisgeving door toezending bekendgemaakt aan direct belanghebbenden?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "Een beschikking treedt pas in werking zodra deze is bekendgemaakt (art. 3:40 Algemene wet bestuursrecht). De beschikking wordt daartoe toegezonden (of uitgereikt) aan:\nde belanghebbenden, waaronder de overtreder, waartot de beschikking zich richt (art. 3:41, lid 1 Algemene wet bestuursrecht);\nadviseurs die betrokken waren bij de voorbereiding van de beschikking (in afwijking van art. 3:43, lid 1 Algemene wet bestuursrecht wordt niet slechts van de beschikking mededeling gedaan indien van het advies wordt afgeweken - de beschikking wordt te allen tijde aan elke adviseur toegezonden).",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__2_archivering",
+      "title": "2 - Archivering",
+      "question": "Is het zaakdossier opgeschoond, compleet en archiefwaardig?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__3_registraties",
+      "title": "3 - Registraties",
+      "question": "Zijn de voor de beschikking relevante registraties bijgewerkt?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "De tenuitvoerlegging van een last onder dwangsom kan leiden tot een mutatie in één of meer (basis)registraties. Denk aan het opleggen van een last tot het slopen van een pand (moet leiden tot verwijdering van dat pand in de BAG), het beëindigen van een milieubelastende activiteit (kan leiden tot wijziging van die activiteit op de 'risicokaart') of het stellen van zekerheden n.a.v. een overtreding (kan leiden tot registratie van een beperking in de landelijke voorziening voor de WKPB).\nDit zijn slechts enkele voorbeelden; alle relevante (basis)registraties dienen te worden bijgewerkt op basis van onderhavige zaak.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "6_zaak_afgerond__4_vervolgzaak",
+      "title": "4 - Vervolgzaak",
+      "question": "Zijn de voor deze zaak relevante vervolgzaken gepland?",
+      "status": "6_zaak_afgerond",
+      "required": true,
+      "description": "Een zaak van onderhavig zaaktype, vereist veelal een vervolg: als de last niet is uitgevoerd en het bedrag waarboven geen dwangsom meer wordt verbeurd (art. 5:32b, lid 2 Algemene wet bestuursrecht) is nog niet bereikt, dan wordt een volgende zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' gepland (bijvoorbeeld na het verstrijken van de volgende tijdseenheid, of op het moment van de volgende verwachte overtreding (art. 5:32b, lid 1 Algemene wet bestuursrecht)). \nals de last onder dwangsom is 'volgelopen' (het bedrag waarboven geen dwangsom meer wordt verbeurd, is bereikt (art. 5:32b, lid 2 Algemene wet bestuursrecht)) en de last is (nog) niet uitgevoerd, wordt een zaak van het zaaktype 'Handhavingsbesluit nemen' gepland om tot een nieuwe sanctie voor de overtreding te besluiten; \nals de last is uitgevoerd, kan het wenselijk zijn door het houden van (extra) toezicht te verifiëren dat de overtreding niet opnieuw optreedt. Als de last onder dwangsom nog niet is opgeheven, wordt hiervoor een zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' gepland (bij een nieuwe constatering van de overtreding is opnieuw een dwangsom verbeurd (van rechtswege) en kan direct tot invordering worden besloten. Als de last onder dwangsom is opgeheven, wordt hiervoor een zaak van het zaaktype 'Controle uitvoeren' gepland;\nals een dwangsom is verbeurd die niet onmiddellijk wordt ingevorderd, kan het wenselijk zijn een administratieve controle (eventueel via een zaak van het zaaktype 'Controle uitvoeren') te plannen die (ruim) binnen de termijn van één jaar wordt gestart om te voorkomen dat de verbeurde dwangsom niet meer kan worden ingevorderd (art. 5:35 Algemene wet bestuursrecht).De feitelijke invordering van verbeurde dwangsom(men) wordt beschouwd als een financieel administratief proces en is geen onderdeel van onderhavig zaaktype.",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "6_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "lod_behandelaar",
+      "title": "LoD-behandelaar",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "2_inhoudelijk_beoordeeld",
+        "3_voornemen_opgesteld",
+        "4_beschikking_opgesteld"
+      ],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "overtreder",
+      "title": "Overtreder",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "rechthebbende",
+      "title": "Rechthebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Belanghebbende",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "toezichthouder",
+      "title": "Toezichthouder",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "verzoeker_invordering_dwangsom",
+      "title": "Verzoeker invordering dwangsom",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Belanghebbende",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [
+        "5_beschikking_vastgesteld"
+      ],
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 10
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "controlerapport",
+      "sequence": 1,
+      "title": "Controlerapport",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "verzoek_tot_wijziging_last_onder_dwangsom",
+      "sequence": 2,
+      "title": "Verzoek tot wijziging last onder dwangsom",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "verzoek_om_invordering",
+      "sequence": 3,
+      "title": "Verzoek om invordering",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "kennisgeving_toezichtbevindingen",
+      "sequence": 4,
+      "title": "Kennisgeving toezichtbevindingen",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "voornemen_invorderingsbeschikking",
+      "sequence": 5,
+      "title": "Voornemen invorderingsbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "invorderingsbeschikking",
+      "sequence": 6,
+      "title": "Invorderingsbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "beschikking_wijziging_last_onder_dwangsom",
+      "sequence": 7,
+      "title": "Beschikking wijziging last onder dwangsom",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "wkpb_in_of_uitschrijving",
+      "sequence": 8,
+      "title": "WKPB- in- of uitschrijving",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 9,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "invorderingsbeschikking",
+      "title": "Invorderingsbeschikking",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 3
+      },
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "beschikking_wijziging_last_onder_dwangsom",
+      "title": "Beschikking wijziging last onder dwangsom",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 4
+      },
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "12.3",
+      "archive_nomination": "Vernietigen",
+      "description": "De last onder dwangsom is afgebroken. Deze is foutief ingeboekt.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "uitgevoerd",
+      "title": "Uitgevoerd",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Last onder dwangsom ten uitvoer gelegd",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "uitgevoerd_bodem",
+      "title": "Uitgevoerd - bodem",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2.2",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Last onder dwangsom bij bodemsanering ten uitvoer gelegd"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Nemen van noodzakelijke maatregelen in geval van onverwijlde spoed en (dreigende) ernstige bodemverontreiniging na een ongewoon voorval"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "28",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Verzoeken aan het bevoegd gezag een beschikking te geven tot oplegging van een last onder bestuursdwang, oplegging van een last onder dwangsom of intrekking van een vergunning of ontheffing"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "35",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Bevelen bij een onderzoeksgeval een nader onderzoek uit te voeren alsmede het treffen van beveiligingsmaatregelen bij ernstige verontreiniging"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "39",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Sluiten van inrichtingen, buiten werking stellen van toestellen dan wel gelasten van het staken van handelingen die zodanige luchtverontreiniging veroorzaken dat er een acuut en dreigend gevaar is voor gezondheid, onduldbare hinder of ernstige schades"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Uitvoeren van de bestuursrechtelijke handhaving van bepalingen uit de Wet bodembescherming",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Nemen van noodzakelijke maatregelen in geval van (dreigende) ernstige bodemverontreiniging na een ongewoon voorval"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "16",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Geven van algemene voorschriften in bijzondere omstandigheden van tijdelijke aard aan inrichtingen, toestellen, brandstoffen en verontreinigende handelingen indien dringend noodzakelijk in het belang van de openbare gezondheid"
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "De last onder dwangsom is afgebroken. Deze is foutief ingeboekt.",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "dwangsom_geind",
+      "title": "Dwangsom geind",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "ws",
+      "generic_title": "Geind",
+      "title_2_2": "Geind",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "dwangsom_gedeeltelijk_geind",
+      "title": "Dwangsom gedeeltelijk geind",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "ws",
+      "generic_title": "Geind",
+      "title_2_2": "Geind",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "dwangsom_niet_toegepast",
+      "title": "Dwangsom niet toegepast",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "ws",
+      "generic_title": "Dwangsom niet toegepast",
+      "title_2_2": "Dwangsom niet toegepast",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen', waarin is besloten tot het opleggen van een last onder dwangsom voor de overtreding waarop onderhavige zaak ziet."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/08",
+        "title": "Last onder dwangsom ten uitvoer leggen",
+        "raw": "8 - Last onder dwangsom ten uitvoer leggen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' waarin, op basis van dezelfde handhavingsbeschikking, een dwangsom is verbeurd, of een overtreding is geconstateerd waarvoor de last nog niet is opgeheven."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin - tijdens de behandeling van onderhavige zaak - wordt geverifieerd of de last is uitgevoerd."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen', waarin een nieuw handhavingsbesluit wordt genomen als de last waarop onderhavige zaak ziet niet is uitgevoerd en het bedrag waarboven geen dwangsom meer wordt verbeurd, is bereikt (art. 5:32b, lid 2 Algemene wet bestuursrecht)."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' die wordt gepland nadat in onderhavige zaak een dwangsom is verbeurd die niet is ingevorderd; in de (vervolg)zaak wordt een administratieve controle uitgevoerd waarin wordt beoordeeld of het risico bestaat dat een verbeurde dwangsom niet kan worden ingevorderd, omdat de bevoegdheid om een dwangsom in te vorderen na een jaar verjaart (art. 5:35 Algemene wet bestuursrecht). Zonodig wordt na de controle een zaak gestart waarmee de verbeurde dwangsom wordt ingevorderd."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/08",
+        "title": "Last onder dwangsom ten uitvoer leggen",
+        "raw": "8 - Last onder dwangsom ten uitvoer leggen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "De zaak van het zaaktype 'Last onder dwangsom ten uitvoer leggen' die - als het maximale bedrag waarboven geen dwangsom meer wordt verbeurd nog niet is bereikt (art. 5:32b, lid 2 Algemene wet bestuursrecht) - wordt gepland nadat in onderhavige zaak is geconstateerd dat de last niet is uitgevoerd of indien wordt verwacht dat de overtreding waarop de last ziet, opnieuw zal optreden."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' die wordt gepland als de last is opgeheven en waarin wordt geverifieerd dat de overtreding waarop de last ziet, niet opnieuw optreedt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/14",
+        "title": "Voorlopige voorziening behandelen",
+        "raw": "14 - Voorlopige voorziening behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 10
+      },
+      "description": "De zaak van het zaaktype 'Voorlopige voorziening behandelen', waarin de partij die het besluit bestrijdt een verzoek om voorlopige voorziening indient bij de voorzieningenrechter van een rechtsprekende instantie, in afwachting van de behandeling van het bezwaar, beroep of hoger beroep tegen dat besluit."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/16",
+        "title": "Bezwaar behandelen",
+        "raw": "16 - Bezwaar behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 11
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen' waarin een bezwaar, dat is ingediend naar aanleiding van het bekendmaken van het besluit tot last onder dwangsom ten uitvoer leggen in onderhavige zaak, is behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/12",
+        "title": "Zienswijze behandelen",
+        "raw": "12 - Zienswijze behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 12
+      },
+      "description": "De zaak van het zaaktype 'Zienswijze behandelen' waarin een zienswijze, die is ingediend naar aanleiding van het bekendmaken van het voornemen tot handhaving in onderhavige zaak, is behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/20",
+        "title": "Bezwaar behandelen zonder bezwaarcommissie",
+        "raw": "20 - Bezwaar behandelen zonder bezwaarcommissie"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "08_-_Last_onder_dwangsom_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 13
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen zonder bezwaarcommissie' waarin een bezwaar, dat is ingediend naar aanleiding van het bekendmaken van het besluit tot last onder dwangsom ten uitvoer leggen in onderhavige zaak, is behandeld."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

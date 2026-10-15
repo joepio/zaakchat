@@ -338,8 +338,12 @@ const IssueTimeline: React.FC = () => {
             title: issue.title,
             description: issue.description,
             status: issue.status,
+            zaaktype: issue.zaaktype,
+            current_status_id: issue.current_status_id,
             assignee: issue.assignee,
             resolution: issue.resolution,
+            result: issue.result,
+            properties: issue.properties,
             involved: issue.involved,
           }}
           onSubmit={handleCommentSubmit}

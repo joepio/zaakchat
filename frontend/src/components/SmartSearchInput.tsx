@@ -179,7 +179,12 @@ const SmartSearchInput: React.FC<SmartSearchInputProps> = ({ onSearch, isLoading
                   setSuggestions(newSuggestions);
                   setShowSuggestions(newSuggestions.length > 0);
               }}
-              className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-md text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-mono text-sm"
+              className="w-full form-input px-4 py-2 outline-none font-mono text-sm focus:ring-2"
+              style={{
+                backgroundColor: "var(--bg-primary)",
+                borderColor: "var(--border-primary)",
+                color: "var(--text-primary)",
+              }}
               placeholder={activeSchemaName
                 ? `Filter ${activeSchemaName} properties (e.g. status:open)...`
                 : "Search anything or select a type filter above..."}
@@ -189,7 +194,7 @@ const SmartSearchInput: React.FC<SmartSearchInputProps> = ({ onSearch, isLoading
           <button
             type="submit"
             disabled={isLoading}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-theme text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? "Searching..." : "Search"}
           </button>
@@ -199,7 +204,11 @@ const SmartSearchInput: React.FC<SmartSearchInputProps> = ({ onSearch, isLoading
         {showSuggestions && suggestions.length > 0 && (
           <div
             ref={suggestionsRef}
-            className="absolute z-10 w-full mt-1 bg-gray-800 border border-gray-700 rounded-md shadow-lg max-h-60 overflow-y-auto"
+            className="absolute z-10 w-full mt-1 rounded-theme shadow-lg max-h-60 overflow-y-auto border"
+            style={{
+              backgroundColor: "var(--bg-primary)",
+              borderColor: "var(--border-primary)",
+            }}
           >
             <ul>
               {suggestions.map((s, i) => (

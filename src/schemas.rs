@@ -111,11 +111,23 @@ pub struct Issue {
     pub description: Option<String>,
     /// Huidige behandelstatus van de zaak
     pub status: IssueStatus,
+    /// Zaaktype definition used to drive process logic, for example "omgevingswet/10@1.9"
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub zaaktype: Option<String>,
+    /// Current status id inside the zaaktype definition, for example "2_intake_afgerond"
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub current_status_id: Option<String>,
+    /// Structured zaaktype-specific properties collected during the case
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub properties: Option<Value>,
     /// Email van de ambtenaar die de zaak behandelt (bijv. "alice@gemeente.nl")
     #[serde(skip_serializing_if = "Option::is_none")]
     pub assignee: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolution: Option<String>,
+    /// Final result id inside the zaaktype definition
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub result: Option<String>,
     /// Lijst van betrokken personen (emails) bij deze zaak
     #[serde(skip_serializing_if = "Option::is_none")]
     pub involved: Option<Vec<String>>,

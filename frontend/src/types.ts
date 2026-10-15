@@ -36,7 +36,12 @@ export interface BaseEntity {
 
 // Re-export and augment generated types with BaseEntity where applicable.
 export type CloudEvent = BaseCloudEvent;
-export type Issue = GeneratedIssue & BaseEntity;
+export type Issue = GeneratedIssue & BaseEntity & {
+  zaaktype?: string | null;
+  current_status_id?: string | null;
+  properties?: Record<string, unknown> | null;
+  result?: string | null;
+};
 export type Task = GeneratedTask & BaseEntity;
 export type Comment = GeneratedComment & BaseEntity;
 // Planning resources include moments; each moment may be referenced in the UI by id.

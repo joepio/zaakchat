@@ -1,0 +1,300 @@
+specification {
+  element actor {
+    style {
+      shape person
+    }
+  }
+  element system {
+    style {
+      shape rectangle
+    }
+  }
+  element container {
+    style {
+      shape rectangle
+    }
+  }
+  element component {
+    style {
+      shape rectangle
+    }
+  }
+  element storage {
+    style {
+      shape storage
+    }
+  }
+  element queue {
+    style {
+      shape queue
+    }
+  }
+}
+
+model {
+
+  actor inwoner {
+    title 'Inwoner'
+    description 'Burger met een lopende zaak bij de gemeente'
+    style {
+      color green
+    }
+  }
+
+  actor medewerker {
+    title 'Gemeente medewerker'
+    description 'Behandelaar bij de gemeente'
+    style {
+      color blue
+    }
+  }
+
+  system postmark {
+    title 'Postmark'
+    description 'Externe e-maildienst voor het versturen van magic links en notificaties'
+    style {
+      color secondary
+    }
+  }
+
+  system zaaksysteem {
+    title 'ZGW Registraties'
+    description 'Bronsysteem van de gemeente dat zaakstatussen, besluiten en documenten bijhoudt (bijv. OpenZaak, Suite4, RX.Mission)'
+    style {
+      color amber
+    }
+  }
+
+  system zaakchat {
+    title 'ZaakChat'
+    description 'Real-time communicatie platform tussen inwoners en gemeenten op basis van JSONCommit / CloudEvents'
+
+    container frontend {
+      title 'Frontend'
+      description 'Single-page applicatie voor real-time zaakbeheer en communicatie'
+      technology 'React 19 + Vite + TypeScript'
+      style {
+        color green
+      }
+
+      component dashboard {
+        title 'Dashboard'
+        description 'Overzicht van alle zaken, taken en planning'
+      }
+
+      component zaakDetail {
+        title 'Zaak Detail'
+        description 'Tijdlijn met events: berichten, issues, taken, documenten en planning'
+      }
+
+      component schemaForms {
+        title 'Schema-driven formulieren'
+        description 'Formulieren gegenereerd vanuit JSON Schema definities'
+      }
+
+      component sseClient {
+        title 'SSE Client'
+        description 'Ontvangt real-time delta events en snapshot bij verbinden'
+      }
+
+      component searchUI {
+        title 'Zoekfunctionaliteit'
+        description 'Volledige tekst zoeken via /query endpoint'
+      }
+
+      component apiDocs {
+        title 'API Documentatie'
+        description 'Interactieve docs incl. AsyncAPI spec viewer en playground'
+      }
+    }
+
+    container backend {
+      title 'Backend'
+      description 'HTTP server met event sourcing, SSE broadcasting en zoekmachine'
+      technology 'Rust + Axum + Tokio'
+      style {
+        color blue
+      }
+
+      component eventsHandler {
+        title 'Events Handler'
+        description 'POST /events: accepteert CloudEvents met JSONCommit payload. GET /events: SSE stream of JSON lijst'
+      }
+
+      component resourcesHandler {
+        title 'Resources Handler'
+        description 'GET/DELETE /resources en /resources/{id}: lees en verwijder gematerialiseerde resources'
+      }
+
+      component queryHandler {
+        title 'Query Handler'
+        description 'GET /query: volledige tekst zoekresultaten via Tantivy'
+      }
+
+      component authHandler {
+        title 'Auth Handler'
+        description 'POST /login: stuur magic link. GET /auth/verify: verifieer JWT token'
+      }
+
+      component emailHandler {
+        title 'Email Handler'
+        description 'POST /api/email/inbound: verwerkt inkomende e-mails als events'
+      }
+
+      component schemasHandler {
+        title 'Schemas Handler'
+        description 'GET /schemas en /schemas/{name}: serveert JSON Schema definities'
+      }
+
+      component sseBroadcaster {
+        title 'SSE Broadcaster'
+        description 'Tokio broadcast channel verstuurt delta events naar alle verbonden clients'
+      }
+
+      component emailService {
+        title 'Email Service'
+        description 'Verstuurt magic link e-mails via Postmark of mock transport'
+      }
+    }
+
+    storage sled {
+      title 'Sled Database'
+      description 'Embedded key-value store: events log + gematerialiseerde resources. Geen externe database nodig.'
+      technology 'Sled (embedded Rust DB)'
+      style {
+        color muted
+      }
+    }
+
+    storage tantivy {
+      title 'Tantivy Zoekindex'
+      description 'Full-text zoekindex voor resources'
+      technology 'Tantivy (embedded Rust search engine)'
+      style {
+        color muted
+      }
+    }
+
+    storage asyncapiSpec {
+      title 'AsyncAPI Spec'
+      description 'Gegenereerde AsyncAPI YAML/JSON specificatie van het event protocol'
+      technology 'asyncapi.yaml'
+      style {
+        color muted
+      }
+    }
+  }
+
+  // Actoren → ZaakChat (directe route)
+  inwoner -> frontend 'Bekijkt zaken, stuurt berichten,\nreageert, voert taken uit'
+  medewerker -> frontend 'Behandelt zaken, reageert,\nplant afspraken, maakt taken'
+
+  // Actoren → ZGW Registraties (indirecte route)
+  inwoner -> zaaksysteem 'Dient zaak in, reageert\nvia portaal of e-mail'
+  medewerker -> zaaksysteem 'Verwerkt zaak, voegt\ndocumenten en besluiten toe'
+
+  // ZGW Registraties → ZaakChat backend (events vloeien door)
+  zaaksysteem -> eventsHandler 'POST /events\nJSONCommit events stromen door:\nzaakwijzigingen, reacties, taken,\ndocumenten, besluiten'
+
+  // Frontend → backend
+  sseClient -> eventsHandler 'GET /events (SSE stream)\nOntvang snapshot + delta events'
+  schemaForms -> eventsHandler 'POST /events\nJSONCommit als CloudEvent'
+  searchUI -> queryHandler 'GET /query\nVolledig tekst zoeken'
+  apiDocs -> schemasHandler 'GET /schemas/{name}\nJSON Schema ophalen'
+  dashboard -> resourcesHandler 'GET /resources\nGematerialiseerde resources'
+  zaakDetail -> resourcesHandler 'GET /resources/{id}'
+
+  // Backend intern
+  eventsHandler -> sseBroadcaster 'Broadcast nieuwe delta event'
+  sseBroadcaster -> sseClient 'SSE delta events'
+  eventsHandler -> sled 'Sla CloudEvent op'
+  eventsHandler -> sled 'Update gematerialiseerd resource'
+  eventsHandler -> tantivy 'Indexeer resource voor zoeken'
+  queryHandler -> tantivy 'Zoekquery'
+  resourcesHandler -> sled 'Lees resource'
+  authHandler -> emailService 'Stuur magic link'
+  emailHandler -> eventsHandler 'Maak Comment event van inkomende mail'
+
+  // Backend → extern
+  emailService -> postmark 'SMTP / HTTP API\nVerstuur e-mail'
+
+  // Medewerker via e-mail
+  medewerker -> postmark 'Beantwoord zaak per e-mail'
+  inwoner -> postmark 'Ontvangt notificaties per e-mail'
+}
+
+views {
+
+  view index {
+    title 'ZaakChat - Systeemcontext'
+    description 'Overzicht van alle actoren en systemen'
+
+    include *,
+      inwoner -> zaaksysteem,
+      medewerker -> zaaksysteem,
+      zaaksysteem -> zaakchat
+
+    style inwoner {
+      color green
+    }
+    style medewerker {
+      color blue
+    }
+    style postmark {
+      color secondary
+    }
+    style zaaksysteem {
+      color amber
+    }
+  }
+
+  view zaakchatContainers of zaakchat {
+    title 'ZaakChat - Containers'
+    description 'Frontend, Backend, opslag en zoekindex'
+
+    include *
+    include inwoner
+    include medewerker
+    include postmark
+    include zaaksysteem
+  }
+
+  view backendComponents of backend {
+    title 'ZaakChat Backend - Componenten'
+    description 'Rust/Axum handlers, SSE broadcaster, email service'
+
+    include *
+    include sled
+    include tantivy
+    include postmark
+  }
+
+  view frontendComponents of frontend {
+    title 'ZaakChat Frontend - Componenten'
+    description 'React componenten: dashboard, zaakdetail, formulieren, SSE client'
+
+    include *
+    include inwoner
+    include medewerker
+  }
+
+  view eventFlow {
+    title 'JSONCommit Event Flow'
+    description 'Twee paden naar de Events Handler: direct via ZaakChat frontend, of via ZGW Registraties. Events stromen door naar alle SSE clients.'
+
+    include inwoner
+    include medewerker
+    include zaaksysteem
+    include frontend
+    include schemaForms
+    include sseClient
+    include eventsHandler
+    include sseBroadcaster
+    include sled
+    include tantivy
+    include emailService
+    include postmark
+    include emailHandler
+  }
+
+}

@@ -10,6 +10,7 @@ import EventProducersSection from "./sections/EventProducersSection";
 import EventConsumersSection from "./sections/EventConsumersSection";
 import GetStartedFooter from "./sections/GetStartedFooter";
 import SearchDocumentationSection from "./sections/SearchDocumentationSection";
+import { LikeC4View } from "../../generated/likec4-views.mjs";
 
 const ApiDocumentationView: React.FC = () => {
   return (
@@ -46,6 +47,7 @@ const ApiDocumentationView: React.FC = () => {
           {/* Table of Contents */}
           <TableOfContents
             items={[
+              { id: "architectuur", title: "Architectuur Diagram" },
               { id: "search-endpoint", title: "Search Endpoint & Playground" },
               { id: "json-commit", title: "JSONCommit - Één Event Type" },
               { id: "waarom-cloudevents", title: "Waarom CloudEvents?" },
@@ -54,6 +56,38 @@ const ApiDocumentationView: React.FC = () => {
               { id: "events-ontvangen", title: "Events Ontvangen (Consumers)" },
             ]}
           />
+
+          <section id="architectuur">
+            <h2
+              className="text-2xl font-bold mb-4"
+              style={{ color: "var(--ro-lintblauw)" }}
+            >
+              Architectuur Diagram
+            </h2>
+            <p className="mb-6" style={{ color: "var(--text-secondary)" }}>
+              Overzicht van alle componenten, containers en hun onderlinge relaties.
+            </p>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
+                  Systeemcontext
+                </h3>
+                <LikeC4View viewId="index" style={{ width: "100%", height: 500 }} />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
+                  Containers
+                </h3>
+                <LikeC4View viewId="zaakchatContainers" style={{ width: "100%", height: 500 }} />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
+                  Event Flow
+                </h3>
+                <LikeC4View viewId="eventFlow" style={{ width: "100%", height: 500 }} />
+              </div>
+            </div>
+          </section>
 
           <SearchDocumentationSection />
           <JSONCommitSection />

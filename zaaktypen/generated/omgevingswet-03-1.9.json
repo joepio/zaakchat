@@ -1,0 +1,1457 @@
+{
+  "kind": "ZaakTypeDefinition",
+  "id": "omgevingswet/03",
+  "version": "1.9",
+  "title": "Last onder bestuursdwang ten uitvoer leggen",
+  "source": {
+    "kind": "ztc-xlsx",
+    "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+    "catalog_file": "00_-_Zaaktypecatalogus_Omgevingswet_V1_9.xlsx",
+    "imported_at": "2026-05-06T10:11:19+00:00"
+  },
+  "metadata": {
+    "IDENTIFICATIE": {
+      "value": "3",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 2
+      }
+    },
+    "OMSCHRIJVING": {
+      "value": "Last onder bestuursdwang ten uitvoer leggen",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 3
+      }
+    },
+    "CATEGORIE": {
+      "value": "Handhaven",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 4
+      }
+    },
+    "DOEL": {
+      "value": "Controleren of de overtreder de last tot geheel of gedeeltelijk herstel van de overtreding, beëindigen van de overtreding, het voorkomen van herhaling van de overtreding, dan wel het wegnemen of beperken van de gevolgen van de overtreding heeft uitgevoerd en, indien uit de controle blijkt dat de last niet is uitgevoerd, de last zelf - op kosten van de overtreder - ten uitvoer te leggen.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 5
+      }
+    },
+    "AANLEIDING": {
+      "value": "Mogelijke aanleidingen:\nin een zaak van het zaaktype 'Handhavingsbesluit nemen' is aan de overtreder een last onder bestuursdwang opgelegd en is een gerelateerde vervolgzaak van onderhavig zaaktype gepland (na het verstrijken van de begunstigingstermijn als bedoeld in art. 5:24, lid 2 Algemene wet bestuursrecht);\nin een zaak van het zaaktype 'Handhavingsbesluit nemen' is besloten bestuursdwang toe te passen zonder voorafgaande last (art. 5:31, lid 1 Algemene wet bestuursrecht);\nin een zaak van het zaaktype 'Aanvraag beschikking regulier behandelen' is op verzoek van een belanghebbende besloten tot toepassing van bestuursdwang ter herstel van een overtreding waarvoor eerder (in een zaak van het zaaktype 'Handhavingsbesluit nemen') een last onder bestuursdwang is opgelegd (art. 5:31a Algemene wet bestuursrecht);\nin een zaak van het zaaktype 'Controle uitvoeren' is geconstateerd dat de noodzaak bestuursdwang toe te passen zo spoedeisend is dat een besluit niet kan worden afgewacht, en de bestuursdwang terstond moet worden toegepast. Het handhavingsbesluit (te nemen in een gerelateerde vervolgzaak van het zaaktype 'Handhavingsbesluit nemen') waarin tot de spoedeisende toepassing van de bestuurdwang wordt besloten, wordt vervolgens zo spoedig mogelijk bekendgemaakt (art. 5:31, lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 6
+      }
+    },
+    "TOELICHTING": {
+      "value": "In een zaak van het zaaktype 'Handhavingsbesluit nemen' is aan de overtreder een last onder bestuursdwang opgelegd. Om te controleren of de last is uitgevoerd en, indien dit niet het geval is, de last zelf uit te voeren op kosten van de overtreder, is een zaak van onderhavig zaaktype gepland. De feitelijke handelingen die nodig zijn voor de toepassing van de bestuursdwang (lees: het geheel of gedeeltelijk herstel van de overtreding), zijn afhankelijk van de aard van de overtreding. Na toepassing van de bestuursdwang wordt eerst een voornemen verstuurd met de mogelijkheid tot zienswijze waarna een beschikking wordt genomen over het verhaal van de kosten op de overtreder.\nDe feitelijke invordering van de kosten wordt beschouwd als een financieel administratief proces en is geen onderdeel van onderhavig zaaktype.\nDe vermelde zaakstatussen betreffen de normale gang van zaken. Bij een spoedprocedure kunnen statussen korter of alleen pro forma doorlopen worden.\nOpschorting van de behandeling is mogelijk vanwege een voorlopige voorziening in samenhang met een bezwaar- en beroepsprocedure.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 7
+      }
+    },
+    "INDICATIE INTERN OF EXTERN": {
+      "value": "Intern",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 8
+      }
+    },
+    "HANDELING INITIATOR": {
+      "value": "Opleggen",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 9
+      }
+    },
+    "ONDERWERP": {
+      "value": "Last onder bestuursdwang",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 10
+      }
+    },
+    "HANDELING BEHANDELAAR": {
+      "value": "Ten uitvoer leggen",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 11
+      }
+    },
+    "OPSCHORTING / AANHOUDING MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 18
+      }
+    },
+    "VERLENGING DOORLOOPTIJD MOGELIJK": {
+      "value": "Ja",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 19
+      }
+    },
+    "TREFWOORDEN": {
+      "value": "bestuursdwang, handhaving",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 21
+      }
+    },
+    "VERTROUWELIJKHEIDAANDUIDING": {
+      "value": "Openbaar",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 22
+      }
+    },
+    "PUBLICATIE-INDICATIE": {
+      "value": "Nee",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 24
+      }
+    },
+    "- NAAM": {
+      "value": "G01 - Last onder bestuursdwang (HH02 - Toepassing herstelsanctie)\nMBZK01 - Last onder bestuursdwang (HH02 - Toepassing herstelsanctie)\nMD01 - Last onder bestuursdwang (HH02 - Toepassing herstelsanctie)\nME01 - Last onder bestuursdwang (HH02 - Toepassing herstelsanctie)\nMI01 - Last onder bestuursdwang (HH02 - Toepassing herstelsanctie)\nMLNV01 - Last onder bestuursdwang (HH02 - Toepassing herstelsanctie)\nMO01 - Last onder bestuursdwang (HH02 - Toepassing herstelsanctie)\nP01 - Last onder bestuursdwang (HH02 - Toepassing herstelsanctie)\nW01 - Last onder bestuursdwang (HH02 - Toepassing herstelsanctie)",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 27
+      }
+    },
+    "VERSIEDATUM": {
+      "value": "2025-07-11",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 42
+      }
+    },
+    "DATUM BEGIN GELDIGHEID": {
+      "value": "2019-12-01",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Zaaktype",
+        "row": 43
+      }
+    }
+  },
+  "statuses": [
+    {
+      "id": "1_zaak_gestart",
+      "sequence": 1,
+      "title": "Zaak gestart",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 3
+      },
+      "duration": {
+        "value": 0,
+        "unit": "unknown"
+      },
+      "description": "De zaak is geregistreerd, maar is nog geen sprake van een afgeronde registratie. Er is - al dan niet geautomatiseerd - een bewijs van ontvangst verzonden.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "2_bestuursdwang_voorbereid",
+      "sequence": 2,
+      "title": "Bestuursdwang voorbereid",
+      "inform_citizen": false,
+      "required_documents": [
+        "Controlerapport",
+        "Plan van aanpak (handhavingsactie)"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 4
+      },
+      "description": "Beoordeeld is of de last is uitgevoerd middels een gerelateerde (bijdrage)zaak van het zaaktype 'Controle uitvoeren'. Als de last niet is uitgevoerd, dan wordt de actie voorbereid en afgestemd zowel intern als extern (bijv. gemeente, politie, Openbaar Ministerie). Daarna is (indien nodig) het plan van aanpak op- en vastgesteld.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "3_bestuursdwang_toegepast",
+      "sequence": 3,
+      "title": "Bestuursdwang toegepast",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 5
+      },
+      "description": "De laatste stand van zaken is in een (voor)overleg doorgenomen en eventueel is de aankondiging verzonden dat de bestuursdwang toegepast gaat worden. Vervolgens is de actie uitgevoerd (eventueel in samenwerking met ketenpartners). Na afloop is eventueel met alle betrokkenen een evaluatie uitgevoerd. Van de toepassing van bestuursdwang is een verslag opgesteld.\nIndien de bestuursdwang spoedeisend is toegepast zonder voorafgaande last of met een last zonder begunstigingstermijn, is geen kostenverhaal mogelijk (art. 5:31 Algemene wet bestuursrecht, juncto art. 5:25, lid 3 Algemene wet bestuursrecht). De statussen 4 en 5 worden in dat geval pro forma doorlopen en de zaak wordt afgerond.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "4_voornemen_opgesteld",
+      "sequence": 4,
+      "title": "Voornemen opgesteld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Voornemen kostenverhaalbeschikking"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 6
+      },
+      "description": "Aan de overtreder is medegedeeld dat het voornemen is om de kosten te gaan verhalen (de overtreder kan hierop een zienswijze geven).",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "5_beschikking_opgesteld",
+      "sequence": 5,
+      "title": "Beschikking opgesteld",
+      "inform_citizen": false,
+      "required_documents": [],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 7
+      },
+      "description": "Er is een concept van de beschikking voor het kostenverhaal opgesteld.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "6_beschikking_vastgesteld",
+      "sequence": 6,
+      "title": "Beschikking vastgesteld",
+      "inform_citizen": false,
+      "required_documents": [
+        "Kostenverhaalbeschikking / Factuur?"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 8
+      },
+      "description": "Het concept van de beschikking kan zijn getoetst door een collega en is goedgekeurd op basis van de geldende mandaatafspraken.",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "7_zaak_afgerond",
+      "sequence": 7,
+      "title": "Zaak afgerond",
+      "inform_citizen": false,
+      "required_documents": [
+        "Kennisgeving bestuursdwang"
+      ],
+      "required_objects": [],
+      "required_properties": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Statussen",
+        "row": 9
+      },
+      "description": "Alle belanghebbenden zijn geïnformeerd over de afronding van onderhavige zaak. De beschikking voor het kostenverhaal is, indien van toepassing, verzonden naar de overtreder. De relevante registraties (BAG, BRK, Wkpb, Risicokaart, et cetera) zijn bijgewerkt. Indien nodig is een vervolgzaak geïnitieerd (voor bijvoorbeeld toezicht) en het zaakdossier is afgesloten en gearchiveerd.",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "1_zaak_gestart__to__2_bestuursdwang_voorbereid",
+      "from": "1_zaak_gestart",
+      "to": "2_bestuursdwang_voorbereid",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "1_zaak_gestart"
+      },
+      "effects": [
+        {
+          "status.transition": "2_bestuursdwang_voorbereid"
+        }
+      ]
+    },
+    {
+      "id": "2_bestuursdwang_voorbereid__to__3_bestuursdwang_toegepast",
+      "from": "2_bestuursdwang_voorbereid",
+      "to": "3_bestuursdwang_toegepast",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "2_bestuursdwang_voorbereid"
+      },
+      "effects": [
+        {
+          "status.transition": "3_bestuursdwang_toegepast"
+        }
+      ]
+    },
+    {
+      "id": "3_bestuursdwang_toegepast__to__4_voornemen_opgesteld",
+      "from": "3_bestuursdwang_toegepast",
+      "to": "4_voornemen_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "3_bestuursdwang_toegepast"
+      },
+      "effects": [
+        {
+          "status.transition": "4_voornemen_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "4_voornemen_opgesteld__to__5_beschikking_opgesteld",
+      "from": "4_voornemen_opgesteld",
+      "to": "5_beschikking_opgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "4_voornemen_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "5_beschikking_opgesteld"
+        }
+      ]
+    },
+    {
+      "id": "5_beschikking_opgesteld__to__6_beschikking_vastgesteld",
+      "from": "5_beschikking_opgesteld",
+      "to": "6_beschikking_vastgesteld",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "5_beschikking_opgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "6_beschikking_vastgesteld"
+        }
+      ]
+    },
+    {
+      "id": "6_beschikking_vastgesteld__to__7_zaak_afgerond",
+      "from": "6_beschikking_vastgesteld",
+      "to": "7_zaak_afgerond",
+      "source": "inferred_from_status_order",
+      "mode": "manual",
+      "when": {
+        "status.is": "6_beschikking_vastgesteld"
+      },
+      "effects": [
+        {
+          "status.transition": "7_zaak_afgerond"
+        }
+      ]
+    }
+  ],
+  "task_templates": [
+    {
+      "id": "1_zaak_gestart__1_registratie",
+      "title": "1 - Registratie",
+      "question": "Is de aanvraag geregistreerd als nieuwe zaak?",
+      "status": "1_zaak_gestart",
+      "required": false,
+      "description": "Direct na het uitvoeren van een controle wordt een zaak aangemaakt voor de behandeling ervan. Idealiter is het juiste zaaktype bepaald en zijn alle voor een zaak van dat zaaktype relevant gegevens vastgelegd. Indien dat niet mogelijk is, wordt het vervolg van de registratie uitgevoerd door een medewerker die deskundig is binnen het domein waarop de zaak betrekking heeft.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 3
+      }
+    },
+    {
+      "id": "2_bestuursdwang_voorbereid__1_controle",
+      "title": "1 - Controle",
+      "question": "Is gecontroleerd of de opgelegde last is uitgevoerd?",
+      "status": "2_bestuursdwang_voorbereid",
+      "required": true,
+      "description": "In een gerelateerde (bijdrage)zaak wordt gecontroleerd of de overtreder de opgelegde last heeft uitgevoerd. Het controlerapport bevat de bevindingen van de toezichthouder.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 4
+      }
+    },
+    {
+      "id": "2_bestuursdwang_voorbereid__2_registratie",
+      "title": "2 - Registratie",
+      "question": "Zijn de gegevens compleet?",
+      "status": "2_bestuursdwang_voorbereid",
+      "required": true,
+      "description": "Controleer of alle documenten en gegevens die binnen zijn gekomen ten behoeve van deze zaak, correct geregistreerd zijn in de zaak.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 5
+      }
+    },
+    {
+      "id": "2_bestuursdwang_voorbereid__3_opschorting",
+      "title": "3 - Opschorting",
+      "question": "Is er aanleiding de behandeling van onderhavige zaak op te schorten?",
+      "status": "2_bestuursdwang_voorbereid",
+      "required": false,
+      "description": "Beoordeeld wordt of er reden is de uitvoering van onderhavige zaak op te schorten, bijvoorbeeld omdat er in een aan onderhavige zaak gerelateerde zaak:\nbezwaar is gemaakt of (hoger) beroep is ingesteld (tegen het handhavingsbesluit waarin de last is opgelegd, of tegen de beschikking op het verzoek van een belanghebbende om toepassing van de bestuursdwang);\nen/of verzocht is om een voorlopige voorziening in een aan onderhavige zaak gerelateerde zaak.\nZonodig wordt de behandeling van onderhavige zaak opgeschort tot in de gerelateerde zaak een beslissing is genomen.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 6
+      }
+    },
+    {
+      "id": "2_bestuursdwang_voorbereid__4_adviseurs",
+      "title": "4 - Adviseurs",
+      "question": "Zijn de relevante adviseurs betrokken?",
+      "status": "2_bestuursdwang_voorbereid",
+      "required": true,
+      "description": "Zowel op grond van de - aard en complexiteit van de - overtreding als afspraken tussen de zaakbehandelende organisatie en bevoegde gezagen / (keten)toezichtpartners kan het nodig zijn specialisten en/of toezichthouders van de zaakbehandelende of andere organisaties te informeren over of te laten participeren in onderhavige bestuursdwangzaak. De behandelaar die onderhavige zaak van het zaaktype 'Last onder bestuursdwang ten uitvoer leggen' uitvoert, voert de regie over deze bestuursdwangzaak en betrekt eventuele specialisten en ketenpartners als adviseur bij de voorbereiding en uitvoering.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 7
+      }
+    },
+    {
+      "id": "2_bestuursdwang_voorbereid__5_plan",
+      "title": "5 - Plan",
+      "question": "Is er een plan van aanpak nodig voor de toepassing van bestuursdwang?",
+      "status": "2_bestuursdwang_voorbereid",
+      "required": false,
+      "description": "Beoordeeld wordt of, ter voorbereiding op de toepassing van bestuursdwang, een plan van aanpak gewenst is.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 8
+      }
+    },
+    {
+      "id": "2_bestuursdwang_voorbereid__6_offertes",
+      "title": "6 - Offertes",
+      "question": "Zijn offertes aangevraagd voor ondersteuning van de toepassing van bestuursdwang?",
+      "status": "2_bestuursdwang_voorbereid",
+      "required": false,
+      "description": "Beoordeeld is of voor de toepassing van bestuursdwang producten of diensten nodig zijn van derde partijen. Zonodig is aan voornoemde partijen offerte gevraagd voor de levering van de benodigde ondersteuning.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 9
+      }
+    },
+    {
+      "id": "2_bestuursdwang_voorbereid__7_aankondiging",
+      "title": "7 - Aankondiging",
+      "question": "Is de aankondiging van de toepassing van bestuursdwang verzonden?",
+      "status": "2_bestuursdwang_voorbereid",
+      "required": true,
+      "description": "Beoordeeld wordt of het wenselijk is het moment van de toepassing van bestuursdwang aan te kondigen. Indien voor de toepassing van bestuursdwang een plaats moet worden betreden die niet bij de overtreding betrokken is, wordt dit ten minste achtenveertig uur tevoren aangezegd (art. 5:27, lid 3 Algemene wet bestuursrecht), tenzij dit vanwege de vereiste spoed niet mogelijk is (art. 5:27, lid 4 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 10
+      }
+    },
+    {
+      "id": "2_bestuursdwang_voorbereid__8_machtiging_binnentreden",
+      "title": "8 - Machtiging binnentreden",
+      "question": "Is een machtiging tot binnentreden (mogelijk) nodig?",
+      "status": "2_bestuursdwang_voorbereid",
+      "required": false,
+      "description": "Een toezichthouder is bevoegd elke plaats te betreden, met uitzondering van een woning zonder toestemming van de bewoner (art. 5:15, lid 1 Algemene wet bestuursrecht). Indien een toezichthouder op grond van specifieke wetgeving (bijvoorbeeld op grond van art. 5.13 Wet algemene bepalingen omgevingsrecht, art. 18.7 Omgevingswet) een woning mag binnentreden zònder toestemming van de bewoner, kan hij daartoe slechts overgaan indien hij beschikt over een machtiging tot binnentreden (art. 3 lid 2 Algemene wet op het binnentreden), doorgaans af te geven door de burgemeester van de gemeente waarin de woning die wordt binnengetreden, is gelegen. De machtiging blijft ten hoogste van kracht tot en met de derde dag na die waarop zij is afgegeven (art. 6, lid 2 Algemene wet op het binnentreden).",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 11
+      }
+    },
+    {
+      "id": "3_bestuursdwang_toegepast__1_overleg",
+      "title": "1 - Overleg",
+      "question": "Is het wenselijk in een overleg de bestuursdwang voor te bereiden?",
+      "status": "3_bestuursdwang_toegepast",
+      "required": false,
+      "description": "Beoordeeld wordt of het wenselijk is met alle partijen die betrokken zijn bij de aanstaande toepassing van bestuursdwang, tijdens een overleg de actie voor te bereiden.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 12
+      }
+    },
+    {
+      "id": "3_bestuursdwang_toegepast__2_aankondiging",
+      "title": "2 - Aankondiging",
+      "question": "Is de aankondiging van de toepassing van bestuursdwang verzonden?",
+      "status": "3_bestuursdwang_toegepast",
+      "required": true,
+      "description": "Beoordeeld wordt of het wenselijk is het moment van de toepassing van bestuursdwang aan te kondigen. Indien voor de toepassing van bestuursdwang een plaats moet worden betreden die niet bij de overtreding betrokken is, wordt dit ten minste achtenveertig uur tevoren aangezegd (art. 5:27, lid 3 Algemene wet bestuursrecht), tenzij dit vanwege de vereiste spoed niet mogelijk is (art. 5:27, lid 4 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 13
+      }
+    },
+    {
+      "id": "3_bestuursdwang_toegepast__3_machtiging_binnentreden",
+      "title": "3 - Machtiging binnentreden",
+      "question": "Is een machtiging tot binnentreden (mogelijk) nodig?",
+      "status": "3_bestuursdwang_toegepast",
+      "required": true,
+      "description": "Een toezichthouder is bevoegd elke plaats te betreden, met uitzondering van een woning zonder toestemming van de bewoner (art. 5:15, lid 1 Algemene wet bestuursrecht). Indien een toezichthouder op grond van specifieke wetgeving (bijvoorbeeld op grond van art. 5:27, lid 2 Algemene wet bestuursrecht, art. 5.13 Wet algemene bepalingen omgevingsrecht, art. 18.7 Omgevingswet) een woning mag binnentreden zònder toestemming van de bewoner, kan hij daartoe slechts overgaan indien hij beschikt over een machtiging tot binnentreden (art. 3 lid 2 Algemene wet op het binnentreden), doorgaans af te geven door de burgemeester van de gemeente waarin de woning die wordt binnengetreden, is gelegen. De machtiging blijft ten hoogste van kracht tot en met de derde dag na die waarop zij is afgegeven (art. 6, lid 2 Algemene wet op het binnentreden).",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 14
+      }
+    },
+    {
+      "id": "3_bestuursdwang_toegepast__4_verslag_bestuursdwang",
+      "title": "4 - Verslag bestuursdwang",
+      "question": "Is het verslag van de toepassing van bestuursdwang opgesteld?",
+      "status": "3_bestuursdwang_toegepast",
+      "required": true,
+      "description": "Van de toepassing van bestuursdwang wordt verslag opgemaakt. Naast een beschrijving van de uitgevoerde handelingen, worden in het verslag ook bewijsstukken zoals foto's en verklaringen opgenomen (zowel ter verantwoording van de toepassing van bestuursdwang, als ten behoeve van de verzekering).",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 15
+      }
+    },
+    {
+      "id": "3_bestuursdwang_toegepast__5_verslag_binnentreden",
+      "title": "5 - Verslag binnentreden",
+      "question": "Is een (concept-)verslag gemaakt van het betreden van een woning zonder toestemming van de bewoner?",
+      "status": "3_bestuursdwang_toegepast",
+      "required": false,
+      "description": "Indien een woning wordt binnengetreden zonder toestemming van de bewoner, moet daarvan een verslag worden gemaakt (art. 10 Algemene wet op het binnentreden). Dit verslag dient uiterlijk op de vierde dag na de dag waarop is binnengetreden te worden toegezonden aan degene die de machtiging heeft gegeven, met een afschrift aan de bewoner van de woning die is betreden (art. 11 Algemene wet op het binnentreden).",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 16
+      }
+    },
+    {
+      "id": "3_bestuursdwang_toegepast__6_proces_verbaal",
+      "title": "6 - Proces-verbaal",
+      "question": "Is proces-verbaal opgemaakt van het meevoeren en opslaan van zaken?",
+      "status": "3_bestuursdwang_toegepast",
+      "required": false,
+      "description": "Van het meevoeren en opslaan van zaken door de zaakbehandelende organisatie, wordt proces-verbaal opgemaakt. Een afschrift van het proces-verbaal wordt verstrekt aan degene die de zaken onder zijn beheer had (art. 5:29, lid 2 Algemene wet bestuursrecht).",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 17
+      }
+    },
+    {
+      "id": "3_bestuursdwang_toegepast__7_evaluatie",
+      "title": "7 - Evaluatie",
+      "question": "Is het wenselijk de toepassing van bestuursdwang te evalueren?",
+      "status": "3_bestuursdwang_toegepast",
+      "required": false,
+      "description": "Beoordeeld wordt of het wenselijk is de toepassing van bestuursdwang met de betrokken partijen te evalueren. Eventuele conclusies kunnen worden opgenomen in het verslag van de toepassing van bestuursdwang.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 18
+      }
+    },
+    {
+      "id": "4_voornemen_opgesteld__1_facturen",
+      "title": "1 - Facturen",
+      "question": "Zijn de facturen van de met de bestuursdwang gemoeide kosten verzameld?",
+      "status": "4_voornemen_opgesteld",
+      "required": true,
+      "description": "Voor het opstellen en onderbouwen van de kostenverhaalbeschikking is het noodzakelijk dat de werkelijke kosten die na het verstrijken van de begunstigingstermijn van de last onder bestuursdwang (art. 5:25, lid 3 Algemene wet bestuursrecht) zijn gemaakt, zijn geïnventariseerd.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 19
+      }
+    },
+    {
+      "id": "4_voornemen_opgesteld__2_voornemen_bekend_gemaakt",
+      "title": "2 - Voornemen bekend gemaakt",
+      "question": "Is het voornemen tot kosten verhalen bekendgemaakt aan overtreder / rechthebbenden?",
+      "status": "4_voornemen_opgesteld",
+      "required": true,
+      "description": "Aangezien de kostenverhaalbeschikking veelal zal steunen op gegevens over feiten en omstandigheden die niet door de overtreder zijn verstrekt, maar wel zijn belangen betreffen, stelt het bevoegd gezag de overtreder in de gelegenheid zijn zienswijze naar voren te brengen (art. 4:8 Algemene wet bestuursrecht). Indien de voorgenomen sanctie een last onder bestuursdwang betreft, worden ook de rechthebbenden op het gebruik van de zaak waarop de last betrekking heeft (art. 4:8 Algemene wet bestuursrecht, juncto art. 5:24 lid 3 Algemene wet bestuursrecht) in de gelegenheid gesteld hun zienswijze naar voren te brengen middels bekendmaking van het voorgenomen besluit.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 20
+      }
+    },
+    {
+      "id": "5_beschikking_opgesteld__1_zienswijzen_behandeld",
+      "title": "1 - Zienswijzen behandeld",
+      "question": "Zijn de zienswijzen behandeld en verwerkt in het (concept van) de kostenverhaalbeschikking?",
+      "status": "5_beschikking_opgesteld",
+      "required": false,
+      "description": "Elke ontvangen zienswijze kan worden behandeld in een separate zaak van het zaaktype 'Zienswijze behandelen'. Het resultaat van deze behandeling is verwerkt in de motivatie van (het concept van) de handhavingsbeschikking.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 21
+      }
+    },
+    {
+      "id": "5_beschikking_opgesteld__2_concept",
+      "title": "2 - Concept",
+      "question": "Is het concept van de beschikking kostenverhaal opgesteld?",
+      "status": "5_beschikking_opgesteld",
+      "required": true,
+      "description": "Aan de hand van de geïnventariseerde werkelijk gemaakte kosten is een concept van de kostenverhaalbeschikking opgesteld.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 22
+      }
+    },
+    {
+      "id": "6_beschikking_vastgesteld__1_concept_getoetst",
+      "title": "1 - Concept getoetst",
+      "question": "Is de beschikking (collegiaal) getoetst?",
+      "status": "6_beschikking_vastgesteld",
+      "required": true,
+      "description": "Afhankelijk van de aard van de kostenverhaalbeschikking en de afspraken binnen de zaakbehandelende organisatie, kan de beschikking collegiaal moeten worden getoetst.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 23
+      }
+    },
+    {
+      "id": "6_beschikking_vastgesteld__2_beschikking_vastgesteld",
+      "title": "2 - Beschikking vastgesteld",
+      "question": "Is de beschikking vastgesteld?",
+      "status": "6_beschikking_vastgesteld",
+      "required": true,
+      "description": "Afhankelijk van de aard van de kostenverhaalbeschikking en in- en externe afspraken over mandatering, kan het nodig zijn het concept van de beschikking te laten fiatteren / vaststellen op basis van de mandaatafspraken. Deze fiattering / vaststelling kan zowel intern (door bijvoorbeeld een afdelingshoofd van de zaakbehandelende organisatie) en/of extern (door het bevoegd gezag) zijn vereist.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 24
+      }
+    },
+    {
+      "id": "7_zaak_afgerond__1_toezending",
+      "title": "1 - Toezending",
+      "question": "Is de beschikking en/of kennisgeving door toezending bekendgemaakt aan belanghebbenden?",
+      "status": "7_zaak_afgerond",
+      "required": true,
+      "description": "Een beschikking treedt pas in werking zodra deze is bekendgemaakt (art. 3:40 Algemene wet bestuursrecht). De beschikking wordt daartoe toegezonden (of uitgereikt) aan de direct belanghebbenden, waaronder de overtreder, waartot de beschikking zich richt (art. 3:41, lid 1 Algemene wet bestuursrecht).\nDe kennisgeving waarin beknopt het verloop en de uitkomst van onderhavige zaak wordt beschreven, wordt toegezonden aan derde belanghebbenden (bijvoorbeeld de verzoeker om toepassing van bestuursdwang, art. 5:31a, lid 1 Algemene wet bestuursrecht) en adviseurs die betrokken waren bij de voorbereiding op en toepassing van de bestuursdwang.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 25
+      }
+    },
+    {
+      "id": "7_zaak_afgerond__2_archivering",
+      "title": "2 - Archivering",
+      "question": "Is het zaakdossier compleet en archiefwaardig?",
+      "status": "7_zaak_afgerond",
+      "required": true,
+      "description": "Gecontroleerd wordt of het zaakdossier alle relevante informatie bevat en is ontdaan van - voor de reproductie van / verantwoording over de procesgang - niet relevante informatie. Alle in het zaakdossier vastgelegde informatie is of wordt voorzien van de voor archivering vereiste metadata en is of wordt opgeslagen in een duurzaam toegankelijk (bestands)formaat.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 26
+      }
+    },
+    {
+      "id": "7_zaak_afgerond__3_registraties",
+      "title": "3 - Registraties",
+      "question": "Zijn de voor de beschikking relevante registraties bijgewerkt?",
+      "status": "7_zaak_afgerond",
+      "required": true,
+      "description": "De toepassing van bestuursdwang kan leiden tot een mutatie in één of meer (basis)registraties. Denk aan het slopen van een pand (moet leiden tot verwijdering van dat pand in de BAG), het beëindigen van een milieubelastende activiteit (kan leiden tot mutatie van die activiteit op de 'risicokaart') of het stellen van zekerheden naar aanleiding van een overtreding (kan leiden tot registratie van een beperking in de landelijke voorziening voor de WKPB).\nDit zijn slechts enkele voorbeelden; alle relevante (basis)registraties dienen te worden bijgewerkt op basis van onderhavige zaak.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 27
+      }
+    },
+    {
+      "id": "7_zaak_afgerond__4_vervolgzaak",
+      "title": "4 - Vervolgzaak",
+      "question": "Zijn de voor deze zaak relevante vervolgzaken gepland?",
+      "status": "7_zaak_afgerond",
+      "required": true,
+      "description": "Een zaak van onderhavig zaaktype kan een vervolgzaak vereisen, bijvoorbeeld het uitvoeren van een (extra) controle (een zaak van het zaaktype 'Controle uitvoeren') om te verifiëren dat de overtreding niet opnieuw optreedt.\nDe feitelijke invordering van de met de bestuursdwang gemoeide kosten - zoals vastgelegd in de beschikking voor het kostenverhaal - wordt beschouwd als een financieel administratief proces en is geen onderdeel van onderhavig zaaktype.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Checklists",
+        "row": 28
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "administratief_medewerker",
+      "title": "Administratief medewerker",
+      "may_set_statuses": [
+        "7_zaak_afgerond"
+      ],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 3
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "adviseur",
+      "title": "Adviseur",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 4
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "ander_bevoegd_gezag",
+      "title": "Ander bevoegd gezag",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 5
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Andere overheidsorganisatie",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "lob_behandelaar",
+      "title": "LoB-behandelaar",
+      "may_set_statuses": [
+        "1_zaak_gestart",
+        "2_bestuursdwang_voorbereid",
+        "3_bestuursdwang_toegepast",
+        "4_voornemen_opgesteld",
+        "5_beschikking_opgesteld"
+      ],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 6
+      },
+      "generic_title": "Behandelaar",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "overtreder",
+      "title": "Overtreder",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 7
+      },
+      "generic_title": "Belanghebbende",
+      "actor_type": "Natuurlijk persoon, Niet-natuurlijk persoon, Vestiging",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "rechthebbende",
+      "title": "Rechthebbende",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 8
+      },
+      "generic_title": "Belanghebbende",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "toezichthouder",
+      "title": "Toezichthouder",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 9
+      },
+      "generic_title": "Adviseur",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "verzoeker_toepassing_bestuursdwang",
+      "title": "Verzoeker toepassing bestuursdwang",
+      "may_set_statuses": [],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 10
+      },
+      "generic_title": "Belanghebbende",
+      "valid_from": "2019-12-01"
+    },
+    {
+      "id": "zaakverantwoordelijke",
+      "title": "Zaakverantwoordelijke",
+      "may_set_statuses": [
+        "6_beschikking_vastgesteld"
+      ],
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Rollen",
+        "row": 11
+      },
+      "generic_title": "Beslisser",
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "documents": [
+    {
+      "id": "controlerapport",
+      "sequence": 1,
+      "title": "Controlerapport",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 3
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 2,
+      "title": "Adviesaanvraag",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 4
+      }
+    },
+    {
+      "id": "adviesaanvraag",
+      "sequence": 2,
+      "title": "Adviesaanvraag",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 5
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 3,
+      "title": "Advies",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 6
+      }
+    },
+    {
+      "id": "advies",
+      "sequence": 3,
+      "title": "Advies",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 7
+      }
+    },
+    {
+      "id": "plan_van_aanpak_handhavingsactie",
+      "sequence": 4,
+      "title": "Plan van aanpak (handhavingsactie)",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 8
+      }
+    },
+    {
+      "id": "offerte",
+      "sequence": 5,
+      "title": "Offerte",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 9
+      }
+    },
+    {
+      "id": "aankondiging_toepassing_bestuursdwang",
+      "sequence": 6,
+      "title": "Aankondiging toepassing bestuursdwang",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 10
+      }
+    },
+    {
+      "id": "machtiging_tot_binnentreden",
+      "sequence": 7,
+      "title": "Machtiging tot binnentreden",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 11
+      }
+    },
+    {
+      "id": "verslag_omtrent_het_binnentreden",
+      "sequence": 8,
+      "title": "Verslag omtrent het binnentreden",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 12
+      }
+    },
+    {
+      "id": "verslag_omtrent_het_binnentreden",
+      "sequence": 8,
+      "title": "Verslag omtrent het binnentreden",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 13
+      }
+    },
+    {
+      "id": "proces_verbaal_meevoeren_en_opslaan_van_zaken",
+      "sequence": 9,
+      "title": "Proces-verbaal meevoeren en opslaan van zaken",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 14
+      }
+    },
+    {
+      "id": "verslag_toepassing_bestuursdwang",
+      "sequence": 10,
+      "title": "Verslag toepassing bestuursdwang",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 15
+      }
+    },
+    {
+      "id": "factuur",
+      "sequence": 11,
+      "title": "Factuur",
+      "direction": "Inkomend",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 16
+      }
+    },
+    {
+      "id": "voornemen_kostenverhaalbeschikking",
+      "sequence": 12,
+      "title": "Voornemen kostenverhaalbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 17
+      }
+    },
+    {
+      "id": "kostenverhaalbeschikking",
+      "sequence": 13,
+      "title": "Kostenverhaalbeschikking",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 18
+      }
+    },
+    {
+      "id": "kennisgeving_bestuursdwang",
+      "sequence": 14,
+      "title": "Kennisgeving bestuursdwang",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 19
+      }
+    },
+    {
+      "id": "wkpb_in_of_uitschrijving",
+      "sequence": 15,
+      "title": "WKPB- in- of uitschrijving",
+      "direction": "Uitgaand",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 20
+      }
+    },
+    {
+      "id": "procesverantwoording",
+      "sequence": 16,
+      "title": "Procesverantwoording",
+      "direction": "Intern",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Informatieobjecten",
+        "row": 21
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "beschikking_kostenverhaal",
+      "title": "Beschikking kostenverhaal",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Besluiten",
+        "row": 3
+      },
+      "valid_from": "2019-12-01"
+    }
+  ],
+  "results": [
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 3
+      },
+      "authority": "gem",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "12.3",
+      "archive_nomination": "Vernietigen",
+      "description": "De last onder bestuursdwang is afgebroken. Deze is foutief ingeboekt.",
+      "archive_action_term_months": 12
+    },
+    {
+      "id": "uitgevoerd_beeind",
+      "title": "Uitgevoerd - beëind.",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 4
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Er is geen last onder bestuursdwang ten uitvoer gelegd omdat geconstateerd is dat de overtreding inmiddels beeindigd is.",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "uitgev_beeind_bdm",
+      "title": "Uitgev. - beëind.bdm",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 5
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2.2",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Er is geen last onder bestuursdwang ten uitvoer gelegd bij een overtreding betreffende bodemsanering."
+    },
+    {
+      "id": "uitgevoerd",
+      "title": "Uitgevoerd",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 6
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2",
+      "archive_nomination": "Vernietigen",
+      "description": "Last onder bestuursdwang ten uitvoer gelegd",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "uitgevoerd_bodem",
+      "title": "Uitgevoerd - bodem",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 7
+      },
+      "authority": "gem",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Uitgevoerd",
+      "selectielijst_class": "12.2.2",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Last onder bestuursdwang bij bodemsanering ten uitvoer gelegd"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 8
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Nemen van noodzakelijke maatregelen in geval van onverwijlde spoed en (dreigende) ernstige bodemverontreiniging na een ongewoon voorval"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 9
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "35",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Bevelen bij een onderzoeksgeval een nader onderzoek uit te voeren alsmede het treffen van beveiligingsmaatregelen bij ernstige verontreiniging"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 10
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "29",
+      "archive_nomination": "Vernietigen",
+      "description": "Uitvoeren van de bestuursrechtelijke handhaving van bepalingen uit de Wet bodembescherming",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 11
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "24",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Nemen van noodzakelijke maatregelen in geval van (dreigende) ernstige bodemverontreiniging na een ongewoon voorval"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 12
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "16",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Geven van algemene voorschriften in bijzondere omstandigheden van tijdelijke aard aan inrichtingen, toestellen, brandstoffen en verontreinigende handelingen indien dringend noodzakelijk in het belang van de openbare gezondheid"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 13
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "28",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Verzoeken aan het bevoegd gezag een beschikking te geven tot oplegging van een last onder bestuursdwang, oplegging van een last onder dwangsom of intrekking van een vergunning of ontheffing"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 14
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "30",
+      "archive_nomination": "Blijvend bewaren",
+      "description": "Sluiten van inrichtingen, buiten werking stellen van toestellen dan wel gelasten van het staken van handelingen die zodanige luchtverontreiniging veroorzaken dat er een acuut en dreigend gevaar is voor gezondheid, onduldbare hinder of ernstige schades"
+    },
+    {
+      "id": "handhaving_uitgevoerd_p",
+      "title": "Handhaving uitgevoerd (P)",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 15
+      },
+      "authority": "prov",
+      "generic_title": "Handhaving uitgevoerd",
+      "title_2_2": "Handhaving uitgevoerd",
+      "selectielijst_class": "21",
+      "archive_nomination": "Vernietigen",
+      "description": "Verhalen van de kosten van (sanerings)onderzoeken en saneringen op de veroorzakers van de ernstige verontreiniging",
+      "leads_to_decision_type": "Kostenbeschikking",
+      "archive_action_term_months": 120
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 16
+      },
+      "authority": "prov",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "1",
+      "archive_nomination": "Vernietigen",
+      "description": "De last onder bestuursdwang is afgebroken. Deze is foutief ingeboekt.",
+      "archive_action_term_months": 36
+    },
+    {
+      "id": "bestuursdwang_toegepast",
+      "title": "Bestuursdwang toegepast",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 17
+      },
+      "authority": "ws",
+      "generic_title": "Afgehandeld",
+      "title_2_2": "Afgehandeld",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "bestuursdwang_niet_toegepast",
+      "title": "Bestuursdwang niet toegepast",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 18
+      },
+      "authority": "ws",
+      "generic_title": "Niet geleverd",
+      "title_2_2": "Niet geleverd",
+      "selectielijst_class": "2.5.1",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "overtreding_opgeheven",
+      "title": "Overtreding opgeheven",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 19
+      },
+      "authority": "ws",
+      "generic_title": "Overtreding opgeheven",
+      "title_2_2": "Overtreding opgeheven",
+      "selectielijst_class": "2.5.1.",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 60
+    },
+    {
+      "id": "afgebroken",
+      "title": "Afgebroken",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Resultaten",
+        "row": 20
+      },
+      "authority": "ws",
+      "generic_title": "Afgebroken",
+      "title_2_2": "Afgebroken",
+      "selectielijst_class": "0.0",
+      "archive_nomination": "Vernietigen",
+      "archive_action_term_months": 12
+    }
+  ],
+  "relations": [
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 3
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' waarin - tijdens de behandeling van onderhavige zaak - wordt geverifieerd of de last is uitgevoerd."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 4
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen', waarin is besloten tot het opleggen van een last onder bestuursdwang voor de overtreding waarop onderhavige zaak ziet."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/04",
+        "title": "Controle uitvoeren",
+        "raw": "4 - Controle uitvoeren"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 5
+      },
+      "description": "De zaak van het zaaktype 'Controle uitvoeren' die wordt gepland als de overtreding is hersteld en waarin wordt geverifieerd dat de overtreding waarop de last ziet, niet opnieuw optreedt."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/05",
+        "title": "Handhavingsbesluit nemen",
+        "raw": "5 - Handhavingsbesluit nemen"
+      },
+      "relation_type": "Vervolg",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 6
+      },
+      "description": "De zaak van het zaaktype 'Handhavingsbesluit nemen' die onmiddellijk wordt uitgevoerd nadat bestuursdwang is toegepast zonder dat een besluit is afgewacht in een spoedeisende situatie (art. 5:31, lid 2 Algemene wet bestuursrecht)."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/14",
+        "title": "Voorlopige voorziening behandelen",
+        "raw": "14 - Voorlopige voorziening behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 7
+      },
+      "description": "De zaak van het zaaktype 'Voorlopige voorziening behandelen', waarin de partij die het besluit bestrijdt een verzoek om voorlopige voorziening indient bij de voorzieningenrechter van een rechtsprekende instantie, in afwachting van de behandeling van het bezwaar, beroep of hoger beroep tegen dat besluit."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/16",
+        "title": "Bezwaar behandelen",
+        "raw": "16 - Bezwaar behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 8
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen' waarin een bezwaar, dat is ingediend naar aanleiding van het bekendmaken van het besluit tot last onder bestuursdwang ten uitvoer leggen in onderhavige zaak, is behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/12",
+        "title": "Zienswijze behandelen",
+        "raw": "12 - Zienswijze behandelen"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 9
+      },
+      "description": "De zaak van het zaaktype 'Zienswijze behandelen' waarin een zienswijze, die is ingediend naar aanleiding van het bekendmaken van het voornemen tot handhaving in onderhavige zaak, is behandeld."
+    },
+    {
+      "target": {
+        "id": "omgevingswet/20",
+        "title": "Bezwaar behandelen zonder bezwaarcommissie",
+        "raw": "20 - Bezwaar behandelen zonder bezwaarcommissie"
+      },
+      "relation_type": "Onderwerp",
+      "source_ref": {
+        "file": "03_-_Last_onder_bestuursdwang_ten_uitvoer_leggen_V1_9.xlsx",
+        "sheet": "Gerelateerde zaken",
+        "row": 10
+      },
+      "description": "De zaak van het zaaktype 'Bezwaar behandelen zonder bezwaarcommissie' waarin een bezwaar, dat is ingediend naar aanleiding van het bekendmaken van het besluit tot last onder bestuursdwang ten uitvoer leggen in onderhavige zaak, is behandeld."
+    }
+  ],
+  "automation": [],
+  "import_warnings": []
+}

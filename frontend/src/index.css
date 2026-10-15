@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--body-font);
+  --font-serif: var(--header-font);
+  --radius-sm: var(--border-radius);
+  --radius-md: var(--border-radius);
+  --radius-lg: var(--border-radius);
+  --radius-xl: var(--border-radius);
+  --radius-theme: var(--border-radius);
+
+  /* Map internal color names to theme names */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-primary: var(--border-primary);
+}
+
 /* Rijksoverheid Fonts */
 @font-face {
   font-family: "RijksoverheidSans";
@@ -25,7 +42,27 @@
   src: url("/fonts/RO-SansWebText-Italic.woff") format("woff");
 }
 
-/* CSS Theme Variables - Rijksoverheid Colors */
+/* CSS Theme Variables - NLDS-light Specification */
+:root {
+  /* NLDS-light Specification Variables - Rijksoverheid Defaults */
+  --body-font: "RijksoverheidSans", Arial, sans-serif;
+  --header-font: "RijksoverheidSans", Arial, sans-serif;
+
+  /* Primary brand color */
+  --color-primary: #007bc7;
+  --color-primary-dark: #01689b;
+
+  /* Secondary brand color */
+  --color-secondary: #42145f;
+  --color-secondary-dark: #42145f;
+
+  /* Border radius */
+  --border-radius: 0;
+  --button-border-width: 0px;
+  --input-border-width: 1px;
+}
+
+/* Rijksoverheid Colors */
 :root {
   /* Rijksoverheid Color Palette */
   --ro-lintblauw: #154273;
@@ -80,15 +117,15 @@
   --border-focus: var(--ro-hemelblauw);
   --error-border: var(--ro-rood);
 
-  --link-primary: var(--ro-hemelblauw);
-  --link-hover: var(--ro-donkerblauw);
-  --link-visited: var(--ro-paars);
+  --link-primary: var(--color-primary);
+  --link-hover: var(--color-primary-dark);
+  --link-visited: var(--color-secondary);
 
-  --logo-primary: var(--ro-lintblauw);
-  --logo-hover: var(--ro-donkerblauw);
+  --logo-primary: var(--color-primary);
+  --logo-hover: var(--color-primary-dark);
 
-  --button-primary-bg: var(--ro-hemelblauw);
-  --button-primary-hover: var(--ro-donkerblauw);
+  --button-primary-bg: var(--color-primary);
+  --button-primary-hover: var(--color-primary-dark);
   --button-secondary-bg: #ffffff;
   --button-secondary-hover: var(--ro-grijs-2);
   --button-danger-bg: var(--ro-rood);
@@ -100,7 +137,7 @@
   --status-progress: var(--ro-donkergeel);
   --status-closed: var(--ro-rood);
 
-  --overlay: rgba(0, 0, 0, 0.75);
+  --overlay: rgba(255, 255, 255, 0.75);
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md:
@@ -110,6 +147,7 @@
 
   color-scheme: light;
 }
+
 
 /* Dark theme colors using Rijksoverheid palette */
 @media (prefers-color-scheme: dark) {
@@ -136,15 +174,18 @@
     --border-hover: #444444;
     --border-focus: var(--ro-lichtblauw);
 
-    --link-primary: var(--ro-lichtblauw);
-    --link-hover: var(--ro-hemelblauw);
+    --button-border-width: 0px;
+    --input-border-width: 1px;
+
+    --link-primary: var(--color-primary);
+    --link-hover: var(--color-primary-dark);
     --link-visited: var(--ro-roze);
 
-    --logo-primary: var(--ro-lichtblauw);
-    --logo-hover: var(--ro-hemelblauw);
+    --logo-primary: var(--color-primary);
+    --logo-hover: var(--color-primary-dark);
 
-    --button-primary-bg: var(--ro-hemelblauw);
-    --button-primary-hover: var(--ro-lichtblauw);
+    --button-primary-bg: var(--color-primary);
+    --button-primary-hover: var(--color-primary-dark);
     --button-secondary-bg: #333333;
     --button-secondary-hover: #444444;
     --button-danger-bg: var(--ro-rood);
@@ -190,15 +231,18 @@
   --border-hover: #444444;
   --border-focus: var(--ro-lichtblauw);
 
-  --link-primary: var(--ro-lichtblauw);
-  --link-hover: var(--ro-hemelblauw);
+  --button-border-width: 0px;
+  --input-border-width: 1px;
+
+  --link-primary: var(--color-primary);
+  --link-hover: var(--color-primary-dark);
   --link-visited: var(--ro-roze);
 
-  --logo-primary: var(--ro-lichtblauw);
-  --logo-hover: var(--ro-hemelblauw);
+  --logo-primary: var(--color-primary);
+  --logo-hover: var(--color-primary-dark);
 
-  --button-primary-bg: var(--ro-hemelblauw);
-  --button-primary-hover: var(--ro-lichtblauw);
+  --button-primary-bg: var(--color-primary);
+  --button-primary-hover: var(--color-primary-dark);
   --button-secondary-bg: #333333;
   --button-secondary-hover: #444444;
   --button-danger-bg: var(--ro-rood);
@@ -222,17 +266,66 @@
   color-scheme: dark;
 }
 
+/* Explicit light theme override */
+.light-theme {
+  --bg-primary: var(--ro-grijs-1);
+  --bg-secondary: #ffffff;
+  --bg-tertiary: var(--ro-grijs-2);
+  --bg-hover: var(--ro-grijs-2);
+  --bg-accent: var(--ro-lichtblauw);
+  --bg-success: var(--ro-mintgroen);
+  --bg-error: #fce8e6;
+  --bg-warning: #fff7e6;
+
+  --text-primary: var(--ro-grijs-7);
+  --text-secondary: var(--ro-grijs-6);
+  --text-tertiary: var(--ro-grijs-5);
+  --text-inverse: #ffffff;
+  --text-success: var(--ro-groen);
+  --text-error: var(--ro-rood);
+  --text-warning: var(--ro-donkergeel);
+
+  --border-primary: var(--ro-grijs-3);
+  --border-secondary: var(--ro-grijs-2);
+  --border-hover: var(--ro-grijs-4);
+  --border-focus: var(--ro-hemelblauw);
+  --error-border: var(--ro-rood);
+
+  --link-primary: var(--color-primary);
+  --link-hover: var(--color-primary-dark);
+  --link-visited: var(--color-secondary);
+
+  --logo-primary: var(--color-primary);
+  --logo-hover: var(--color-primary-dark);
+
+  --button-primary-bg: var(--color-primary);
+  --button-primary-hover: var(--color-primary-dark);
+  --button-secondary-bg: #ffffff;
+  --button-secondary-hover: var(--ro-grijs-2);
+  --button-danger-bg: var(--ro-rood);
+  --button-danger-hover: var(--ro-robijnrood);
+
+  --status-open: var(--ro-groen);
+  --status-progress: var(--ro-donkergeel);
+  --status-closed: var(--ro-rood);
+
+  --overlay: rgba(255, 255, 255, 0.9);
+
+  color-scheme: light;
+}
+
 /* Base body styles */
 @layer base {
   html {
+    /* Main container */
   }
 
   * {
-    font-family: "RijksoverheidSans", Arial, sans-serif;
+    font-family: var(--body-font);
   }
 
   body {
-    font-family: "RijksoverheidSans", Arial, sans-serif;
+    font-family: var(--body-font);
     background-color: var(--bg-primary);
     color: var(--text-primary);
     transition:
@@ -295,6 +388,9 @@
     background-color: var(--bg-primary);
     color: var(--text-primary);
     border-color: var(--border-primary);
+    border-radius: var(--border-radius);
+    border-width: var(--input-border-width);
+    border-style: solid;
   }
 
   .form-input:focus,
@@ -311,7 +407,7 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    border-radius: 0;
+    border-radius: var(--border-radius);
     font-size: 0.875rem;
     font-weight: 500;
     cursor: pointer;
@@ -408,10 +504,12 @@
 }
 
 /* Ensure nested lists are indented and styled correctly */
-.prose ul ul, .prose ol ul {
+.prose ul ul,
+.prose ol ul {
   list-style-type: circle !important;
 }
 
-.prose ol ol, .prose ul ol {
+.prose ol ol,
+.prose ul ol {
   list-style-type: lower-roman !important;
 }

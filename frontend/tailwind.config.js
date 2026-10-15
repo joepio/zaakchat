@@ -7,11 +7,20 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': [
-          'RijksoverheidSans',
-          'Arial',
-          'sans-serif',
-        ],
+        'sans': 'var(--body-font)',
+        'header': 'var(--header-font)',
+      },
+      borderRadius: {
+        'theme': 'var(--border-radius)',
+        'none': '0',
+        'sm': 'var(--border-radius)',
+        'DEFAULT': 'var(--border-radius)',
+        'md': 'var(--border-radius)',
+        'lg': 'var(--border-radius)',
+        'xl': 'var(--border-radius)',
+        '2xl': 'var(--border-radius)',
+        '3xl': 'var(--border-radius)',
+        'full': '9999px',
       },
       colors: {
         'bg-primary': 'var(--bg-primary)',

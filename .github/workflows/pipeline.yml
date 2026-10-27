@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Playwright 1.55 does not support ubuntu-26.04 (ubuntu-latest)
     timeout-minutes: 30
     outputs:
       tests-passed: ${{ steps.set-output.outputs.tests_passed }}

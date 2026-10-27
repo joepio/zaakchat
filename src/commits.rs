@@ -3,7 +3,11 @@
 //! A `json.commit` event carries one JSONCommit; a `json.commit.transaction` event carries
 //! `data.commits`, a list of JSONCommits. Either way the server validates and authorises
 //! every commit first, then stores the events and all resource changes in one storage
-//! transaction: all or nothing. The CloudEvent `source` + `id` is the idempotency key.
+//! transaction: all or nothing.
+//!
+//! The `subject` is the aggregate every commit must belong to: a new resource joins it,
+//! an existing one must already be in it. The idempotency key is the caller plus the
+//! CloudEvent `source` + `id`, so a replay never returns another caller's result.
 //!
 //! Follows the JSON Commit pattern in VNG-API-Lab (`patterns/json-commit/next.yaml`).
 
@@ -171,7 +175,14 @@ pub async fn handle_commit_event(
     event: CloudEvent,
 ) -> Result<Response, StatusCode> {
     let body = serde_json::to_string(&event).map_err(|_| StatusCode::BAD_REQUEST)?;
-    let idempotency_key = format!("{}\n{}", event.source, event.id);
+    // Bound to the caller: a stored response holds resourceData, so another caller that
+    // reuses the same `source` + `id` must not get it back.
+    let idempotency_key = format!(
+        "{}\n{}\n{}",
+        user.unwrap_or("system"),
+        event.source,
+        event.id
+    );
 
     if let Some(rec) = state
         .storage
@@ -288,7 +299,7 @@ pub async fn handle_commit_event(
         state,
         changed: HashMap::new(),
     };
-    let mut forbidden: Vec<InvalidParam> = Vec::new();
+    let mut forbidden = false;
     let mut writes: Vec<ResourceWrite> = Vec::new();
     // (commit, resource type, new state, old state) per commit, for after the commit.
     let mut applied: Vec<(JSONCommit, String, Option<Value>, Option<Value>)> = Vec::new();
@@ -297,20 +308,63 @@ pub async fn handle_commit_event(
     for (pointer, mut commit) in commits {
         let current = overlay.get(&commit.resource_id).await?;
 
+        // The commit must belong to the subject. Resources created earlier in this
+        // transaction joined the subject; stored ones keep the aggregate they were created in.
+        if current.is_some() && !overlay.changed.contains_key(&commit.resource_id) {
+            let home = state
+                .storage
+                .get_aggregate(&commit.resource_id)
+                .await
+                .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?
+                .unwrap_or_else(|| commit.resource_id.clone());
+            if home != event.subject {
+                // Only tell callers who may see the other aggregate that the resource is there.
+                let may_see = match user {
+                    None => true,
+                    Some(user) => overlay
+                        .get(&home)
+                        .await?
+                        .and_then(|a| is_involved(&a, user))
+                        .unwrap_or(false),
+                };
+                if may_see {
+                    errors.push(InvalidParam::new(
+                        format!("{}/resourceId", pointer),
+                        "subject-mismatch",
+                        format!(
+                            "{} belongs to {}, not to subject {}.",
+                            commit.resource_id, home, event.subject
+                        ),
+                    ));
+                } else {
+                    forbidden = true;
+                }
+                continue;
+            }
+        }
+
+        let aggregate = overlay.get(&event.subject).await?;
+        if aggregate.is_none() && commit.resource_id != event.subject {
+            errors.push(InvalidParam::new(
+                "/subject",
+                "not-found",
+                format!(
+                    "Subject {} does not exist; create it first, in this or an earlier transaction.",
+                    event.subject
+                ),
+            ));
+            continue;
+        }
+
         if let Some(user) = user {
-            // The aggregate decides first; a resource without one decides for itself.
-            let aggregate = overlay.get(&event.subject).await?;
+            // Write access follows the aggregate's `involved` list. Creating the aggregate
+            // itself is allowed; an aggregate without such a list is open (demo data).
             let allowed = aggregate
                 .as_ref()
                 .and_then(|a| is_involved(a, user))
-                .or_else(|| current.as_ref().and_then(|c| is_involved(c, user)))
                 .unwrap_or(true);
             if !allowed {
-                forbidden.push(InvalidParam::new(
-                    pointer.clone(),
-                    "forbidden",
-                    format!("Not allowed to change {}.", commit.resource_id),
-                ));
+                forbidden = true;
                 continue;
             }
             commit.actor = user.to_string();
@@ -355,6 +409,7 @@ pub async fn handle_commit_event(
                 id: commit.resource_id.clone(),
                 resource_type: resource_type.clone(),
                 data: data.clone(),
+                aggregate: event.subject.clone(),
             });
             Some(data)
         };
@@ -365,12 +420,14 @@ pub async fn handle_commit_event(
         applied.push((commit, resource_type, new_state, current));
     }
 
-    if !forbidden.is_empty() {
+    // One decision for the whole transaction, without per-commit details that could
+    // reveal what exists in aggregates the caller may not see.
+    if forbidden {
         return Ok(problem(
             StatusCode::FORBIDDEN,
             "Transaction rejected, nothing stored",
-            "You are not involved in the zaak (subject) or resource these commits change.",
-            &forbidden,
+            "You are not allowed to make these changes.",
+            &[],
         ));
     }
     if !errors.is_empty() {
@@ -414,7 +471,7 @@ pub async fn handle_commit_event(
         .storage
         .apply_transaction(events, &writes, &idempotency_key, &body, |stored| {
             if is_transaction {
-                json!({ "transactionid": txid, "events": stored }).to_string()
+                json!({ "transactionId": txid, "events": stored }).to_string()
             } else {
                 serde_json::to_string(&stored[0]).unwrap_or_default()
             }
@@ -543,7 +600,7 @@ mod tests {
             .unwrap();
         assert_eq!(res.status(), StatusCode::CREATED);
         let body = body_json(res).await;
-        assert_eq!(body["transactionid"], "tx-1");
+        assert_eq!(body["transactionId"], "tx-1");
         let events = body["events"].as_array().unwrap();
         assert_eq!(events.len(), 2);
         for e in events {
@@ -736,5 +793,105 @@ mod tests {
             .unwrap();
         assert_eq!(res.status(), StatusCode::CREATED);
         assert_eq!(body_json(res).await["data"]["actor"], ALICE);
+    }
+
+    /// Mallory owns issue-2 and claims it as subject to change Alice's comment in issue-1.
+    #[tokio::test]
+    async fn commit_outside_the_subject_is_refused() {
+        let dir = TempDir::new().unwrap();
+        let state = test_state(&dir).await;
+        handle_commit_event(&state, Some(ALICE), create_issue_and_comment("tx-1"))
+            .await
+            .unwrap();
+        let own = event(
+            "c-own",
+            TYPE_COMMIT,
+            "issue-2",
+            json!({ "resourceId": "issue-2", "schema": "Issue",
+                    "resourceData": { "title": "Van Mallory", "involved": [MALLORY] } }),
+        );
+        handle_commit_event(&state, Some(MALLORY), own)
+            .await
+            .unwrap();
+
+        // Patch, and overwrite through resourceData: both refused without saying why.
+        for (id, data) in [
+            (
+                "c-patch",
+                json!({ "resourceId": "comment-1", "schema": "Comment", "patch": { "content": "gewijzigd" } }),
+            ),
+            (
+                "c-overwrite",
+                json!({ "resourceId": "comment-1", "schema": "Comment", "resourceData": { "content": "gewijzigd" } }),
+            ),
+        ] {
+            let res = handle_commit_event(
+                &state,
+                Some(MALLORY),
+                event(id, TYPE_COMMIT, "issue-2", data),
+            )
+            .await
+            .unwrap();
+            assert_eq!(res.status(), StatusCode::FORBIDDEN);
+            assert!(body_json(res).await.get("invalidParams").is_none());
+        }
+        let comment = state
+            .storage
+            .get_resource("comment-1")
+            .await
+            .unwrap()
+            .unwrap();
+        assert_eq!(comment["content"], "Wanneer kan ik hem ophalen?");
+
+        // Someone involved in both aggregates gets a 422 that names the mismatch.
+        let wrong_subject = event(
+            "c-wrong",
+            TYPE_COMMIT,
+            "issue-1",
+            json!({ "resourceId": "issue-2", "schema": "Issue", "patch": { "title": "x" } }),
+        );
+        let res = handle_commit_event(&state, Some(MALLORY), wrong_subject)
+            .await
+            .unwrap();
+        assert_eq!(res.status(), StatusCode::UNPROCESSABLE_ENTITY);
+        assert_eq!(
+            body_json(res).await["invalidParams"][0]["code"],
+            "subject-mismatch"
+        );
+    }
+
+    #[tokio::test]
+    async fn commit_under_a_missing_subject_is_refused() {
+        let dir = TempDir::new().unwrap();
+        let state = test_state(&dir).await;
+        let orphan = event(
+            "c-orphan",
+            TYPE_COMMIT,
+            "issue-404",
+            json!({ "resourceId": "comment-9", "schema": "Comment", "resourceData": { "content": "hoi" } }),
+        );
+        let res = handle_commit_event(&state, Some(ALICE), orphan)
+            .await
+            .unwrap();
+        assert_eq!(res.status(), StatusCode::UNPROCESSABLE_ENTITY);
+        assert_eq!(body_json(res).await["invalidParams"][0]["name"], "/subject");
+    }
+
+    /// The idempotency key includes the caller, so reusing someone's `source` + `id`
+    /// never returns their stored response.
+    #[tokio::test]
+    async fn replay_is_bound_to_the_caller() {
+        let dir = TempDir::new().unwrap();
+        let state = test_state(&dir).await;
+        handle_commit_event(&state, Some(ALICE), create_issue_and_comment("tx-1"))
+            .await
+            .unwrap();
+
+        let res = handle_commit_event(&state, Some(MALLORY), create_issue_and_comment("tx-1"))
+            .await
+            .unwrap();
+        assert!(res.headers().get("Idempotent-Replayed").is_none());
+        assert_eq!(res.status(), StatusCode::FORBIDDEN);
+        assert!(!body_json(res).await.to_string().contains("Paspoort"));
     }
 }

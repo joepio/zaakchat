@@ -177,10 +177,13 @@ const JSONCommitSection: React.FC = () => {
 }`}
           />
           <p className="mt-3" style={{ color: "var(--text-secondary)" }}>
-            Het event-<code>id</code> is de idempotency-sleutel: hetzelfde{" "}
-            <code>id</code> opnieuw sturen geeft het oorspronkelijke antwoord
-            terug zonder iets dubbel te doen. De server zet{" "}
-            <code>actor</code> op de ingelogde gebruiker. Zowel camelCase (
+            Het event-<code>id</code> is samen met de ingelogde gebruiker de
+            idempotency-sleutel: hetzelfde <code>id</code> opnieuw sturen geeft
+            het oorspronkelijke antwoord terug zonder iets dubbel te doen. Elke
+            commit moet bij de zaak in <code>subject</code> horen: een nieuwe
+            resource komt bij die zaak, een bestaande moet er al bij horen. De
+            server zet <code>actor</code> op de ingelogde gebruiker. Zowel
+            camelCase (
             <code>resourceId</code>) als snake_case (<code>resource_id</code>)
             wordt geaccepteerd.
           </p>

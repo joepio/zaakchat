@@ -375,12 +375,19 @@ pub struct ErrorResponse {
 }
 
 /// POST /events - Handle incoming CloudEvents (Command + Sync)
-/// This is where resources are created, updated, and deleted
+/// This is where resources are created, updated, and deleted.
+/// `json.commit` and `json.commit.transaction` go through `crate::commits`.
 pub async fn handle_event(
     State(state): State<AppState>,
-    _auth_user: AuthUser,
+    auth_user: AuthUser,
     Json(mut event): Json<CloudEvent>,
 ) -> Result<Response, StatusCode> {
+    // JSON Commits (single or transaction): validated, authorised and stored all-or-nothing.
+    if crate::commits::is_commit_event(&event.event_type) {
+        return crate::commits::handle_commit_event(&state, Some(&auth_user.user_id), event).await;
+    }
+
+    // Other event types are stored as-is.
     // Store the event and get the assigned server sequence key
     let seq_key = state.storage.store_event(&event).await.map_err(|e| {
         eprintln!("Failed to store event: {}", e);
@@ -734,56 +741,16 @@ pub async fn process_event(
             .store_resource(&commit.resource_id, &resource_type, &new_resource)
             .await?;
 
-        // Schedule background indexing of the resource via the search subsystem.
-        let resource_id = commit.resource_id.clone();
-        let resource_type_clone = resource_type.clone();
-        let mut data_clone = new_resource.clone();
-        let search = state.search.clone();
-        // AUTH FIX: Denormalize 'involved' for Comments (and other child resources)
-        // Comments don't have 'involved' field, so they fail the default auth filter.
-        // We look up the parent issue and copy its 'involved' list into the indexing payload.
-        if (resource_type_clone == "Comment" || resource_type_clone == "comment")
-            && data_clone.get("involved").is_none()
-        {
-            // Use event.subject as the parent Issue ID
-            // The frontend sends zaakId as subject for Comments
-            let parent_id = event.subject.clone();
-
-            if let Ok(Some(parent)) = state.storage.get_resource(&parent_id).await {
-                if let Some(involved) = parent.get("involved") {
-                    if let Some(obj) = data_clone.as_object_mut() {
-                        obj.insert("involved".to_string(), involved.clone());
-                    }
-                }
-            }
-        }
-
-        let timestamp_opt = commit
-            .timestamp
-            .as_ref()
-            .and_then(|s| chrono::DateTime::parse_from_rfc3339(s).ok())
-            .map(|dt| dt.with_timezone(&chrono::Utc));
-
-        let payload = serde_json::to_string(&data_clone).unwrap_or_default();
-
-        if let Err(err) = search
-            .add_resource_payload(
-                &resource_id,
-                &resource_type_clone,
-                "",
-                &payload,
-                timestamp_opt,
-            )
-            .await
-        {
-            eprintln!(
-                "[handlers] failed adding resource payload to search index id={} err={}",
-                resource_id, err
-            );
-        }
-
-        // Trigger Notifications
-        send_notifications_for_event(state, event, &new_resource, old_resource.as_ref()).await;
+        index_and_notify(
+            state,
+            event,
+            &commit.resource_id,
+            &resource_type,
+            &new_resource,
+            old_resource.as_ref(),
+            commit.timestamp.as_deref(),
+        )
+        .await;
     } else {
         // For other event types, we'll just store them as-is
         let resource_type = extract_resource_type_from_subject(&event.subject);
@@ -813,8 +780,70 @@ pub async fn process_event(
     Ok(())
 }
 
+/// Index a stored resource in the search subsystem and send notifications for it.
+/// Comments get their parent issue's `involved` list copied in, so the search
+/// authorisation filter can find them.
+pub(crate) async fn index_and_notify(
+    state: &AppState,
+    event: &CloudEvent,
+    resource_id: &str,
+    resource_type: &str,
+    new_resource: &Value,
+    old_resource: Option<&Value>,
+    timestamp: Option<&str>,
+) {
+    // Schedule background indexing of the resource via the search subsystem.
+    let resource_id = resource_id.to_string();
+    let resource_type_clone = resource_type.to_string();
+    let mut data_clone = new_resource.clone();
+    let search = state.search.clone();
+    // AUTH FIX: Denormalize 'involved' for Comments (and other child resources)
+    // Comments don't have 'involved' field, so they fail the default auth filter.
+    // We look up the parent issue and copy its 'involved' list into the indexing payload.
+    if (resource_type_clone == "Comment" || resource_type_clone == "comment")
+        && data_clone.get("involved").is_none()
+    {
+        // Use event.subject as the parent Issue ID
+        // The frontend sends zaakId as subject for Comments
+        let parent_id = event.subject.clone();
+
+        if let Ok(Some(parent)) = state.storage.get_resource(&parent_id).await {
+            if let Some(involved) = parent.get("involved") {
+                if let Some(obj) = data_clone.as_object_mut() {
+                    obj.insert("involved".to_string(), involved.clone());
+                }
+            }
+        }
+    }
+
+    let timestamp_opt = timestamp
+        .and_then(|s| chrono::DateTime::parse_from_rfc3339(s).ok())
+        .map(|dt| dt.with_timezone(&chrono::Utc));
+
+    let payload = serde_json::to_string(&data_clone).unwrap_or_default();
+
+    if let Err(err) = search
+        .add_resource_payload(
+            &resource_id,
+            &resource_type_clone,
+            "",
+            &payload,
+            timestamp_opt,
+        )
+        .await
+    {
+        eprintln!(
+            "[handlers] failed adding resource payload to search index id={} err={}",
+            resource_id, err
+        );
+    }
+
+    // Trigger Notifications
+    send_notifications_for_event(state, event, new_resource, old_resource).await;
+}
+
 /// Extract resource type from schema URL
-fn extract_resource_type_from_schema(schema: &str) -> &str {
+pub(crate) fn extract_resource_type_from_schema(schema: &str) -> &str {
     if schema.contains("Issue") {
         "Issue"
     } else if schema.contains("Comment") {
@@ -831,7 +860,7 @@ fn extract_resource_type_from_schema(schema: &str) -> &str {
 }
 
 /// Extract resource type from subject
-fn extract_resource_type_from_subject(subject: &str) -> &str {
+pub(crate) fn extract_resource_type_from_subject(subject: &str) -> &str {
     if subject.contains("issue") {
         "Issue"
     } else if subject.contains("comment") {
@@ -848,7 +877,7 @@ fn extract_resource_type_from_subject(subject: &str) -> &str {
 }
 
 /// Apply JSON Merge Patch (RFC 7396)
-fn apply_json_merge_patch(target: &mut Value, patch: &Value) {
+pub(crate) fn apply_json_merge_patch(target: &mut Value, patch: &Value) {
     if !patch.is_object() {
         *target = patch.clone();
         return;
@@ -1005,7 +1034,9 @@ pub async fn inbound_email_handler(
                 return Err(StatusCode::UNAUTHORIZED);
             }
         }
-        _ => eprintln!("[inbound] INBOUND_EMAIL_TOKEN is not set; anyone can post comments by mail"),
+        _ => {
+            eprintln!("[inbound] INBOUND_EMAIL_TOKEN is not set; anyone can post comments by mail")
+        }
     }
 
     // 1. Extract Sender (From)
@@ -1082,6 +1113,7 @@ pub async fn inbound_email_handler(
         dataref: None,
         sequence: None,
         sequencetype: None,
+        transactionid: None,
         data: Some(serde_json::json!({
             "resource_id": comment_id,
             "schema": "https://zaakchat.nl/schemas/Comment.json",
@@ -1091,45 +1123,12 @@ pub async fn inbound_email_handler(
         })),
     };
 
-    // Use handle_event logic (store, index, broadcast)
-    // We can't call handle_event directly because of Axum types, so we replicate the logic or extract a shared function.
-    // For simplicity, let's call the internal logic.
-
-    let seq_key = state.storage.store_event(&event).await.map_err(|e| {
-        eprintln!("Failed to store inbound event: {}", e);
-        StatusCode::INTERNAL_SERVER_ERROR
-    })?;
-
-    // We need to mutate event to add sequence, but we can't easily here without cloning.
-    // Let's just create a new event with sequence for broadcasting.
-    let mut broadcast_event = event.clone();
-    broadcast_event.sequence = Some(seq_key);
-
-    // Indexing
-    {
-        let search = state.search.clone();
-        let payload = serde_json::to_string(&broadcast_event).unwrap_or_default();
-        let id = broadcast_event.id.clone();
-        let doc_type = broadcast_event.event_type.clone();
-        if let Err(e) = search
-            .add_event_payload(&id, &doc_type, "", &payload, None)
-            .await
-        {
-            eprintln!("[inbound] failed indexing: {}", e);
-        }
+    // Same all-or-nothing path as POST /events; the sender's address is the actor.
+    let response = crate::commits::handle_commit_event(&state, None, event).await?;
+    if !response.status().is_success() {
+        eprintln!("[inbound] comment rejected: status {}", response.status());
+        return Err(StatusCode::UNPROCESSABLE_ENTITY);
     }
-
-    // Process (store resource)
-    if let Err(e) = process_event(&state, &broadcast_event).await {
-        eprintln!("[inbound] failed processing: {}", e);
-        return Err(StatusCode::INTERNAL_SERVER_ERROR);
-    }
-
-    // Commit search
-    let _ = state.search.commit().await;
-
-    // Broadcast
-    let _ = state.tx.send(broadcast_event);
 
     Ok(StatusCode::OK)
 }
@@ -1298,6 +1297,7 @@ mod tests {
             dataschema: None,
             dataref: None,
             sequencetype: None,
+            transactionid: None,
             data: Some(serde_json::json!({
                 "resource_id": issue_id,
                 "schema": "https://zaakchat.nl/schemas/Issue.json",
@@ -1316,7 +1316,9 @@ mod tests {
 
         handle_event(
             State(state.clone()),
-            AuthUser { user_id: "test@example.com".to_string() },
+            AuthUser {
+                user_id: user.to_string(),
+            },
             Json(issue_event),
         )
         .await
@@ -1335,6 +1337,7 @@ mod tests {
             dataschema: None,
             dataref: None,
             sequencetype: None,
+            transactionid: None,
             data: Some(serde_json::json!({
                 "resource_id": comment_id,
                 "schema": "https://zaakchat.nl/schemas/Comment.json",
@@ -1356,7 +1359,9 @@ mod tests {
 
         handle_event(
             State(state.clone()),
-            AuthUser { user_id: "test@example.com".to_string() },
+            AuthUser {
+                user_id: user.to_string(),
+            },
             Json(comment_event),
         )
         .await

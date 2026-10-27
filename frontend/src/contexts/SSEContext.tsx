@@ -240,6 +240,11 @@ export const SSEProvider: React.FC<SSEProviderProps> = ({ children }) => {
             const errorData = await response.json();
             if (errorData.error) {
               errorMessage = errorData.error;
+            } else if (errorData.invalidParams?.[0]?.reason) {
+              // problem+json from POST /events: show the first concrete problem
+              errorMessage = errorData.invalidParams[0].reason;
+            } else if (errorData.detail) {
+              errorMessage = errorData.detail;
             } else if (errorData.message) {
               errorMessage = errorData.message;
             }

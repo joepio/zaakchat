@@ -146,6 +146,51 @@ const JSONCommitSection: React.FC = () => {
             className="text-xl font-semibold mb-3"
             style={{ color: "var(--ro-lintblauw)" }}
           >
+            Meerdere commits in één keer
+          </h3>
+          <p className="mb-3" style={{ color: "var(--text-primary)" }}>
+            Met <code>json.commit.transaction</code> stuur je een lijst
+            commits in <code>data.commits</code>. De server legt ze{" "}
+            <strong>allemaal of geen enkele</strong> vast: faalt één commit,
+            dan wordt niets opgeslagen en krijg je een <code>422</code> met
+            een verwijzing naar de foute commit. Op de stream verschijnt elke
+            commit als eigen <code>json.commit</code> event, met dezelfde{" "}
+            <code>transactionid</code>.
+          </p>
+          <CodeBlock
+            language="json"
+            code={`POST /events
+{
+  "specversion": "1.0",
+  "type": "json.commit.transaction",
+  "source": "frontend",
+  "id": "0f8a2c4e-5b1d-4e9a-9c3f-7d6b2a1e8f40",
+  "subject": "zaak-123",
+  "data": {
+    "commits": [
+      { "resourceId": "zaak-123", "schema": "Issue",
+        "patch": { "status": "in_behandeling" } },
+      { "resourceId": "comment-456", "schema": "Comment",
+        "resourceData": { "content": "We gaan ermee aan de slag." } }
+    ]
+  }
+}`}
+          />
+          <p className="mt-3" style={{ color: "var(--text-secondary)" }}>
+            Het event-<code>id</code> is de idempotency-sleutel: hetzelfde{" "}
+            <code>id</code> opnieuw sturen geeft het oorspronkelijke antwoord
+            terug zonder iets dubbel te doen. De server zet{" "}
+            <code>actor</code> op de ingelogde gebruiker. Zowel camelCase (
+            <code>resourceId</code>) als snake_case (<code>resource_id</code>)
+            wordt geaccepteerd.
+          </p>
+        </div>
+
+        <div>
+          <h3
+            className="text-xl font-semibold mb-3"
+            style={{ color: "var(--ro-lintblauw)" }}
+          >
             Voorbeelden
           </h3>
 

@@ -3,6 +3,7 @@ pub mod email;
 pub mod types;
 pub use types::{PushKeys, PushSubscription};
 
+pub mod commits;
 pub mod handlers;
 
 pub mod push;

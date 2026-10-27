@@ -81,6 +81,15 @@ pub struct JSONCommit {
     /// De resource (en de gerelateerde events) moeten dan uit de store verwijderd worden.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deleted: Option<bool>,
+    /// Id van de laatste commit op deze resource die de client kende.
+    /// Klopt die niet meer, dan weigert de server de transactie met 412 (optimistic concurrency).
+    /// Ontbreekt dit veld, dan wint de laatste schrijver. Ook als `previousCommit` geaccepteerd.
+    #[serde(
+        default,
+        alias = "previousCommit",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub previous_commit: Option<String>,
 }
 
 /// Data van een `json.commit.transaction` event: meerdere commits die samen,

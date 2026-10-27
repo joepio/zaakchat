@@ -36,6 +36,10 @@ pub struct CloudEvent {
     /// Type van de volgnummering die gebruikt wordt
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sequencetype: Option<String>,
+    /// CloudEvents-extensie: id van de transactie waar dit event bij hoort.
+    /// Events met dezelfde `transactionid` zijn samen, alles-of-niets, vastgelegd.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub transactionid: Option<String>,
     /// De inhoud van de eigenlijke gebeurtenis.
     /// Bij JSONCommits zit hier de daadwerkelijke JSONCommit data in.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -54,14 +58,19 @@ pub struct JSONCommit {
     /// Dit bepaalt welke velden de resource moet hebben en wat hun dataype is.
     pub schema: String,
     /// Unieke identificatie van de resource waar deze commit over gaat.
+    /// Ook als `resourceId` geaccepteerd.
+    #[serde(alias = "resourceId")]
     pub resource_id: String,
-    /// Email van de persoon die de actie heeft uitgevoerd (bijv. "alice@gemeente.nl", "user@gemeente.nl")
+    /// Email van de persoon die de actie heeft uitgevoerd (bijv. "alice@gemeente.nl", "user@gemeente.nl").
+    /// Bij `POST /events` zet de server dit op de ingelogde gebruiker.
+    #[serde(default)]
     pub actor: String,
     /// Tijdstip waarop de commit plaatsvond (ISO 8601 formaat: 2024-01-15T10:30:00Z)
     #[serde(skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    /// Complete resource data (bij aanmaken van nieuwe resources)
-    #[serde(skip_serializing_if = "Option::is_none")]
+    /// Complete resource data (bij aanmaken van nieuwe resources).
+    /// Ook als `resourceData` geaccepteerd.
+    #[serde(alias = "resourceData", skip_serializing_if = "Option::is_none")]
     pub resource_data: Option<Value>,
     /// JSON Merge Patch (RFC 7396) met wijzigingen (bij updates).
     /// Velden met een null waarde worden verwijderd.
@@ -72,6 +81,13 @@ pub struct JSONCommit {
     /// De resource (en de gerelateerde events) moeten dan uit de store verwijderd worden.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deleted: Option<bool>,
+}
+
+/// Data van een `json.commit.transaction` event: meerdere commits die samen,
+/// alles-of-niets, worden vastgelegd.
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
+pub struct CommitTransaction {
+    pub commits: Vec<Value>,
 }
 
 /// Soorten items in het zaaksysteem
@@ -580,13 +596,26 @@ mod tests {
 
     #[test]
     fn test_json_commit_deserialization_validation() {
-        // Missing actor should fail
+        // Missing actor is allowed: POST /events sets it to the logged-in user
         let json = json!({
             "schema": "Issue",
             "resource_id": "test-res"
         });
         let result: Result<JSONCommit, _> = serde_json::from_value(json);
-        assert!(result.is_err(), "JSONCommit should require actor");
+        assert!(
+            result.is_ok(),
+            "JSONCommit actor should be optional on input"
+        );
+
+        // camelCase field names are accepted
+        let json = json!({
+            "schema": "Issue",
+            "resourceId": "test-res",
+            "resourceData": { "title": "x" }
+        });
+        let commit: JSONCommit = serde_json::from_value(json).expect("camelCase commit");
+        assert_eq!(commit.resource_id, "test-res");
+        assert!(commit.resource_data.is_some());
 
         // Missing resource_id should fail
         let json = json!({

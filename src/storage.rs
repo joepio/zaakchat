@@ -27,6 +27,9 @@ const META_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("meta");
 const EVENT_TXIDS_TABLE: TableDefinition<&str, &str> = TableDefinition::new("event_txids");
 /// Processed transactions by idempotency key (`source` + event id), for replays and conflicts.
 const IDEMPOTENCY_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("idempotency");
+/// Aggregate (event `subject`) each resource belongs to, set when the resource is created.
+const RESOURCE_AGGREGATES_TABLE: TableDefinition<&str, &str> =
+    TableDefinition::new("resource_aggregates");
 
 /// Record for storing events
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -56,6 +59,8 @@ pub enum ResourceWrite {
         id: String,
         resource_type: String,
         data: JsonValue,
+        /// The aggregate (event `subject`) the resource belongs to.
+        aggregate: String,
     },
     Delete {
         id: String,
@@ -115,7 +120,9 @@ impl Storage {
             let _ = write_txn.open_table(META_TABLE)?;
             let _ = write_txn.open_table(EVENT_TXIDS_TABLE)?;
             let _ = write_txn.open_table(IDEMPOTENCY_TABLE)?;
+            let _ = write_txn.open_table(RESOURCE_AGGREGATES_TABLE)?;
         }
+        Self::backfill_aggregates(&write_txn)?;
         write_txn.commit()?;
 
         // NOTE:
@@ -158,6 +165,52 @@ impl Storage {
 
         // Return the assigned sequence key to the caller
         Ok(seq_key)
+    }
+
+    /// Fill the aggregate table from the event log for databases created before it existed:
+    /// a resource belongs to the `subject` of the first commit that touched it.
+    fn backfill_aggregates(
+        wtx: &redb::WriteTransaction,
+    ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+        let mut aggregates = wtx.open_table(RESOURCE_AGGREGATES_TABLE)?;
+        if aggregates.iter()?.next().is_some() {
+            return Ok(());
+        }
+        let events = wtx.open_table(EVENTS_BY_SEQ_TABLE)?;
+        for entry in events.iter()? {
+            let (_, bytes) = entry?;
+            let Ok(rec) = bincode::deserialize::<EventRecord>(bytes.value()) else {
+                continue;
+            };
+            let Ok(data) = serde_json::from_str::<JsonValue>(&rec.data) else {
+                continue;
+            };
+            let Some(resource_id) = data
+                .get("resource_id")
+                .or_else(|| data.get("resourceId"))
+                .and_then(|v| v.as_str())
+            else {
+                continue;
+            };
+            let subject = rec
+                .subject
+                .filter(|s| !s.is_empty())
+                .unwrap_or_else(|| resource_id.to_string());
+            if aggregates.get(resource_id)?.is_none() {
+                aggregates.insert(resource_id, subject.as_str())?;
+            }
+        }
+        Ok(())
+    }
+
+    /// The aggregate a resource belongs to, if known.
+    pub async fn get_aggregate(
+        &self,
+        resource_id: &str,
+    ) -> Result<Option<String>, Box<dyn std::error::Error + Send + Sync>> {
+        let read_txn = self.db.begin_read()?;
+        let table = read_txn.open_table(RESOURCE_AGGREGATES_TABLE)?;
+        Ok(table.get(resource_id)?.map(|g| g.value().to_string()))
     }
 
     /// Increment and return the sequence counter inside an open write transaction.
@@ -245,6 +298,7 @@ impl Storage {
 
         {
             let mut table = write_txn.open_table(RESOURCES_TABLE)?;
+            let mut aggregates = write_txn.open_table(RESOURCE_AGGREGATES_TABLE)?;
             let now = chrono::Utc::now().to_rfc3339();
             for write in writes {
                 match write {
@@ -252,6 +306,7 @@ impl Storage {
                         id,
                         resource_type,
                         data,
+                        aggregate,
                     } => {
                         let record = ResourceRecord {
                             id: id.clone(),
@@ -260,9 +315,11 @@ impl Storage {
                             updated_at: now.clone(),
                         };
                         table.insert(id.as_str(), bincode::serialize(&record)?.as_slice())?;
+                        aggregates.insert(id.as_str(), aggregate.as_str())?;
                     }
                     ResourceWrite::Delete { id } => {
                         table.remove(id.as_str())?;
+                        aggregates.remove(id.as_str())?;
                     }
                 }
             }
@@ -426,6 +483,24 @@ impl Storage {
                 .collect::<Result<_, _>>()?;
             for key in keys {
                 resources_table.remove(key.as_str())?;
+            }
+
+            // Clear aggregates and processed transactions along with the data they describe
+            let mut aggregates = write_txn.open_table(RESOURCE_AGGREGATES_TABLE)?;
+            let keys: Vec<String> = aggregates
+                .iter()?
+                .map(|r| r.map(|(k, _)| k.value().to_string()))
+                .collect::<Result<_, _>>()?;
+            for key in keys {
+                aggregates.remove(key.as_str())?;
+            }
+            let mut idempotency = write_txn.open_table(IDEMPOTENCY_TABLE)?;
+            let keys: Vec<String> = idempotency
+                .iter()?
+                .map(|r| r.map(|(k, _)| k.value().to_string()))
+                .collect::<Result<_, _>>()?;
+            for key in keys {
+                idempotency.remove(key.as_str())?;
             }
 
             // Reset meta table (sequence counter)

@@ -300,6 +300,16 @@ pub async fn handle_commit_event(
         changed: HashMap::new(),
     };
     let mut forbidden = false;
+    let mut stale: Vec<InvalidParam> = Vec::new();
+    // Last commit per resource as changed by this transaction (`None` = deleted).
+    let mut heads: HashMap<String, Option<String>> = HashMap::new();
+    let commit_event_id = |i: usize| {
+        if is_transaction {
+            format!("{}:{}", event.id, i)
+        } else {
+            event.id.clone()
+        }
+    };
     let mut writes: Vec<ResourceWrite> = Vec::new();
     // (commit, resource type, new state, old state) per commit, for after the commit.
     let mut applied: Vec<(JSONCommit, String, Option<Value>, Option<Value>)> = Vec::new();
@@ -373,6 +383,32 @@ pub async fn handle_commit_event(
             commit.timestamp = Some(now.clone());
         }
 
+        // Optimistic concurrency: the client says which commit it last saw on this resource.
+        if let Some(expected) = &commit.previous_commit {
+            let head = match heads.get(&commit.resource_id) {
+                Some(h) => h.clone(),
+                None => state
+                    .storage
+                    .get_head(&commit.resource_id)
+                    .await
+                    .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?,
+            };
+            if head.as_deref() != Some(expected.as_str()) {
+                stale.push(InvalidParam::new(
+                    format!("{}/previousCommit", pointer),
+                    "stale",
+                    format!(
+                        "{} has changed since {}; the last commit is {}.",
+                        commit.resource_id,
+                        expected,
+                        head.as_deref().unwrap_or("none")
+                    ),
+                ));
+                continue;
+            }
+        }
+        let commit_id = commit_event_id(applied.len());
+
         let resource_type = resource_type_for(&commit, &event.subject);
         let new_state = if commit.deleted == Some(true) {
             if current.is_none() {
@@ -386,6 +422,7 @@ pub async fn handle_commit_event(
             writes.push(ResourceWrite::Delete {
                 id: commit.resource_id.clone(),
             });
+            heads.insert(commit.resource_id.clone(), None);
             None
         } else {
             let data = if let Some(patch) = &commit.patch {
@@ -410,7 +447,9 @@ pub async fn handle_commit_event(
                 resource_type: resource_type.clone(),
                 data: data.clone(),
                 aggregate: event.subject.clone(),
+                commit_id: commit_id.clone(),
             });
+            heads.insert(commit.resource_id.clone(), Some(commit_id));
             Some(data)
         };
 
@@ -430,6 +469,14 @@ pub async fn handle_commit_event(
             &[],
         ));
     }
+    if !stale.is_empty() {
+        return Ok(problem(
+            StatusCode::PRECONDITION_FAILED,
+            "Transaction rejected, nothing stored",
+            "A resource changed since the commit named in previousCommit. Fetch it again and retry.",
+            &stale,
+        ));
+    }
     if !errors.is_empty() {
         return Ok(problem(
             StatusCode::UNPROCESSABLE_ENTITY,
@@ -446,11 +493,7 @@ pub async fn handle_commit_event(
         .enumerate()
         .map(|(i, (commit, _, _, _))| CloudEvent {
             specversion: "1.0".to_string(),
-            id: if is_transaction {
-                format!("{}:{}", event.id, i)
-            } else {
-                event.id.clone()
-            },
+            id: commit_event_id(i),
             source: event.source.clone(),
             subject: event.subject.clone(),
             event_type: TYPE_COMMIT.to_string(),
@@ -893,5 +936,54 @@ mod tests {
         assert!(res.headers().get("Idempotent-Replayed").is_none());
         assert_eq!(res.status(), StatusCode::FORBIDDEN);
         assert!(!body_json(res).await.to_string().contains("Paspoort"));
+    }
+
+    #[tokio::test]
+    async fn stale_previous_commit_is_refused() {
+        let dir = TempDir::new().unwrap();
+        let state = test_state(&dir).await;
+        handle_commit_event(&state, Some(ALICE), create_issue_and_comment("tx-1"))
+            .await
+            .unwrap();
+        let patch = |id: &str, prev: &str, status: &str| {
+            event(
+                id,
+                TYPE_COMMIT,
+                "issue-1",
+                json!({ "resourceId": "issue-1", "schema": "Issue",
+                        "previousCommit": prev, "patch": { "status": status } }),
+            )
+        };
+
+        // Two people both saw tx-1:0; the first one wins, the second gets 412.
+        let first = handle_commit_event(
+            &state,
+            Some(ALICE),
+            patch("c-a", "tx-1:0", "in_behandeling"),
+        )
+        .await
+        .unwrap();
+        assert_eq!(first.status(), StatusCode::CREATED);
+        let second = handle_commit_event(&state, Some(ALICE), patch("c-b", "tx-1:0", "afgerond"))
+            .await
+            .unwrap();
+        assert_eq!(second.status(), StatusCode::PRECONDITION_FAILED);
+        assert_eq!(
+            body_json(second).await["invalidParams"][0]["name"],
+            "/data/previousCommit"
+        );
+        let issue = state
+            .storage
+            .get_resource("issue-1")
+            .await
+            .unwrap()
+            .unwrap();
+        assert_eq!(issue["status"], "in_behandeling");
+
+        // After fetching again, the retry names the new head and succeeds.
+        let retry = handle_commit_event(&state, Some(ALICE), patch("c-c", "c-a", "afgerond"))
+            .await
+            .unwrap();
+        assert_eq!(retry.status(), StatusCode::CREATED);
     }
 }

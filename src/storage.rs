@@ -30,6 +30,8 @@ const IDEMPOTENCY_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("id
 /// Aggregate (event `subject`) each resource belongs to, set when the resource is created.
 const RESOURCE_AGGREGATES_TABLE: TableDefinition<&str, &str> =
     TableDefinition::new("resource_aggregates");
+/// Id of the last commit event applied to each resource, for `previousCommit` checks.
+const RESOURCE_HEADS_TABLE: TableDefinition<&str, &str> = TableDefinition::new("resource_heads");
 
 /// Record for storing events
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -61,6 +63,8 @@ pub enum ResourceWrite {
         data: JsonValue,
         /// The aggregate (event `subject`) the resource belongs to.
         aggregate: String,
+        /// Id of the commit event that makes this change.
+        commit_id: String,
     },
     Delete {
         id: String,
@@ -121,6 +125,7 @@ impl Storage {
             let _ = write_txn.open_table(EVENT_TXIDS_TABLE)?;
             let _ = write_txn.open_table(IDEMPOTENCY_TABLE)?;
             let _ = write_txn.open_table(RESOURCE_AGGREGATES_TABLE)?;
+            let _ = write_txn.open_table(RESOURCE_HEADS_TABLE)?;
         }
         Self::backfill_aggregates(&write_txn)?;
         write_txn.commit()?;
@@ -167,12 +172,14 @@ impl Storage {
         Ok(seq_key)
     }
 
-    /// Fill the aggregate table from the event log for databases created before it existed:
-    /// a resource belongs to the `subject` of the first commit that touched it.
+    /// Fill the aggregate and head tables from the event log for databases created before
+    /// they existed: a resource belongs to the `subject` of the first commit that touched it,
+    /// and its head is the last such commit.
     fn backfill_aggregates(
         wtx: &redb::WriteTransaction,
     ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         let mut aggregates = wtx.open_table(RESOURCE_AGGREGATES_TABLE)?;
+        let mut heads = wtx.open_table(RESOURCE_HEADS_TABLE)?;
         if aggregates.iter()?.next().is_some() {
             return Ok(());
         }
@@ -199,6 +206,7 @@ impl Storage {
             if aggregates.get(resource_id)?.is_none() {
                 aggregates.insert(resource_id, subject.as_str())?;
             }
+            heads.insert(resource_id, rec.id.as_str())?;
         }
         Ok(())
     }
@@ -210,6 +218,16 @@ impl Storage {
     ) -> Result<Option<String>, Box<dyn std::error::Error + Send + Sync>> {
         let read_txn = self.db.begin_read()?;
         let table = read_txn.open_table(RESOURCE_AGGREGATES_TABLE)?;
+        Ok(table.get(resource_id)?.map(|g| g.value().to_string()))
+    }
+
+    /// Id of the last commit applied to a resource, if known.
+    pub async fn get_head(
+        &self,
+        resource_id: &str,
+    ) -> Result<Option<String>, Box<dyn std::error::Error + Send + Sync>> {
+        let read_txn = self.db.begin_read()?;
+        let table = read_txn.open_table(RESOURCE_HEADS_TABLE)?;
         Ok(table.get(resource_id)?.map(|g| g.value().to_string()))
     }
 
@@ -299,6 +317,7 @@ impl Storage {
         {
             let mut table = write_txn.open_table(RESOURCES_TABLE)?;
             let mut aggregates = write_txn.open_table(RESOURCE_AGGREGATES_TABLE)?;
+            let mut heads = write_txn.open_table(RESOURCE_HEADS_TABLE)?;
             let now = chrono::Utc::now().to_rfc3339();
             for write in writes {
                 match write {
@@ -307,6 +326,7 @@ impl Storage {
                         resource_type,
                         data,
                         aggregate,
+                        commit_id,
                     } => {
                         let record = ResourceRecord {
                             id: id.clone(),
@@ -316,10 +336,12 @@ impl Storage {
                         };
                         table.insert(id.as_str(), bincode::serialize(&record)?.as_slice())?;
                         aggregates.insert(id.as_str(), aggregate.as_str())?;
+                        heads.insert(id.as_str(), commit_id.as_str())?;
                     }
                     ResourceWrite::Delete { id } => {
                         table.remove(id.as_str())?;
                         aggregates.remove(id.as_str())?;
+                        heads.remove(id.as_str())?;
                     }
                 }
             }
@@ -486,13 +508,15 @@ impl Storage {
             }
 
             // Clear aggregates and processed transactions along with the data they describe
-            let mut aggregates = write_txn.open_table(RESOURCE_AGGREGATES_TABLE)?;
-            let keys: Vec<String> = aggregates
-                .iter()?
-                .map(|r| r.map(|(k, _)| k.value().to_string()))
-                .collect::<Result<_, _>>()?;
-            for key in keys {
-                aggregates.remove(key.as_str())?;
+            for def in [RESOURCE_AGGREGATES_TABLE, RESOURCE_HEADS_TABLE] {
+                let mut t = write_txn.open_table(def)?;
+                let keys: Vec<String> = t
+                    .iter()?
+                    .map(|r| r.map(|(k, _)| k.value().to_string()))
+                    .collect::<Result<_, _>>()?;
+                for key in keys {
+                    t.remove(key.as_str())?;
+                }
             }
             let mut idempotency = write_txn.open_table(IDEMPOTENCY_TABLE)?;
             let keys: Vec<String> = idempotency

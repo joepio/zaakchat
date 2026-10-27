@@ -22,6 +22,11 @@ const EVENTS_BY_SEQ_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("
 const RESOURCES_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("resources");
 /// Meta table for storing counters and small metadata (e.g. last assigned sequence)
 const META_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("meta");
+/// Transaction id per event sequence key (CloudEvents extension `transactionid`).
+/// Kept in its own table so existing EventRecords stay readable.
+const EVENT_TXIDS_TABLE: TableDefinition<&str, &str> = TableDefinition::new("event_txids");
+/// Processed transactions by idempotency key (`source` + event id), for replays and conflicts.
+const IDEMPOTENCY_TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("idempotency");
 
 /// Record for storing events
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -33,6 +38,42 @@ pub struct EventRecord {
     pub time: Option<String>,
     pub sequence: Option<String>,
     pub data: String, // JSON serialized
+}
+
+/// Outcome of a processed transaction, stored under its idempotency key.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct IdempotencyRecord {
+    /// The request body as received, to tell a replay apart from a conflicting reuse of the key.
+    pub body: String,
+    /// The response body that was returned.
+    pub response: String,
+}
+
+/// A resource change applied as part of a transaction.
+#[derive(Debug, Clone)]
+pub enum ResourceWrite {
+    Upsert {
+        id: String,
+        resource_type: String,
+        data: JsonValue,
+    },
+    Delete {
+        id: String,
+    },
+}
+
+/// Error from `apply_transaction`.
+#[derive(Debug)]
+pub enum TransactionError {
+    /// The idempotency key was already used; holds the stored outcome.
+    AlreadyProcessed(IdempotencyRecord),
+    Storage(Box<dyn std::error::Error + Send + Sync>),
+}
+
+impl<E: Into<Box<dyn std::error::Error + Send + Sync>>> From<E> for TransactionError {
+    fn from(e: E) -> Self {
+        TransactionError::Storage(e.into())
+    }
 }
 
 /// Record for storing resources
@@ -72,6 +113,8 @@ impl Storage {
             let _ = write_txn.open_table(EVENTS_BY_SEQ_TABLE)?;
             let _ = write_txn.open_table(RESOURCES_TABLE)?;
             let _ = write_txn.open_table(META_TABLE)?;
+            let _ = write_txn.open_table(EVENT_TXIDS_TABLE)?;
+            let _ = write_txn.open_table(IDEMPOTENCY_TABLE)?;
         }
         write_txn.commit()?;
 
@@ -99,70 +142,11 @@ impl Storage {
             event.id, event.event_type, event.source
         );
 
-        // Atomically get the next sequence number using the META_TABLE.
-        // We perform this with a small write transaction that reads the last_seq value,
-        // increments it, writes it back and commits. The new sequence is then returned.
-        let seq = {
-            // start a write txn to update the counter atomically
-            let wtx = self.db.begin_write()?;
-            // Read, compute and write within an inner scope so the table guard is dropped
-            // before committing the transaction (avoids borrow conflicts).
-            let next = {
-                let mut meta = wtx.open_table(META_TABLE)?;
-
-                // Try to read the last sequence value and convert to owned bytes immediately.
-                let last_seq_bytes = match meta.get("last_seq")? {
-                    Some(g) => Some(g.value().to_vec()),
-                    None => None,
-                };
-
-                // Compute next sequence (u128) robustly
-                let next_seq: u128 = if let Some(bytes) = last_seq_bytes {
-                    match std::str::from_utf8(&bytes)
-                        .ok()
-                        .and_then(|s| s.parse::<u128>().ok())
-                    {
-                        Some(val) => val + 1,
-                        None => 1u128,
-                    }
-                } else {
-                    1u128
-                };
-
-                // store back the new last_seq as bytes
-                meta.insert("last_seq", next_seq.to_string().as_bytes())?;
-
-                // drop meta (end of inner scope) so we can commit safely
-                next_seq
-            };
-
-            // commit the write transaction after the table guard has been dropped
-            wtx.commit()?;
-
-            next
-        };
-
-        // Create record and include sequence as string
-        let record = EventRecord {
-            id: event.id.clone(),
-            event_type: event.event_type.clone(),
-            source: event.source.clone(),
-            subject: Some(event.subject.clone()),
-            time: event.time.clone(),
-            sequence: Some(seq.to_string()),
-            data: serde_json::to_string(&event.data)?,
-        };
-
-        let serialized = bincode::serialize(&record)?;
-
-        // Write seq->record mapping (we store only sequence keyed records for ordered iteration)
+        // Assign the sequence and write the record in one write transaction, so a crash
+        // can never leave a counted sequence without its event.
         let write_txn = self.db.begin_write()?;
-        {
-            let mut seq_table = write_txn.open_table(EVENTS_BY_SEQ_TABLE)?;
-            // create sequence key with fixed width (e.g. 020 digits) to ensure lexicographic ordering
-            let seq_key = format!("{:020}", seq);
-            seq_table.insert(seq_key.as_str(), serialized.as_slice())?;
-        }
+        let seq = Self::next_seq(&write_txn)?;
+        Self::insert_event_record(&write_txn, event, seq)?;
         write_txn.commit()?;
 
         // Diagnostic: confirm persisted to DB
@@ -176,6 +160,136 @@ impl Storage {
         Ok(seq_key)
     }
 
+    /// Increment and return the sequence counter inside an open write transaction.
+    fn next_seq(
+        wtx: &redb::WriteTransaction,
+    ) -> Result<u128, Box<dyn std::error::Error + Send + Sync>> {
+        let mut meta = wtx.open_table(META_TABLE)?;
+        let last = match meta.get("last_seq")? {
+            Some(g) => std::str::from_utf8(g.value())
+                .ok()
+                .and_then(|s| s.parse::<u128>().ok()),
+            None => None,
+        };
+        let next = last.map(|v| v + 1).unwrap_or(1);
+        meta.insert("last_seq", next.to_string().as_bytes())?;
+        Ok(next)
+    }
+
+    /// Write an event record (and its transaction id, if any) under `seq`.
+    fn insert_event_record(
+        wtx: &redb::WriteTransaction,
+        event: &CloudEvent,
+        seq: u128,
+    ) -> Result<String, Box<dyn std::error::Error + Send + Sync>> {
+        let seq_key = format!("{:020}", seq);
+        let record = EventRecord {
+            id: event.id.clone(),
+            event_type: event.event_type.clone(),
+            source: event.source.clone(),
+            subject: Some(event.subject.clone()),
+            time: event.time.clone(),
+            sequence: Some(seq.to_string()),
+            data: serde_json::to_string(&event.data)?,
+        };
+        let serialized = bincode::serialize(&record)?;
+        wtx.open_table(EVENTS_BY_SEQ_TABLE)?
+            .insert(seq_key.as_str(), serialized.as_slice())?;
+        if let Some(txid) = &event.transactionid {
+            wtx.open_table(EVENT_TXIDS_TABLE)?
+                .insert(seq_key.as_str(), txid.as_str())?;
+        }
+        Ok(seq_key)
+    }
+
+    /// Look up a processed transaction by idempotency key.
+    pub async fn get_idempotency(
+        &self,
+        key: &str,
+    ) -> Result<Option<IdempotencyRecord>, Box<dyn std::error::Error + Send + Sync>> {
+        let read_txn = self.db.begin_read()?;
+        let table = read_txn.open_table(IDEMPOTENCY_TABLE)?;
+        match table.get(key)? {
+            Some(bytes) => Ok(Some(bincode::deserialize(bytes.value())?)),
+            None => Ok(None),
+        }
+    }
+
+    /// Apply a transaction all-or-nothing: assign sequences to `events` and store them,
+    /// apply all resource writes, and record the outcome under `idempotency_key`, in one
+    /// redb write transaction. `make_response` builds the stored response from the
+    /// events once their sequences are known.
+    pub async fn apply_transaction(
+        &self,
+        mut events: Vec<CloudEvent>,
+        writes: &[ResourceWrite],
+        idempotency_key: &str,
+        body: &str,
+        make_response: impl FnOnce(&[CloudEvent]) -> String,
+    ) -> Result<(Vec<CloudEvent>, String), TransactionError> {
+        let write_txn = self.db.begin_write()?;
+
+        // Re-check inside the write transaction: a concurrent request may have won the race.
+        if let Some(bytes) = write_txn
+            .open_table(IDEMPOTENCY_TABLE)?
+            .get(idempotency_key)?
+        {
+            let rec: IdempotencyRecord = bincode::deserialize(bytes.value())?;
+            return Err(TransactionError::AlreadyProcessed(rec));
+        }
+
+        for event in events.iter_mut() {
+            let seq = Self::next_seq(&write_txn)?;
+            event.sequence = Some(Self::insert_event_record(&write_txn, event, seq)?);
+        }
+
+        {
+            let mut table = write_txn.open_table(RESOURCES_TABLE)?;
+            let now = chrono::Utc::now().to_rfc3339();
+            for write in writes {
+                match write {
+                    ResourceWrite::Upsert {
+                        id,
+                        resource_type,
+                        data,
+                    } => {
+                        let record = ResourceRecord {
+                            id: id.clone(),
+                            resource_type: resource_type.clone(),
+                            data: serde_json::to_string(data)?,
+                            updated_at: now.clone(),
+                        };
+                        table.insert(id.as_str(), bincode::serialize(&record)?.as_slice())?;
+                    }
+                    ResourceWrite::Delete { id } => {
+                        table.remove(id.as_str())?;
+                    }
+                }
+            }
+        }
+
+        let response = make_response(&events);
+        let rec = IdempotencyRecord {
+            body: body.to_string(),
+            response: response.clone(),
+        };
+        write_txn
+            .open_table(IDEMPOTENCY_TABLE)?
+            .insert(idempotency_key, bincode::serialize(&rec)?.as_slice())?;
+
+        write_txn.commit()?;
+        Ok((events, response))
+    }
+
+    /// Transaction id stored for an event sequence key, if any.
+    fn txid_for(
+        read_txn: &redb::ReadTransaction,
+        seq_key: &str,
+    ) -> Result<Option<String>, Box<dyn std::error::Error + Send + Sync>> {
+        let table = read_txn.open_table(EVENT_TXIDS_TABLE)?;
+        Ok(table.get(seq_key)?.map(|g| g.value().to_string()))
+    }
+
     /// Get an event by ID (scan events_by_seq and return the matching event)
     #[allow(dead_code)]
     pub async fn get_event(
@@ -187,10 +301,12 @@ impl Storage {
 
         let iter = table.iter()?;
         for item in iter {
-            let (_key, value) = item?;
+            let (key, value) = item?;
             let rec: EventRecord = bincode::deserialize(value.value())?;
             if rec.id == id {
                 let data: Option<JsonValue> = serde_json::from_str(&rec.data)?;
+                let transactionid =
+                    Self::txid_for(&read_txn, key.value()).map_err(|e| e.to_string())?;
                 return Ok(Some(CloudEvent {
                     specversion: "1.0".to_string(),
                     id: rec.id,
@@ -203,6 +319,7 @@ impl Storage {
                     dataref: None,
                     sequence: rec.sequence,
                     sequencetype: None,
+                    transactionid,
                     data,
                 }));
             }
@@ -417,6 +534,7 @@ impl Storage {
 
             let rec: EventRecord = bincode::deserialize(value.value())?;
             let data: Option<JsonValue> = serde_json::from_str(&rec.data)?;
+            let transactionid = Self::txid_for(&read_txn, key.value())?;
 
             let event = CloudEvent {
                 specversion: "1.0".to_string(),
@@ -430,6 +548,7 @@ impl Storage {
                 dataref: None,
                 sequence: rec.sequence,
                 sequencetype: None,
+                transactionid,
                 data,
             };
 
@@ -522,6 +641,7 @@ mod tests {
             dataref: None,
             sequence: Some("1".to_string()),
             sequencetype: None,
+            transactionid: None,
             data: Some(serde_json::json!({"key": "value"})),
         };
 

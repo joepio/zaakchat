@@ -7,6 +7,12 @@ on:
     branches: [main, master, develop]
   workflow_dispatch:
 
+# One run per branch at a time: a newer push cancels the older run, so an older
+# commit can never finish last and overwrite the `latest` image tag.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-test:
     runs-on: ubuntu-24.04 # Playwright 1.55 does not support ubuntu-26.04 (ubuntu-latest)
